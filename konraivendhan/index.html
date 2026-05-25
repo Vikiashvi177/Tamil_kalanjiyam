@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>கொன்றைவேந்தன் · Konraivendhan — The Maxims of Konraivendhan</title>
+  <meta name="description" content="The Konraivendhan by Avvaiyar — 91 alphabetical moral maxims by Avvaiyar, with original Tamil, transliteration, English translation, and traditional commentary." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Konraivendhan-specific overrides */
+    .work-intro {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .work-intro h1 {
+      font-family: var(--font-tamil);
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 700;
+      color: var(--accent-vermillion);
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+    }
+    .work-intro h2 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--ink-secondary);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+    }
+    .work-intro .author-line {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-ochre);
+      margin-bottom: 2rem;
+    }
+    .work-intro p {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--ink-secondary);
+      margin-bottom: 1.25rem;
+      text-align: left;
+    }
+
+    .alphabet-divider {
+      text-align: center;
+      margin: 3rem auto 2rem;
+      color: var(--accent-ochre);
+      letter-spacing: 1em;
+      padding-left: 1em;
+      opacity: 0.7;
+      font-size: 1.25rem;
+    }
+
+    .alphabet-section {
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      padding: 0 1.5rem;
+    }
+
+    .alphabet-section-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .alphabet-section-header h3 {
+      font-family: var(--font-tamil);
+      font-size: 2rem;
+      color: var(--accent-vermillion);
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .alphabet-section-header .english-name {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--ink-secondary);
+      font-size: 1.125rem;
+      letter-spacing: 0.04em;
+    }
+    .alphabet-section-header .description {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      max-width: 580px;
+      margin: 0.75rem auto 0;
+    }
+
+    /* Verse cards arranged in alphabet grid */
+    .verse-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .verse-tile {
+      background: var(--bg-paper);
+      background-image: repeating-linear-gradient(0deg,
+        rgba(43, 22, 7, 0.025) 0px, rgba(43, 22, 7, 0.025) 1px,
+        transparent 1px, transparent 8px);
+      border: 1px solid var(--border-medium);
+      border-radius: 3px;
+      padding: 1.25rem 1rem;
+      box-shadow: var(--shadow-paper);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      min-height: 130px;
+      position: relative;
+    }
+
+    .verse-tile:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-paper-hover);
+      border-color: var(--accent-vermillion);
+    }
+
+    .verse-tile-letter {
+      font-family: var(--font-tamil);
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--accent-vermillion);
+      line-height: 1;
+    }
+    .verse-tile-number {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+    }
+    .verse-tile-tamil {
+      font-family: var(--font-tamil);
+      font-size: 0.95rem;
+      line-height: 1.4;
+      text-align: center;
+      color: var(--ink-primary);
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-jump {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.75rem 1rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+    .nav-jump-inner {
+      display: inline-flex;
+      gap: 0.5rem;
+      max-width: 1100px;
+    }
+    .nav-jump a {
+      display: inline-block;
+      padding: 0.4rem 0.85rem;
+      font-family: var(--font-tamil);
+      font-size: 1rem;
+      color: var(--ink-secondary);
+      background: var(--bg-paper);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .nav-jump a:hover {
+      background: var(--accent-vermillion);
+      color: var(--bg-paper);
+      border-color: var(--accent-vermillion);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Konraivendhan home">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="20" r="3" fill="currentColor" stroke="none"/>
+            <path d="M 20 7 Q 24 12 20 17 Q 16 12 20 7 Z" fill="currentColor" opacity="0.85"/>
+            <path d="M 20 33 Q 24 28 20 23 Q 16 28 20 33 Z" fill="currentColor" opacity="0.85"/>
+            <path d="M 7 20 Q 12 24 17 20 Q 12 16 7 20 Z" fill="currentColor" opacity="0.85"/>
+            <path d="M 33 20 Q 28 24 23 20 Q 28 16 33 20 Z" fill="currentColor" opacity="0.85"/>
+            <circle cx="10" cy="10" r="1.2" fill="currentColor"/>
+            <circle cx="30" cy="10" r="1.2" fill="currentColor"/>
+            <circle cx="10" cy="30" r="1.2" fill="currentColor"/>
+            <circle cx="30" cy="30" r="1.2" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">கொன்றைவேந்தன்</span>
+          <span class="wordmark-english">Konraivendhan</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Sticky alphabet jump-nav -->
+  <nav class="nav-jump" aria-label="Jump to section">
+    <div class="nav-jump-inner">
+      <a href="#uyir">அ ஆ இ</a>
+      <a href="#kavargam">க</a>
+      <a href="#savargam">ச</a>
+      <a href="#tavargam">த</a>
+      <a href="#navargam">ந</a>
+      <a href="#pavargam">ப</a>
+      <a href="#mavargam">ம</a>
+      <a href="#finalgroup">ய வ ழ</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="work-intro">
+      <h1>கொன்றைவேந்தன்</h1>
+      <h2>Konraivendhan</h2>
+      <p class="author-line">By Avvaiyar · The Grandmother Poet</p>
+      <p>
+        The <em>Konraivendhan</em> — literally "she who wears <em>aathi</em> flowers"
+        (an epithet of the goddess) — is a primer of moral instruction composed by
+        Avvaiyar, the beloved poet revered as Tamil's grandmother of wisdom.
+      </p>
+      <p>
+        Each of the 109 short verses begins with a successive letter of the Tamil alphabet,
+        starting with <em>அறம் செய விரும்பு</em> ("Desire to do righteousness") and
+        proceeding through the vowels and consonants. For generations of Tamil children,
+        these were the first ethical lessons committed to memory.
+      </p>
+      <p>
+        Each verse is presented here in five layers: the original Tamil, a romanized
+        transliteration, an English meaning, a Tamil prose commentary
+        (<em>உரை</em>), and an alternative English rendering.
+      </p>
+    </section>
+
+    <div class="alphabet-divider">◆ ◆ ◆</div>
+
+    <!-- Sections will be rendered by JS -->
+    <div id="sections-container"></div>
+
+  </main>
+
+  <footer class="hub-footer" style="text-align: center; padding: 2rem 1.5rem; border-top: 1px solid var(--border-subtle); color: var(--ink-muted); font-size: 0.875rem; letter-spacing: 0.05em;">
+    <div style="color: var(--accent-vermillion); letter-spacing: 1em; padding-left: 1em; margin-bottom: 0.75rem; opacity: 0.5;">◆ ◆ ◆</div>
+    <div>கொன்றைவேந்தன் by Avvaiyar · Part of the Tamil Literature library</div>
+  </footer>
+
+  <script src="data/verses.js"></script>
+  <script>
+    (function() {
+      const data = window.KONRAIVENDHAN_DATA;
+      const container = document.getElementById('sections-container');
+
+      data.sections.forEach(section => {
+        const verses = data.verses.filter(v => v.section === section.id);
+
+        const sectionEl = document.createElement('section');
+        sectionEl.className = 'alphabet-section';
+        sectionEl.id = section.id;
+
+        sectionEl.innerHTML = `
+          <div class="alphabet-section-header">
+            <h3>${section.tamilName}</h3>
+            <div class="english-name">${section.englishName}</div>
+            <div class="description">${section.description}</div>
+          </div>
+          <div class="verse-grid">
+            ${verses.map(v => `
+              <a href="verse.html?n=${v.num}" class="verse-tile">
+                <div class="verse-tile-letter">${v.letter}</div>
+                <div class="verse-tile-number">Verse ${v.num}</div>
+                <div class="verse-tile-tamil">${v.tamil}</div>
+              </a>
+            `).join('')}
+          </div>
+        `;
+        container.appendChild(sectionEl);
+      });
+    })();
+  </script>
+
+</body>
+</html>

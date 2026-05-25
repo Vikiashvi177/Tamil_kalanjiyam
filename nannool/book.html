@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">அதிகாரம் · நன்னூல்</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/nannool.css"/>
+  <style>
+    .book-page{max-width:1020px;margin:0 auto;padding:2rem 1.5rem 4rem}
+    .book-bc{display:flex;align-items:center;gap:.5rem;font-size:.875rem;color:var(--ink-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .book-bc a{color:var(--ink-secondary);text-decoration:none}
+    .book-bc a:hover{color:var(--nn-blue,#1a2e5a)}
+    .book-bc .sep{opacity:.45}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 8 32 L 28 8" stroke-width="2.2" opacity="0.85"/>
+            <path d="M 8 32 L 5 35 L 9 34 Z" fill="currentColor" opacity="0.8" stroke="none"/>
+            <path d="M 26 9 Q 30 6 32 7 Q 33 9 30 11 Z" fill="currentColor" opacity="0.7" stroke="none"/>
+            <path d="M 20 30 Q 22 26 24 28" stroke-width="1" opacity="0.5"/>
+            <path d="M 24 28 Q 26 24 28 26" stroke-width="1" opacity="0.5"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">நன்னூல்</span>
+          <span class="wordmark-english">Naṉṉūl</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="book-page">
+      <nav class="book-bc">
+        <a href="../index.html">Library</a>
+        <span class="sep">›</span>
+        <a href="index.html">Naṉṉūl</a>
+        <span class="sep">›</span>
+        <span id="bc-book">…</span>
+      </nav>
+
+      <div id="book-banner"></div>
+      <div id="chapter-grid" class="nn-chapter-grid"></div>
+      <nav class="nn-book-nav" id="book-nav"></nav>
+    </div>
+  </main>
+
+  <footer style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(26,46,90,.2);color:var(--ink-muted);font-size:.875rem;letter-spacing:.05em;margin-top:1rem">
+    <div style="color:var(--nn-blue,#1a2e5a);letter-spacing:1em;padding-left:1em;margin-bottom:.5rem;opacity:.4">❧ ❧ ❧</div>
+    <div>நன்னூல் · <a href="../index.html" style="color:var(--nn-blue,#1a2e5a)">Tamil Literature Library</a></div>
+  </footer>
+
+  <script src="data/sutras.js"></script>
+  <script>
+  (function(){
+    const data = window.NN_DATA;
+    const params = new URLSearchParams(window.location.search);
+    const bookNum = parseInt(params.get('b'),10) || 1;
+    function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+    const book = data.books.find(b=>b.num===bookNum);
+    if(!book){ document.getElementById('book-banner').innerHTML='<p style="text-align:center;padding:3rem">Book not found.</p>'; return; }
+
+    document.title = `${book.tamil} · நன்னூல்`;
+    document.getElementById('page-title').textContent = `${book.tamil} · நன்னூல்`;
+    document.getElementById('bc-book').textContent = `${book.tamil} · ${book.nameEnglish}`;
+
+    document.getElementById('book-banner').innerHTML = `
+      <div class="nn-book-banner" data-book="${bookNum}">
+        <div class="nn-banner-num">அதிகாரம் ${bookNum} · Book ${bookNum} · ${esc(book.sutras)}</div>
+        <div class="nn-banner-tamil">${esc(book.tamil)}</div>
+        <div class="nn-banner-eng">${esc(book.translit)} — ${esc(book.nameEnglish)}</div>
+        <div class="nn-banner-desc">${esc(book.desc)}</div>
+      </div>`;
+
+    const chapters = data.chapters.filter(c=>c.book===bookNum);
+    const firstSutraByChapter = {};
+    data.sutras.forEach(s=>{ if(!firstSutraByChapter[s.chapter]) firstSutraByChapter[s.chapter]=s; });
+
+    const grid = document.getElementById('chapter-grid');
+    chapters.forEach(ch=>{
+      const fs = firstSutraByChapter[ch.num];
+      const incipit = fs ? fs.tamil.split('\n')[0] : '';
+      const card = document.createElement('a');
+      card.href = `chapter.html?c=${ch.num}`;
+      card.className = 'nn-chapter-card';
+      card.innerHTML = `
+        <div class="nn-ch-num">Chapter ${ch.num} · Sūtras ${esc(ch.sutras)}</div>
+        <div class="nn-ch-tamil">${esc(ch.tamil)}</div>
+        <div class="nn-ch-eng">${esc(ch.translit)} — ${esc(ch.nameEnglish)}</div>
+        <div class="nn-ch-desc">${esc(ch.desc)}</div>
+        ${incipit?`<div style="font-family:var(--font-tamil);font-size:.8rem;color:var(--ink-muted);margin-bottom:.5rem;font-style:italic">${esc(incipit)}…</div>`:''}
+        <div class="nn-ch-footer">
+          <span>${esc(ch.sutras)} sūtras</span>
+          <span style="color:var(--nn-blue,#1a2e5a)">→</span>
+        </div>`;
+      grid.appendChild(card);
+    });
+
+    const prev = data.books.find(b=>b.num===bookNum-1)||null;
+    const next = data.books.find(b=>b.num===bookNum+1)||null;
+    document.getElementById('book-nav').innerHTML = `
+      <a href="${prev?`book.html?b=${prev.num}`:'#'}" class="nn-nav-link ${prev?'':'disabled'}">
+        <div class="nn-nav-dir">← முந்தைய · Previous Book</div>
+        <div class="nn-nav-title">${prev?esc(prev.tamil):'—'}</div>
+        <div class="nn-nav-sub">${prev?esc(prev.nameEnglish):''}</div>
+      </a>
+      <a href="${next?`book.html?b=${next.num}`:'#'}" class="nn-nav-link next ${next?'':'disabled'}">
+        <div class="nn-nav-dir">அடுத்தது · Next Book →</div>
+        <div class="nn-nav-title">${next?esc(next.tamil):'—'}</div>
+        <div class="nn-nav-sub">${next?esc(next.nameEnglish):''}</div>
+      </a>`;
+  })();
+  </script>
+</body>
+</html>

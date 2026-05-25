@@ -1,0 +1,222 @@
+/* ==========================================================================
+   குறுந்தொகை · Kuṟuntokai — Indigo & Moonstone Theme
+   "The Short Anthology" — 401 compressed gems of Sangam love poetry
+
+   Visual identity: deep indigo night-sky, moonstone silver, still dark water.
+   The brevity of the poems — 4 to 8 lines, dense and interior — calls for a
+   palette that is enclosed, gem-like, interiorised. Where the Akanāṉūṟu is
+   warm amber lamplight, the Kuṟuntokai is moonlight on a still pond.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   Colour tokens
+   --------------------------------------------------------------------------- */
+:root {
+  --kt-indigo:       #2c3a6e;   /* deep indigo — night sky */
+  --kt-indigo-mid:   #3d5080;   /* mid indigo */
+  --kt-indigo-pale:  rgba(44,58,110,0.10);
+  --kt-moon:         #c8cfe0;   /* moonstone silver */
+  --kt-moon-warm:    #9ba8c0;   /* silver-blue ink */
+  --kt-silver:       #e8ecf4;   /* pale moonlight */
+  --kt-jasmine:      #1a5c3a;   /* jasmine vine / mullai green */
+  --kt-jasmine-pale: rgba(26,92,58,0.10);
+  --kt-ember:        #7a3620;   /* ember rust — warm accent */
+  --kt-water:        #1e4a6e;   /* dark water blue */
+  --kt-water-pale:   rgba(30,74,110,0.10);
+
+  /* Tiṇai accent colours — slightly different shades tuned to moonlight */
+  --kt-kurinji:  #3b5a2a;   /* mountain-moss deep green */
+  --kt-mullai:   #1e4060;   /* monsoon-forest deep blue */
+  --kt-marutam:  #7a4820;   /* river-earth terracotta */
+  --kt-neytal:   #2a5068;   /* dark seawater */
+  --kt-palai:    #6a3018;   /* desert-dusk burgundy */
+
+  /* Override site palette */
+  --accent-vermillion: var(--kt-indigo);
+  --accent-kumkum:     var(--kt-indigo-mid);
+  --accent-ochre:      var(--kt-moon-warm);
+  --accent-gold:       var(--kt-indigo-mid);
+}
+
+/* ---------------------------------------------------------------------------
+   Background: cooler, more silvery palm-leaf
+   --------------------------------------------------------------------------- */
+body {
+  background: #c8c4b4;
+}
+body::before {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 3px,
+      rgba(44,58,110,0.03) 3px, rgba(44,58,110,0.03) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 60px,
+      rgba(44,58,110,0.045) 60px, rgba(44,58,110,0.045) 61px,
+      transparent 61px, transparent 140px,
+      rgba(44,58,110,0.03) 140px, rgba(44,58,110,0.03) 142px
+    ),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.17 0 0 0 0 0.22 0 0 0 0 0.43 0 0 0 0.12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------------------------------------------------------------------------
+   Header & nav: indigo wordmark
+   --------------------------------------------------------------------------- */
+.site-header { border-bottom-color: rgba(44,58,110,0.3); }
+.site-logo .mark { color: var(--kt-indigo); }
+.wordmark-tamil { color: var(--kt-indigo); }
+.site-nav a { color: var(--kt-water); }
+.site-nav a:hover { color: var(--kt-indigo); }
+a { color: var(--kt-indigo); }
+a:hover { color: var(--kt-indigo-mid); }
+
+/* ---------------------------------------------------------------------------
+   Work-intro hero section
+   --------------------------------------------------------------------------- */
+.work-intro h1 { color: var(--kt-indigo) !important; }
+.work-intro h2 { color: var(--ink-secondary); }
+.era-line { color: var(--kt-moon-warm) !important; }
+
+/* ---------------------------------------------------------------------------
+   Tiṇai legend strip
+   --------------------------------------------------------------------------- */
+.tinai-legend-title { color: var(--kt-indigo-mid); }
+.tinai-card { background: var(--bg-paper); }
+.tinai-card-tamil { color: var(--ink-primary); }
+.tinai-card-eng { color: var(--kt-indigo-mid); }
+
+/* ---------------------------------------------------------------------------
+   Poem grid tiles — moonstone palette
+   --------------------------------------------------------------------------- */
+.poem-tile { border: 1px solid rgba(44,58,110,0.25) !important; border-top-width: 3px !important; }
+.poem-tile:hover:not(.unpopulated) {
+  border-color: var(--kt-indigo) !important;
+  box-shadow: 0 4px 16px rgba(44,58,110,0.18) !important;
+}
+
+/* Tiṇai-coded top borders — night-palette versions */
+.poem-tile[data-thinai="kurinji"]  { border-top-color: var(--kt-kurinji)  !important; }
+.poem-tile[data-thinai="mullai"]   { border-top-color: var(--kt-mullai)   !important; }
+.poem-tile[data-thinai="marutam"]  { border-top-color: var(--kt-marutam)  !important; }
+.poem-tile[data-thinai="neytal"]   { border-top-color: var(--kt-neytal)   !important; }
+.poem-tile[data-thinai="palai"]    { border-top-color: var(--kt-palai)    !important; }
+
+.poem-tile-poet { color: var(--kt-indigo-mid) !important; }
+
+/* Tiṇai tags — night-palette fills */
+.poem-tile-thinai-tag[data-thinai="kurinji"] { background: var(--kt-kurinji) !important; }
+.poem-tile-thinai-tag[data-thinai="mullai"]  { background: var(--kt-mullai)  !important; }
+.poem-tile-thinai-tag[data-thinai="marutam"] { background: var(--kt-marutam) !important; }
+.poem-tile-thinai-tag[data-thinai="neytal"]  { background: var(--kt-neytal)  !important; }
+.poem-tile-thinai-tag[data-thinai="palai"]   { background: var(--kt-palai)   !important; }
+
+/* Filter buttons */
+.filter-btn {
+  border-color: rgba(44,58,110,0.3) !important;
+  color: var(--kt-indigo) !important;
+}
+.filter-btn.active, .filter-btn:hover {
+  background: var(--kt-indigo) !important;
+  color: var(--kt-silver) !important;
+  border-color: var(--kt-indigo) !important;
+}
+
+/* Jump nav */
+.nav-jump { border-bottom-color: rgba(44,58,110,0.2); }
+.jump-btn { color: var(--kt-indigo) !important; }
+.jump-btn:hover, .jump-btn.active { background: var(--kt-indigo) !important; color: var(--kt-silver) !important; }
+
+/* ---------------------------------------------------------------------------
+   Poem detail page
+   --------------------------------------------------------------------------- */
+
+/* Tiṇai banner */
+.thinai-banner[data-thinai="kurinji"] { background: linear-gradient(135deg, var(--kt-kurinji), #2d4a20) !important; }
+.thinai-banner[data-thinai="mullai"]  { background: linear-gradient(135deg, var(--kt-mullai),  #162e48) !important; }
+.thinai-banner[data-thinai="marutam"]{ background: linear-gradient(135deg, var(--kt-marutam), #5c3415) !important; }
+.thinai-banner[data-thinai="neytal"] { background: linear-gradient(135deg, var(--kt-neytal),  #1a3848) !important; }
+.thinai-banner[data-thinai="palai"]  { background: linear-gradient(135deg, var(--kt-palai),   #4a2010) !important; }
+
+/* Poem card accents */
+.poem-card {
+  border-color: rgba(44,58,110,0.35) !important;
+  box-shadow: 0 2px 8px rgba(44,58,110,0.10), 0 8px 28px rgba(44,58,110,0.12) !important;
+}
+.poem-card::before, .poem-card::after {
+  border-color: rgba(44,58,110,0.45) !important;
+}
+.poem-number-badge { color: var(--kt-indigo-mid) !important; }
+.poem-number-badge .num { color: var(--kt-indigo) !important; }
+.poem-layer-label { color: var(--kt-indigo-mid) !important; }
+
+/* Note block: indigo-left border */
+.poem-note {
+  border-left-color: var(--kt-indigo-mid) !important;
+  background: var(--kt-indigo-pale) !important;
+}
+
+/* Metadata strip */
+.poem-metadata {
+  background: var(--kt-indigo-pale) !important;
+  border-color: rgba(44,58,110,0.18) !important;
+}
+.meta-label { color: var(--kt-indigo-mid) !important; }
+
+/* Prev/next nav */
+.poem-nav-link:hover {
+  border-color: var(--kt-indigo) !important;
+}
+.poem-nav-poet { color: var(--kt-indigo) !important; }
+
+/* ---------------------------------------------------------------------------
+   Index page hero extra styles
+   --------------------------------------------------------------------------- */
+.kt-hero-badge {
+  display: inline-block;
+  padding: 0.25rem 0.8rem;
+  background: var(--kt-indigo-pale);
+  border: 1px solid rgba(44,58,110,0.25);
+  border-radius: 2px;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kt-indigo-mid);
+  margin-bottom: 1rem;
+  font-family: var(--font-body);
+}
+
+/* Gem counter for brevity stats */
+.kt-gem-row {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  flex-wrap: wrap;
+}
+.kt-gem {
+  text-align: center;
+}
+.kt-gem-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--kt-indigo);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.kt-gem-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* ---------------------------------------------------------------------------
+   Footer accent
+   --------------------------------------------------------------------------- */
+.site-footer, footer {
+  border-top-color: rgba(44,58,110,0.2) !important;
+}

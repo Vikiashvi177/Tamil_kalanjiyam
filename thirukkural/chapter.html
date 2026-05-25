@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter — Thirukkural</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="3" fill="currentColor" stroke="none"/><path d="M 20 7 Q 24 12 20 17 Q 16 12 20 7 Z" fill="currentColor" opacity="0.85"/><path d="M 20 33 Q 24 28 20 23 Q 16 28 20 33 Z" fill="currentColor" opacity="0.85"/><path d="M 7 20 Q 12 24 17 20 Q 12 16 7 20 Z" fill="currentColor" opacity="0.85"/><path d="M 33 20 Q 28 24 23 20 Q 28 16 33 20 Z" fill="currentColor" opacity="0.85"/><circle cx="10" cy="10" r="1.2" fill="currentColor"/><circle cx="30" cy="10" r="1.2" fill="currentColor"/><circle cx="10" cy="30" r="1.2" fill="currentColor"/><circle cx="30" cy="30" r="1.2" fill="currentColor"/></svg></span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">திருக்குறள்</span>
+          <span class="wordmark-english">Thirukkural</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="chapters.html">All Chapters</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input class="search-input" type="text" placeholder="தேடுக · Search kurals…" autocomplete="off" />
+        <div class="search-results"></div>
+      </div>
+    </div>
+  </header>
+
+  <main data-page="chapter">
+    <div class="page-header">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <a class="breadcrumb-section" href="#">Section</a>
+        <span class="sep">/</span>
+        <span class="breadcrumb-current">Chapter</span>
+      </div>
+      <h1 class="page-title fade-in"><em>Chapter</em></h1>
+      <div class="page-tamil tamil fade-in fade-in-delay-1"></div>
+      <p class="page-desc fade-in fade-in-delay-2"></p>
+    </div>
+
+    <div class="audio-notice">
+      <strong>Audio troubleshooting:</strong> If Listen isn't playing sound, your device may not have an active Tamil voice. Check that your OS has Tamil installed (Windows → Settings → Language; Mac → Accessibility → Spoken Content → Voices; iOS → Accessibility → Spoken Content → Voices; Android → Settings → Language). <button type="button" class="audio-diagnostic-trigger">Show audio diagnostic →</button>
+    </div>
+
+    <div class="audio-diagnostic">
+      <h4>Audio diagnostic</h4>
+      <div class="audio-diagnostic-output"></div>
+    </div>
+
+    <div class="kural-list"></div>
+
+    <nav class="chapter-nav" aria-label="Chapter navigation"></nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-about">
+        <h3>Thiruk<em>kural</em></h3>
+        <div class="footer-tamil-name tamil">திருக்குறள்</div>
+        <p>An open, accessible edition of the Thirukkural for readers, learners, and seekers.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Browse · பார்க்க</h4>
+        <ul>
+          <li><a href="section.html?sec=aram">அறம் · Virtue</a></li>
+          <li><a href="section.html?sec=porul">பொருள் · Wealth</a></li>
+          <li><a href="section.html?sec=inbam">இன்பம் · Love</a></li>
+          <li><a href="chapters.html">All Chapters</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About · பற்றி</h4>
+        <ul>
+          <li><a href="about.html">About this project</a></li>
+          <li><a href="about.html#sources">Sources & credits</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Tamil text &amp; translations in the public domain
+    </div>
+  </footer>
+
+  <script src="data/kurals.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

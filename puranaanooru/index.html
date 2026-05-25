@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>புறநானூறு · Puṟanāṉūṟu — The Four Hundred Public Poems</title>
+  <meta name="description" content="The Puranaanooru — a Sangam-era anthology of 400 poems by 150+ poets. Original Tamil, transliteration, English translation, and traditional commentary." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .work-intro {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .work-intro h1 {
+      font-family: var(--font-tamil);
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 700;
+      color: var(--accent-vermillion);
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+    }
+    .work-intro h2 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--ink-secondary);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+    }
+    .work-intro .era-line {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-ochre);
+      margin-bottom: 2rem;
+    }
+    .work-intro p {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--ink-secondary);
+      margin-bottom: 1.25rem;
+      text-align: left;
+    }
+
+    .alphabet-divider { /* reusing the section divider style */
+      text-align: center;
+      margin: 2.5rem auto 1.5rem;
+      color: var(--accent-ochre);
+      letter-spacing: 1em;
+      padding-left: 1em;
+      opacity: 0.7;
+      font-size: 1.25rem;
+    }
+
+    .poem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .poem-tile {
+      background: var(--bg-paper);
+      background-image: repeating-linear-gradient(0deg,
+        rgba(43, 22, 7, 0.025) 0px, rgba(43, 22, 7, 0.025) 1px,
+        transparent 1px, transparent 8px);
+      border: 1px solid var(--border-medium);
+      border-radius: 3px;
+      padding: 1rem 1.1rem 1.1rem;
+      box-shadow: var(--shadow-paper);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      min-height: 130px;
+      position: relative;
+    }
+    .poem-tile.unpopulated {
+      opacity: 0.4;
+      pointer-events: none;
+      background: rgba(232, 212, 168, 0.3);
+    }
+    .poem-tile:hover:not(.unpopulated) {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-paper-hover);
+      border-color: var(--accent-vermillion);
+    }
+
+    .poem-tile-num {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .poem-tile-poet {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--accent-vermillion);
+      line-height: 1.3;
+    }
+    .poem-tile-incipit {
+      font-family: var(--font-tamil);
+      font-size: 0.9rem;
+      color: var(--ink-primary);
+      line-height: 1.4;
+      margin-top: 0.35rem;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .poem-tile-thinai {
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Puranaanooru home">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+            <path d="M 20 7 Q 24 12 20 17 Q 16 12 20 7 Z" fill="currentColor" opacity="0.85"/>
+            <path d="M 20 33 Q 24 28 20 23 Q 16 28 20 33 Z" fill="currentColor" opacity="0.85"/>
+            <path d="M 7 20 Q 12 24 17 20 Q 12 16 7 20 Z" fill="currentColor" opacity="0.85"/>
+            <path d="M 33 20 Q 28 24 23 20 Q 28 16 33 20 Z" fill="currentColor" opacity="0.85"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">புறநானூறு</span>
+          <span class="wordmark-english">Puṟanāṉūṟu</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="work-intro">
+      <h1>புறநானூறு</h1>
+      <h2>Puṟanāṉūṟu — The Four Hundred</h2>
+      <p class="era-line">Sangam Anthology · c. 300 BCE – 300 CE</p>
+      <p>
+        The <em>Puṟanāṉūṟu</em> (புற = exterior/public + நானூறு = four hundred)
+        is the great anthology of <em>puṟam</em> poetry from the Sangam age —
+        four hundred poems composed by some hundred and fifty different poets
+        across centuries.
+      </p>
+      <p>
+        Where <em>akam</em> poems sing the inward life of love and longing,
+        <em>puṟam</em> poems turn outward — to kings and warfare, generosity and
+        the ethics of governance, the lament for fallen heroes, the praise of
+        patrons, and the impermanence of all human glory. Together they preserve
+        a portrait of the early Tamil world that no other source can supply.
+      </p>
+      <p>
+        Each poem is presented here in full: the original Tamil, romanized
+        transliteration, English translation, Tamil prose commentary
+        (<em>உரை</em>), an alternative English rendering, plus the poet's name,
+        the patron addressed, the poetic situation (<em>turai</em>), the
+        landscape mode (<em>thinai</em>), and a historical note.
+      </p>
+    </section>
+
+    <div class="alphabet-divider">◆ ◆ ◆</div>
+
+    <div id="ranges-container"></div>
+  </main>
+
+  <footer style="text-align: center; padding: 2.5rem 1.5rem; border-top: 1px solid var(--border-subtle); color: var(--ink-muted); font-size: 0.875rem; letter-spacing: 0.05em; margin-top: 3rem;">
+    <div style="color: var(--accent-vermillion); letter-spacing: 1em; padding-left: 1em; margin-bottom: 0.75rem; opacity: 0.5;">◆ ◆ ◆</div>
+    <div>புறநானூறு · Part of the Tamil Literature library</div>
+  </footer>
+
+  <script src="data/poems.js"></script>
+  <script>
+    (function() {
+      const data = window.PURANAANOORU_DATA;
+      const poemsByNum = new Map(data.poems.map(p => [p.num, p]));
+
+      // Build one continuous grid of all 400 poems
+      const container = document.getElementById('ranges-container');
+      const section = document.createElement('section');
+      section.style.cssText = 'max-width:1100px;margin:0 auto 3rem;padding:0 1.5rem;';
+
+      const grid = document.createElement('div');
+      grid.className = 'poem-grid';
+
+      for (let n = 1; n <= 400; n++) {
+        const p = poemsByNum.get(n);
+        const tile = document.createElement(p ? 'a' : 'div');
+        tile.className = 'poem-tile' + (p ? '' : ' unpopulated');
+        if (p) tile.href = 'poem.html?n=' + n;
+
+        if (p) {
+          const incipit = p.tamil.split('\n')[0].slice(0, 60);
+          tile.innerHTML = `
+            <div class="poem-tile-num">Poem ${p.num}</div>
+            <div class="poem-tile-poet">${p.poetEnglish}</div>
+            <div class="poem-tile-incipit">${incipit}…</div>
+            <div class="poem-tile-thinai">${p.thinaiEnglish}</div>
+          `;
+        } else {
+          tile.innerHTML = `
+            <div class="poem-tile-num">Poem ${n}</div>
+            <div class="poem-tile-poet" style="font-style:normal;color:var(--ink-muted);">— forthcoming —</div>
+          `;
+        }
+        grid.appendChild(tile);
+      }
+      section.appendChild(grid);
+      container.appendChild(section);
+    })();
+  </script>
+
+</body>
+</html>

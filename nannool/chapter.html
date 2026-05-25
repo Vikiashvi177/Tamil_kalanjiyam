@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">இயல் · நன்னூல்</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/nannool.css"/>
+  <style>
+    .ch-page{max-width:860px;margin:0 auto;padding:2rem 1.5rem 4rem}
+    .ch-bc{display:flex;align-items:center;gap:.5rem;font-size:.875rem;color:var(--ink-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .ch-bc a{color:var(--ink-secondary);text-decoration:none}
+    .ch-bc a:hover{color:var(--nn-blue,#1a2e5a)}
+    .ch-bc .sep{opacity:.45}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 8 32 L 28 8" stroke-width="2.2" opacity="0.85"/>
+            <path d="M 8 32 L 5 35 L 9 34 Z" fill="currentColor" opacity="0.8" stroke="none"/>
+            <path d="M 26 9 Q 30 6 32 7 Q 33 9 30 11 Z" fill="currentColor" opacity="0.7" stroke="none"/>
+            <path d="M 20 30 Q 22 26 24 28" stroke-width="1" opacity="0.5"/>
+            <path d="M 24 28 Q 26 24 28 26" stroke-width="1" opacity="0.5"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">நன்னூல்</span>
+          <span class="wordmark-english">Naṉṉūl</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="ch-page">
+      <nav class="ch-bc">
+        <a href="../index.html">Library</a>
+        <span class="sep">›</span>
+        <a href="index.html">Naṉṉūl</a>
+        <span class="sep">›</span>
+        <a href="#" id="bc-book-link" style="color:var(--ink-secondary);text-decoration:none">…</a>
+        <span class="sep">›</span>
+        <span id="bc-chapter">…</span>
+      </nav>
+
+      <div id="chapter-container"></div>
+      <nav class="nn-ch-nav" id="ch-nav"></nav>
+    </article>
+  </main>
+
+  <footer style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(26,46,90,.2);color:var(--ink-muted);font-size:.875rem;letter-spacing:.05em;margin-top:3rem">
+    <div style="color:var(--nn-blue,#1a2e5a);letter-spacing:1em;padding-left:1em;margin-bottom:.5rem;opacity:.4">❧ ❧ ❧</div>
+    <div>நன்னூல் · <a href="../index.html" style="color:var(--nn-blue,#1a2e5a)">Tamil Literature Library</a></div>
+  </footer>
+
+  <script src="data/sutras.js"></script>
+  <script>
+  (function(){
+    const data = window.NN_DATA;
+    const params = new URLSearchParams(window.location.search);
+    const chNum = parseInt(params.get('c'),10) || 1;
+    function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+    const ch = data.chapters.find(c=>c.num===chNum);
+    const container = document.getElementById('chapter-container');
+
+    if(!ch){
+      container.innerHTML=`<div style="text-align:center;padding:3rem;background:var(--bg-paper);border:1px solid var(--border-subtle);border-radius:4px">
+        <p style="font-family:var(--font-display);color:var(--ink-secondary)">Chapter ${chNum} not found.</p>
+        <a href="index.html" style="display:inline-block;margin-top:1.5rem;color:var(--nn-blue,#1a2e5a);font-family:var(--font-display);letter-spacing:.1em;text-transform:uppercase;font-size:.85rem">← Back to Naṉṉūl</a>
+      </div>`;
+      document.getElementById('bc-chapter').textContent=`Chapter ${chNum}`;
+      return;
+    }
+
+    document.title = `${ch.tamil} · நன்னூல்`;
+    document.getElementById('page-title').textContent = `${ch.tamil} · நன்னூல்`;
+    document.getElementById('bc-chapter').textContent = `${ch.tamil}`;
+
+    // Book breadcrumb link
+    const bookLink = document.getElementById('bc-book-link');
+    const book = data.books.find(b=>b.num===ch.book);
+    if(book && bookLink){
+      bookLink.textContent = book.tamil + ' · ' + book.nameEnglish;
+      bookLink.href = 'book.html?b=' + ch.book;
+    }
+
+    // Get sūtras for this chapter
+    const sutras = data.sutras.filter(s=>s.chapter===chNum);
+
+    let html = `
+      <div class="nn-chapter-banner">
+        <div class="nn-ch-banner-num">Chapter ${ch.num} · ${esc(ch.sutras)} sūtras</div>
+        <div class="nn-ch-banner-tamil">${esc(ch.tamil)}</div>
+        <div class="nn-ch-banner-eng">${esc(ch.translit)} — ${esc(ch.nameEnglish)}</div>
+      </div>
+
+      <p style="font-size:.95rem;line-height:1.75;color:var(--ink-secondary);margin-bottom:2rem;padding:.85rem 1.1rem;background:var(--nn-blue-pale);border-left:3px solid var(--nn-blue-mid,#2a3e6a);border-radius:2px">
+        ${esc(ch.desc)}
+      </p>
+
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;font-size:.78rem;color:var(--ink-muted);letter-spacing:.1em;text-transform:uppercase">
+        <span style="font-family:var(--font-display)">${esc(book?book.tamil:'')} · ${esc(book?book.nameEnglish:'')}</span>
+        <span style="flex:1;height:1px;background:rgba(26,46,90,.18)"></span>
+        <span>${sutras.length} sūtras</span>
+      </div>
+
+      <div class="nn-sutra-list">`;
+
+    sutras.forEach(s=>{
+      html += `
+        <div class="nn-sutra-card">
+          <div class="nn-sutra-num">
+            நூற்பா <span class="snum">${s.num}</span> of 462
+          </div>
+
+          <div class="nn-sutra-layer">
+            <div class="nn-layer-label">Tamil Sūtra · நூற்பா</div>
+            <div class="nn-sutra-text">${esc(s.tamil)}</div>
+          </div>
+
+          <div class="nn-sutra-layer">
+            <div class="nn-layer-label">Transliteration</div>
+            <div class="nn-translit-text">${esc(s.transliteration)}</div>
+          </div>
+
+          <div class="nn-sutra-layer">
+            <div class="nn-layer-label">The Rule · விதி</div>
+            <div class="nn-rule-text">${esc(s.rule)}</div>
+          </div>
+
+          <div class="nn-sutra-layer">
+            <div class="nn-layer-label">Examples · எடுத்துக்காட்டு</div>
+            <div class="nn-example-text">${esc(s.examples)}</div>
+          </div>
+
+          <div class="nn-sutra-layer">
+            <div class="nn-layer-label">Commentary · உரை</div>
+            <div class="nn-commentary">${esc(s.commentary)}</div>
+          </div>
+
+          <div class="nn-sutra-layer">
+            <div class="nn-layer-label">Grammatical Note</div>
+            <div class="nn-note">${esc(s.note)}</div>
+            ${s.altTranslation ? `
+            <details class="nn-layer" style="margin-top:0.5rem">
+              <summary style="cursor:pointer;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;color:var(--text-muted,#666)">Alternate Translation</summary>
+              <div style="font-style:italic;color:#5a4830;padding:0.6rem 0.9rem;background:var(--bg-subtle,#f5f1ea)">${esc(s.altTranslation)}</div>
+            </details>` : ""}
+          </div>
+        </div>`;
+    });
+
+    html += `</div>`;
+    container.innerHTML = html;
+
+    // Prev / Next chapter
+    const chaptersByNum = new Map(data.chapters.map(c=>[c.num,c]));
+    const prev = chaptersByNum.get(chNum-1)||null;
+    const next = chaptersByNum.get(chNum+1)||null;
+    document.getElementById('ch-nav').innerHTML = `
+      <a href="${prev?`chapter.html?c=${prev.num}`:'#'}" class="nn-cnav-link ${prev?'':'disabled'}">
+        <div class="nn-cnav-dir">← முந்தைய · Previous</div>
+        <div class="nn-cnav-title">${prev?esc(prev.tamil):'—'}</div>
+        <div class="nn-cnav-sub">${prev?esc(prev.nameEnglish):''}</div>
+      </a>
+      <a href="${next?`chapter.html?c=${next.num}`:'#'}" class="nn-cnav-link next ${next?'':'disabled'}">
+        <div class="nn-cnav-dir">அடுத்தது · Next →</div>
+        <div class="nn-cnav-title">${next?esc(next.tamil):'—'}</div>
+        <div class="nn-cnav-sub">${next?esc(next.nameEnglish):''}</div>
+      </a>`;
+  })();
+  </script>
+</body>
+</html>

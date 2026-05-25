@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>திணைமொழி ஐம்பது · Tiṇaimoli Aimpatu — Fifty Landscape-Sayings</title>
+  <meta name="description" content="The Tiṇaimoli Aimpatu — 50 akam love poems, ten per tiṇai landscape, by Kāñcipuram Nalluruttiraṉār. Original Tamil, transliteration, English translation, and commentary." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/thinaimozhi.css" />
+  <style>
+    .work-intro {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .work-intro h1 {
+      font-family: var(--font-tamil);
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 700;
+      color: var(--tm-forest, #1e4228);
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+    }
+    .work-intro h2 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--ink-secondary);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+    }
+    .era-line {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--tm-mist, #a8b4a0);
+      margin-bottom: 1.5rem;
+    }
+    .work-intro p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--ink-secondary);
+      margin-bottom: 1rem;
+    }
+    .alphabet-divider {
+      text-align: center;
+      color: var(--tm-forest, #1e4228);
+      opacity: 0.35;
+      letter-spacing: 1.5em;
+      padding-left: 1.5em;
+      margin: 2rem 0;
+      font-size: 1rem;
+    }
+
+    /* Thinai legend */
+    .tinai-legend {
+      max-width: 900px;
+      margin: 0 auto 2rem;
+      padding: 0 1.5rem;
+    }
+    .tinai-legend-title {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--tm-forest, #1e4228);
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+    }
+    .tinai-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 0.85rem;
+    }
+    .tinai-card {
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: 3px;
+      background: var(--bg-paper);
+    }
+    .tinai-card-tamil {
+      font-family: var(--font-tamil);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      margin-bottom: 0.2rem;
+    }
+    .tinai-card-eng {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.875rem;
+      color: var(--tm-forest, #1e4228);
+      margin-bottom: 0.35rem;
+    }
+    .tinai-card-meaning {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+    .tinai-card-range {
+      font-size: 0.7rem;
+      font-family: var(--font-display);
+      letter-spacing: 0.1em;
+      color: var(--ink-muted);
+      margin-top: 0.4rem;
+      font-style: italic;
+    }
+
+    /* Section headers per thinai */
+    .thinai-section {
+      max-width: 1100px;
+      margin: 0 auto 2.5rem;
+      padding: 0 1.5rem;
+    }
+    .thinai-section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.85rem 1.25rem;
+      border-radius: 3px;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    .thinai-section-header[data-thinai="kurinji"] { background: linear-gradient(135deg, #2a5c2a, #1e4c1e); }
+    .thinai-section-header[data-thinai="mullai"]  { background: linear-gradient(135deg, #1a4858, #0e3848); }
+    .thinai-section-header[data-thinai="marutam"] { background: linear-gradient(135deg, #7a4818, #6a3c0e); }
+    .thinai-section-header[data-thinai="neytal"]  { background: linear-gradient(135deg, #1a4870, #0e3860); }
+    .thinai-section-header[data-thinai="palai"]   { background: linear-gradient(135deg, #703018, #602010); }
+    .thinai-section-tamil {
+      font-family: var(--font-tamil);
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+    .thinai-section-eng {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    .thinai-section-desc {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      margin-top: 0.15rem;
+    }
+
+    /* Poem grid tiles */
+    .poem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .poem-tile {
+      background: var(--bg-paper);
+      background-image: repeating-linear-gradient(0deg,
+        rgba(30,66,40,0.02) 0px, rgba(30,66,40,0.02) 1px,
+        transparent 1px, transparent 8px);
+      border: 1px solid rgba(30,66,40,0.22);
+      border-radius: 3px;
+      padding: 1rem 1.1rem 1.1rem;
+      box-shadow: 0 1px 3px rgba(30,66,40,0.07);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      min-height: 140px;
+      position: relative;
+      border-top: 3px solid rgba(30,66,40,0.22);
+    }
+    .poem-tile:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(30,66,40,0.18);
+      border-color: var(--tm-forest, #1e4228);
+    }
+    .poem-tile[data-thinai="kurinji"] { border-top-color: #2a5c2a; }
+    .poem-tile[data-thinai="mullai"]  { border-top-color: #1a4858; }
+    .poem-tile[data-thinai="marutam"] { border-top-color: #7a4818; }
+    .poem-tile[data-thinai="neytal"]  { border-top-color: #1a4870; }
+    .poem-tile[data-thinai="palai"]   { border-top-color: #703018; }
+
+    .poem-tile-num {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .poem-tile-poet {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--tm-forest, #1e4228);
+      line-height: 1.3;
+    }
+    .poem-tile-incipit {
+      font-family: var(--font-tamil);
+      font-size: 0.9rem;
+      color: var(--ink-primary);
+      line-height: 1.4;
+      margin-top: 0.35rem;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .poem-tile-thinai {
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .poem-tile-thinai-tag {
+      display: inline-block;
+      padding: 0.1rem 0.5rem;
+      border-radius: 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: white;
+      text-transform: uppercase;
+    }
+    .poem-tile-thinai-tag[data-thinai="kurinji"] { background: #2a5c2a; }
+    .poem-tile-thinai-tag[data-thinai="mullai"]  { background: #1a4858; }
+    .poem-tile-thinai-tag[data-thinai="marutam"] { background: #7a4818; }
+    .poem-tile-thinai-tag[data-thinai="neytal"]  { background: #1a4870; }
+    .poem-tile-thinai-tag[data-thinai="palai"]   { background: #703018; }
+
+    /* Stat gems */
+    .kt-gem {
+      text-align: center;
+    }
+    .kt-gem-num {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--tm-forest, #1e4228);
+      line-height: 1;
+    }
+    .kt-gem-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--tm-forest, #2d5e3c);
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Tiṇaimoli Aimpatu home">
+        <span class="mark">
+          <!-- Five-tiṇai leaf motif -->
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Mountain peak (kurinji) -->
+            <path d="M 20 5 L 14 16 L 26 16 Z" fill="currentColor" opacity="0.75" stroke="none"/>
+            <!-- Forest leaf (mullai) -->
+            <path d="M 8 20 Q 14 14 20 18 Q 14 22 8 20 Z" fill="currentColor" opacity="0.65" stroke="none"/>
+            <!-- River wave (marutam) -->
+            <path d="M 10 28 Q 15 24 20 26 Q 25 28 30 25" stroke-width="1.5" opacity="0.7"/>
+            <!-- Sea wave (neytal) -->
+            <path d="M 8 34 Q 14 31 20 33 Q 26 35 32 32" stroke-width="1.3" opacity="0.55"/>
+            <!-- Wasteland sun (palai) -->
+            <circle cx="30" cy="14" r="4" stroke-width="1.2" opacity="0.65"/>
+            <path d="M 30 8 L 30 6" stroke-width="1.2" opacity="0.5"/>
+            <path d="M 35 9 L 36.5 7.5" stroke-width="1.2" opacity="0.5"/>
+            <path d="M 36 14 L 38 14" stroke-width="1.2" opacity="0.5"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">திணைமொழி ஐம்பது</span>
+          <span class="wordmark-english">Tiṇaimoli Aimpatu</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="work-intro">
+      <h1>திணைமொழி ஐம்பது</h1>
+      <h2>Tiṇaimoli Aimpatu — Fifty Landscape-Sayings</h2>
+      <p class="era-line">Patiṉeṇkīḻkaṇakku · Kāñcipuram Nalluruttiraṉār · c. 1st–5th century CE</p>
+      <p>
+        The <em>Tiṇaimoli Aimpatu</em> (திணைமொழி ஐம்பது — <em>tiṇai</em> = landscape + <em>moḻi</em> = saying/word + <em>aimpatu</em> = fifty) is a gemstone from the Patiṉeṇkīḻkaṇakku cluster: fifty akam love poems, precisely ten per tiṇai landscape. Where the Aintiṇai Aimpatu of Māmulaṉār surveys the five landscapes with equal measure, these fifty poems trace each landscape's inner emotional grammar with compressed precision.
+      </p>
+      <p>
+        Each of the five tiṇai — kuṟiñci (mountain tryst), mullai (forest waiting), marutam (river quarrel), neytal (seashore longing), pālai (wasteland separation) — receives ten poems that arc from entry into the emotion through deepening, complication, and resolution. Together they form a complete circuit of the Tamil understanding of love's seasons.
+      </p>
+      <p>
+        Each poem is presented with original Tamil, romanized transliteration, English translation, Tamil commentary (<em>உரை</em>), an alternative English rendering, and a literary note on the poem's imagery and context.
+      </p>
+
+      <!-- Stats -->
+      <div style="display:flex;justify-content:center;gap:2.5rem;margin:2rem 0;flex-wrap:wrap;">
+        <div class="kt-gem"><div class="kt-gem-num">50</div><div class="kt-gem-label">Poems</div></div>
+        <div class="kt-gem"><div class="kt-gem-num">5</div><div class="kt-gem-label">Landscapes</div></div>
+        <div class="kt-gem"><div class="kt-gem-num">10</div><div class="kt-gem-label">Per tiṇai</div></div>
+        <div class="kt-gem"><div class="kt-gem-num">1</div><div class="kt-gem-label">Poet</div></div>
+      </div>
+    </section>
+
+    <!-- Thinai legend -->
+    <section class="tinai-legend">
+      <div class="tinai-legend-title">The Five Landscapes · ஐந்து திணைகள்</div>
+      <div class="tinai-grid">
+        <div class="tinai-card" style="border-top:3px solid #2a5c2a;">
+          <div class="tinai-card-tamil">குறிஞ்சி</div>
+          <div class="tinai-card-eng">Kuṟiñci</div>
+          <div class="tinai-card-meaning">Mountains · the secret tryst before marriage</div>
+          <div class="tinai-card-range">Poems 1–10</div>
+        </div>
+        <div class="tinai-card" style="border-top:3px solid #1a4858;">
+          <div class="tinai-card-tamil">முல்லை</div>
+          <div class="tinai-card-eng">Mullai</div>
+          <div class="tinai-card-meaning">Forest · patient waiting through the rains</div>
+          <div class="tinai-card-range">Poems 11–20</div>
+        </div>
+        <div class="tinai-card" style="border-top:3px solid #7a4818;">
+          <div class="tinai-card-tamil">மருதம்</div>
+          <div class="tinai-card-eng">Marutam</div>
+          <div class="tinai-card-meaning">River-fields · lovers' quarrels &amp; sulks</div>
+          <div class="tinai-card-range">Poems 21–30</div>
+        </div>
+        <div class="tinai-card" style="border-top:3px solid #1a4870;">
+          <div class="tinai-card-tamil">நெய்தல்</div>
+          <div class="tinai-card-eng">Neytal</div>
+          <div class="tinai-card-meaning">Seashore · anxious longing &amp; sea-separation</div>
+          <div class="tinai-card-range">Poems 31–40</div>
+        </div>
+        <div class="tinai-card" style="border-top:3px solid #703018;">
+          <div class="tinai-card-tamil">பாலை</div>
+          <div class="tinai-card-eng">Pālai</div>
+          <div class="tinai-card-meaning">Wasteland · separation through journey</div>
+          <div class="tinai-card-range">Poems 41–50</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="alphabet-divider">◆ ◆ ◆</div>
+
+    <div id="poems-container"></div>
+  </main>
+
+  <footer style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(30,66,40,0.15);color:var(--ink-muted);font-size:0.875rem;letter-spacing:0.05em;margin-top:3rem;">
+    <div style="color:var(--tm-forest,#1e4228);letter-spacing:1em;padding-left:1em;margin-bottom:0.75rem;opacity:0.4;">◆ ◆ ◆</div>
+    <div>திணைமொழி ஐம்பது · Part of the <a href="../index.html" style="color:var(--tm-forest,#1e4228);">Tamil Literature Library</a></div>
+  </footer>
+
+  <script src="data/poems.js"></script>
+  <script>
+    (function() {
+      const data = THINAIMOZHI_DATA;
+      const poems = data.poems;
+      const container = document.getElementById('poems-container');
+
+      function thinaiSlug(thinai) {
+        if (!thinai) return '';
+        if (thinai.includes('குறிஞ்சி')) return 'kurinji';
+        if (thinai.includes('முல்லை'))   return 'mullai';
+        if (thinai.includes('மருதம்'))   return 'marutam';
+        if (thinai.includes('நெய்தல்'))  return 'neytal';
+        if (thinai.includes('பாலை'))     return 'palai';
+        return '';
+      }
+
+      // Group poems by thinai order
+      const thinaiOrder = ['குறிஞ்சி', 'முல்லை', 'மருதம்', 'நெய்தல்', 'பாலை'];
+      const thinaiNames = {
+        'குறிஞ்சி': { eng: 'Kuṟiñci', desc: 'Mountains · the secret tryst before marriage' },
+        'முல்லை':   { eng: 'Mullai',  desc: 'Forest · patient waiting through the rains' },
+        'மருதம்':   { eng: 'Marutam', desc: 'River-fields · lovers\' quarrel & reconciliation' },
+        'நெய்தல்':  { eng: 'Neytal',  desc: 'Seashore · anxious longing & sea-separation' },
+        'பாலை':     { eng: 'Pālai',   desc: 'Wasteland · separation through journey' },
+      };
+
+      let html = '';
+      for (const t of thinaiOrder) {
+        const tPoems = poems.filter(p => p.thinai === t);
+        if (!tPoems.length) continue;
+        const slug = thinaiSlug(t);
+        const info = thinaiNames[t];
+
+        html += `
+          <section class="thinai-section">
+            <div class="thinai-section-header" data-thinai="${slug}">
+              <div>
+                <div class="thinai-section-tamil">${t}</div>
+                <div class="thinai-section-eng">${info.eng}</div>
+                <div class="thinai-section-desc">${info.desc}</div>
+              </div>
+            </div>
+            <div class="poem-grid">
+        `;
+
+        for (const p of tPoems) {
+          const incipit = p.tamil.split('\n')[0];
+          html += `
+            <a href="poem.html?n=${p.num}" class="poem-tile" data-thinai="${slug}">
+              <div class="poem-tile-num">பாடல் ${p.num} · Poem ${p.num}</div>
+              <div class="poem-tile-poet">${p.speakerEnglish}</div>
+              <div class="poem-tile-incipit">${incipit}</div>
+              <div class="poem-tile-thinai">
+                <span class="poem-tile-thinai-tag" data-thinai="${slug}">${info.eng}</span>
+              </div>
+            </a>
+          `;
+        }
+
+        html += `</div></section>`;
+      }
+
+      container.innerHTML = html;
+    })();
+  </script>
+
+</body>
+</html>

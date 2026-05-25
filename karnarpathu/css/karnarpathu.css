@@ -1,0 +1,448 @@
+/* ==========================================================================
+   கார் நாற்பது · Kār Nāṟpatu — Forty on the Rains
+   40 akam love poems on the kār (rainy) season · c. 1st–5th century CE
+   Author: Matturai Marutaṉ Iḷanākaṉār · Patiṉeṇkīḻkaṇakku collection
+
+   Title: கார் (kār) = the rainy season / monsoon; நாற்பது (nāṟpatu) = forty.
+   Forty akam poems on the kār season — the season of reunion in the mullai tiṇai.
+
+   Visual identity: The kār season is dark cloud, cool rain, the smell of wet earth,
+   jasmine in the dark. It is the season lovers return; it carries the weight of
+   waiting rewarded. The palette draws from that world:
+   — deep rain-blue (the sky when the monsoon comes — dark, full, charged)
+   — jasmine-white/cream (the mullai flower, the scent of reunion)
+   — rain-green (the forest leafing out, everything suddenly lush)
+   — wet-earth ochre (the smell of the first rain on dry ground)
+
+   Mark: a rain-cloud arc with falling drops — simple, seasonal, immediate.
+   Unlike the geometric marks of the ethical works, this is natural, flowing.
+   ========================================================================== */
+
+:root {
+  /* ── Rain-blue (primary) ────────────────────────────── */
+  --kn-blue:          #0e1e38;
+  --kn-blue-mid:      #182848;
+  --kn-blue-bright:   #2a4070;
+  --kn-blue-pale:     rgba(14, 30, 56, 0.10);
+  --kn-blue-pale2:    rgba(14, 30, 56, 0.05);
+
+  /* ── Jasmine-cream (secondary) ──────────────────────── */
+  --kn-jasmine:       #f0e8c8;
+  --kn-jasmine-mid:   #d8cca0;
+  --kn-jasmine-bright:#fff8e8;
+  --kn-jasmine-pale:  rgba(240, 232, 200, 0.18);
+
+  /* ── Rain-green (accent) ────────────────────────────── */
+  --kn-green:         #2a5830;
+  --kn-green-mid:     #1e4024;
+  --kn-green-bright:  #4a8050;
+  --kn-green-pale:    rgba(42, 88, 48, 0.12);
+
+  /* ── Wet-earth ochre (accent 2) ─────────────────────── */
+  --kn-earth:         #8a6028;
+  --kn-earth-mid:     #6a4818;
+  --kn-earth-pale:    rgba(138, 96, 40, 0.12);
+
+  /* ── Ink / text ─────────────────────────────────────── */
+  --kn-ink:           #0a1420;
+  --kn-ink-mid:       #2a3848;
+  --kn-ink-pale:      rgba(10, 20, 32, 0.55);
+
+  /* ── Site overrides ─────────────────────────────────── */
+  --accent-vermillion:  var(--kn-blue);
+  --accent-kumkum:      var(--kn-blue-mid);
+  --accent-ochre:       var(--kn-earth-mid);
+  --accent-gold:        var(--kn-earth);
+}
+
+/* ── Body ────────────────────────────────────────────────── */
+body {
+  background: #e8eef4;
+  color: var(--kn-ink);
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.site-header {
+  background: var(--kn-blue);
+  border-bottom: 2px solid rgba(42, 88, 48, 0.40);
+}
+/* wordmark-tamil: jasmine on deep-blue header */
+.site-logo .wordmark-tamil {
+  color: var(--kn-jasmine);
+}
+
+.site-logo .wordmark-roman {
+  color: var(--kn-jasmine);
+}
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--kn-jasmine);
+  border-bottom-color: var(--kn-jasmine-mid);
+}
+
+/* ── Hero ───────────────────────────────────────────────── */
+.kn-hero {
+  background: linear-gradient(160deg, var(--kn-blue) 0%, var(--kn-blue-mid) 50%, #1e3050 100%);
+  color: var(--kn-jasmine);
+  padding: 3.5rem 1.5rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.kn-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 110%, rgba(42, 88, 48, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.kn-hero-mark {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.kn-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.25rem;
+}
+.kn-hero-roman {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--kn-jasmine-mid);
+  margin: 0 0 0.4rem;
+}
+.kn-hero-meaning {
+  font-size: 1rem;
+  color: rgba(240, 232, 200, 0.75);
+  margin: 0 0 1.2rem;
+}
+.kn-hero p {
+  max-width: 640px;
+  margin: 0 auto 0.9rem;
+  font-size: 0.97rem;
+  line-height: 1.7;
+  color: rgba(240, 232, 200, 0.82);
+  position: relative;
+}
+
+/* ── Hero stat row ──────────────────────────────────────── */
+.kn-stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2rem;
+  margin-top: 2rem;
+  position: relative;
+}
+.kn-stat { text-align: center; min-width: 80px; }
+.kn-stat-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--kn-jasmine);
+  line-height: 1.2;
+}
+.kn-stat-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(240, 232, 200, 0.55);
+  margin-top: 0.2rem;
+}
+
+/* ── Season banner ──────────────────────────────────────── */
+.kn-season-banner {
+  background: var(--kn-green-pale);
+  border-top: 1px solid rgba(42, 88, 48, 0.12);
+  border-bottom: 2px solid rgba(42, 88, 48, 0.10);
+  padding: 1.1rem 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--kn-ink-mid);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.kn-season-banner strong {
+  color: var(--kn-blue);
+}
+
+/* ── Tiṇai display ──────────────────────────────────────── */
+.kn-tinai-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem 2rem;
+  padding: 1.4rem 1.5rem 1.8rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.kn-tinai-card {
+  background: #fff;
+  border: 1px solid rgba(14, 30, 56, 0.12);
+  border-top: 3px solid var(--kn-green-bright);
+  border-radius: 5px;
+  padding: 0.9rem 1.2rem;
+  min-width: 160px;
+  flex: 1;
+  max-width: 220px;
+}
+.kn-tinai-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--kn-ink-pale);
+  margin-bottom: 0.3rem;
+}
+.kn-tinai-tamil {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--kn-blue);
+  display: block;
+}
+.kn-tinai-roman {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--kn-earth);
+}
+.kn-tinai-desc {
+  font-size: 0.80rem;
+  color: var(--kn-ink-pale);
+  margin-top: 0.3rem;
+  line-height: 1.5;
+}
+
+/* ── Poems header ───────────────────────────────────────── */
+.kn-poems-header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 0.5rem;
+  border-top: 1px solid var(--kn-blue-pale);
+}
+.kn-poems-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--kn-blue);
+  margin: 0 0 0.35rem;
+}
+.kn-poems-header p {
+  font-size: 0.88rem;
+  color: var(--kn-ink-pale);
+  margin: 0;
+}
+
+/* ── Main poem list ─────────────────────────────────────── */
+.kn-poems-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* ── Individual poem card ───────────────────────────────── */
+.kn-poem {
+  background: #fff;
+  border: 1px solid rgba(14, 30, 56, 0.09);
+  border-left: 4px solid var(--kn-green-bright);
+  border-radius: 6px;
+  padding: 1.2rem 1.4rem 1.1rem;
+  box-shadow: 0 1px 6px rgba(14, 30, 56, 0.06);
+}
+
+/* ── Poem header ────────────────────────────────────────── */
+.kn-poem-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+.kn-poem-num {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--kn-earth);
+  min-width: 2rem;
+  flex-shrink: 0;
+}
+.kn-poem-speaker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--kn-blue-bright);
+  background: var(--kn-blue-pale);
+  border-radius: 3px;
+  padding: 0.15rem 0.5rem;
+  flex-shrink: 0;
+}
+.kn-poem-theme {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--kn-ink-pale);
+}
+
+/* ── Poem layers ────────────────────────────────────────── */
+.kn-poem-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.kn-layer {
+  border: 1px solid rgba(14, 30, 56, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.kn-layer-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.80rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--kn-blue-bright);
+  background: var(--kn-blue-pale2);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+.kn-layer-toggle::-webkit-details-marker { display: none; }
+.kn-layer[open] .kn-layer-toggle {
+  background: var(--kn-blue-pale);
+  color: var(--kn-blue);
+}
+.kn-layer-content {
+  padding: 0.75rem 1rem;
+  background: #fff;
+}
+.kn-tamil-verse {
+  font-size: 1.0rem;
+  line-height: 1.9;
+  color: var(--kn-ink);
+  font-weight: 500;
+}
+.kn-translit-verse {
+  font-size: 0.93rem;
+  font-style: italic;
+  line-height: 1.85;
+  color: var(--kn-ink-mid);
+}
+.kn-english-prose {
+  font-size: 0.93rem;
+  line-height: 1.78;
+  color: var(--kn-ink-mid);
+}
+.kn-note {
+  font-size: 0.87rem;
+  line-height: 1.72;
+  color: var(--kn-ink-pale);
+  font-style: italic;
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+.site-footer {
+  background: var(--kn-blue);
+  color: rgba(240, 232, 200, 0.65);
+}
+.site-footer a {
+  color: var(--kn-jasmine-mid);
+}
+
+/* ── About page ─────────────────────────────────────────── */
+.kn-about-hero {
+  background: linear-gradient(160deg, var(--kn-blue) 0%, var(--kn-blue-mid) 100%);
+  color: var(--kn-jasmine);
+  padding: 3rem 1.5rem 2.5rem;
+  text-align: center;
+}
+.kn-about-hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 1rem 0 0.25rem;
+}
+.kn-about-subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--kn-jasmine-mid);
+  margin: 0;
+}
+.kn-about-main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+.kn-about-section {
+  margin-bottom: 2.5rem;
+}
+.kn-about-section h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--kn-blue);
+  border-bottom: 2px solid var(--kn-blue-pale);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+.kn-about-section p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--kn-ink-mid);
+  margin-bottom: 0.9rem;
+}
+.kn-about-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.kn-about-list li {
+  padding-left: 1.4rem;
+  position: relative;
+  font-size: 0.93rem;
+  line-height: 1.75;
+  color: var(--kn-ink-mid);
+}
+.kn-about-list li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  color: var(--kn-green-bright);
+  font-size: 0.7rem;
+  top: 0.3rem;
+}
+.kn-about-list li strong {
+  color: var(--kn-blue);
+}
+.kn-about-nav {
+  margin-top: 3rem;
+  text-align: center;
+}
+.kn-about-cta {
+  display: inline-flex;
+  align-items: center;
+  background: var(--kn-blue);
+  color: var(--kn-jasmine);
+  padding: 0.75rem 1.8rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.kn-about-cta:hover {
+  background: var(--kn-blue-bright);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .kn-hero { padding: 2.5rem 1rem 2rem; }
+  .kn-poems-main { padding: 0.8rem 0.8rem 3rem; }
+  .kn-poem { padding: 1rem 1rem 0.9rem; }
+  .kn-tinai-display { padding: 1rem 0.8rem 1.4rem; }
+  .kn-tinai-card { min-width: 140px; }
+}

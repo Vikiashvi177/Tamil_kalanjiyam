@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Thirukkural</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .prose {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 var(--space-md) var(--space-2xl);
+    }
+    .prose h2 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--accent-vermillion);
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-sm);
+    }
+    .prose h2 em { font-style: italic; }
+    .prose p {
+      margin-bottom: var(--space-sm);
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--ink-primary);
+    }
+    .prose blockquote {
+      margin: var(--space-md) 0;
+      padding: var(--space-sm) var(--space-md);
+      border-left: 3px solid var(--accent-ochre);
+      font-style: italic;
+      color: var(--ink-secondary);
+      background: var(--bg-paper);
+    }
+    .prose ul {
+      margin: var(--space-sm) 0 var(--space-md) var(--space-md);
+      line-height: 1.8;
+    }
+    .prose li { margin-bottom: 0.3rem; }
+    .prose .tamil-phrase {
+      font-family: var(--font-tamil);
+      color: var(--accent-vermillion);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="3" fill="currentColor" stroke="none"/><path d="M 20 7 Q 24 12 20 17 Q 16 12 20 7 Z" fill="currentColor" opacity="0.85"/><path d="M 20 33 Q 24 28 20 23 Q 16 28 20 33 Z" fill="currentColor" opacity="0.85"/><path d="M 7 20 Q 12 24 17 20 Q 12 16 7 20 Z" fill="currentColor" opacity="0.85"/><path d="M 33 20 Q 28 24 23 20 Q 28 16 33 20 Z" fill="currentColor" opacity="0.85"/><circle cx="10" cy="10" r="1.2" fill="currentColor"/><circle cx="30" cy="10" r="1.2" fill="currentColor"/><circle cx="10" cy="30" r="1.2" fill="currentColor"/><circle cx="30" cy="30" r="1.2" fill="currentColor"/></svg></span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">திருக்குறள்</span>
+          <span class="wordmark-english">Thirukkural</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="chapters.html">All Chapters</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input class="search-input" type="text" placeholder="தேடுக · Search kurals…" autocomplete="off" />
+        <div class="search-results"></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <span>About</span>
+      </div>
+      <h1 class="page-title fade-in">About the <em>Project</em></h1>
+      <div class="page-tamil tamil fade-in fade-in-delay-1">இந்த நூலைப் பற்றி</div>
+    </div>
+
+    <article class="prose">
+      <p>The <strong>Thirukkural</strong> (<span class="tamil-phrase">திருக்குறள்</span>) is a classical Tamil text composed by the poet and philosopher <strong>Thiruvalluvar</strong> (<span class="tamil-phrase">திருவள்ளுவர்</span>), traditionally dated between the 3rd century BCE and the 5th century CE. It contains 1,330 couplets (<em>kurals</em>, <span class="tamil-phrase">குறள்</span>), each of just seven words, organized into 133 chapters of ten couplets each, across three grand divisions: virtue (<em>aṟam</em>, <span class="tamil-phrase">அறம்</span>), wealth and polity (<em>poruḷ</em>, <span class="tamil-phrase">பொருள்</span>), and love (<em>inbam</em>, <span class="tamil-phrase">இன்பம்</span>).</p>
+
+      <p>Few texts in world literature achieve the Kural's density. Each couplet is a complete meditation — a crystal of thought polished by centuries of readers, scholars, and reciters.</p>
+
+      <blockquote>
+        "The Kural transcends the bounds of creed and clime; its ethics are for all humanity."
+        <br />— G.U. Pope, 1886
+      </blockquote>
+
+      <h2>What this <em>site</em> offers</h2>
+      <p>This project presents the Thirukkural in a form accessible to a modern reader — especially those who want to connect with the Tamil text but may not read the Tamil script fluently. Each couplet is presented with:</p>
+      <ul>
+        <li><strong>Tamil text</strong> — the original couplet in Tamil script, in its strict two-line form</li>
+        <li><strong>Transliteration</strong> — the Tamil sounds written in Latin characters with diacritics</li>
+        <li><strong>English translation</strong> — a clear, accurate rendering</li>
+        <li><strong>Tamil urai</strong> (<span class="tamil-phrase">தமிழ் உரை</span>) — a prose explanation in modern Tamil</li>
+        <li><strong>Alternate translations</strong> — including G.U. Pope's classical 1886 verse translation</li>
+        <li><strong>Audio pronunciation</strong> — hear each kural read aloud</li>
+      </ul>
+
+      <h2 id="sources">Sources &amp; <em>credits</em></h2>
+      <p>All materials on this site are drawn from public-domain sources:</p>
+      <ul>
+        <li>The Tamil text of the Thirukkural itself is in the public domain worldwide.</li>
+        <li>English translations primarily follow <strong>Rev. G.U. Pope</strong>'s 1886 rendering (public domain), supplemented by modern paraphrase for clarity.</li>
+        <li>Tamil urai is inspired by the scholarly traditions of Parimelalakar (<span class="tamil-phrase">பரிமேலழகர்</span>) and the modern commentaries of Mu. Varadarajanar (<span class="tamil-phrase">மு. வரதராசனார்</span>), adapted into accessible prose.</li>
+        <li>Digital Tamil text benefits from the pioneering work of <strong>Project Madurai</strong>, which has freely digitized Tamil classical literature for decades.</li>
+      </ul>
+
+      <h2 id="contribute">A note on <em>scope</em></h2>
+      <p>This is version one of an ongoing project. The framework for all 1,330 kurals is in place, and a curated selection is fully populated with Tamil text, transliteration, English translation, and urai. The remaining kurals will be added in subsequent updates. If you'd like to help — whether with translation, transliteration, proofreading, or audio recitation — contributions are welcome.</p>
+
+      <h2>On <em>audio</em></h2>
+      <p>The audio playback currently uses your browser's built-in speech synthesis. This requires a Tamil voice installed on your device — most modern phones and laptops include one, but some do not. If you don't hear anything when you press Listen, check your device's language settings and add Tamil as an input language. For a future update, authentic human recitations would be a worthy addition — the Kural is, above all, a spoken tradition.</p>
+
+      <div style="text-align: center; margin-top: var(--space-xl);">
+        <a href="index.html" style="font-family: var(--font-display); font-style: italic; font-size: 1.1rem;">← Return home</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-about">
+        <h3>Thiruk<em>kural</em></h3>
+        <div class="footer-tamil-name tamil">திருக்குறள்</div>
+        <p>An open, accessible edition of the Thirukkural for readers, learners, and seekers.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Browse · பார்க்க</h4>
+        <ul>
+          <li><a href="section.html?sec=aram">அறம் · Virtue</a></li>
+          <li><a href="section.html?sec=porul">பொருள் · Wealth</a></li>
+          <li><a href="section.html?sec=inbam">இன்பம் · Love</a></li>
+          <li><a href="chapters.html">All Chapters</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About · பற்றி</h4>
+        <ul>
+          <li><a href="about.html">About this project</a></li>
+          <li><a href="about.html#sources">Sources & credits</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Tamil text &amp; translations in the public domain
+    </div>
+  </footer>
+
+  <script src="data/kurals.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

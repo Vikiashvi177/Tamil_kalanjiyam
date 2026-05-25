@@ -1,0 +1,141 @@
+/* ==========================================================================
+   திணைமொழி ஐம்பது · Tiṇaimoli Aimpatu — The Fifty Landscape-Sayings
+   Patiṉeṇkīḻkaṇakku · c. 1st–5th century CE
+
+   Visual identity: forest-moss green, river-clay amber, mountain-mist silver.
+   These 50 poems are a measured survey of all five tiṇai landscapes —
+   a treasury of compressed wisdom on love, landscape, and the Tamil world-view.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   Colour tokens — forest & river palette
+   --------------------------------------------------------------------------- */
+:root {
+  --tm-forest:       #1e4228;   /* deep forest green */
+  --tm-forest-mid:   #2d5e3c;   /* mid forest */
+  --tm-forest-pale:  rgba(30, 66, 40, 0.10);
+  --tm-moss:         #4a7a3a;   /* moss accent */
+  --tm-river:        #7a5218;   /* river-clay amber */
+  --tm-river-pale:   rgba(122, 82, 24, 0.10);
+  --tm-mist:         #a8b4a0;   /* mountain mist */
+  --tm-dawn:         #c8b090;   /* dawn amber */
+
+  /* Tiṇai accent colours — tuned to the forest-dawn palette */
+  --tm-kurinji:  #2a5c2a;   /* mountain jasmine green */
+  --tm-mullai:   #1a4858;   /* monsoon forest blue-green */
+  --tm-marutam:  #7a4818;   /* river-field terracotta */
+  --tm-neytal:   #1a4870;   /* seawater deep blue */
+  --tm-palai:    #703018;   /* wasteland burgundy */
+
+  /* Override site palette */
+  --accent-vermillion: var(--tm-forest);
+  --accent-kumkum:     var(--tm-forest-mid);
+  --accent-ochre:      var(--tm-river);
+  --accent-gold:       var(--tm-forest-mid);
+}
+
+/* ---------------------------------------------------------------------------
+   Background: cooler forest-shadow palm-leaf
+   --------------------------------------------------------------------------- */
+body {
+  background: #bfc4ae;
+}
+body::before {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 3px,
+      rgba(30, 66, 40, 0.035) 3px, rgba(30, 66, 40, 0.035) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 60px,
+      rgba(30, 66, 40, 0.05) 60px, rgba(30, 66, 40, 0.05) 61px,
+      transparent 61px, transparent 140px,
+      rgba(30, 66, 40, 0.03) 140px, rgba(30, 66, 40, 0.03) 142px
+    ),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.26 0 0 0 0 0.16 0 0 0 0.13 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------------------------------------------------------------------------
+   Header & nav: forest wordmark
+   --------------------------------------------------------------------------- */
+.site-header { border-bottom-color: rgba(30, 66, 40, 0.3); }
+.site-logo .mark { color: var(--tm-forest); }
+.wordmark-tamil { color: var(--tm-forest); }
+.site-nav a { color: var(--tm-forest-mid); }
+.site-nav a:hover { color: var(--tm-forest); }
+a { color: var(--tm-forest); }
+a:hover { color: var(--tm-forest-mid); }
+
+/* ---------------------------------------------------------------------------
+   Work-intro hero section
+   --------------------------------------------------------------------------- */
+.work-intro h1 { color: var(--tm-forest) !important; }
+.work-intro h2 { color: var(--ink-secondary); }
+.era-line { color: var(--tm-mist) !important; }
+
+/* ---------------------------------------------------------------------------
+   Tiṇai legend strip
+   --------------------------------------------------------------------------- */
+.tinai-legend-title { color: var(--tm-forest-mid); }
+.tinai-card { background: var(--bg-paper); }
+.tinai-card-tamil { color: var(--ink-primary); }
+.tinai-card-eng { color: var(--tm-forest-mid); }
+
+/* ---------------------------------------------------------------------------
+   Poem grid tiles
+   --------------------------------------------------------------------------- */
+.poem-tile {
+  border: 1px solid rgba(30, 66, 40, 0.25) !important;
+  border-top-width: 3px !important;
+}
+.poem-tile:hover:not(.unpopulated) {
+  border-color: var(--tm-forest) !important;
+  box-shadow: 0 4px 16px rgba(30, 66, 40, 0.18) !important;
+}
+
+.poem-tile[data-thinai="kurinji"]  { border-top-color: var(--tm-kurinji)  !important; }
+.poem-tile[data-thinai="mullai"]   { border-top-color: var(--tm-mullai)   !important; }
+.poem-tile[data-thinai="marutam"]  { border-top-color: var(--tm-marutam)  !important; }
+.poem-tile[data-thinai="neytal"]   { border-top-color: var(--tm-neytal)   !important; }
+.poem-tile[data-thinai="palai"]    { border-top-color: var(--tm-palai)    !important; }
+
+.poem-tile[data-thinai="kurinji"]  { border-top-color: var(--tm-kurinji) !important; }
+.poem-tile[data-thinai="mullai"]   { border-top-color: var(--tm-mullai)  !important; }
+.poem-tile[data-thinai="marutam"]  { border-top-color: var(--tm-marutam) !important; }
+.poem-tile[data-thinai="neytal"]   { border-top-color: var(--tm-neytal)  !important; }
+.poem-tile[data-thinai="palai"]    { border-top-color: var(--tm-palai)   !important; }
+
+.poem-tile-num   { color: var(--tm-mist) !important; }
+.poem-tile-poet  { color: var(--tm-forest) !important; }
+
+.poem-tile-thinai-tag[data-thinai="kurinji"] { background: var(--tm-kurinji) !important; }
+.poem-tile-thinai-tag[data-thinai="mullai"]  { background: var(--tm-mullai)  !important; }
+.poem-tile-thinai-tag[data-thinai="marutam"] { background: var(--tm-marutam) !important; }
+.poem-tile-thinai-tag[data-thinai="neytal"]  { background: var(--tm-neytal)  !important; }
+.poem-tile-thinai-tag[data-thinai="palai"]   { background: var(--tm-palai)   !important; }
+
+/* ---------------------------------------------------------------------------
+   KT-gem stats row (reused class)
+   --------------------------------------------------------------------------- */
+.kt-gem-num  { color: var(--tm-forest) !important; }
+.kt-gem-label { color: var(--tm-forest-mid) !important; }
+
+/* ---------------------------------------------------------------------------
+   Thinai banner on poem page
+   --------------------------------------------------------------------------- */
+.thinai-banner[data-thinai="kurinji"] { background: linear-gradient(135deg, var(--tm-kurinji), #1e4c1e); }
+.thinai-banner[data-thinai="mullai"]  { background: linear-gradient(135deg, var(--tm-mullai),  #0e3848); }
+.thinai-banner[data-thinai="marutam"] { background: linear-gradient(135deg, var(--tm-marutam), #6a3c0e); }
+.thinai-banner[data-thinai="neytal"]  { background: linear-gradient(135deg, var(--tm-neytal),  #0e3860); }
+.thinai-banner[data-thinai="palai"]   { background: linear-gradient(135deg, var(--tm-palai),   #602010); }
+
+/* ---------------------------------------------------------------------------
+   Meta labels and poem note accent
+   --------------------------------------------------------------------------- */
+.meta-label { color: var(--tm-river) !important; }
+.poem-number-badge { color: var(--tm-moss) !important; }
+.poem-number-badge .num { color: var(--tm-forest) !important; }
+.poem-layer-label { color: var(--tm-river) !important; }
+.poem-note { border-left-color: var(--tm-river) !important; }
