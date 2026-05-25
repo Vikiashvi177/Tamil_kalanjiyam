@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">இயல் · நாலடியார்</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/naaladiyar.css" />
+  <style>
+    .iyal-page {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Breadcrumb */
+    .iyal-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .iyal-breadcrumb a { color: var(--ink-secondary); text-decoration: none; }
+    .iyal-breadcrumb a:hover { color: var(--nl-copper, #7a3e1a); }
+    .iyal-breadcrumb .sep { opacity: 0.45; }
+
+    /* Iyal header banner */
+    .iyal-banner {
+      padding: 2rem 2.5rem 1.75rem;
+      border-radius: 5px;
+      color: white;
+      margin-bottom: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .iyal-banner[data-iyal="1"] { background: linear-gradient(135deg, #1e4a28, #153818); }
+    .iyal-banner[data-iyal="2"] { background: linear-gradient(135deg, #7a3e1a, #5a2e10); }
+    .iyal-banner[data-iyal="3"] { background: linear-gradient(135deg, #2a4868, #1a3858); }
+    .iyal-banner[data-iyal="4"] { background: linear-gradient(135deg, #5a3a18, #3a2008); }
+    /* Hole ornament */
+    .iyal-banner::after {
+      content: '';
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 15px; height: 15px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.3);
+      border: 1.5px solid rgba(255,255,255,0.2);
+    }
+    .iyal-banner-num {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 0.5rem;
+    }
+    .iyal-banner-tamil {
+      font-family: var(--font-tamil);
+      font-size: clamp(1.75rem, 4vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 0.2rem;
+    }
+    .iyal-banner-eng {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.1rem;
+      opacity: 0.85;
+      margin-bottom: 0.75rem;
+    }
+    .iyal-banner-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      opacity: 0.75;
+      max-width: 680px;
+    }
+
+    /* Chapter grid */
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .chapter-card {
+      display: block;
+      background: var(--bg-paper);
+      background-image: repeating-linear-gradient(0deg,
+        rgba(58,37,16,0.02) 0px, rgba(58,37,16,0.02) 1px,
+        transparent 1px, transparent 8px);
+      border: 1px solid rgba(122,62,26,0.25);
+      border-left: 4px solid transparent;
+      border-radius: 4px;
+      padding: 1.1rem 1.3rem 1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 1px 3px rgba(58,37,16,0.07);
+      position: relative;
+    }
+    .chapter-card[data-iyal="1"] { border-left-color: #1e4a28; }
+    .chapter-card[data-iyal="2"] { border-left-color: #7a3e1a; }
+    .chapter-card[data-iyal="3"] { border-left-color: #2a4868; }
+    .chapter-card[data-iyal="4"] { border-left-color: #5a3a18; }
+    .chapter-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 14px rgba(58,37,16,0.14);
+      border-color: rgba(122,62,26,0.48);
+    }
+
+    .chapter-card-num {
+      font-family: var(--font-display);
+      font-size: 0.67rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 0.3rem;
+    }
+    .chapter-card-tamil {
+      font-family: var(--font-tamil);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      margin-bottom: 0.1rem;
+      line-height: 1.3;
+    }
+    .chapter-card-eng {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.88rem;
+      margin-bottom: 0.5rem;
+    }
+    .chapter-card[data-iyal="1"] .chapter-card-eng { color: #1e4a28; }
+    .chapter-card[data-iyal="2"] .chapter-card-eng { color: #7a3e1a; }
+    .chapter-card[data-iyal="3"] .chapter-card-eng { color: #2a4868; }
+    .chapter-card[data-iyal="4"] .chapter-card-eng { color: #5a3a18; }
+
+    .chapter-card-desc {
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--ink-secondary);
+      margin-bottom: 0.65rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .chapter-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      padding-top: 0.55rem;
+      border-top: 1px solid var(--border-subtle);
+      letter-spacing: 0.08em;
+    }
+    .chapter-card-incipit {
+      font-family: var(--font-tamil);
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Iyal prev/next */
+    .iyal-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .iyal-nav-link {
+      display: block;
+      padding: 1rem 1.3rem;
+      background: var(--bg-paper);
+      border: 1px solid rgba(122,62,26,0.22);
+      border-radius: 4px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+    }
+    .iyal-nav-link:hover { border-color: var(--nl-copper,#7a3e1a); transform: translateY(-2px); box-shadow: 0 3px 10px rgba(58,37,16,.1); }
+    .iyal-nav-link.next { text-align: right; }
+    .iyal-nav-link.disabled { opacity: 0.3; pointer-events: none; }
+    .iyal-nav-dir { font-size: 0.67rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.25rem; font-family: var(--font-display); }
+    .iyal-nav-title { font-family: var(--font-tamil); font-size: 1rem; color: var(--nl-copper,#7a3e1a); margin-bottom: 0.1rem; }
+    .iyal-nav-sub { font-size: 0.78rem; color: var(--ink-muted); font-style: italic; font-family: var(--font-display); }
+
+    @media (max-width: 640px) {
+      .chapter-grid { grid-template-columns: 1fr; }
+      .iyal-nav { grid-template-columns: 1fr; }
+      .iyal-banner { padding: 1.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 20 36 L 20 22" stroke-width="2" opacity="0.8"/>
+            <path d="M 14 28 L 14 36" stroke-width="1.1" opacity="0.5"/>
+            <path d="M 26 28 L 26 36" stroke-width="1.1" opacity="0.5"/>
+            <path d="M 8 22 Q 14 14 20 12 Q 26 14 32 22 Q 26 20 20 21 Q 14 20 8 22 Z" fill="currentColor" opacity="0.85"/>
+            <path d="M 11 22 Q 16 16 20 15 Q 24 16 29 22 Q 24 20 20 21 Q 16 20 11 22 Z" fill="currentColor" opacity="0.3" stroke="none"/>
+            <path d="M 8 36 L 32 36" stroke-width="1" opacity="0.35"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">நாலடியார்</span>
+          <span class="wordmark-english">Nālaṭiyār</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="iyal-page">
+
+      <nav class="iyal-breadcrumb">
+        <a href="../index.html">Library</a>
+        <span class="sep">›</span>
+        <a href="index.html">Nālaṭiyār</a>
+        <span class="sep">›</span>
+        <span id="bc-iyal">…</span>
+      </nav>
+
+      <div id="iyal-banner"></div>
+      <div id="chapter-grid" class="chapter-grid"></div>
+      <nav class="iyal-nav" id="iyal-nav"></nav>
+
+    </div>
+  </main>
+
+  <footer style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(122,62,26,.2);color:var(--ink-muted);font-size:.875rem;letter-spacing:.05em;margin-top:1rem">
+    <div style="color:var(--nl-copper,#7a3e1a);letter-spacing:1em;padding-left:1em;margin-bottom:.5rem;opacity:.4">❧ ❧ ❧</div>
+    <div>நாலடியார் · <a href="../index.html" style="color:var(--nl-copper,#7a3e1a)">Tamil Literature Library</a></div>
+  </footer>
+
+  <script src="data/poems.js"></script>
+  <script>
+  (function () {
+    const data = window.NAALADIYAR_DATA;
+    const params = new URLSearchParams(window.location.search);
+    const iyalNum = parseInt(params.get('i'), 10) || 1;
+
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, c =>
+        ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    const iyalMeta = data.iyals.find(i => i.num === iyalNum);
+    if (!iyalMeta) {
+      document.getElementById('iyal-banner').innerHTML =
+        '<p style="text-align:center;padding:3rem;color:var(--ink-secondary)">Book not found.</p>';
+      return;
+    }
+
+    // Iyal descriptions (expanded)
+    const iyalDescs = {
+      1: 'On the impermanence of wealth, youth, and the body; the affirmation of virtue; purity and renunciation; learning, wisdom, noble birth, and the qualities of the truly great.',
+      2: 'On sweet speech, gratitude, and reading the right moment; cherishing kin; the nature and testing of true friendship; folly, ignorance, enmity, and vanity.',
+      3: 'On false friendship and baseness; the householder\'s duties; keeping good company; right livelihood; freedom from envy; doing no harm; knowing one\'s duty; and the dignity of agriculture.',
+      4: 'On avoiding bad company; truth and integrity; austerity; banishing sorrow; restraint of anger; responding to wrong with good; noble character; and the glory of those who have renounced the world.',
+    };
+
+    // Update page title and breadcrumb
+    document.title = `${iyalMeta.name} · நாலடியார்`;
+    document.getElementById('page-title').textContent = `${iyalMeta.name} · நாலடியார்`;
+    document.getElementById('bc-iyal').textContent = `${iyalMeta.name} · ${iyalMeta.nameEnglish}`;
+
+    // Banner
+    document.getElementById('iyal-banner').innerHTML = `
+      <div class="iyal-banner" data-iyal="${iyalNum}">
+        <div class="iyal-banner-num">
+          இயல் ${iyalNum} · Chapters ${iyalMeta.chapters} · Verses ${(iyalNum-1)*100+1}–${iyalNum*100}
+        </div>
+        <div class="iyal-banner-tamil">${esc(iyalMeta.name)}</div>
+        <div class="iyal-banner-eng">${esc(iyalMeta.nameEnglish)}</div>
+        <div class="iyal-banner-desc">${esc(iyalDescs[iyalNum] || '')}</div>
+      </div>
+    `;
+
+    // Get chapters for this iyal
+    const chaptersForIyal = data.chapters.filter(c => c.iyal === iyalNum);
+
+    // First poem per chapter (for incipit)
+    const firstByChapter = {};
+    data.poems.forEach(p => {
+      if (!firstByChapter[p.chapter]) firstByChapter[p.chapter] = p;
+    });
+
+    // Build chapter grid
+    const grid = document.getElementById('chapter-grid');
+    chaptersForIyal.forEach(ch => {
+      const first = firstByChapter[ch.num];
+      const incipit = first ? first.tamil.split('\n')[0] : '';
+      const startVerse = (ch.num - 1) * 10 + 1;
+
+      const card = document.createElement('a');
+      card.href = `chapter.html?c=${ch.num}`;
+      card.className = 'chapter-card';
+      card.dataset.iyal = iyalNum;
+      card.innerHTML = `
+        <div class="chapter-card-num">Chapter ${ch.num} · Verses ${startVerse}–${startVerse + 9}</div>
+        <div class="chapter-card-tamil">${esc(ch.name)}</div>
+        <div class="chapter-card-eng">${esc(ch.nameEnglish)}</div>
+        <div class="chapter-card-desc">${esc(ch.desc)}</div>
+        ${incipit ? `<div class="chapter-card-incipit">${esc(incipit)}…</div>` : ''}
+        <div class="chapter-card-footer">
+          <span>10 verses</span>
+          <span>→</span>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    // Prev / Next iyal nav
+    const prevIyal = data.iyals.find(i => i.num === iyalNum - 1) || null;
+    const nextIyal = data.iyals.find(i => i.num === iyalNum + 1) || null;
+    document.getElementById('iyal-nav').innerHTML = `
+      <a href="${prevIyal ? `iyal.html?i=${prevIyal.num}` : '#'}"
+         class="iyal-nav-link ${prevIyal ? '' : 'disabled'}">
+        <div class="iyal-nav-dir">← முந்தைய · Previous Book</div>
+        <div class="iyal-nav-title">${prevIyal ? esc(prevIyal.name) : '—'}</div>
+        <div class="iyal-nav-sub">${prevIyal ? esc(prevIyal.nameEnglish) : ''}</div>
+      </a>
+      <a href="${nextIyal ? `iyal.html?i=${nextIyal.num}` : '#'}"
+         class="iyal-nav-link next ${nextIyal ? '' : 'disabled'}">
+        <div class="iyal-nav-dir">அடுத்தது · Next Book →</div>
+        <div class="iyal-nav-title">${nextIyal ? esc(nextIyal.name) : '—'}</div>
+        <div class="iyal-nav-sub">${nextIyal ? esc(nextIyal.nameEnglish) : ''}</div>
+      </a>
+    `;
+  })();
+  </script>
+
+</body>
+</html>

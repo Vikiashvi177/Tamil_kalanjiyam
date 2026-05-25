@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>மணிமேகலை · Maṇimēkalai — The Jewelled Girdle</title>
+  <meta name="description" content="மணிமேகலை — The Jewelled Girdle. The Buddhist Tamil epic by Cāttaṉār. 30 cantos, ~4,600 lines. Sequel to Cilappatikāram — the story of Mātatavi's daughter, the miracle bowl, and the path to liberation."/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/manimekalai.css"/>
+  <style>
+    /* Bowl SVG mark */
+    .mm-bowl-mark { display: block; color: var(--mm-teal, #0d5c63); }
+    .mm-parts-grid > * { min-width: 0; }
+    .mm-part-tamil { overflow-wrap: break-word; word-break: break-word; }
+    .mm-part-card svg { max-width: 100%; height: auto; overflow: visible; }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ─────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Maṇimēkalai home">
+        <span class="mark">
+          <!-- Bowl mark: hemispherical bowl with lotus base -->
+          <svg class="mm-bowl-mark" viewBox="0 0 40 40" width="36" height="36"
+               xmlns="http://www.w3.org/2000/svg" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <!-- Bowl body -->
+            <path d="M 8 16 Q 8 34 20 34 Q 32 34 32 16" stroke-width="2.2" opacity="0.88"/>
+            <!-- Bowl rim -->
+            <line x1="7" y1="16" x2="33" y2="16" stroke-width="2" opacity="0.75"/>
+            <!-- Lotus base -->
+            <path d="M 14 34 Q 20 38 26 34" stroke-width="1.6" opacity="0.7"/>
+            <circle cx="20" cy="38" r="1.5" fill="currentColor" stroke="none" opacity="0.6"/>
+            <!-- Glow / contents hint -->
+            <path d="M 13 22 Q 20 20 27 22" stroke-width="1" opacity="0.35" stroke-dasharray="2 2"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">மணிமேகலை</span>
+          <span class="wordmark-english">Maṇimēkalai</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="part.html?p=1">Part I</a>
+        <a href="part.html?p=2">Part II</a>
+        <a href="part.html?p=3">Part III</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Hero ─────────────────────────────────────────── -->
+    <section class="mm-hero">
+      <!-- Large bowl mark -->
+      <svg viewBox="0 0 100 100" width="90" height="90"
+           xmlns="http://www.w3.org/2000/svg" fill="none"
+           stroke="currentColor" stroke-width="2.5"
+           stroke-linecap="round"
+           style="display:block;margin:0 auto 1.5rem;color:var(--mm-teal)">
+        <!-- Bowl body -->
+        <path d="M 16 36 Q 16 80 50 80 Q 84 80 84 36" stroke-width="3" opacity="0.90"/>
+        <!-- Rim -->
+        <line x1="14" y1="36" x2="86" y2="36" stroke-width="2.8" opacity="0.78"/>
+        <!-- Lotus base — three petals -->
+        <path d="M 34 80 Q 42 90 50 86 Q 58 90 66 80" stroke-width="2" opacity="0.70"/>
+        <!-- Base dot -->
+        <circle cx="50" cy="92" r="3.5" fill="currentColor" stroke="none" opacity="0.65"/>
+        <!-- Inner shimmer lines — suggesting the infinite contents -->
+        <path d="M 28 50 Q 50 46 72 50" stroke-width="1.2" opacity="0.28" stroke-dasharray="3 4"/>
+        <path d="M 24 60 Q 50 56 76 60" stroke-width="1" opacity="0.20" stroke-dasharray="3 5"/>
+        <!-- Rim highlight dots -->
+        <circle cx="14" cy="36" r="2.5" fill="currentColor" stroke="none" opacity="0.55"/>
+        <circle cx="86" cy="36" r="2.5" fill="currentColor" stroke="none" opacity="0.55"/>
+      </svg>
+
+      <h1>மணிமேகலை</h1>
+      <h2>Maṇimēkalai — The Jewelled Girdle</h2>
+      <p class="era">Cāttaṉār · c. 5th–6th century CE · மாகாவியம் — The Great Epics</p>
+
+      <div class="mm-stat-row">
+        <div class="mm-stat">
+          <div class="mm-stat-num">~4,600</div>
+          <div class="mm-stat-label">Lines</div>
+        </div>
+        <div class="mm-stat">
+          <div class="mm-stat-num">30</div>
+          <div class="mm-stat-label">Cantos</div>
+        </div>
+        <div class="mm-stat">
+          <div class="mm-stat-num">6</div>
+          <div class="mm-stat-label">Schools Debated</div>
+        </div>
+        <div class="mm-stat">
+          <div class="mm-stat-num">Sequel</div>
+          <div class="mm-stat-label">to Cilappatikāram</div>
+        </div>
+      </div>
+
+      <p>
+        The direct sequel to the Cilappatikāram — where that epic ends in divine fury and
+        justice, this one begins in beauty and ends in liberation. Maṇimēkalai is the
+        daughter of Mātatavi, the courtesan whose dance undid Kōvalaṉ. Born into a world
+        of pleasure and performance, she turns — irrevocably, miraculously — toward the
+        Buddhist path.
+      </p>
+      <p>
+        A sea-goddess transports her to a sacred island. She is given the Amutacurapi —
+        the inexhaustible bowl that feeds all the hungry, forever, without emptying. She
+        feeds the prisoners of Pukār, the starving of Madurai, the sick of Vañci. And then
+        she debates the philosophers of every major school — the materialists, the fatalists,
+        the dualists, the Jains, the Vedic ritualists — and refutes them all, one by one,
+        with the teaching of dependent origination.
+      </p>
+    </section>
+
+    <!-- Sequel cross-link banner -->
+    <div class="mm-sequel-banner" style="max-width:800px;margin:0 auto 2rem">
+      <span class="mm-sequel-label">Sequel</span>
+      <span class="mm-sequel-text">
+        Maṇimēkalai continues the story of
+        <a href="../cilappatikaram/index.html">Cilappatikāram</a> —
+        Mātatavi's daughter, Kōvalaṉ's daughter, born from the same catastrophe
+        that burned Madurai. Her liberation is the sequel to her mother's grief.
+      </span>
+    </div>
+
+    <!-- Story synopsis box -->
+    <div class="mm-synopsis" style="max-width:800px;margin:0 auto 3rem;">
+      <div class="mm-synopsis-title">The Story</div>
+      <p>
+        At the festival of Indra in Pukār — the same festival where Kōvalaṉ first saw Mātatavi —
+        Uṭāyakumāraṉ, the Cōḷa prince, sees Mātatavi's daughter Maṇimēkalai and is struck by desire.
+        She flees. The sea-goddess Maṇimēkalā transports her to the sacred island of Maṇipallavam,
+        where the Buddha's throne stands empty and radiant.
+      </p>
+      <p>
+        There she receives the Amutacurapi — the bowl of infinite compassion — and a vision of
+        her past lives. She returns to Pukār transformed, feeds the prisoners with the bowl,
+        and witnesses her mother Mātatavi also renouncing the world. She dons the saffron robe
+        and begins to wander: Vañci, Kāñci, the great cities of the Tamil south.
+      </p>
+      <p>
+        In Kāñci, she encounters the teachers of every philosophical school and defeats them
+        all in debate with the Buddha's teaching on dependent origination. At last, before
+        the Buddha's footprint in Kāñci, she achieves direct insight and attains liberation.
+        The bowl is set down. The journey is complete.
+      </p>
+    </div>
+
+    <div class="mm-divider">◆ ◆ ◆ ◆ ◆</div>
+
+    <!-- ── Three Part Arcs ──────────────────────────────── -->
+    <section class="mm-parts-section">
+      <h2 class="mm-section-heading">Three Arcs of the Journey</h2>
+
+      <div class="mm-parts-grid" id="parts-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <div class="mm-divider">◆ ◆ ◆ ◆ ◆</div>
+
+    <!-- ── Character Guide ──────────────────────────────── -->
+    <section class="mm-characters-section">
+      <h2 class="mm-section-heading">Characters</h2>
+      <div class="mm-characters-grid" id="characters-grid">
+        <!-- Rendered by JS from MM_CHARACTERS data -->
+      </div>
+    </section>
+
+    <div class="mm-divider">◆ ◆ ◆ ◆ ◆</div>
+
+    <!-- ── Philosophical Schools ────────────────────────── -->
+    <section class="mm-characters-section">
+      <h2 class="mm-section-heading">The Six Schools Debated — Part III</h2>
+      <div class="mm-characters-grid" id="schools-grid">
+        <!-- Rendered by JS from MM_CHARACTERS data -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <p>
+      <a href="../index.html">← Tamil Literature Library</a>
+      &emsp;·&emsp;
+      மணிமேகலை · Cāttaṉār · c. 5th–6th century CE
+      &emsp;·&emsp;
+      <a href="about.html">About this text</a>
+    </p>
+  </footer>
+
+  <script src="data/cantos.js"></script>
+  <script src="data/characters.js"></script>
+  <script>
+  (function() {
+
+    /* ── Three part-arc cards ── */
+    const PARTS = [
+      {
+        num: 1,
+        tamil: "உலகம்",
+        english: "The World",
+        setting: "Pukār · Maṇipallavam · Kāñci",
+        cantoRange: "Cantos 1–13",
+        desc: "The world Maṇimēkalai must leave behind — and the miraculous gifts that make leaving possible. The festival of Indra, the prince's pursuit, the sea-goddess, the sacred island, the inexhaustible bowl. Mātatavi's renunciation. The great public feeding. Thirteen cantos of beauty, wonder, and the first steps of transformation.",
+        icon: `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+                <!-- Sea waves — the ocean crossing, the island -->
+                <path d="M 4 32 Q 12 24 20 32 Q 28 40 36 32 Q 44 24 56 32" opacity="0.85"/>
+                <path d="M 4 42 Q 12 34 20 42 Q 28 50 36 42 Q 44 34 56 42" opacity="0.55"/>
+                <!-- Sacred island — small hill with glowing mark -->
+                <path d="M 22 32 Q 30 20 38 32" opacity="0.6" stroke-width="1.2"/>
+                <circle cx="30" cy="20" r="3.5" fill="currentColor" opacity="0.5" stroke="none"/>
+                <!-- Bowl on the waves -->
+                <path d="M 10 14 Q 10 22 18 22 Q 26 22 26 14" stroke-width="1.8" opacity="0.7"/>
+                <line x1="9" y1="14" x2="27" y2="14" stroke-width="1.6" opacity="0.6"/>
+              </svg>`,
+        keyEvents: ["The Festival of Indra — the world's beauty", "The sea-goddess Maṇimēkalā appears", "The sacred island of Maṇipallavam", "The bowl Amutacurapi received", "Mātatavi's renunciation", "The city of Pukār fed"]
+      },
+      {
+        num: 2,
+        tamil: "நெறி",
+        english: "The Path",
+        setting: "Vañci · Kāñci · The wandering road",
+        cantoRange: "Cantos 14–22",
+        desc: "The saffron robe donned, the world departed. Maṇimēkalai wanders south and west — feeding the hungry, following the dharma, carrying the stories of past lives that explain why she is here. In Kāñci she hears the Buddha's teaching in full. In Vañci she stands in Kaṇṇaki's city, successor to a tradition of fierce compassion. Nine cantos of walking, working, and deepening understanding.",
+        icon: `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+                <!-- Wandering road — winding path -->
+                <path d="M 8 52 Q 18 40 24 30 Q 30 20 40 14 Q 48 10 54 12" opacity="0.7" stroke-width="1.6"/>
+                <!-- Robe/pilgrim figure simplified -->
+                <circle cx="24" cy="28" r="4" opacity="0.55" stroke-width="1.2"/>
+                <path d="M 20 32 L 18 46 M 20 32 L 28 32 M 24 36 L 20 44" opacity="0.4" stroke-width="1.1"/>
+                <!-- Bowl in hand -->
+                <path d="M 29 29 Q 29 34 34 34 Q 39 34 39 29" stroke-width="1.6" opacity="0.75"/>
+                <line x1="28" y1="29" x2="40" y2="29" stroke-width="1.4" opacity="0.65"/>
+              </svg>`,
+        keyEvents: ["The saffron robe — formal renunciation", "Story of Āputtiraṉ — karmic lineage of the bowl", "The Buddha's footprint in Kāñci", "Vañci — Kaṇṇaki's city", "Feeding the imprisoned", "The doctrine received in full"]
+      },
+      {
+        num: 3,
+        tamil: "தெளிவு",
+        english: "The Doctrine",
+        setting: "Kāñci — the city of debate",
+        cantoRange: "Cantos 23–30",
+        desc: "The great debates. Eight cantos of rigorous philosophical confrontation — the Ājīvika school of fate, the Lokāyata materialists, the Jains, the Vaiśeṣika atomists, the Sāṃkhya dualists, the Mīmāṃsā ritualists. Maṇimēkalai meets each teacher, hears each argument, and refutes with the teaching of dependent origination. In the final canto, she sees the causal chain — and its cessation — and is free.",
+        icon: `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+                <!-- Lotus of enlightenment blooming -->
+                <circle cx="30" cy="38" r="3.5" fill="currentColor" opacity="0.65" stroke="none"/>
+                <path d="M 30 34 Q 24 28 20 20 Q 28 24 30 30 Q 32 24 40 20 Q 36 28 30 34" opacity="0.75" fill="currentColor" stroke="none"/>
+                <path d="M 30 34 Q 18 26 14 14 Q 26 20 30 28 Q 34 20 46 14 Q 42 26 30 34" opacity="0.45" fill="currentColor" stroke="none"/>
+                <!-- Stem -->
+                <line x1="30" y1="41" x2="30" y2="52" stroke-width="1.8" opacity="0.5"/>
+                <!-- Water line -->
+                <path d="M 10 52 Q 20 48 30 52 Q 40 56 50 52" opacity="0.4" stroke-width="1.2"/>
+              </svg>`,
+        keyEvents: ["Ājīvika debate — against fatalism", "Lokāyata debate — against materialism", "Jain debate — against eternal soul", "Sāṃkhya debate — against cosmic dualism", "Mīmāṃsā debate — against Vedic authority", "Final insight — liberation attained"]
+      }
+    ];
+
+    const partsGrid = document.getElementById('parts-grid');
+    PARTS.forEach(p => {
+      const cantosInPart = MM_CANTOS.filter(c => c.part === p.num);
+      const totalLines = cantosInPart.reduce((s, c) => s + c.lines, 0);
+      partsGrid.innerHTML += `
+        <a href="part.html?p=${p.num}" class="mm-part-card" data-part="${p.num}">
+          <div class="mm-part-num">Part ${p.num} · ${p.cantoRange}</div>
+          <div style="text-align:center;margin:.5rem 0 .75rem;color:var(--part-accent)">
+            ${p.icon}
+          </div>
+          <div class="mm-part-tamil">${p.tamil}</div>
+          <div class="mm-part-english">${p.english}</div>
+          <div class="mm-part-setting">${p.setting}</div>
+          <div class="mm-part-desc">${p.desc}</div>
+          <div class="mm-part-meta">
+            <span><strong>${cantosInPart.length}</strong>Cantos</span>
+            <span><strong>~${totalLines.toLocaleString()}</strong>Lines</span>
+          </div>
+          <div class="mm-part-cta">Enter →</div>
+        </a>`;
+    });
+
+    /* ── Character cards ── */
+    const charsGrid = document.getElementById('characters-grid');
+    MM_CHARACTERS.filter(c => c.type === 'character').forEach(ch => {
+      charsGrid.innerHTML += `
+        <div class="mm-char-card" style="--char-accent:${ch.accent}">
+          <div class="mm-char-role">${ch.role}</div>
+          <div class="mm-char-tamil">${ch.tamil}</div>
+          <div class="mm-char-english">${ch.english}</div>
+          <div class="mm-char-desc">${ch.description}</div>
+        </div>`;
+    });
+
+    /* ── School cards ── */
+    const schoolsGrid = document.getElementById('schools-grid');
+    MM_CHARACTERS.filter(c => c.type === 'school').forEach(ch => {
+      schoolsGrid.innerHTML += `
+        <div class="mm-char-card school-card" style="--char-accent:${ch.accent}">
+          <div class="mm-char-role">${ch.role}</div>
+          <div class="mm-char-tamil">${ch.tamil}</div>
+          <div class="mm-char-english">${ch.english}</div>
+          <div class="mm-char-desc">${ch.description}</div>
+        </div>`;
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About · திருச்சந்த விருத்தம் · Tiruchanda Viruttam</title>
+  <meta name="description" content="Scholarly introduction to the Tiruchanda Viruttam — 96 viruttam verses by Thirumalisai Āḻvār, the philosopher-poet of the Divya Prabandham."/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/tiruchanda.css"/>
+  <style>
+    .about-page {
+      max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem;
+    }
+    .about-bc { display: flex; align-items: center; gap: .5rem; font-size: .875rem; color: var(--ink-muted); margin-bottom: 2rem; flex-wrap: wrap; }
+    .about-bc a { color: var(--ink-secondary); text-decoration: none; }
+    .about-bc a:hover { color: var(--tcv-saffron); }
+    .about-bc .sep { opacity: .45; }
+
+    .about-hero { text-align: center; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border-subtle); }
+    .about-hero-tamil { font-family: var(--font-tamil); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: var(--tcv-saffron); line-height: 1.15; margin-bottom: .35rem; }
+    .about-hero-eng { font-family: var(--font-display); font-style: italic; font-size: 1.4rem; color: var(--ink-secondary); margin-bottom: .4rem; }
+    .about-hero-author { font-size: .85rem; letter-spacing: .22em; text-transform: uppercase; color: var(--tcv-ochre); opacity: .85; }
+
+    .about-section { margin-bottom: 2.5rem; }
+    .about-section h2 {
+      font-family: var(--font-display); font-size: .78rem; letter-spacing: .32em;
+      text-transform: uppercase; color: var(--tcv-saffron); font-weight: 500;
+      margin-bottom: 1.25rem; padding-bottom: .5rem;
+      border-bottom: 1px solid rgba(155,68,0,.22);
+    }
+    .about-section p { font-size: 1.0625rem; line-height: 1.85; color: var(--ink-secondary); margin-bottom: 1rem; }
+    .about-section p:last-child { margin-bottom: 0; }
+    .about-section em { color: var(--ink-primary); font-style: italic; }
+
+    .about-verse-sample {
+      background: var(--bg-paper);
+      background-image: repeating-linear-gradient(0deg, rgba(43,22,7,.02) 0px, rgba(43,22,7,.02) 1px, transparent 1px, transparent 8px);
+      border: 1px solid rgba(155,68,0,.3); border-radius: 4px;
+      padding: 2rem 2.25rem; margin: 1.5rem 0;
+      box-shadow: 0 1px 4px rgba(26,14,7,.08);
+      position: relative;
+    }
+    .about-verse-sample::before, .about-verse-sample::after {
+      content: ''; position: absolute; top: 50%; transform: translateY(-50%);
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--bg-primary); border: 1.5px solid rgba(155,68,0,.4);
+    }
+    .about-verse-sample::before { left: 10px; }
+    .about-verse-sample::after  { right: 10px; }
+    .about-verse-sample .label { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--tcv-saffron); margin-bottom: .65rem; font-family: var(--font-display); }
+    .about-verse-sample pre { font-family: var(--font-tamil); font-size: 1.4rem; line-height: 1.7; color: var(--ink-primary); white-space: pre-line; margin: 0 0 1rem; font-weight: 600; }
+    .about-verse-sample .translit { font-family: var(--font-body); font-style: italic; font-size: .95rem; color: var(--ink-muted); margin: 0 0 .6rem; white-space: pre-line; }
+    .about-verse-sample .eng { font-family: var(--font-display); font-style: italic; font-size: 1rem; line-height: 1.6; color: var(--ink-secondary); margin: 0; }
+
+    .about-cta {
+      display: inline-block; margin-top: 2rem;
+      padding: .7rem 1.6rem;
+      background: var(--tcv-saffron); color: var(--bg-paper);
+      border-radius: 4px; text-decoration: none;
+      font-family: var(--font-display); font-size: .85rem;
+      letter-spacing: .1em; text-transform: uppercase;
+      transition: background .15s;
+    }
+    .about-cta:hover { background: var(--tcv-ochre); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark" style="color:var(--tcv-saffron,#9b4400)">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"
+               fill="none" stroke="currentColor" stroke-width="1.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="20" r="10" stroke-width="1.3" opacity="0.5"/>
+            <circle cx="20" cy="20" r="4" fill="currentColor" opacity="0.8" stroke="none"/>
+            <line x1="20" y1="8" x2="20" y2="32" stroke-width="1.2" opacity="0.5"/>
+            <line x1="8" y1="20" x2="32" y2="20" stroke-width="1.2" opacity="0.5"/>
+            <line x1="11.5" y1="11.5" x2="28.5" y2="28.5" stroke-width="1.2" opacity="0.4"/>
+            <line x1="28.5" y1="11.5" x2="11.5" y2="28.5" stroke-width="1.2" opacity="0.4"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil" style="color:var(--tcv-saffron,#9b4400)">திருச்சந்த விருத்தம்</span>
+          <span class="wordmark-english">Tiruchanda Viruttam</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">All Verses</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="about-page">
+      <nav class="about-bc">
+        <a href="../index.html">Library</a>
+        <span class="sep"> › </span>
+        <a href="index.html">Tiruchanda Viruttam</a>
+        <span class="sep"> › </span>
+        <span>About</span>
+      </nav>
+
+      <div class="about-hero">
+        <div class="about-hero-tamil">திருச்சந்த விருத்தம்</div>
+        <div class="about-hero-eng">Tiruchanda Viruttam</div>
+        <div class="about-hero-author">Thirumalisai Āḻvār · திருமழிசையாழ்வார் · c. 7th–8th century CE</div>
+      </div>
+
+      <section class="about-section">
+        <h2>The Philosopher-Saint</h2>
+        <p>Thirumalisai Āḻvār (திருமழிசையாழ்வார்) is the most intellectually restless of the twelve Āḻvārs. Unlike Periyāḻvār or Āṇṭāḷ, who were born into Vaiṣṇava households, Thirumalisai came to his devotion by a longer and more questioning road. Tradition holds that he seriously studied and practised Jainism, Buddhism, and Śaiva Siddhānta — testing each on its own terms — before the encounter with Vaiṣṇava bhakti that he describes as a conversion of total conviction.</p>
+        <p>That philosophical restlessness is not left behind in the <em>Tiruchanda Viruttam</em>; it becomes its texture. The verses ask: Is God what the externally minded worshipper makes of him? Can the Lord be measured — and if so, by what? How can the highest be personal? What is the relationship between karma, grace, and liberation? These are not rhetorical flourishes but genuine questions, posed in strict metre, addressed directly to Viṣṇu.</p>
+      </section>
+
+      <section class="about-section">
+        <h2>The Viruttam Metre</h2>
+        <p>The <em>viruttam</em> is a Tamil metres form that draws on Sanskrit prosodic tradition. Each of the 96 verses follows a strict syllabic pattern — four lines of equal metrical weight — giving the work an almost mathematical architecture. The discipline of the form is part of the meaning: philosophical argument held within strict constraint is itself an enactment of the ordered universe the Āḻvār describes.</p>
+        <p>The title <em>Tiruchanda Viruttam</em> (திருச்சந்த விருத்தம்) means literally "the holy-metre viruttam" — honouring the form itself as a sacred vehicle. The chandas (metre) is not a container for the content but integral to it.</p>
+      </section>
+
+      <div class="about-verse-sample">
+        <div class="label">Opening verse · Verse 1 · நலந்தலையாய</div>
+        <pre>நலந்தலையாய நன்மலர்ச் சோலை நாடு திருமாலோ
+வலந்தலையாய வல்வினை மாய்க்கும் வானவர்கோனே
+கலந்தலையாய கார்முகில் வண்ணா கடல்வண்ணா
+இலந்தலையாய என்னிடர் தீர்க்கும் எந்தை பெருமானே.</pre>
+        <div class="translit">Nalantalai yāya naṉmalar cōlai nāṭu tirumālō
+Valantalai yāya valviṉai māykkum vāṉavar kōṉē
+Kalantalai yāya kārmuḳil vaṇṇā kaṭal vaṇṇā
+Ilantalai yāya eṉṉiṭar tīrkkum entai perumāṉē.</div>
+        <div class="eng">O Lord of Thirumāl, who dwells in the land of goodly flowering groves!<br>
+O King of the celestials who destroys the strong accumulated karma!<br>
+O One of cloud-dark hue, O One the colour of the ocean!<br>
+O my great Father who relieves the suffering that has befallen me!</div>
+      </div>
+
+      <section class="about-section">
+        <h2>Śrīraṅgam as the Heart of the Work</h2>
+        <p>The <em>Tiruchanda Viruttam</em> is centred on Śrīraṅgam (திரு வரங்கம்) — the island temple in the Kāveri river where the Lord reclines as Raṅganātha on the serpent Ādiśeṣa. Thirumalisai Āḻvār settled at Śrīraṅgam after his philosophical wanderings, and the verses are saturated with the atmosphere of that sacred place: the fragrant groves, the river, the festivals, the community of devotees who come to worship.</p>
+        <p>Yet the Lord is not confined to Śrīraṅgam: he is the one who fills the Vedas, who dwells in the meditator's mind, who pervades ocean and mountain and world. Śrīraṅgam is the point of concentration — the place where the cosmic and the intimate are most fully one.</p>
+      </section>
+
+      <section class="about-section">
+        <h2>Place in the Divya Prabandham</h2>
+        <p>The <em>Nālāyira Divya Prabandham</em> (நாலாயிர திவ்ய பிரபந்தம்) is a collection of 4,000 Tamil verses by the twelve Āḻvārs, compiled and arranged by Nāthamuni in the 9th–10th century. It forms the scriptural basis of the Śrī Vaiṣṇava tradition.</p>
+        <p>Thirumalisai Āḻvār contributed two works: the <em>Tiruchanda Viruttam</em> (96 verses) and the <em>Nānmukaṉ Tiruvantāti</em> (96 verses). The two works together constitute 192 of the 4,000 verses. In the liturgical recitation of the Divya Prabandham, the <em>Tiruchanda Viruttam</em> holds a place of particular respect for its metrical discipline and theological depth.</p>
+      </section>
+
+      <section class="about-section">
+        <h2>Reading These Verses</h2>
+        <p>The <em>Tiruchanda Viruttam</em> rewards both devotional and philosophical reading. As devotional poetry, the verses are a sustained act of worship — every verse an address to Viṣṇu, building across 96 verses a comprehensive portrait of the Lord's nature, presence, and grace. As philosophical poetry, they are an argument: the Lord cannot be merely external to those who merely worship externally; the Lord is both knowable and beyond knowing; karma is real but dissolved by his presence; love supersedes ritual.</p>
+        <p>The classical commentaries — notably by Periyavāccāṉ Piḷḷai — interpret each verse within the Viśiṣṭādvaita framework: Brahman (Viṣṇu) is the inner reality of all things, souls are his modes, and liberation is a loving union rather than absorption. Reading with these frameworks enriches without constraining — the verses themselves are capacious enough to hold many readings.</p>
+        <a href="index.html" class="about-cta">Read All 96 Verses →</a>
+      </section>
+
+    </div>
+  </main>
+
+  <footer style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(155,68,0,0.15);color:var(--ink-muted);font-size:.875rem;letter-spacing:.05em;margin-top:1rem">
+    <div style="color:var(--tcv-saffron,#9b4400);letter-spacing:1em;padding-left:1em;margin-bottom:.5rem;opacity:.4">❧ ❧ ❧</div>
+    <div>திருச்சந்த விருத்தம் · <a href="../index.html" style="color:var(--tcv-saffron,#9b4400)">Tamil Literature Library</a></div>
+  </footer>
+
+</body>
+</html>

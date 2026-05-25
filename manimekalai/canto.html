@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Canto — Maṇimēkalai</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/manimekalai.css"/>
+</head>
+<body>
+
+  <!-- Story context strip -->
+  <div class="mm-context-strip" id="context-strip" style="display:none">
+    <span class="ctx-part" id="ctx-part"></span>
+    <span class="ctx-sep">·</span>
+    <span id="ctx-canto"></span>
+    <span class="ctx-sep">·</span>
+    <span class="ctx-situation" id="ctx-situation"></span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Maṇimēkalai home">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" width="32" height="32"
+               xmlns="http://www.w3.org/2000/svg" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               style="color:var(--mm-teal)">
+            <path d="M 8 16 Q 8 34 20 34 Q 32 34 32 16" stroke-width="2.2" opacity="0.88"/>
+            <line x1="7" y1="16" x2="33" y2="16" stroke-width="2" opacity="0.75"/>
+            <path d="M 14 34 Q 20 38 26 34" stroke-width="1.6" opacity="0.7"/>
+            <circle cx="20" cy="38" r="1.5" fill="currentColor" stroke="none" opacity="0.6"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">மணிமேகலை</span>
+          <span class="wordmark-english">Maṇimēkalai</span>
+        </span>
+      </a>
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html">Home</a>
+        <a href="#" id="nav-part-link">Part</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Canto hero -->
+    <section class="mm-canto-hero" id="canto-hero">
+      <!-- filled by JS -->
+    </section>
+
+    <!-- Passage nav: prev / next canto -->
+    <div class="mm-passage-nav" id="passage-nav"></div>
+
+    <!-- Passages -->
+    <div class="mm-passages" id="passages-container">
+      <!-- filled by JS -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      <a href="index.html">← Maṇimēkalai</a>
+      &emsp;·&emsp;
+      <a id="footer-part-link" href="index.html">Part</a>
+      &emsp;·&emsp;
+      <a href="../index.html">Library</a>
+    </p>
+  </footer>
+
+  <script src="data/cantos.js"></script>
+  <script src="data/passages.js" onerror="window.MM_PASSAGES=[]"></script>
+  <script>
+  (function() {
+    if (!window.MM_PASSAGES) window.MM_PASSAGES = [];
+
+    const params = new URLSearchParams(window.location.search);
+    const cantoNum = parseInt(params.get('c')) || 1;
+
+    const canto = MM_CANTOS.find(c => c.num === cantoNum);
+    if (!canto) {
+      document.title = 'Canto not found — Maṇimēkalai';
+      return;
+    }
+
+    // Part colour mapping
+    const PART_ACCENTS = {
+      1: { accent: 'var(--mm-world)',   bg: 'var(--mm-world-pale)'   },
+      2: { accent: 'var(--mm-path)',    bg: 'var(--mm-path-pale)'    },
+      3: { accent: 'var(--mm-doctrine)',bg: 'var(--mm-doctrine-pale)'}
+    };
+    const pm = PART_ACCENTS[canto.part];
+    document.body.style.setProperty('--part-accent', pm.accent);
+    document.body.style.setProperty('--part-bg', pm.bg);
+
+    document.title = `Canto ${cantoNum}: ${canto.nameEnglish} — Maṇimēkalai`;
+
+    // Context strip
+    const strip = document.getElementById('context-strip');
+    strip.style.display = 'flex';
+    strip.style.setProperty('--part-accent', pm.accent);
+    document.getElementById('ctx-part').textContent = `${canto.partEnglish}`;
+    document.getElementById('ctx-canto').textContent = `Canto ${cantoNum} · ${canto.nameEnglish}`;
+    document.getElementById('ctx-situation').textContent = canto.dramatic;
+
+    // Nav links
+    const partLink = document.getElementById('nav-part-link');
+    partLink.href = `part.html?p=${canto.part}`;
+    partLink.textContent = canto.partEnglish;
+    document.getElementById('footer-part-link').href = `part.html?p=${canto.part}`;
+    document.getElementById('footer-part-link').textContent = canto.partEnglish;
+
+    // Canto hero
+    const TYPE_LABELS = {
+      narrative: 'Narrative', description: 'Description',
+      hymn: 'Hymn', 'past-life': 'Past Life', debate: 'Debate', mixed: 'Mixed'
+    };
+    const typeLabel = TYPE_LABELS[canto.type] || canto.type;
+    const typeClass = canto.type === 'past-life' ? 'past-life' : canto.type;
+
+    const hero = document.getElementById('canto-hero');
+    hero.innerHTML = `
+      <div class="canto-part-tag" style="color:${pm.accent}">
+        ${canto.partTamil} · ${canto.partEnglish} · Canto ${cantoNum}
+        &ensp;<span class="mm-canto-type-badge ${typeClass}" style="vertical-align:middle">${typeLabel}</span>
+      </div>
+      <h1>${canto.name}</h1>
+      <h2>${canto.nameEnglish}</h2>
+      <div class="mm-canto-dramatic">${canto.dramatic}</div>
+      <p style="font-size:.92rem;color:var(--ink-muted)">
+        Setting: ${canto.setting} &emsp;·&emsp; ~${canto.lines} lines
+      </p>
+      ${canto.type === 'debate' ? `
+        <p style="font-size:.88rem;color:var(--mm-doctrine-mid);margin-top:.75rem;font-style:italic">
+          Philosophical debate — ${canto.debateSchool || ''} · ${canto.debateSchoolTamil || ''}
+        </p>` : ''}`;
+
+    // Prev / next navigation
+    const prev = MM_CANTOS.find(c => c.num === cantoNum - 1);
+    const next = MM_CANTOS.find(c => c.num === cantoNum + 1);
+    const nav = document.getElementById('passage-nav');
+    nav.innerHTML = `
+      <span>${prev
+        ? `<a href="canto.html?c=${prev.num}">← Canto ${prev.num}: ${prev.nameEnglish}</a>`
+        : '<span style="opacity:.35">← First Canto</span>'}</span>
+      <span style="color:var(--ink-muted);font-size:.78rem">Canto ${cantoNum} of ${MM_CANTOS.length}</span>
+      <span>${next
+        ? `<a href="canto.html?c=${next.num}">Canto ${next.num}: ${next.nameEnglish} →</a>`
+        : '<span style="opacity:.35">Final Canto →</span>'}</span>`;
+
+    // Passages for this canto
+    const passages = MM_PASSAGES.filter(p => p.canto === cantoNum);
+    const container = document.getElementById('passages-container');
+
+    if (passages.length === 0) {
+      container.innerHTML = `
+        <div class="mm-coming-soon">
+          <span class="tamil-note">${canto.name}</span>
+          <p>
+            The full text of this canto — <em>${canto.nameEnglish}</em> —
+            will be added in an upcoming session.
+          </p>
+          <p style="margin-top:.75rem;font-size:.92rem">
+            ${canto.summary}
+          </p>
+          ${canto.type === 'debate' ? `
+          <p style="margin-top:.75rem;font-size:.88rem;color:var(--mm-doctrine-mid)">
+            This is a philosophical debate canto — when added, it will include
+            a two-panel layout showing the <strong>${canto.debateSchool}</strong> position
+            and Maṇimēkalai's refutation side by side.
+          </p>` : ''}
+        </div>`;
+      return;
+    }
+
+    // Type label map
+    const PASSAGE_TYPE_LABELS = {
+      narrative: 'Narrative',
+      description: 'Description',
+      hymn: 'Hymn',
+      'past-life': 'Past Life',
+      debate: 'Debate',
+      catalogue: 'Catalogue',
+    };
+
+    passages.forEach(p => {
+      const ptypeClass = p.type === 'past-life' ? 'past-life' : (p.type || 'narrative');
+      const ptypeLabel = PASSAGE_TYPE_LABELS[p.type] || p.type || 'Narrative';
+
+      // Debate passages: render with two-column panel if debateRole fields present
+      if (p.type === 'debate' && (p.debatePosition || p.debateRefutation)) {
+        container.innerHTML += `
+          <div class="mm-passage" id="passage-${p.num}">
+            <div class="mm-passage-header">
+              <span class="mm-passage-num">Passage ${p.num}</span>
+              ${p.name ? `<span class="mm-passage-name-tamil">${p.name}</span>` : ''}
+              ${p.nameEnglish ? `<span class="mm-passage-name-eng">${p.nameEnglish}</span>` : ''}
+              <span class="mm-passage-type-badge ${ptypeClass}">${ptypeLabel}</span>
+            </div>
+            <div class="mm-debate-panel">
+              <div class="mm-debate-header">
+                <span class="mm-debate-school">${p.debateSchool || 'Debate'}</span>
+                ${p.debateSchoolTamil ? `<span class="mm-debate-school-tamil">${p.debateSchoolTamil}</span>` : ''}
+              </div>
+              <div class="mm-debate-cols">
+                <div class="mm-debate-col">
+                  <div class="mm-debate-col-label position">The Position</div>
+                  <p>${p.debatePosition || ''}</p>
+                </div>
+                <div class="mm-debate-col">
+                  <div class="mm-debate-col-label refutation">Maṇimēkalai's Refutation</div>
+                  <p>${p.debateRefutation || ''}</p>
+                </div>
+              </div>
+            </div>
+            <div class="mm-layers">
+              ${renderLayers(p)}
+            </div>
+          </div>`;
+        return;
+      }
+
+      // Hymn passages: add saffron hymn block
+      if (p.type === 'hymn') {
+        container.innerHTML += `
+          <div class="mm-passage" id="passage-${p.num}">
+            <div class="mm-passage-header">
+              <span class="mm-passage-num">Passage ${p.num}</span>
+              ${p.name ? `<span class="mm-passage-name-tamil">${p.name}</span>` : ''}
+              ${p.nameEnglish ? `<span class="mm-passage-name-eng">${p.nameEnglish}</span>` : ''}
+              <span class="mm-passage-type-badge hymn">${ptypeLabel}</span>
+            </div>
+            ${p.tamil ? `
+            <div class="mm-hymn-block">
+              <div class="mm-hymn-label">Hymn · Tamil</div>
+              <div class="mm-hymn-text">${p.tamil}</div>
+            </div>` : ''}
+            <div class="mm-layers">
+              ${renderLayers(p, /* skipTamil */ true)}
+            </div>
+          </div>`;
+        return;
+      }
+
+      // Standard passage
+      container.innerHTML += `
+        <div class="mm-passage" id="passage-${p.num}">
+          <div class="mm-passage-header">
+            <span class="mm-passage-num">Passage ${p.num}</span>
+            ${p.name ? `<span class="mm-passage-name-tamil">${p.name}</span>` : ''}
+            ${p.nameEnglish ? `<span class="mm-passage-name-eng">${p.nameEnglish}</span>` : ''}
+            <span class="mm-passage-type-badge ${ptypeClass}">${ptypeLabel}</span>
+          </div>
+          <div class="mm-layers">
+            ${renderLayers(p)}
+          </div>
+        </div>`;
+    });
+
+    function renderLayers(p, skipTamil) {
+      let html = '';
+      if (!skipTamil && p.tamil) html += `
+        <div class="mm-layer">
+          <div class="mm-layer-label">Tamil</div>
+          <div class="mm-layer-text tamil">${p.tamil}</div>
+        </div>`;
+      if (p.transliteration) html += `
+        <div class="mm-layer">
+          <div class="mm-layer-label">Transliteration</div>
+          <div class="mm-layer-text transliteration">${p.transliteration}</div>
+        </div>`;
+      if (p.english) html += `
+        <div class="mm-layer">
+          <div class="mm-layer-label">English</div>
+          <div class="mm-layer-text">${p.english}</div>
+        </div>`;
+      if (p.tamilUrai) html += `
+        <div class="mm-layer">
+          <div class="mm-layer-label">Tamil Urai</div>
+          <div class="mm-layer-text urai">${p.tamilUrai}</div>
+        </div>`;
+      if (p.altTranslation) html += `
+        <div class="mm-layer">
+          <div class="mm-layer-label">Alt. Translation</div>
+          <div class="mm-layer-text">${p.altTranslation}</div>
+        </div>`;
+      if (p.note) html += `
+        <div class="mm-layer">
+          <div class="mm-layer-label">Note</div>
+          <div class="mm-layer-text note">${p.note}</div>
+        </div>`;
+      return html;
+    }
+
+  })();
+  </script>
+
+</body>
+</html>

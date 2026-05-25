@@ -1,0 +1,453 @@
+/* ==========================================================================
+   ஐந்திணை எழுபது · Aintiṇai Eḻupatu — Seventy on the Five Landscapes
+   70 akam poems · c. 1st–5th century CE
+   Author: Mōcikīraṉār · Patiṉeṇkīḻkaṇakku collection
+
+   Title: ஐந்திணை (aintiṇai) = the five tiṇai; எழுபது (eḻupatu) = seventy.
+   Seventy akam love poems across the five classical Tamil landscapes.
+   The companion piece to Aintiṇai Aimpatu — where that work gives 10 per tiṇai,
+   this gives 14 per tiṇai, allowing deeper exploration of each landscape.
+
+   Visual identity: The same five-landscape grammar as Aintiṇai Aimpatu, but
+   more expansive — 70 poems rather than 50. The primary colour shifts to
+   deep terracotta/copper to distinguish the two works visually while keeping
+   the same tiṇai accent system. The hero mark: five dots arranged in a larger,
+   more open pentagon — the same shape but with greater breathing room, reflecting
+   the collection's greater depth.
+   ========================================================================== */
+
+:root {
+  /* ── Warm terracotta (primary) ───────────────────────── */
+  --ae-primary:         #5a2010;
+  --ae-primary-mid:     #6a2c18;
+  --ae-primary-bright:  #8a4428;
+  --ae-primary-pale:    rgba(90, 32, 16, 0.10);
+
+  /* ── Warm parchment ──────────────────────────────────── */
+  --ae-parchment:       #f4ead8;
+  --ae-parchment-mid:   #e4d8c0;
+  --ae-parchment-deep:  #d0c0a0;
+
+  /* ── Ink ─────────────────────────────────────────────── */
+  --ae-ink:             #1a0c08;
+  --ae-ink-mid:         #3a2018;
+  --ae-ink-pale:        rgba(26, 12, 8, 0.52);
+
+  /* ── Tiṇai accent colours (same as Aimpatu) ─────────── */
+  --ae-kurinji:         #6a2888;
+  --ae-kurinji-pale:    rgba(106, 40, 136, 0.10);
+
+  --ae-mullai:          #2a6830;
+  --ae-mullai-pale:     rgba(42, 104, 48, 0.10);
+
+  --ae-marutam:         #1848a0;
+  --ae-marutam-pale:    rgba(24, 72, 160, 0.10);
+
+  --ae-neytal:          #1878a8;
+  --ae-neytal-pale:     rgba(24, 120, 168, 0.10);
+
+  --ae-palai:           #9a4808;
+  --ae-palai-pale:      rgba(154, 72, 8, 0.10);
+
+  /* ── Site overrides ─────────────────────────────────── */
+  --accent-vermillion:  var(--ae-primary);
+  --accent-kumkum:      var(--ae-primary-mid);
+  --accent-ochre:       #7a3818;
+  --accent-gold:        #a05828;
+}
+
+/* ── Body ────────────────────────────────────────────────── */
+body {
+  background: var(--ae-parchment);
+  color: var(--ae-ink);
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.site-header {
+  background: var(--ae-primary);
+  border-bottom: 2px solid rgba(138, 68, 40, 0.50);
+}
+/* wordmark-tamil: parchment on dark-brown header */
+.site-logo .wordmark-tamil {
+  color: var(--ae-parchment);
+}
+
+.site-logo .wordmark-roman {
+  color: #f0d8c8;
+}
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: #f0d8c8;
+  border-bottom-color: #c89878;
+}
+
+/* ── Hero ───────────────────────────────────────────────── */
+.ae-hero {
+  background: linear-gradient(160deg, var(--ae-primary) 0%, var(--ae-primary-mid) 50%, #7a3020 100%);
+  color: #f4ead8;
+  padding: 3.5rem 1.5rem 3rem;
+  text-align: center;
+}
+.ae-hero-mark { margin-bottom: 1.5rem; }
+.ae-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.25rem;
+}
+.ae-hero-roman {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #f0d8c8;
+  margin: 0 0 0.4rem;
+}
+.ae-hero-meaning {
+  font-size: 1rem;
+  color: rgba(244, 234, 216, 0.78);
+  margin: 0 0 1.2rem;
+}
+.ae-hero p {
+  max-width: 640px;
+  margin: 0 auto 0.9rem;
+  font-size: 0.97rem;
+  line-height: 1.7;
+  color: rgba(244, 234, 216, 0.82);
+}
+
+/* ── Stat row ───────────────────────────────────────────── */
+.ae-stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2rem;
+  margin-top: 2rem;
+}
+.ae-stat { text-align: center; min-width: 80px; }
+.ae-stat-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f0d8c8;
+  line-height: 1.2;
+}
+.ae-stat-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(244, 234, 216, 0.55);
+  margin-top: 0.2rem;
+}
+
+/* ── Five tiṇai strip ───────────────────────────────────── */
+.ae-tinai-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-bottom: 1px solid var(--ae-parchment-mid);
+}
+.ae-tinai-tab {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.9rem 1rem 0.8rem;
+  text-align: center;
+  border-right: 1px solid var(--ae-parchment-mid);
+  background: #fff;
+}
+.ae-tinai-tab:last-child { border-right: none; }
+.ae-tinai-tab-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+.ae-tinai-tab[data-tinai="kuṟiñci"] .ae-tinai-tab-dot { background: var(--ae-kurinji); }
+.ae-tinai-tab[data-tinai="mullai"]  .ae-tinai-tab-dot { background: var(--ae-mullai); }
+.ae-tinai-tab[data-tinai="marutam"] .ae-tinai-tab-dot { background: var(--ae-marutam); }
+.ae-tinai-tab[data-tinai="neytal"]  .ae-tinai-tab-dot { background: var(--ae-neytal); }
+.ae-tinai-tab[data-tinai="pālai"]   .ae-tinai-tab-dot { background: var(--ae-palai); }
+.ae-tinai-tab-tamil {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ae-ink);
+}
+.ae-tinai-tab-roman {
+  display: block;
+  font-size: 0.80rem;
+  font-style: italic;
+  color: var(--ae-ink-pale);
+}
+.ae-tinai-tab-eng {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--ae-ink-pale);
+  margin-top: 0.1rem;
+}
+.ae-tinai-tab-count {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ae-ink-pale);
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* ── Poems header ───────────────────────────────────────── */
+.ae-poems-header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 0.5rem;
+  border-top: 1px solid var(--ae-parchment-mid);
+}
+.ae-poems-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ae-primary);
+  margin: 0 0 0.35rem;
+}
+.ae-poems-header p {
+  font-size: 0.88rem;
+  color: var(--ae-ink-pale);
+  margin: 0;
+}
+
+/* ── Main poem list ─────────────────────────────────────── */
+.ae-poems-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ── Section divider ────────────────────────────────────── */
+.ae-section-label {
+  font-size: 0.80rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  display: inline-block;
+  background: var(--ae-parchment);
+  padding: 0.1rem 0.8rem 0.1rem 0;
+  position: relative;
+  top: -0.6rem;
+}
+.ae-section-hr {
+  border: none;
+  border-top: 2px solid rgba(90, 32, 16, 0.12);
+  margin: 0.6rem 0 0;
+}
+
+/* ── Individual poem card ───────────────────────────────── */
+.ae-poem {
+  background: #fff;
+  border: 1px solid rgba(90, 32, 16, 0.09);
+  border-radius: 6px;
+  padding: 1.1rem 1.3rem 1.0rem;
+  box-shadow: 0 1px 5px rgba(90, 32, 16, 0.05);
+}
+.ae-poem[data-tinai="kuṟiñci"] { border-left: 4px solid var(--ae-kurinji); }
+.ae-poem[data-tinai="mullai"]  { border-left: 4px solid var(--ae-mullai); }
+.ae-poem[data-tinai="marutam"] { border-left: 4px solid var(--ae-marutam); }
+.ae-poem[data-tinai="neytal"]  { border-left: 4px solid var(--ae-neytal); }
+.ae-poem[data-tinai="pālai"]   { border-left: 4px solid var(--ae-palai); }
+
+/* ── Poem header ────────────────────────────────────────── */
+.ae-poem-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+.ae-poem-num {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ae-ink-pale);
+  min-width: 1.8rem;
+  flex-shrink: 0;
+}
+.ae-tinai-badge {
+  font-size: 0.73rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 3px;
+  padding: 0.14rem 0.5rem;
+  flex-shrink: 0;
+}
+.ae-poem[data-tinai="kuṟiñci"] .ae-tinai-badge { background: var(--ae-kurinji-pale); color: var(--ae-kurinji); }
+.ae-poem[data-tinai="mullai"]  .ae-tinai-badge { background: var(--ae-mullai-pale);   color: var(--ae-mullai); }
+.ae-poem[data-tinai="marutam"] .ae-tinai-badge { background: var(--ae-marutam-pale);  color: var(--ae-marutam); }
+.ae-poem[data-tinai="neytal"]  .ae-tinai-badge { background: var(--ae-neytal-pale);   color: var(--ae-neytal); }
+.ae-poem[data-tinai="pālai"]   .ae-tinai-badge { background: var(--ae-palai-pale);    color: var(--ae-palai); }
+
+.ae-poem-speaker {
+  font-size: 0.78rem;
+  color: var(--ae-ink-pale);
+  font-style: italic;
+}
+.ae-poem-theme {
+  font-size: 0.88rem;
+  color: var(--ae-ink-mid);
+  font-style: italic;
+  flex-basis: 100%;
+  margin-top: -0.1rem;
+}
+
+/* ── Poem layers ────────────────────────────────────────── */
+.ae-poem-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.ae-layer {
+  border: 1px solid rgba(90, 32, 16, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.ae-layer-toggle {
+  display: flex;
+  align-items: center;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ae-primary-bright);
+  background: rgba(90, 32, 16, 0.04);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+.ae-layer-toggle::-webkit-details-marker { display: none; }
+.ae-layer[open] .ae-layer-toggle {
+  background: rgba(90, 32, 16, 0.08);
+  color: var(--ae-primary);
+}
+.ae-layer-content { padding: 0.7rem 0.95rem; background: #fff; }
+.ae-tamil-verse {
+  font-size: 1.0rem;
+  line-height: 1.9;
+  color: var(--ae-ink);
+  font-weight: 500;
+}
+.ae-translit-verse {
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.82;
+  color: var(--ae-ink-mid);
+}
+.ae-english-prose {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--ae-ink-mid);
+}
+.ae-note {
+  font-size: 0.86rem;
+  line-height: 1.70;
+  color: var(--ae-ink-pale);
+  font-style: italic;
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+.site-footer {
+  background: var(--ae-primary);
+  color: rgba(244, 234, 216, 0.65);
+}
+.site-footer a { color: #f0d8c8; }
+
+/* ── About page ─────────────────────────────────────────── */
+.ae-about-hero {
+  background: linear-gradient(160deg, var(--ae-primary) 0%, var(--ae-primary-mid) 100%);
+  color: #f4ead8;
+  padding: 3rem 1.5rem 2.5rem;
+  text-align: center;
+}
+.ae-about-hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 1rem 0 0.25rem;
+}
+.ae-about-subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  color: #f0d8c8;
+  margin: 0;
+}
+.ae-about-main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+.ae-about-section { margin-bottom: 2.5rem; }
+.ae-about-section h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ae-primary);
+  border-bottom: 2px solid rgba(90, 32, 16, 0.10);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+.ae-about-section p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--ae-ink-mid);
+  margin-bottom: 0.9rem;
+}
+.ae-tinai-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.8rem 0 1rem;
+  font-size: 0.88rem;
+}
+.ae-tinai-table th {
+  text-align: left;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ae-ink-pale);
+  border-bottom: 1px solid var(--ae-parchment-mid);
+}
+.ae-tinai-table td {
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid rgba(90, 32, 16, 0.06);
+  color: var(--ae-ink-mid);
+  vertical-align: top;
+}
+.ae-tinai-table tr:last-child td { border-bottom: none; }
+.ae-tinai-swatch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.ae-about-nav { margin-top: 3rem; text-align: center; }
+.ae-about-cta {
+  display: inline-flex;
+  align-items: center;
+  background: var(--ae-primary);
+  color: #f0d8c8;
+  padding: 0.75rem 1.8rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.ae-about-cta:hover { background: var(--ae-primary-bright); }
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .ae-hero { padding: 2.5rem 1rem 2rem; }
+  .ae-poems-main { padding: 0.8rem 0.8rem 3rem; }
+  .ae-poem { padding: 0.9rem 0.9rem 0.8rem; }
+  .ae-tinai-tab { min-width: 80px; padding: 0.7rem 0.5rem; }
+}

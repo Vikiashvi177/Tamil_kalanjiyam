@@ -1,0 +1,310 @@
+/* =============================================================================
+   திணைமாலை நூற்றைம்பது · Tiṇaimālai Nūṟṟaimpatu — 150 Landscape Garlands
+   Theme: deep garnet / terracotta / turmeric gold — the great garland anthology
+   154 poems (closest to 150), poet Kaṉimēytaviyar · c. 1st–5th century CE
+   ============================================================================= */
+
+:root {
+  /* Primary palette */
+  --tl-garnet:      #2a1018;   /* deep garnet body */
+  --tl-garnet-mid:  #3d1822;   /* mid garnet accent */
+  --tl-rose:        #6a2830;   /* warm rose highlight */
+  --tl-turmeric:    #c88a10;   /* turmeric gold accent */
+  --tl-terracotta:  #b04428;   /* terracotta detail */
+  --tl-cream:       #ede8d8;   /* cream text */
+  --tl-mist:        #aa8888;   /* muted rose-grey */
+  --tl-parchment:   #c8b898;   /* aged manuscript */
+
+  /* Per-tiṇai accent colors (richer, garland-dyed tones) */
+  --tl-kurinji:  #3a1a5a;   /* mountain deep violet */
+  --tl-mullai:   #1a3a28;   /* forest deep green */
+  --tl-marutam:  #6a3a10;   /* river amber-brown */
+  --tl-neytal:   #102040;   /* sea midnight blue */
+  --tl-palai:    #5a2a10;   /* wasteland burnt sienna */
+
+  /* Override base vars */
+  --ink-primary:    var(--tl-cream);
+  --ink-secondary:  var(--tl-parchment);
+  --ink-tertiary:   var(--tl-mist);
+  --bg-page:        var(--tl-garnet);
+  --bg-card:        #341420;
+  --bg-card-hover:  #401828;
+  --accent-primary: var(--tl-turmeric);
+  --border-subtle:  rgba(170,136,136,0.18);
+  --shadow-card:    0 2px 18px rgba(20,4,8,0.55);
+}
+
+/* ── Body background — deep garnet ───────────────────────────────────────── */
+body {
+  background: var(--tl-garnet);
+  color: var(--ink-primary);
+}
+body::before {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 3px,
+      rgba(170, 136, 136, 0.03) 3px, rgba(170, 136, 136, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 60px,
+      rgba(170, 136, 136, 0.04) 60px, rgba(170, 136, 136, 0.04) 61px
+    );
+}
+
+/* ── Page header ─────────────────────────────────────────────────────────── */
+.site-header {
+  background: linear-gradient(160deg, #160810 0%, var(--tl-garnet-mid) 100%);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.site-title-tamil {
+  color: var(--tl-cream);
+}
+
+.site-title-english {
+  color: var(--tl-mist);
+}
+
+/* ── Hero / intro block ──────────────────────────────────────────────────── */
+.work-intro h1 {
+  color: var(--tl-cream) !important;
+  text-shadow: 0 1px 24px rgba(106,40,48,0.55);
+}
+
+.work-intro h2 {
+  color: var(--tl-turmeric) !important;
+}
+
+.era-line {
+  color: var(--tl-mist) !important;
+}
+
+/* ── Tiṇai legend ────────────────────────────────────────────────────────── */
+.thinai-legend {
+  background: rgba(61,24,34,0.55);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+}
+
+.legend-item {
+  border-left: 3px solid var(--tl-turmeric);
+  padding-left: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+/* ── Section dividers ────────────────────────────────────────────────────── */
+.thinai-section-header {
+  color: var(--tl-turmeric);
+  border-bottom: 1px solid rgba(200,138,16,0.28);
+  letter-spacing: 0.25em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding-bottom: 0.4rem;
+  margin: 2.5rem 0 1.2rem;
+}
+
+/* ── Poem grid tiles ─────────────────────────────────────────────────────── */
+.poem-tile {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 1.25rem 1.1rem 1rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  box-shadow: var(--shadow-card);
+}
+
+.poem-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(20,4,8,0.7);
+  border-color: var(--tl-turmeric);
+  background: var(--bg-card-hover);
+}
+
+.poem-tile-num {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  color: var(--tl-turmeric);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.poem-tile-turai {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.poem-tile-speaker {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--tl-mist);
+  font-style: italic;
+}
+
+/* Tiṇai-specific tile accent lines */
+.poem-tile[data-thinai="kurinji"]  { border-top: 2.5px solid var(--tl-kurinji); }
+.poem-tile[data-thinai="mullai"]   { border-top: 2.5px solid var(--tl-mullai); }
+.poem-tile[data-thinai="marutam"]  { border-top: 2.5px solid var(--tl-marutam); }
+.poem-tile[data-thinai="neytal"]   { border-top: 2.5px solid var(--tl-neytal); }
+.poem-tile[data-thinai="palai"]    { border-top: 2.5px solid var(--tl-palai); }
+
+/* ── Poem reader (poem.html) ─────────────────────────────────────────────── */
+.poem-page-header {
+  background: linear-gradient(160deg, #160810 0%, var(--tl-garnet-mid) 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 1.2rem 1.5rem 1rem;
+}
+
+.poem-thinai-banner {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--tl-turmeric);
+  margin-bottom: 0.6rem;
+}
+
+.poem-num-display {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--tl-cream);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+  opacity: 0.18;
+}
+
+.poem-turai-display {
+  font-family: var(--font-tamil);
+  font-size: 1.15rem;
+  color: var(--tl-cream);
+  line-height: 1.4;
+}
+
+.poem-turai-english {
+  font-size: 0.88rem;
+  color: var(--tl-mist);
+  font-style: italic;
+  margin-top: 0.2rem;
+}
+
+/* Palm-leaf card */
+.palm-leaf-card {
+  background: linear-gradient(170deg, #220e14 0%, #301420 100%);
+  border: 1px solid rgba(200,138,16,0.22);
+  border-radius: 12px;
+  padding: 2rem 1.75rem 1.75rem;
+  box-shadow: 0 4px 28px rgba(20,4,8,0.6);
+  margin-bottom: 1.5rem;
+}
+
+.tamil-text {
+  font-family: var(--font-tamil);
+  font-size: 1.35rem;
+  line-height: 2;
+  color: var(--tl-cream);
+  letter-spacing: 0.01em;
+}
+
+/* Layer tabs */
+.layer-tabs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+
+.layer-tab {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--tl-mist);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  letter-spacing: 0.06em;
+}
+
+.layer-tab.active,
+.layer-tab:hover {
+  background: var(--tl-turmeric);
+  color: var(--tl-garnet);
+  border-color: var(--tl-turmeric);
+}
+
+/* Navigation */
+.poem-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 1.5rem;
+}
+
+.poem-nav a {
+  color: var(--tl-turmeric);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  transition: opacity 0.15s;
+}
+
+.poem-nav a:hover { opacity: 0.75; }
+
+/* ── About page ──────────────────────────────────────────────────────────── */
+.about-prose h2 {
+  color: var(--tl-turmeric);
+  border-bottom: 1px solid rgba(200,138,16,0.2);
+  padding-bottom: 0.4rem;
+  margin-top: 2.5rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.about-prose p {
+  color: var(--ink-secondary);
+  line-height: 1.9;
+  font-size: 0.98rem;
+  margin-bottom: 1rem;
+}
+
+.thinai-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 1.2rem 0;
+}
+
+.thinai-table th {
+  text-align: left;
+  color: var(--tl-turmeric);
+  border-bottom: 1px solid rgba(200,138,16,0.3);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.thinai-table td {
+  padding: 0.55rem 0.75rem;
+  color: var(--ink-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+}
+
+.thinai-table tr:last-child td { border-bottom: none; }
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .poem-num-display { font-size: 2.5rem; }
+  .tamil-text { font-size: 1.15rem; }
+}

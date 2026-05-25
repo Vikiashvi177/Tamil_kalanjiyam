@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>மணிமேகலை · Part — Maṇimēkalai</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/manimekalai.css"/>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Maṇimēkalai home">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" width="32" height="32"
+               xmlns="http://www.w3.org/2000/svg" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               style="color:var(--mm-teal)">
+            <path d="M 8 16 Q 8 34 20 34 Q 32 34 32 16" stroke-width="2.2" opacity="0.88"/>
+            <line x1="7" y1="16" x2="33" y2="16" stroke-width="2" opacity="0.75"/>
+            <path d="M 14 34 Q 20 38 26 34" stroke-width="1.6" opacity="0.7"/>
+            <circle cx="20" cy="38" r="1.5" fill="currentColor" stroke="none" opacity="0.6"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">மணிமேகலை</span>
+          <span class="wordmark-english">Maṇimēkalai</span>
+        </span>
+      </a>
+      <nav class="site-nav" id="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="part.html?p=1">Part I</a>
+        <a href="part.html?p=2">Part II</a>
+        <a href="part.html?p=3">Part III</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Part hero -->
+    <section class="mm-part-hero" id="part-hero">
+      <!-- filled by JS -->
+    </section>
+
+    <!-- Canto grid -->
+    <section class="mm-cantos-section">
+      <h2 class="mm-section-heading" id="cantos-heading">Cantos</h2>
+      <div class="mm-cantos-grid" id="cantos-grid">
+        <!-- filled by JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      <a href="index.html">← Maṇimēkalai</a>
+      &emsp;·&emsp;
+      <a href="../index.html">Library</a>
+    </p>
+  </footer>
+
+  <script src="data/cantos.js"></script>
+  <script>
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const partNum = parseInt(params.get('p')) || 1;
+
+    const PART_META = {
+      1: {
+        accent: "var(--mm-world)",
+        bg: "var(--mm-world-pale)",
+        icon: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    style="display:block;margin:0 auto 1rem;">
+                <path d="M 4 44 Q 16 32 28 44 Q 40 56 52 44 Q 64 32 76 44" opacity="0.82"/>
+                <path d="M 4 58 Q 16 46 28 58 Q 40 70 52 58 Q 64 46 76 58" opacity="0.52"/>
+                <path d="M 4 30 Q 16 18 28 30 Q 40 42 52 30 Q 64 18 76 30" opacity="0.38"/>
+                <path d="M 30 44 Q 40 26 50 44" opacity="0.55" stroke-width="1.5"/>
+                <circle cx="40" cy="24" r="5" fill="currentColor" opacity="0.52" stroke="none"/>
+                <path d="M 14 20 Q 14 30 22 30 Q 30 30 30 20" stroke-width="2" opacity="0.72"/>
+                <line x1="13" y1="20" x2="31" y2="20" stroke-width="1.8" opacity="0.62"/>
+              </svg>`,
+        desc: "The world in its beauty and its impermanence — the festival, the sea, the sacred island, the miracle bowl. Thirteen cantos of wonder and the first steps of renunciation."
+      },
+      2: {
+        accent: "var(--mm-path)",
+        bg: "var(--mm-path-pale)",
+        icon: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    style="display:block;margin:0 auto 1rem;">
+                <path d="M 8 70 Q 22 52 30 38 Q 38 24 52 16 Q 62 10 70 14" opacity="0.68" stroke-width="2"/>
+                <circle cx="30" cy="36" r="6" opacity="0.5" stroke-width="1.5"/>
+                <path d="M 25 42 L 22 62 M 25 42 L 36 42 M 30 48 L 25 60" opacity="0.38" stroke-width="1.4"/>
+                <path d="M 37 37 Q 37 45 46 45 Q 55 45 55 37" stroke-width="2" opacity="0.78"/>
+                <line x1="36" y1="37" x2="56" y2="37" stroke-width="1.8" opacity="0.68"/>
+                <path d="M 42 45 Q 46 49 50 45" stroke-width="1.4" opacity="0.55"/>
+              </svg>`,
+        desc: "The wandering path — from Pukār to Vañci to Kāñci. The saffron robe, the stories of past lives, the teaching received in full. Nine cantos of walking and deepening."
+      },
+      3: {
+        accent: "var(--mm-doctrine)",
+        bg: "var(--mm-doctrine-pale)",
+        icon: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    style="display:block;margin:0 auto 1rem;">
+                <circle cx="40" cy="50" r="5" fill="currentColor" opacity="0.68" stroke="none"/>
+                <path d="M 40 45 Q 30 36 24 24 Q 36 30 40 38 Q 44 30 56 24 Q 50 36 40 45"
+                      opacity="0.78" fill="currentColor" stroke="none"/>
+                <path d="M 40 45 Q 22 33 16 16 Q 34 24 40 34 Q 46 24 64 16 Q 58 33 40 45"
+                      opacity="0.42" fill="currentColor" stroke="none"/>
+                <line x1="40" y1="55" x2="40" y2="70" stroke-width="2.2" opacity="0.52"/>
+                <path d="M 14 70 Q 26 64 40 70 Q 54 76 66 70" opacity="0.42" stroke-width="1.5"/>
+              </svg>`,
+        desc: "The great debates — six schools met and refuted. Eight cantos of philosophical confrontation ending in silence: the liberation beyond argument."
+      }
+    };
+
+    const meta = PART_META[partNum];
+    const cantos = MM_CANTOS.filter(c => c.part === partNum);
+    if (!cantos.length) return;
+
+    const firstCanto = cantos[0];
+    const totalLines = cantos.reduce((s, c) => s + c.lines, 0);
+
+    document.title = `${firstCanto.partTamil} · ${firstCanto.partEnglish} — Maṇimēkalai`;
+    document.body.style.setProperty('--part-accent', meta.accent);
+    document.body.style.setProperty('--part-bg', meta.bg);
+
+    // Build part hero
+    const hero = document.getElementById('part-hero');
+    hero.innerHTML = `
+      <div class="mm-part-hero-num">Part ${partNum} · ${cantos.length} Cantos</div>
+      <div style="color:${meta.accent}">${meta.icon}</div>
+      <h1 style="color:${meta.accent}">${firstCanto.partTamil}</h1>
+      <h2>${firstCanto.partEnglish}</h2>
+      <div class="part-setting" style="font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:${meta.accent};margin-bottom:1.25rem">
+        ${firstCanto.partSetting}
+      </div>
+      <p style="max-width:680px;margin:1rem auto 0">${meta.desc}</p>
+      <div class="mm-stat-row" style="margin-top:1.5rem">
+        <div class="mm-stat">
+          <div class="mm-stat-num" style="color:${meta.accent}">${cantos.length}</div>
+          <div class="mm-stat-label">Cantos</div>
+        </div>
+        <div class="mm-stat">
+          <div class="mm-stat-num" style="color:${meta.accent}">~${totalLines.toLocaleString()}</div>
+          <div class="mm-stat-label">Lines</div>
+        </div>
+      </div>`;
+
+    // Build canto grid
+    const heading = document.getElementById('cantos-heading');
+    heading.textContent = `${firstCanto.partEnglish} — All Cantos`;
+
+    const TYPE_LABELS = {
+      narrative: 'Narrative', description: 'Description',
+      hymn: 'Hymn', 'past-life': 'Past Life', debate: 'Debate', mixed: 'Mixed'
+    };
+
+    const grid = document.getElementById('cantos-grid');
+    cantos.forEach(c => {
+      const typeLabel = TYPE_LABELS[c.type] || c.type;
+      const typeClass = c.type === 'past-life' ? 'past-life' : c.type;
+      grid.innerHTML += `
+        <a href="canto.html?c=${c.num}" class="mm-canto-tile"
+           style="--part-accent:${meta.accent};border-top-color:${meta.accent}">
+          <div class="mm-canto-header">
+            <div class="mm-canto-num">Canto ${c.num}</div>
+            <span class="mm-canto-type-badge ${typeClass}">${typeLabel}</span>
+          </div>
+          <div class="mm-canto-name-tamil">${c.name}</div>
+          <div class="mm-canto-name-english">${c.nameEnglish}</div>
+          <div class="mm-canto-summary">${c.summary.substring(0, 110)}…</div>
+          <div class="mm-canto-lines">~${c.lines} lines</div>
+        </a>`;
+    });
+
+    // Highlight current part in nav
+    document.querySelectorAll('.site-nav a').forEach(a => {
+      if (a.getAttribute('href') === `part.html?p=${partNum}`) {
+        a.style.fontWeight = '700';
+        a.style.color = meta.accent;
+      }
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

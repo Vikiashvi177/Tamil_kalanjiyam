@@ -1,0 +1,465 @@
+/* ==========================================================================
+   நாலடியார் · Nālaṭiyār — Aged Copper & Forest Green Theme
+   400 Jain wisdom-quatrains · 40 chapters · c. 300–500 CE
+
+   Visual identity: aged copper, deep forest green, dark palm-leaf brown.
+   The Nālaṭiyār is the Tamil anthology of ethical and philosophical verse —
+   sober, aphoristic, and burnished with the weight of hard-won understanding.
+   Where the Sangam anthologies sing of love and war, the Nālaṭiyār instructs:
+   on impermanence, on the value of good character, on the learned life.
+
+   The palette draws on temple copper-plate inscriptions, the Jain monk's robe,
+   the banyan tree's shadow, and the dark rich surface of a palm-leaf manuscript
+   that has been read for centuries. Not gold (that is Thiruppāvai's domain) but
+   copper: older, darker, more austere.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   Colour tokens
+   --------------------------------------------------------------------------- */
+:root {
+  --nl-copper:        #7a3e1a;   /* aged copper — primary accent */
+  --nl-copper-mid:    #9a5228;   /* mid copper */
+  --nl-copper-bright: #b86830;   /* bright copper */
+  --nl-copper-pale:   rgba(122,62,26,0.10);
+  --nl-forest:        #1e4a28;   /* deep forest green */
+  --nl-forest-mid:    #2a5e34;   /* mid forest */
+  --nl-forest-pale:   rgba(30,74,40,0.10);
+  --nl-bark:          #3a2510;   /* dark bark brown */
+  --nl-bark-pale:     rgba(58,37,16,0.08);
+  --nl-sage:          #5a7a52;   /* sage — muted wisdom-green */
+  --nl-sage-pale:     rgba(90,122,82,0.12);
+  --nl-ochre:         #c8922a;   /* warm ochre — chapter headings */
+
+  /* Chapter iyal group colours — 4 groups of 10 chapters */
+  --nl-iyal1: #1e4a28;   /* Iyal 1 (ch 1–10)  — forest depth */
+  --nl-iyal2: #7a3e1a;   /* Iyal 2 (ch 11–20) — copper warmth */
+  --nl-iyal3: #2a4868;   /* Iyal 3 (ch 21–30) — river slate */
+  --nl-iyal4: #5a3a18;   /* Iyal 4 (ch 31–40) — dark bark */
+
+  /* Override site palette */
+  --accent-vermillion: var(--nl-copper);
+  --accent-kumkum:     var(--nl-copper-mid);
+  --accent-ochre:      var(--nl-ochre);
+  --accent-gold:       var(--nl-copper);
+}
+
+/* ---------------------------------------------------------------------------
+   Background: deep palm-leaf, slightly darker and greener than base
+   --------------------------------------------------------------------------- */
+body {
+  background: #c4b898;
+}
+body::before {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 3px,
+      rgba(58,37,16,0.03) 3px, rgba(58,37,16,0.03) 4px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 60px,
+      rgba(58,37,16,0.05) 60px, rgba(58,37,16,0.05) 61px,
+      transparent 61px, transparent 140px,
+      rgba(58,37,16,0.03) 140px, rgba(58,37,16,0.03) 142px
+    ),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.23 0 0 0 0 0.15 0 0 0 0 0.06 0 0 0 0.13 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------------------------------------------------------------------------
+   Header & nav
+   --------------------------------------------------------------------------- */
+.site-header { border-bottom-color: rgba(122,62,26,0.35); }
+.site-logo .mark { color: var(--nl-copper); }
+.wordmark-tamil { color: var(--nl-copper); }
+.site-nav a { color: var(--nl-forest); }
+.site-nav a:hover { color: var(--nl-copper); }
+a { color: var(--nl-copper); }
+a:hover { color: var(--nl-copper-mid); }
+
+/* ---------------------------------------------------------------------------
+   Chapter grid (index page)
+   --------------------------------------------------------------------------- */
+.nl-chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.nl-chapter-card {
+  display: block;
+  background: var(--bg-paper);
+  background-image: repeating-linear-gradient(0deg,
+    rgba(58,37,16,0.025) 0px, rgba(58,37,16,0.025) 1px,
+    transparent 1px, transparent 8px);
+  border: 1px solid rgba(122,62,26,0.28);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  box-shadow: 0 1px 3px rgba(58,37,16,0.09);
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid transparent;
+}
+.nl-chapter-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(58,37,16,0.15);
+  border-color: rgba(122,62,26,0.5);
+}
+/* Iyal group left-border colours */
+.nl-chapter-card[data-iyal="1"] { border-left-color: var(--nl-iyal1); }
+.nl-chapter-card[data-iyal="2"] { border-left-color: var(--nl-iyal2); }
+.nl-chapter-card[data-iyal="3"] { border-left-color: var(--nl-iyal3); }
+.nl-chapter-card[data-iyal="4"] { border-left-color: var(--nl-iyal4); }
+
+.nl-card-num {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--nl-copper-mid);
+  margin-bottom: 0.35rem;
+}
+.nl-card-title-tamil {
+  font-family: var(--font-tamil);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  margin-bottom: 0.15rem;
+  line-height: 1.3;
+}
+.nl-card-title-eng {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--nl-copper-mid);
+  margin-bottom: 0.5rem;
+}
+.nl-card-desc {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  margin-bottom: 0.6rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.nl-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+.nl-card-verse-count {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+}
+.nl-card-iyal-badge {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.55rem;
+  border-radius: 2px;
+  color: white;
+  font-weight: 600;
+}
+.nl-card-iyal-badge[data-iyal="1"] { background: var(--nl-iyal1); }
+.nl-card-iyal-badge[data-iyal="2"] { background: var(--nl-iyal2); }
+.nl-card-iyal-badge[data-iyal="3"] { background: var(--nl-iyal3); }
+.nl-card-iyal-badge[data-iyal="4"] { background: var(--nl-iyal4); }
+.nl-card-arrow {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--nl-copper);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.nl-chapter-card:hover .nl-card-arrow { opacity: 0.6; }
+
+/* Iyal section dividers */
+.nl-iyal-header {
+  max-width: 1060px;
+  margin: 2.5rem auto 1rem;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nl-iyal-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(122,62,26,0.2);
+}
+.nl-iyal-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--nl-copper-mid);
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------------------
+   Chapter detail page — poem list
+   --------------------------------------------------------------------------- */
+.nl-chapter-banner {
+  padding: 1.25rem 1.75rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.nl-chapter-banner[data-iyal="1"] { background: linear-gradient(135deg, #1e4a28, #153818); }
+.nl-chapter-banner[data-iyal="2"] { background: linear-gradient(135deg, #7a3e1a, #5a2e10); }
+.nl-chapter-banner[data-iyal="3"] { background: linear-gradient(135deg, #2a4868, #1a3858); }
+.nl-chapter-banner[data-iyal="4"] { background: linear-gradient(135deg, #5a3a18, #3a2008); }
+
+.nl-banner-num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.8;
+  min-width: 2.5rem;
+}
+.nl-banner-content { flex: 1; }
+.nl-banner-title-tamil {
+  font-family: var(--font-tamil);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.2rem;
+}
+.nl-banner-title-eng {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  opacity: 0.85;
+}
+.nl-banner-desc {
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+/* Individual verse cards on chapter page */
+.nl-verse-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.nl-verse-card {
+  background: var(--bg-paper);
+  background-image: repeating-linear-gradient(0deg,
+    rgba(58,37,16,0.02) 0px, rgba(58,37,16,0.02) 1px,
+    transparent 1px, transparent 8px);
+  border: 1px solid rgba(122,62,26,0.3);
+  border-radius: 4px;
+  padding: 2rem 2.5rem 1.75rem;
+  box-shadow: 0 1px 4px rgba(58,37,16,0.08), 0 4px 18px rgba(58,37,16,0.08);
+  position: relative;
+}
+.nl-verse-card::before, .nl-verse-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 1.5px solid rgba(122,62,26,0.45);
+}
+.nl-verse-card::before { left: 12px; }
+.nl-verse-card::after  { right: 12px; }
+
+.nl-verse-num {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--nl-copper);
+  margin-bottom: 0.85rem;
+  text-align: center;
+}
+.nl-verse-num .num-big {
+  font-size: 1.3rem;
+  letter-spacing: 0;
+  font-weight: 700;
+  margin: 0 0.4em;
+  vertical-align: middle;
+}
+
+.nl-layer-label {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--nl-copper);
+  margin-bottom: 0.7rem;
+  font-weight: 500;
+}
+.nl-verse-layer {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.nl-verse-layer:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.nl-tamil-text {
+  font-family: var(--font-tamil);
+  font-size: 1.35rem;
+  line-height: 1.9;
+  color: var(--ink-primary);
+  font-weight: 500;
+  white-space: pre-line;
+}
+.nl-translit-text {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--ink-secondary);
+  white-space: pre-line;
+}
+.nl-english-text {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--ink-primary);
+  white-space: pre-line;
+}
+.nl-urai-text {
+  font-family: var(--font-tamil);
+  font-size: 0.98rem;
+  line-height: 1.9;
+  color: var(--ink-secondary);
+}
+.nl-alt-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--ink-secondary);
+  white-space: pre-line;
+}
+.nl-note {
+  background: var(--nl-forest-pale);
+  border-left: 3px solid var(--nl-forest);
+  padding: 0.9rem 1.1rem;
+  border-radius: 2px;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--ink-secondary);
+}
+
+/* Chapter navigation */
+.nl-chapter-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.nl-nav-link {
+  display: block;
+  padding: 1.1rem 1.4rem;
+  background: var(--bg-paper);
+  border: 1px solid rgba(122,62,26,0.25);
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+.nl-nav-link:hover {
+  border-color: var(--nl-copper);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(58,37,16,0.12);
+}
+.nl-nav-link.next { text-align: right; }
+.nl-nav-link.disabled { opacity: 0.3; pointer-events: none; }
+.nl-nav-dir {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+}
+.nl-nav-title {
+  font-family: var(--font-tamil);
+  font-size: 1rem;
+  color: var(--nl-copper);
+  margin-bottom: 0.15rem;
+}
+.nl-nav-sub {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
+/* ---------------------------------------------------------------------------
+   Responsive
+   --------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .nl-chapter-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .nl-verse-card { padding: 1.5rem 1.1rem; }
+  .nl-chapter-nav { grid-template-columns: 1fr; }
+  .nl-chapter-banner { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+}
+
+/* ---------------------------------------------------------------------------
+   Index page hero extras
+   --------------------------------------------------------------------------- */
+.nl-stat-row {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  flex-wrap: wrap;
+}
+.nl-stat { text-align: center; }
+.nl-stat-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--nl-copper);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.nl-stat-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Divider */
+.nl-divider {
+  text-align: center;
+  color: var(--nl-copper);
+  opacity: 0.4;
+  letter-spacing: 1.5em;
+  padding-left: 1.5em;
+  margin: 2rem 0;
+}

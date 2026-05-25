@@ -1,0 +1,465 @@
+/* ==========================================================================
+   ஐந்திணை ஐம்பது · Aintiṇai Aimpatu — Fifty on the Five Landscapes
+   50 akam poems · c. 1st–5th century CE
+   Author: Māmulaṉār · Patiṉeṇkīḻkaṇakku collection
+
+   Title: ஐந்திணை (aintiṇai) = the five tiṇai/landscapes; ஐம்பது (aimpatu) = fifty.
+   Fifty poems across the five classical akam landscapes — ten poems per tiṇai.
+
+   Visual identity: Five landscapes, five palettes. The overall design uses a
+   warm parchment base with a rotating accent per tiṇai:
+   — Kuṟiñci (mountain, union): deep purple-violet (the strobilanthes flower)
+   — Mullai (forest, waiting): forest green (jasmine, bamboo)
+   — Marutam (river-fields, quarrel): river-blue (lotus, water)
+   — Neytal (seashore, longing): sea-blue/teal (the blue sea, heron)
+   — Pālai (wasteland, separation): burnt umber/ochre (dry earth, sun)
+
+   The hero mark: five dots arranged in a ring — the five tiṇai, each a point
+   in the circle of love. Simple, suggestive, unique.
+   ========================================================================== */
+
+:root {
+  /* ── Warm base (parchment) ──────────────────────────── */
+  --at-parchment:       #f2e8d5;
+  --at-parchment-mid:   #e5d8c0;
+  --at-parchment-deep:  #d0c0a0;
+
+  /* ── Ink ────────────────────────────────────────────── */
+  --at-ink:             #1a1008;
+  --at-ink-mid:         #3a2818;
+  --at-ink-pale:        rgba(26, 16, 8, 0.52);
+
+  /* ── Primary header/frame colour ────────────────────── */
+  --at-primary:         #2a1848;
+  --at-primary-mid:     #3a2858;
+  --at-primary-bright:  #5a4880;
+
+  /* ── Tiṇai accent colours ───────────────────────────── */
+  --at-kurinji:         #6a2888;   /* purple — strobilanthes */
+  --at-kurinji-pale:    rgba(106, 40, 136, 0.10);
+  --at-kurinji-border:  rgba(106, 40, 136, 0.35);
+
+  --at-mullai:          #2a6830;   /* forest green — jasmine */
+  --at-mullai-pale:     rgba(42, 104, 48, 0.10);
+  --at-mullai-border:   rgba(42, 104, 48, 0.35);
+
+  --at-marutam:         #1848a0;   /* river blue — lotus */
+  --at-marutam-pale:    rgba(24, 72, 160, 0.10);
+  --at-marutam-border:  rgba(24, 72, 160, 0.30);
+
+  --at-neytal:          #1878a8;   /* sea teal — heron */
+  --at-neytal-pale:     rgba(24, 120, 168, 0.10);
+  --at-neytal-border:   rgba(24, 120, 168, 0.30);
+
+  --at-palai:           #9a4808;   /* burnt ochre — wasteland */
+  --at-palai-pale:      rgba(154, 72, 8, 0.10);
+  --at-palai-border:    rgba(154, 72, 8, 0.30);
+
+  /* ── Site overrides ─────────────────────────────────── */
+  --accent-vermillion:  var(--at-primary);
+  --accent-kumkum:      var(--at-primary-mid);
+  --accent-ochre:       #6a4808;
+  --accent-gold:        #9a6818;
+}
+
+/* ── Body ────────────────────────────────────────────────── */
+body {
+  background: var(--at-parchment);
+  color: var(--at-ink);
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.site-header {
+  background: var(--at-primary);
+  border-bottom: 2px solid rgba(90, 72, 128, 0.50);
+}
+/* wordmark-tamil: parchment on dark-brown header */
+.site-logo .wordmark-tamil {
+  color: var(--ae-parchment);
+}
+
+.site-logo .wordmark-roman {
+  color: #d8c8f0;
+}
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: #d8c8f0;
+  border-bottom-color: #a090c8;
+}
+
+/* ── Hero ───────────────────────────────────────────────── */
+.at-hero {
+  background: linear-gradient(160deg, var(--at-primary) 0%, var(--at-primary-mid) 50%, #3a2060 100%);
+  color: #f0e8d8;
+  padding: 3.5rem 1.5rem 3rem;
+  text-align: center;
+}
+.at-hero-mark { margin-bottom: 1.5rem; }
+.at-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.25rem;
+}
+.at-hero-roman {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #d8c8f0;
+  margin: 0 0 0.4rem;
+}
+.at-hero-meaning {
+  font-size: 1rem;
+  color: rgba(240, 232, 216, 0.78);
+  margin: 0 0 1.2rem;
+}
+.at-hero p {
+  max-width: 640px;
+  margin: 0 auto 0.9rem;
+  font-size: 0.97rem;
+  line-height: 1.7;
+  color: rgba(240, 232, 216, 0.82);
+}
+
+/* ── Stat row ───────────────────────────────────────────── */
+.at-stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2rem;
+  margin-top: 2rem;
+}
+.at-stat { text-align: center; min-width: 80px; }
+.at-stat-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d8c8f0;
+  line-height: 1.2;
+}
+.at-stat-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(240, 232, 216, 0.55);
+  margin-top: 0.2rem;
+}
+
+/* ── Five tiṇai display ─────────────────────────────────── */
+.at-tinai-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-bottom: 1px solid var(--at-parchment-mid);
+}
+.at-tinai-tab {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.9rem 1rem 0.8rem;
+  text-align: center;
+  border-right: 1px solid var(--at-parchment-mid);
+  background: #fff;
+}
+.at-tinai-tab:last-child { border-right: none; }
+.at-tinai-tab-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+.at-tinai-tab[data-tinai="kuṟiñci"] .at-tinai-tab-dot { background: var(--at-kurinji); }
+.at-tinai-tab[data-tinai="mullai"]  .at-tinai-tab-dot { background: var(--at-mullai); }
+.at-tinai-tab[data-tinai="marutam"] .at-tinai-tab-dot { background: var(--at-marutam); }
+.at-tinai-tab[data-tinai="neytal"]  .at-tinai-tab-dot { background: var(--at-neytal); }
+.at-tinai-tab[data-tinai="pālai"]   .at-tinai-tab-dot { background: var(--at-palai); }
+
+.at-tinai-tab-tamil {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--at-ink);
+}
+.at-tinai-tab-roman {
+  display: block;
+  font-size: 0.80rem;
+  font-style: italic;
+  color: var(--at-ink-pale);
+}
+.at-tinai-tab-eng {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--at-ink-pale);
+  margin-top: 0.1rem;
+}
+.at-tinai-tab-count {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--at-ink-pale);
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* ── Poems header ───────────────────────────────────────── */
+.at-poems-header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 0.5rem;
+  border-top: 1px solid var(--at-parchment-mid);
+}
+.at-poems-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--at-primary);
+  margin: 0 0 0.35rem;
+}
+.at-poems-header p {
+  font-size: 0.88rem;
+  color: var(--at-ink-pale);
+  margin: 0;
+}
+
+/* ── Main poem list ─────────────────────────────────────── */
+.at-poems-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ── Tiṇai section divider ──────────────────────────────── */
+.at-section-label {
+  font-size: 0.80rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  display: inline-block;
+  background: var(--at-parchment);
+  padding: 0.1rem 0.8rem 0.1rem 0;
+  position: relative;
+  top: -0.6rem;
+}
+.at-section-hr {
+  border: none;
+  border-top: 2px solid rgba(42, 24, 72, 0.12);
+  margin: 0.6rem 0 0;
+}
+
+/* ── Individual poem card ───────────────────────────────── */
+.at-poem {
+  background: #fff;
+  border: 1px solid rgba(42, 24, 72, 0.09);
+  border-radius: 6px;
+  padding: 1.1rem 1.3rem 1.0rem;
+  box-shadow: 0 1px 5px rgba(42, 24, 72, 0.05);
+}
+
+/* tiṇai-specific left border */
+.at-poem[data-tinai="kuṟiñci"] { border-left: 4px solid var(--at-kurinji); }
+.at-poem[data-tinai="mullai"]  { border-left: 4px solid var(--at-mullai); }
+.at-poem[data-tinai="marutam"] { border-left: 4px solid var(--at-marutam); }
+.at-poem[data-tinai="neytal"]  { border-left: 4px solid var(--at-neytal); }
+.at-poem[data-tinai="pālai"]   { border-left: 4px solid var(--at-palai); }
+
+/* ── Poem header ────────────────────────────────────────── */
+.at-poem-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+.at-poem-num {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--at-ink-pale);
+  min-width: 1.8rem;
+  flex-shrink: 0;
+}
+.at-tinai-badge {
+  font-size: 0.73rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 3px;
+  padding: 0.14rem 0.5rem;
+  flex-shrink: 0;
+}
+.at-poem[data-tinai="kuṟiñci"] .at-tinai-badge { background: var(--at-kurinji-pale); color: var(--at-kurinji); }
+.at-poem[data-tinai="mullai"]  .at-tinai-badge { background: var(--at-mullai-pale);   color: var(--at-mullai); }
+.at-poem[data-tinai="marutam"] .at-tinai-badge { background: var(--at-marutam-pale);  color: var(--at-marutam); }
+.at-poem[data-tinai="neytal"]  .at-tinai-badge { background: var(--at-neytal-pale);   color: var(--at-neytal); }
+.at-poem[data-tinai="pālai"]   .at-tinai-badge { background: var(--at-palai-pale);    color: var(--at-palai); }
+
+.at-poem-speaker {
+  font-size: 0.78rem;
+  color: var(--at-ink-pale);
+  font-style: italic;
+}
+.at-poem-theme {
+  font-size: 0.88rem;
+  color: var(--at-ink-mid);
+  font-style: italic;
+  flex-basis: 100%;
+  margin-top: -0.1rem;
+}
+
+/* ── Poem layers ────────────────────────────────────────── */
+.at-poem-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.at-layer {
+  border: 1px solid rgba(42, 24, 72, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.at-layer-toggle {
+  display: flex;
+  align-items: center;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--at-primary-bright);
+  background: rgba(42, 24, 72, 0.04);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+.at-layer-toggle::-webkit-details-marker { display: none; }
+.at-layer[open] .at-layer-toggle {
+  background: rgba(42, 24, 72, 0.08);
+  color: var(--at-primary);
+}
+.at-layer-content { padding: 0.7rem 0.95rem; background: #fff; }
+.at-tamil-verse {
+  font-size: 1.0rem;
+  line-height: 1.9;
+  color: var(--at-ink);
+  font-weight: 500;
+}
+.at-translit-verse {
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.82;
+  color: var(--at-ink-mid);
+}
+.at-english-prose {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--at-ink-mid);
+}
+.at-note {
+  font-size: 0.86rem;
+  line-height: 1.70;
+  color: var(--at-ink-pale);
+  font-style: italic;
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+.site-footer {
+  background: var(--at-primary);
+  color: rgba(240, 232, 216, 0.65);
+}
+.site-footer a { color: #d8c8f0; }
+
+/* ── About page ─────────────────────────────────────────── */
+.at-about-hero {
+  background: linear-gradient(160deg, var(--at-primary) 0%, var(--at-primary-mid) 100%);
+  color: #f0e8d8;
+  padding: 3rem 1.5rem 2.5rem;
+  text-align: center;
+}
+.at-about-hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 1rem 0 0.25rem;
+}
+.at-about-subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  color: #d8c8f0;
+  margin: 0;
+}
+.at-about-main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+.at-about-section {
+  margin-bottom: 2.5rem;
+}
+.at-about-section h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--at-primary);
+  border-bottom: 2px solid rgba(42, 24, 72, 0.10);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+.at-about-section p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--at-ink-mid);
+  margin-bottom: 0.9rem;
+}
+.at-tinai-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.8rem 0 1rem;
+  font-size: 0.88rem;
+}
+.at-tinai-table th {
+  text-align: left;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--at-ink-pale);
+  border-bottom: 1px solid var(--at-parchment-mid);
+}
+.at-tinai-table td {
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid rgba(42, 24, 72, 0.06);
+  color: var(--at-ink-mid);
+  vertical-align: top;
+}
+.at-tinai-table tr:last-child td { border-bottom: none; }
+.at-tinai-swatch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.at-about-nav { margin-top: 3rem; text-align: center; }
+.at-about-cta {
+  display: inline-flex;
+  align-items: center;
+  background: var(--at-primary);
+  color: #d8c8f0;
+  padding: 0.75rem 1.8rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.at-about-cta:hover { background: var(--at-primary-bright); }
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .at-hero { padding: 2.5rem 1rem 2rem; }
+  .at-poems-main { padding: 0.8rem 0.8rem 3rem; }
+  .at-poem { padding: 0.9rem 0.9rem 0.8rem; }
+  .at-tinai-tab { min-width: 80px; padding: 0.7rem 0.5rem; }
+  .at-tinai-table { font-size: 0.82rem; }
+}

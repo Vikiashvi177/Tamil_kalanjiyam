@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Chapter · நாலடியார்</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/naaladiyar.css" />
+  <style>
+    .chapter-page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    .chapter-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      margin-bottom: 2rem;
+      letter-spacing: 0.04em;
+      flex-wrap: wrap;
+    }
+    .chapter-breadcrumb a { color: var(--ink-secondary); text-decoration: none; }
+    .chapter-breadcrumb a:hover { color: var(--nl-copper, #7a3e1a); }
+    .chapter-breadcrumb .sep { opacity: 0.45; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 20 36 L 20 22" stroke-width="2" opacity="0.8"/>
+            <path d="M 14 28 L 14 36" stroke-width="1.1" opacity="0.5"/>
+            <path d="M 26 28 L 26 36" stroke-width="1.1" opacity="0.5"/>
+            <path d="M 8 22 Q 14 14 20 12 Q 26 14 32 22 Q 26 20 20 21 Q 14 20 8 22 Z" fill="currentColor" opacity="0.85"/>
+            <path d="M 11 22 Q 16 16 20 15 Q 24 16 29 22 Q 24 20 20 21 Q 16 20 11 22 Z" fill="currentColor" opacity="0.3" stroke="none"/>
+            <path d="M 8 36 L 32 36" stroke-width="1" opacity="0.35"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">நாலடியார்</span>
+          <span class="wordmark-english">Nālaṭiyār</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Nālaṭiyār</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="chapter-page">
+
+      <nav class="chapter-breadcrumb">
+        <a href="../index.html">Library</a>
+        <span class="sep">›</span>
+        <a href="index.html">Nālaṭiyār</a>
+        <span class="sep">›</span>
+        <a href="#" id="bc-iyal-link" style="color:var(--ink-secondary);text-decoration:none;">…</a>
+        <span class="sep">›</span>
+        <span id="bc-chapter">…</span>
+      </nav>
+
+      <div id="chapter-container"></div>
+
+      <nav class="nl-chapter-nav" id="chapter-nav"></nav>
+
+    </article>
+  </main>
+
+  <footer style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(122,62,26,0.2);color:var(--ink-muted);font-size:0.875rem;letter-spacing:0.05em;margin-top:3rem;">
+    <div style="color:var(--nl-copper,#7a3e1a);letter-spacing:1em;padding-left:1em;margin-bottom:0.5rem;opacity:0.4;">❧ ❧ ❧</div>
+    <div>நாலடியார் · <a href="../index.html" style="color:var(--nl-copper,#7a3e1a);">Tamil Literature Library</a></div>
+  </footer>
+
+  <script src="data/poems.js"></script>
+  <script>
+  (function() {
+    const data = window.NAALADIYAR_DATA;
+    const params = new URLSearchParams(window.location.search);
+    const chNum = parseInt(params.get('c'), 10) || 1;
+
+    const chaptersByNum = new Map(data.chapters.map(c => [c.num, c]));
+    const ch = chaptersByNum.get(chNum);
+    const container = document.getElementById('chapter-container');
+
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, c => (
+        {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+      ));
+    }
+
+    if (!ch) {
+      container.innerHTML = `<div style="text-align:center;padding:3rem;background:var(--bg-paper);border:1px solid var(--border-subtle);border-radius:4px;">
+        <p style="font-family:var(--font-display);color:var(--ink-secondary);">Chapter ${chNum} not found.</p>
+        <a href="index.html" style="display:inline-block;margin-top:1.5rem;color:var(--nl-copper,#7a3e1a);font-family:var(--font-display);letter-spacing:0.1em;text-transform:uppercase;font-size:0.85rem;">← Back to Nālaṭiyār</a>
+      </div>`;
+      document.getElementById('bc-chapter').textContent = `Chapter ${chNum}`;
+      return;
+    }
+
+    document.title = `${ch.name} · நாலடியார்`;
+    document.getElementById('bc-chapter').textContent = `Chapter ${chNum} · ${ch.name}`;
+    document.getElementById('page-title').textContent = `${ch.name} · நாலடியார்`;
+    // Iyal breadcrumb link
+    const iyalLink = document.getElementById('bc-iyal-link');
+    if (iyalLink) {
+      const iyalMeta = data.iyals.find(i => i.num === ch.iyal);
+      if (iyalMeta) {
+        iyalLink.textContent = iyalMeta.name + ' · ' + iyalMeta.nameEnglish;
+        iyalLink.href = 'iyal.html?i=' + ch.iyal;
+      }
+    }
+
+    // Get the 10 verses for this chapter
+    const verses = data.poems.filter(p => p.chapter === chNum);
+    const startNum = (chNum - 1) * 10 + 1;
+
+    // Iyal info
+    const iyalColors = { 1: '#1e4a28', 2: '#7a3e1a', 3: '#2a4868', 4: '#5a3a18' };
+    const iyal = ch.iyal;
+
+    // Build chapter banner + verse list
+    let html = `
+      <div class="nl-chapter-banner" data-iyal="${iyal}">
+        <div class="nl-banner-num">${chNum}</div>
+        <div class="nl-banner-content">
+          <div class="nl-banner-title-tamil">${esc(ch.name)}</div>
+          <div class="nl-banner-title-eng">${esc(ch.nameEnglish)}</div>
+          <div class="nl-banner-desc">${esc(ch.desc)}</div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:2rem;font-size:0.8rem;color:var(--ink-muted);letter-spacing:0.12em;text-transform:uppercase;">
+        <span style="font-family:var(--font-display);">${esc(ch.iyalName)} · ${esc(ch.iyalNameEnglish)}</span>
+        <span style="flex:1;height:1px;background:rgba(122,62,26,0.2);"></span>
+        <span>Verses ${startNum}–${startNum + 9}</span>
+      </div>
+
+      <div class="nl-verse-list">
+    `;
+
+    verses.forEach((p, i) => {
+      html += `
+        <div class="nl-verse-card">
+          <div class="nl-verse-num">
+            Nālaṭiyār <span class="num-big">${p.num}</span> of 400
+            &nbsp;·&nbsp; Chapter ${p.chapter}, Verse ${i + 1}
+          </div>
+
+          <div class="nl-verse-layer">
+            <div class="nl-layer-label">Tamil · தமிழ்</div>
+            <div class="nl-tamil-text">${esc(p.tamil)}</div>
+          </div>
+
+          <div class="nl-verse-layer">
+            <div class="nl-layer-label">Transliteration</div>
+            <div class="nl-translit-text">${esc(p.transliteration)}</div>
+          </div>
+
+          <div class="nl-verse-layer">
+            <div class="nl-layer-label">English Translation</div>
+            <div class="nl-english-text">${esc(p.english)}</div>
+          </div>
+
+          <div class="nl-verse-layer">
+            <div class="nl-layer-label">Tamil Commentary · உரை</div>
+            <div class="nl-urai-text">${esc(p.tamilUrai)}</div>
+          </div>
+
+          <div class="nl-verse-layer">
+            <div class="nl-layer-label">Alternative Rendering</div>
+            <div class="nl-alt-text">${esc(p.altTranslation)}</div>
+          </div>
+
+          <div class="nl-verse-layer">
+            <div class="nl-layer-label">Literary Note</div>
+            <div class="nl-note">${esc(p.note)}</div>
+          </div>
+        </div>
+      `;
+    });
+
+    html += `</div>`;
+    container.innerHTML = html;
+
+    // Prev / Next chapter navigation
+    const prev = chaptersByNum.get(chNum - 1) || null;
+    const next = chaptersByNum.get(chNum + 1) || null;
+    document.getElementById('chapter-nav').innerHTML = `
+      <a href="${prev ? `chapter.html?c=${prev.num}` : '#'}"
+         class="nl-nav-link ${prev ? '' : 'disabled'}">
+        <div class="nl-nav-dir">← முந்தைய · Previous</div>
+        <div class="nl-nav-title">${prev ? esc(prev.name) : '—'}</div>
+        <div class="nl-nav-sub">${prev ? esc(prev.nameEnglish) : ''}</div>
+      </a>
+      <a href="${next ? `chapter.html?c=${next.num}` : '#'}"
+         class="nl-nav-link next ${next ? '' : 'disabled'}">
+        <div class="nl-nav-dir">அடுத்தது · Next →</div>
+        <div class="nl-nav-title">${next ? esc(next.name) : '—'}</div>
+        <div class="nl-nav-sub">${next ? esc(next.nameEnglish) : ''}</div>
+      </a>
+    `;
+  })();
+  </script>
+
+</body>
+</html>

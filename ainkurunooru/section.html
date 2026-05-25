@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">திணை · ஐங்குறுநூறு</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/ainkurunooru.css"/>
+  <style>
+    .sec-page{max-width:1060px;margin:0 auto;padding:2rem 1.5rem 4rem}
+    .sec-bc{display:flex;align-items:center;gap:.5rem;font-size:.875rem;color:var(--ink-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .sec-bc a{color:var(--ink-secondary);text-decoration:none}
+    .sec-bc a:hover{color:var(--ak-gold,#8a6a08)}
+    .sec-bc .sep{opacity:.45}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="20" r="3.5" fill="currentColor" opacity="0.85" stroke="none"/>
+            <path d="M 20 20 Q 18 12 20 6 Q 22 12 20 20 Z" fill="currentColor" opacity="0.7" stroke="none"/>
+            <path d="M 20 20 Q 26 15 31 11 Q 28 18 20 20 Z" fill="currentColor" opacity="0.7" stroke="none"/>
+            <path d="M 20 20 Q 27 24 33 27 Q 26 27 20 20 Z" fill="currentColor" opacity="0.6" stroke="none"/>
+            <path d="M 20 20 Q 13 26 11 33 Q 14 26 20 20 Z" fill="currentColor" opacity="0.6" stroke="none"/>
+            <path d="M 20 20 Q 12 16 8 11 Q 14 15 20 20 Z" fill="currentColor" opacity="0.65" stroke="none"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">ஐங்குறுநூறு</span>
+          <span class="wordmark-english">Aiṅkuṟunūṟu</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="sec-page">
+      <nav class="sec-bc">
+        <a href="../index.html">Library</a>
+        <span class="sep">›</span>
+        <a href="index.html">Aiṅkuṟunūṟu</a>
+        <span class="sep">›</span>
+        <span id="bc-sec">…</span>
+      </nav>
+      <div id="sec-banner"></div>
+      <div id="poem-grid" class="ak-poem-grid"></div>
+      <nav class="ak-sec-nav" id="sec-nav"></nav>
+    </div>
+  </main>
+
+  <footer style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(138,106,8,.2);color:var(--ink-muted);font-size:.875rem;letter-spacing:.05em;margin-top:1rem">
+    <div style="color:var(--ak-gold,#8a6a08);letter-spacing:1em;padding-left:1em;margin-bottom:.5rem;opacity:.4">❧ ❧ ❧</div>
+    <div>ஐங்குறுநூறு · <a href="../index.html" style="color:var(--ak-gold,#8a6a08)">Tamil Literature Library</a></div>
+  </footer>
+
+  <script src="data/poems.js"></script>
+  <script>
+  (function(){
+    const data = window.AK_DATA;
+    const params = new URLSearchParams(window.location.search);
+    const tinai = params.get('t') || 'marutam';
+    function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+    const sec = data.sections.find(s=>s.tinai===tinai);
+    if(!sec){ document.getElementById('sec-banner').innerHTML='<p style="text-align:center;padding:3rem">Section not found.</p>'; return; }
+
+    document.title = `${sec.tamil} · ஐங்குறுநூறு`;
+    document.getElementById('page-title').textContent = `${sec.tamil} · ஐங்குறுநூறு`;
+    document.getElementById('bc-sec').textContent = `${sec.tamil} · ${sec.translit}`;
+
+    document.getElementById('sec-banner').innerHTML = `
+      <div class="ak-section-banner" data-tinai="${esc(tinai)}">
+        <div class="ak-banner-num">${esc(sec.poems)} · By ${esc(sec.poetEnglish)}</div>
+        <div class="ak-banner-tamil">${esc(sec.tamil)}</div>
+        <div class="ak-banner-eng">${esc(sec.translit)} — ${esc(sec.nameEnglish)}</div>
+        <div class="ak-banner-poet">${esc(sec.poet)} · ${esc(sec.poetEnglish)}</div>
+        <div class="ak-banner-desc">${esc(sec.desc)}</div>
+      </div>`;
+
+    const poems = data.poems.filter(p=>p.tinai===tinai);
+    const grid = document.getElementById('poem-grid');
+    poems.forEach(p=>{
+      const incipit = p.tamil.split('\n')[0];
+      const card = document.createElement('a');
+      card.href = `poem.html?n=${p.num}`;
+      card.className = 'ak-poem-card';
+      card.dataset.tinai = tinai;
+      card.innerHTML = `
+        <div class="ak-card-num">Poem ${p.num}</div>
+        <div class="ak-card-speaker">${esc(p.speakerEnglish)}</div>
+        <div class="ak-card-incipit">${esc(incipit)}…</div>
+        <div class="ak-card-footer">
+          <span class="ak-tinai-badge" data-tinai="${esc(tinai)}">${esc(p.sectionTamil)}</span>
+          <span style="color:var(--ak-gold,#8a6a08)">→</span>
+        </div>`;
+      grid.appendChild(card);
+    });
+
+    const secOrder = ['marutam','neytal','kurinji','palai','mullai'];
+    const idx = secOrder.indexOf(tinai);
+    const prev = idx>0 ? data.sections.find(s=>s.tinai===secOrder[idx-1]) : null;
+    const next = idx<secOrder.length-1 ? data.sections.find(s=>s.tinai===secOrder[idx+1]) : null;
+    document.getElementById('sec-nav').innerHTML = `
+      <a href="${prev?`section.html?t=${prev.tinai}`:'#'}" class="ak-nav-link ${prev?'':'disabled'}">
+        <div class="ak-nav-dir">← முந்தைய · Previous Section</div>
+        <div class="ak-nav-title">${prev?esc(prev.tamil):'—'}</div>
+        <div class="ak-nav-sub">${prev?esc(prev.poetEnglish):''}</div>
+      </a>
+      <a href="${next?`section.html?t=${next.tinai}`:'#'}" class="ak-nav-link next ${next?'':'disabled'}">
+        <div class="ak-nav-dir">அடுத்தது · Next Section →</div>
+        <div class="ak-nav-title">${next?esc(next.tamil):'—'}</div>
+        <div class="ak-nav-sub">${next?esc(next.poetEnglish):''}</div>
+      </a>`;
+  })();
+  </script>
+</body>
+</html>
