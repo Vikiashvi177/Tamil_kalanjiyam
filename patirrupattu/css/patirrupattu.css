@@ -1,0 +1,334 @@
+/* ==========================================================================
+   பதிற்றுப்பத்து · Patiṟṟuppattu — Royal Amber & Warrior Crimson Theme
+   80 surviving heroic poems in 8 decades · c. 1st–5th century CE
+   One of the Eight Sangam Anthologies (Eṭṭutokai)
+
+   Visual identity: royal amber-gold, deep warrior crimson, court-torch orange,
+   and the dark velvet of a king's audience hall.
+
+   The Patiṟṟuppattu is pure puṟam panegyric — poets standing before Cēra kings,
+   praising their generosity, their elephant-armies, their golden gifts. Each decade
+   is a portrait of a king. The colour of this anthology is the colour of gold coins
+   showered on poets, of royal banners, of the fire at the palace gate.
+
+   Where Thiruvaasagam is sacred fire, this is royal fire:
+   the torch at the court gate, not the temple flame.
+   ========================================================================== */
+
+:root {
+  /* Royal amber — primary */
+  --pt-amber:        #9a6800;   /* deep royal amber */
+  --pt-amber-mid:    #b88010;   /* mid amber */
+  --pt-amber-bright: #d4a020;   /* bright gold */
+  --pt-amber-pale:   rgba(154,104,0,0.10);
+  --pt-amber-pale2:  rgba(154,104,0,0.06);
+
+  /* Warrior crimson — secondary */
+  --pt-crimson:      #7a1a28;   /* warrior crimson */
+  --pt-crimson-mid:  #9a2838;   /* mid crimson */
+  --pt-crimson-pale: rgba(122,26,40,0.10);
+
+  /* Court darks */
+  --pt-court:        #3a2808;   /* dark court brown */
+  --pt-court-pale:   rgba(58,40,8,0.08);
+
+  /* 8 Decade accent colours — each a facet of the royal palette */
+  --pt-dec2: #7a5208;   /* Decade II  — Imayavarampaṉ — deep amber */
+  --pt-dec3: #6a1a28;   /* Decade III — Palaiyāṉataicciriya Māraṉ — deep crimson */
+  --pt-dec4: #1a4a6a;   /* Decade IV  — Kaḷaṅkāykkaṇṇi Nārmuti Cēral — slate blue */
+  --pt-dec5: #2a5a28;   /* Decade V   — Cēramān Karuvūr Eriya — forest green */
+  --pt-dec6: #6a3808;   /* Decade VI  — Kaṭalpiṟakkōṭṭiya Cēralātaṉ — bark brown */
+  --pt-dec7: #4a1a68;   /* Decade VII — Cēramān Yaṉaippakai — deep violet */
+  --pt-dec8: #1a5a4a;   /* Decade VIII— Cēramān Ceṅkuṭṭuvaṉ — teal-green */
+  --pt-dec9: #7a2a08;   /* Decade IX  — Cēramān Iḷañcēral Irumporai — dark sienna */
+
+  /* Override site palette */
+  --accent-vermillion: var(--pt-amber);
+  --accent-kumkum:     var(--pt-amber-mid);
+  --accent-ochre:      var(--pt-amber-bright);
+  --accent-gold:       var(--pt-amber);
+}
+
+/* ---------------------------------------------------------------------------
+   Background: warm court parchment
+   --------------------------------------------------------------------------- */
+body { background: #c8b890; }
+body::before {
+  background-image:
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 3px,
+      rgba(154,104,0,0.025) 3px, rgba(154,104,0,0.025) 4px),
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 60px,
+      rgba(154,104,0,0.04) 60px, rgba(154,104,0,0.04) 61px,
+      transparent 61px, transparent 140px,
+      rgba(154,104,0,0.025) 140px, rgba(154,104,0,0.025) 142px),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.05 0 0 0 0.12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Header */
+.site-header { border-bottom-color: rgba(154,104,0,0.3); }
+.site-logo .mark { color: var(--pt-amber); }
+.wordmark-tamil { color: var(--pt-amber); }
+.site-nav a { color: var(--pt-court); }
+.site-nav a:hover { color: var(--pt-amber); }
+a { color: var(--pt-amber); }
+a:hover { color: var(--pt-amber-mid); }
+
+/* ---------------------------------------------------------------------------
+   Index page — 8 decade cards
+   --------------------------------------------------------------------------- */
+.pt-decades {
+  max-width: 980px;
+  margin: 0 auto 4rem;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 1.25rem;
+}
+@media (max-width: 480px) { .pt-decades { grid-template-columns: 1fr; } }
+
+.pt-decade-card {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 2rem 2.25rem 1.75rem;
+  background: var(--bg-paper);
+  background-image: repeating-linear-gradient(0deg,
+    rgba(154,104,0,0.018) 0px, rgba(154,104,0,0.018) 1px,
+    transparent 1px, transparent 8px);
+  border: 1px solid rgba(154,104,0,0.25);
+  box-shadow: 0 2px 6px rgba(80,50,0,0.08), 0 6px 24px rgba(80,50,0,0.06);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.pt-decade-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(80,50,0,0.16), 0 12px 36px rgba(80,50,0,0.09);
+  border-color: rgba(154,104,0,0.5);
+}
+.pt-decade-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 5px;
+}
+.pt-decade-card[data-dec="2"]::before { background: linear-gradient(180deg,#7a5208,#9a6818); }
+.pt-decade-card[data-dec="3"]::before { background: linear-gradient(180deg,#6a1a28,#8a2838); }
+.pt-decade-card[data-dec="4"]::before { background: linear-gradient(180deg,#1a4a6a,#2a5a7a); }
+.pt-decade-card[data-dec="5"]::before { background: linear-gradient(180deg,#2a5a28,#3a6a38); }
+.pt-decade-card[data-dec="6"]::before { background: linear-gradient(180deg,#6a3808,#8a4818); }
+.pt-decade-card[data-dec="7"]::before { background: linear-gradient(180deg,#4a1a68,#6a2a78); }
+.pt-decade-card[data-dec="8"]::before { background: linear-gradient(180deg,#1a5a4a,#2a6a5a); }
+.pt-decade-card[data-dec="9"]::before { background: linear-gradient(180deg,#7a2a08,#9a3a18); }
+.pt-decade-card::after {
+  content: '';
+  position: absolute;
+  right: 16px; top: 50%;
+  transform: translateY(-50%);
+  width: 13px; height: 13px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 1.5px solid rgba(154,104,0,0.35);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.18);
+}
+
+.pt-dec-num { font-family: var(--font-display); font-size: .68rem; letter-spacing: .28em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: .5rem; }
+.pt-dec-king { font-family: var(--font-tamil); font-size: 1.4rem; font-weight: 800; color: var(--ink-primary); line-height: 1.2; margin-bottom: .1rem; }
+.pt-dec-king-eng { font-family: var(--font-display); font-style: italic; font-size: .95rem; color: var(--ink-muted); margin-bottom: .3rem; }
+.pt-dec-poet { font-family: var(--font-display); font-size: .88rem; margin-bottom: .75rem; }
+.pt-decade-card[data-dec="2"] .pt-dec-poet { color: var(--pt-dec2); }
+.pt-decade-card[data-dec="3"] .pt-dec-poet { color: var(--pt-dec3); }
+.pt-decade-card[data-dec="4"] .pt-dec-poet { color: var(--pt-dec4); }
+.pt-decade-card[data-dec="5"] .pt-dec-poet { color: var(--pt-dec5); }
+.pt-decade-card[data-dec="6"] .pt-dec-poet { color: var(--pt-dec6); }
+.pt-decade-card[data-dec="7"] .pt-dec-poet { color: var(--pt-dec7); }
+.pt-decade-card[data-dec="8"] .pt-dec-poet { color: var(--pt-dec8); }
+.pt-decade-card[data-dec="9"] .pt-dec-poet { color: var(--pt-dec9); }
+.pt-dec-desc { font-size: .92rem; line-height: 1.65; color: var(--ink-secondary); margin-bottom: 1.1rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.pt-dec-meta { display: flex; align-items: center; justify-content: space-between; padding-top: .9rem; border-top: 1px solid var(--border-subtle); }
+.pt-dec-count { font-size: .72rem; color: var(--ink-muted); letter-spacing: .1em; }
+.pt-dec-cta { font-family: var(--font-display); font-style: italic; font-size: .9rem; opacity: 0; transition: opacity .2s ease; }
+.pt-decade-card[data-dec="2"] .pt-dec-cta { color: var(--pt-dec2); }
+.pt-decade-card[data-dec="3"] .pt-dec-cta { color: var(--pt-dec3); }
+.pt-decade-card[data-dec="4"] .pt-dec-cta { color: var(--pt-dec4); }
+.pt-decade-card[data-dec="5"] .pt-dec-cta { color: var(--pt-dec5); }
+.pt-decade-card[data-dec="6"] .pt-dec-cta { color: var(--pt-dec6); }
+.pt-decade-card[data-dec="7"] .pt-dec-cta { color: var(--pt-dec7); }
+.pt-decade-card[data-dec="8"] .pt-dec-cta { color: var(--pt-dec8); }
+.pt-decade-card[data-dec="9"] .pt-dec-cta { color: var(--pt-dec9); }
+.pt-decade-card:hover .pt-dec-cta { opacity: 1; }
+
+/* Gift badge */
+.pt-gift-badge {
+  display: inline-block;
+  padding: .1rem .55rem;
+  border-radius: 10px;
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  background: var(--pt-amber-pale);
+  color: var(--pt-court);
+  border: 1px solid rgba(154,104,0,0.25);
+}
+
+/* ---------------------------------------------------------------------------
+   Decade page — poem grid
+   --------------------------------------------------------------------------- */
+.pt-decade-banner {
+  padding: 2rem 2.5rem 1.75rem;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.pt-decade-banner[data-dec="2"] { background: linear-gradient(135deg,#7a5208,#4a3008); }
+.pt-decade-banner[data-dec="3"] { background: linear-gradient(135deg,#6a1a28,#4a0818); }
+.pt-decade-banner[data-dec="4"] { background: linear-gradient(135deg,#1a4a6a,#0e3050); }
+.pt-decade-banner[data-dec="5"] { background: linear-gradient(135deg,#2a5a28,#183818); }
+.pt-decade-banner[data-dec="6"] { background: linear-gradient(135deg,#6a3808,#4a2008); }
+.pt-decade-banner[data-dec="7"] { background: linear-gradient(135deg,#4a1a68,#2a0848); }
+.pt-decade-banner[data-dec="8"] { background: linear-gradient(135deg,#1a5a4a,#0e3830); }
+.pt-decade-banner[data-dec="9"] { background: linear-gradient(135deg,#7a2a08,#5a1808); }
+.pt-decade-banner::after {
+  content: '';
+  position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+  width: 15px; height: 15px; border-radius: 50%;
+  background: rgba(0,0,0,.25); border: 1.5px solid rgba(255,255,255,.18);
+}
+.pt-banner-decade-num { font-family: var(--font-display); font-size: .7rem; letter-spacing: .3em; text-transform: uppercase; opacity: .7; margin-bottom: .5rem; }
+.pt-banner-king { font-family: var(--font-tamil); font-size: clamp(1.5rem,3.5vw,2.1rem); font-weight: 800; line-height: 1.15; margin-bottom: .2rem; }
+.pt-banner-king-eng { font-family: var(--font-display); font-style: italic; font-size: 1rem; opacity: .82; margin-bottom: .3rem; }
+.pt-banner-poet { font-family: var(--font-display); font-size: .88rem; opacity: .72; margin-bottom: .6rem; }
+.pt-banner-desc { font-size: .88rem; line-height: 1.6; opacity: .72; max-width: 680px; }
+
+/* Poem card grid */
+.pt-poem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+.pt-poem-card {
+  display: block;
+  background: var(--bg-paper);
+  background-image: repeating-linear-gradient(0deg,
+    rgba(154,104,0,0.018) 0px, rgba(154,104,0,0.018) 1px,
+    transparent 1px, transparent 8px);
+  border: 1px solid rgba(154,104,0,0.22);
+  border-left: 4px solid var(--pt-amber-pale);
+  border-radius: 4px;
+  padding: 1.1rem 1.3rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  box-shadow: 0 1px 3px rgba(80,50,0,0.07);
+}
+.pt-poem-card[data-dec="2"] { border-left-color: var(--pt-dec2); }
+.pt-poem-card[data-dec="3"] { border-left-color: var(--pt-dec3); }
+.pt-poem-card[data-dec="4"] { border-left-color: var(--pt-dec4); }
+.pt-poem-card[data-dec="5"] { border-left-color: var(--pt-dec5); }
+.pt-poem-card[data-dec="6"] { border-left-color: var(--pt-dec6); }
+.pt-poem-card[data-dec="7"] { border-left-color: var(--pt-dec7); }
+.pt-poem-card[data-dec="8"] { border-left-color: var(--pt-dec8); }
+.pt-poem-card[data-dec="9"] { border-left-color: var(--pt-dec9); }
+.pt-poem-card:hover { transform: translateY(-3px); box-shadow: 0 4px 14px rgba(80,50,0,0.14); border-color: rgba(154,104,0,0.45); }
+
+.pt-card-num { font-family: var(--font-display); font-size: .67rem; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: .3rem; }
+.pt-card-incipit { font-family: var(--font-tamil); font-size: .98rem; color: var(--ink-primary); line-height: 1.5; margin-bottom: .4rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.pt-card-theme { font-size: .8rem; color: var(--ink-secondary); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: .6rem; }
+.pt-card-footer { display: flex; justify-content: space-between; align-items: center; font-size: .7rem; color: var(--ink-muted); padding-top: .5rem; border-top: 1px solid var(--border-subtle); }
+
+/* Decade prev/next */
+.pt-dec-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }
+.pt-nav-link { display: block; padding: 1rem 1.3rem; background: var(--bg-paper); border: 1px solid rgba(154,104,0,0.2); border-radius: 4px; text-decoration: none; color: inherit; transition: all .2s ease; }
+.pt-nav-link:hover { border-color: var(--pt-amber); transform: translateY(-2px); box-shadow: 0 3px 10px rgba(80,50,0,.1); }
+.pt-nav-link.next { text-align: right; }
+.pt-nav-link.disabled { opacity: .3; pointer-events: none; }
+.pt-nav-dir { font-size: .67rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: .25rem; font-family: var(--font-display); }
+.pt-nav-king { font-family: var(--font-tamil); font-size: 1rem; color: var(--pt-amber); margin-bottom: .1rem; }
+.pt-nav-sub { font-size: .78rem; color: var(--ink-muted); font-style: italic; font-family: var(--font-display); }
+
+/* ---------------------------------------------------------------------------
+   Poem detail page
+   --------------------------------------------------------------------------- */
+.pt-poem-banner {
+  padding: 1.5rem 2rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  color: white;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem;
+  align-items: center;
+}
+.pt-poem-banner[data-dec="2"] { background: linear-gradient(135deg,#7a5208,#4a3008); }
+.pt-poem-banner[data-dec="3"] { background: linear-gradient(135deg,#6a1a28,#4a0818); }
+.pt-poem-banner[data-dec="4"] { background: linear-gradient(135deg,#1a4a6a,#0e3050); }
+.pt-poem-banner[data-dec="5"] { background: linear-gradient(135deg,#2a5a28,#183818); }
+.pt-poem-banner[data-dec="6"] { background: linear-gradient(135deg,#6a3808,#4a2008); }
+.pt-poem-banner[data-dec="7"] { background: linear-gradient(135deg,#4a1a68,#2a0848); }
+.pt-poem-banner[data-dec="8"] { background: linear-gradient(135deg,#1a5a4a,#0e3830); }
+.pt-poem-banner[data-dec="9"] { background: linear-gradient(135deg,#7a2a08,#5a1808); }
+.pt-banner-poem-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; line-height: 1; opacity: .8; min-width: 2rem; }
+.pt-banner-poem-king { font-family: var(--font-tamil); font-size: 1.15rem; font-weight: 700; line-height: 1.3; margin-bottom: .15rem; }
+.pt-banner-poem-poet { font-size: .78rem; opacity: .72; font-family: var(--font-display); font-style: italic; margin-bottom: .2rem; }
+.pt-banner-poem-meta { font-size: .72rem; opacity: .6; letter-spacing: .05em; font-family: var(--font-display); }
+
+/* Verse card */
+.pt-verse-card {
+  background: var(--bg-paper);
+  background-image: repeating-linear-gradient(0deg,
+    rgba(154,104,0,0.015) 0px, rgba(154,104,0,0.015) 1px,
+    transparent 1px, transparent 8px);
+  border: 1px solid rgba(154,104,0,0.28);
+  border-radius: 4px;
+  padding: 2rem 2.5rem 1.75rem;
+  box-shadow: 0 1px 4px rgba(80,50,0,0.08), 0 4px 18px rgba(80,50,0,0.07);
+  position: relative;
+  margin-bottom: 2rem;
+}
+.pt-verse-card::before, .pt-verse-card::after {
+  content: ''; position: absolute; top: 50%; transform: translateY(-50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--bg-primary); border: 1.5px solid rgba(154,104,0,0.4);
+}
+.pt-verse-card::before { left: 12px; }
+.pt-verse-card::after  { right: 12px; }
+
+.pt-layer-label { font-family: var(--font-display); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--pt-amber); margin-bottom: .7rem; font-weight: 500; }
+.pt-verse-layer { margin-bottom: 1.75rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--border-subtle); }
+.pt-verse-layer:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+.pt-tamil-text { font-family: var(--font-tamil); font-size: 1.35rem; line-height: 1.9; color: var(--ink-primary); font-weight: 500; white-space: pre-line; }
+.pt-translit-text { font-family: var(--font-body); font-style: italic; font-size: 1.05rem; line-height: 1.75; color: var(--ink-secondary); white-space: pre-line; }
+.pt-english-text { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.8; color: var(--ink-primary); white-space: pre-line; }
+.pt-urai-text { font-family: var(--font-tamil); font-size: .98rem; line-height: 1.9; color: var(--ink-secondary); }
+.pt-alt-text { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; line-height: 1.8; color: var(--ink-secondary); white-space: pre-line; }
+.pt-note { background: var(--pt-amber-pale); border-left: 3px solid var(--pt-amber-mid); padding: .9rem 1.1rem; border-radius: 2px; font-size: .95rem; line-height: 1.75; color: var(--ink-secondary); }
+
+/* Poem prev/next */
+.pt-poem-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+.pt-pnav-link { display: block; padding: 1.1rem 1.4rem; background: var(--bg-paper); border: 1px solid rgba(154,104,0,0.22); border-radius: 4px; text-decoration: none; color: inherit; transition: all .2s ease; }
+.pt-pnav-link:hover { border-color: var(--pt-amber); transform: translateY(-2px); box-shadow: 0 3px 10px rgba(80,50,0,.1); }
+.pt-pnav-link.next { text-align: right; }
+.pt-pnav-link.disabled { opacity: .3; pointer-events: none; }
+.pt-pnav-dir { font-size: .67rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: .25rem; font-family: var(--font-display); }
+.pt-pnav-incipit { font-family: var(--font-tamil); font-size: .92rem; color: var(--pt-amber); margin-bottom: .1rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.pt-pnav-sub { font-size: .75rem; color: var(--ink-muted); font-style: italic; font-family: var(--font-display); }
+
+/* Misc */
+.pt-stat-row { display: flex; justify-content: center; gap: 2.5rem; margin: 1.75rem auto 0; flex-wrap: wrap; }
+.pt-stat { text-align: center; }
+.pt-stat-num { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; color: var(--pt-amber); line-height: 1; margin-bottom: .2rem; }
+.pt-stat-label { font-size: .67rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-muted); }
+
+@media (max-width: 640px) {
+  .pt-decades, .pt-poem-grid { grid-template-columns: 1fr; }
+  .pt-verse-card { padding: 1.5rem 1.1rem; }
+  .pt-poem-nav, .pt-dec-nav { grid-template-columns: 1fr; }
+  .pt-poem-banner { grid-template-columns: 1fr; gap: .5rem; }
+}

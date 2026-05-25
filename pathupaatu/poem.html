@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">பத்துப்பாட்டு</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/pathupaatu.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Pattuppāṭṭu home">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="20" y1="36" x2="20" y2="10" stroke-width="1.6" opacity="0.7"/>
+            <path d="M 14 17 Q 20 6 26 17 Q 23 14 20 10 Q 17 14 14 17 Z" fill="currentColor" opacity="0.82" stroke="none"/>
+            <path d="M 16 18 Q 20 8 24 18" stroke-width="1.2" opacity="0.5"/>
+            <path d="M 14 22 Q 17 20 20 22 Q 23 20 26 22" stroke-width="1.1" opacity="0.55"/>
+            <path d="M 16 32 Q 20 28 24 32" stroke-width="1" opacity="0.5"/>
+            <path d="M 17 34 Q 20 31 23 34" stroke-width="0.9" opacity="0.38"/>
+            <circle cx="20" cy="35" r="2" fill="currentColor" opacity="0.35" stroke="none"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">பத்துப்பாட்டு</span>
+          <span class="wordmark-english">Pattuppāṭṭu</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="pp-poem-page" id="poem-container">
+      <!-- Built by JS -->
+    </div>
+  </main>
+
+  <footer style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(90,42,120,.2);color:var(--ink-muted);font-size:.875rem;letter-spacing:.05em;margin-top:1rem">
+    <div style="color:var(--pp-violet,#5a2a78);letter-spacing:1em;padding-left:1em;margin-bottom:.5rem;opacity:.4">❧ ❧ ❧</div>
+    <div>பத்துப்பாட்டு · <a href="../index.html" style="color:var(--pp-violet,#5a2a78)">Tamil Literature Library</a></div>
+  </footer>
+
+  <script src="data/poems.js"></script>
+  <script>
+  (function(){
+    const poems = window.PP_DATA.poems;
+    const params = new URLSearchParams(window.location.search);
+    const poemNum = parseInt(params.get('n'), 10) || 1;
+    const container = document.getElementById('poem-container');
+
+    function esc(s){ return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    function escPre(s){ return String(s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+
+    const p = poems.find(x => x.num === poemNum);
+    if (!p) {
+      container.innerHTML = '<p style="text-align:center;padding:3rem;color:var(--ink-muted)">Poem not found.</p>';
+      return;
+    }
+
+    document.title = `${p.tamilTitle} · ${p.title} · Pattuppāṭṭu`;
+    document.getElementById('page-title').textContent = `${p.tamilTitle} · Pattuppāṭṭu`;
+
+    // Apply per-poem accent colour
+    document.documentElement.style.setProperty('--pp-poem-accent', p.color);
+    document.documentElement.style.setProperty('--pp-poem-accent-mid', p.colorMid);
+
+    const prevP = poems.find(x => x.num === poemNum - 1);
+    const nextP = poems.find(x => x.num === poemNum + 1);
+
+    const genreShort = p.genre.split(' (')[0];
+
+    container.innerHTML = `
+      <nav class="pp-bc">
+        <a href="../index.html">Library</a>
+        <span class="sep">›</span>
+        <a href="index.html">Pattuppāṭṭu</a>
+        <span class="sep">›</span>
+        <span>${esc(p.tamilTitle)}</span>
+      </nav>
+
+      <div class="pp-poem-header">
+        <div class="pp-poem-num-label">பாட்டு ${p.num} · Song ${p.num} of 10 · ${esc(p.lines)} lines · ${esc(p.era)}</div>
+        <div class="pp-genre-badge">${esc(genreShort)}</div>
+        <h1 class="pp-poem-h1">${esc(p.tamilTitle)}</h1>
+        <div class="pp-poem-h1-eng">${esc(p.title)}</div>
+        <div class="pp-poem-subtitle">${esc(p.subtitle)}</div>
+        <div class="pp-poem-meta-row">
+          <span>${esc(p.poet)} · ${esc(p.poetEnglish)}</span>
+          <span>${esc(p.tinaiEnglish)}</span>
+          <span>${esc(p.subjectEnglish)}</span>
+        </div>
+      </div>
+
+      <div class="pp-desc-block">${esc(p.desc)}</div>
+
+      <!-- Tamil text -->
+      <div class="pp-tamil-panel">
+        <div class="pp-panel-label">Tamil — Original Text (excerpt)</div>
+        <pre class="pp-tamil-text">${escPre(p.tamil)}</pre>
+      </div>
+
+      <!-- Transliteration -->
+      <div class="pp-collapsible">
+        <button class="pp-panel-toggle" data-target="translit-${p.num}">
+          <span>Transliteration</span>
+          <span class="arrow">▾</span>
+        </button>
+        <div class="pp-panel-body" id="translit-${p.num}">
+          <pre class="pp-transliteration">${escPre(p.transliteration)}</pre>
+        </div>
+      </div>
+
+      <!-- English translation -->
+      <div class="pp-collapsible">
+        <button class="pp-panel-toggle open" data-target="english-${p.num}">
+          <span>English Translation</span>
+          <span class="arrow">▾</span>
+        </button>
+        <div class="pp-panel-body open" id="english-${p.num}">
+          <pre class="pp-english-text">${escPre(p.english)}</pre>
+        </div>
+      </div>
+
+      <!-- Tamil Urai -->
+      <div class="pp-collapsible">
+        <button class="pp-panel-toggle" data-target="urai-${p.num}">
+          <span>தமிழ் உரை · Tamil Commentary (urai)</span>
+          <span class="arrow">▾</span>
+        </button>
+        <div class="pp-panel-body" id="urai-${p.num}">
+          <div class="pp-urai-text">${esc(p.tamilUrai)}</div>
+        </div>
+      </div>
+
+      <!-- Alt translation -->
+      <div class="pp-collapsible">
+        <button class="pp-panel-toggle" data-target="alt-${p.num}">
+          <span>Alternative Translation</span>
+          <span class="arrow">▾</span>
+        </button>
+        <div class="pp-panel-body" id="alt-${p.num}">
+          <div class="pp-alt-text">${esc(p.altTranslation)}</div>
+        </div>
+      </div>
+
+      <!-- Scholarly note -->
+      <div class="pp-collapsible">
+        <button class="pp-panel-toggle" data-target="note-${p.num}">
+          <span>Scholarly Note</span>
+          <span class="arrow">▾</span>
+        </button>
+        <div class="pp-panel-body" id="note-${p.num}">
+          <div class="pp-note-text">${esc(p.note)}</div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="pp-poem-nav">
+        <a href="${prevP ? `poem.html?n=${prevP.num}` : '#'}"
+           class="pp-nav-link ${prevP ? '' : 'disabled'}">
+          <div class="pp-nav-dir">← முந்தைய · Previous</div>
+          <div class="pp-nav-title">${prevP ? esc(prevP.tamilTitle) : '—'}</div>
+          <div class="pp-nav-sub">${prevP ? esc(prevP.title) : ''}</div>
+        </a>
+        <a href="${nextP ? `poem.html?n=${nextP.num}` : '#'}"
+           class="pp-nav-link next ${nextP ? '' : 'disabled'}">
+          <div class="pp-nav-dir">அடுத்தது · Next →</div>
+          <div class="pp-nav-title">${nextP ? esc(nextP.tamilTitle) : '—'}</div>
+          <div class="pp-nav-sub">${nextP ? esc(nextP.title) : ''}</div>
+        </a>
+      </nav>`;
+
+    // Toggle panels
+    container.querySelectorAll('.pp-panel-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        const isOpen = target.classList.contains('open');
+        target.classList.toggle('open', !isOpen);
+        btn.classList.toggle('open', !isOpen);
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

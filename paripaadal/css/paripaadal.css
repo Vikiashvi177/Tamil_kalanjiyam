@@ -1,0 +1,295 @@
+/* ==========================================================================
+   பரிபாடல் · Paripaāṭal — Deep Violet & River-Gold Theme
+   22 surviving devotional poems (of original 70) · c. 300 BCE – 300 CE
+   One of the Eight Sangam Anthologies (Eṭṭutokai)
+
+   Visual identity: deep violet (Viṣṇu's dark-cloud complexion), river-gold
+   (the Vaigai in flood), peacock-green (Murukaṉ's vel), and the luminous
+   dark of a temple at dusk.
+
+   The Paripaāṭal is the most sacred and unusual of the Eight Anthologies:
+   devotional hymns addressed to Tirumal/Viṣṇu, to Murukaṉ, and to the
+   sacred river Vaiyai — set to music (now lost), performed at festivals,
+   the only Sangam anthology that is explicitly devotional.
+
+   Where the Kuṟuntokai is moonstone indigo and the Thiruvaasagam is sacred
+   flame, the Paripaāṭal is the deep violet of the temple's inner sanctum —
+   the colour just before the lamp is lit, the dark that precedes the vision.
+   ========================================================================== */
+
+:root {
+  /* Deep violet — primary (Viṣṇu's dark-cloud colour) */
+  --pp-violet:        #3a1a5a;   /* deep violet */
+  --pp-violet-mid:    #4e2878;   /* mid violet */
+  --pp-violet-bright: #6a3a98;   /* bright violet */
+  --pp-violet-pale:   rgba(58,26,90,0.10);
+  --pp-violet-pale2:  rgba(58,26,90,0.06);
+
+  /* River-gold — secondary (Vaigai in flood) */
+  --pp-gold:          #9a7a18;   /* river-gold */
+  --pp-gold-mid:      #b89828;   /* mid gold */
+  --pp-gold-pale:     rgba(154,122,24,0.12);
+
+  /* Section accent colours — three divine addresses */
+  --pp-tirumal:  #3a1a5a;   /* Tirumal/Viṣṇu — deep violet */
+  --pp-murugan:  #6a2a08;   /* Murukaṉ — peacock-rust */
+  --pp-vaiyai:   #0d5a6e;   /* Vaiyai river — deep teal */
+
+  /* Override site palette */
+  --accent-vermillion: var(--pp-violet);
+  --accent-kumkum:     var(--pp-violet-mid);
+  --accent-ochre:      var(--pp-gold);
+  --accent-gold:       var(--pp-violet);
+}
+
+/* ---------------------------------------------------------------------------
+   Background: deep temple-stone
+   --------------------------------------------------------------------------- */
+body { background: #c0bac8; }
+body::before {
+  background-image:
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 3px,
+      rgba(58,26,90,0.022) 3px, rgba(58,26,90,0.022) 4px),
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 60px,
+      rgba(58,26,90,0.035) 60px, rgba(58,26,90,0.035) 61px,
+      transparent 61px, transparent 140px,
+      rgba(58,26,90,0.022) 140px, rgba(58,26,90,0.022) 142px),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.18 0 0 0 0 0.10 0 0 0 0 0.28 0 0 0 0.12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Header */
+.site-header { border-bottom-color: rgba(58,26,90,0.3); }
+.site-logo .mark { color: var(--pp-violet); }
+.wordmark-tamil { color: var(--pp-violet); }
+.site-nav a { color: var(--pp-violet-mid); }
+.site-nav a:hover { color: var(--pp-violet); }
+a { color: var(--pp-violet); }
+a:hover { color: var(--pp-violet-mid); }
+
+/* ---------------------------------------------------------------------------
+   Index — three section cards (Tirumal, Murukaṉ, Vaiyai)
+   --------------------------------------------------------------------------- */
+.pp-sections {
+  max-width: 980px;
+  margin: 0 auto 4rem;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.pp-section-card {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 2rem 2.25rem 1.75rem;
+  background: var(--bg-paper);
+  background-image: repeating-linear-gradient(0deg,
+    rgba(58,26,90,0.018) 0px, rgba(58,26,90,0.018) 1px,
+    transparent 1px, transparent 8px);
+  border: 1px solid rgba(58,26,90,0.25);
+  box-shadow: 0 2px 6px rgba(30,10,50,0.08), 0 6px 24px rgba(30,10,50,0.06);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.pp-section-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(30,10,50,0.16), 0 12px 36px rgba(30,10,50,0.09);
+  border-color: rgba(58,26,90,0.5);
+}
+.pp-section-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 5px;
+}
+.pp-section-card[data-sec="tirumal"]::before { background: linear-gradient(180deg,#3a1a5a,#2a0e40); }
+.pp-section-card[data-sec="murugan"]::before { background: linear-gradient(180deg,#6a2a08,#4a1808); }
+.pp-section-card[data-sec="vaiyai"]::before  { background: linear-gradient(180deg,#0d5a6e,#083848); }
+.pp-section-card::after {
+  content: '';
+  position: absolute;
+  right: 16px; top: 50%; transform: translateY(-50%);
+  width: 13px; height: 13px; border-radius: 50%;
+  background: var(--bg-primary);
+  border: 1.5px solid rgba(58,26,90,0.35);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.18);
+}
+.pp-sec-num { font-family: var(--font-display); font-size: .68rem; letter-spacing: .28em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: .5rem; }
+.pp-sec-deity { font-family: var(--font-tamil); font-size: 1.7rem; font-weight: 800; color: var(--ink-primary); line-height: 1.2; margin-bottom: .15rem; }
+.pp-sec-eng { font-family: var(--font-display); font-style: italic; font-size: 1rem; margin-bottom: .9rem; }
+.pp-section-card[data-sec="tirumal"] .pp-sec-eng { color: var(--pp-tirumal); }
+.pp-section-card[data-sec="murugan"] .pp-sec-eng { color: var(--pp-murugan); }
+.pp-section-card[data-sec="vaiyai"]  .pp-sec-eng { color: var(--pp-vaiyai); }
+.pp-sec-desc { font-size: .93rem; line-height: 1.7; color: var(--ink-secondary); margin-bottom: 1.2rem; }
+.pp-sec-meta { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid var(--border-subtle); }
+.pp-sec-count { font-size: .75rem; color: var(--ink-muted); letter-spacing: .1em; }
+.pp-sec-cta { font-family: var(--font-display); font-style: italic; font-size: .9rem; opacity: 0; transition: opacity .2s ease; }
+.pp-section-card[data-sec="tirumal"] .pp-sec-cta { color: var(--pp-tirumal); }
+.pp-section-card[data-sec="murugan"] .pp-sec-cta { color: var(--pp-murugan); }
+.pp-section-card[data-sec="vaiyai"]  .pp-sec-cta { color: var(--pp-vaiyai); }
+.pp-section-card:hover .pp-sec-cta { opacity: 1; }
+
+/* ---------------------------------------------------------------------------
+   Section page — poem grid
+   --------------------------------------------------------------------------- */
+.pp-section-banner {
+  padding: 2rem 2.5rem 1.75rem;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.pp-section-banner[data-sec="tirumal"] { background: linear-gradient(135deg,#3a1a5a,#200840); }
+.pp-section-banner[data-sec="murugan"] { background: linear-gradient(135deg,#6a2a08,#3a1008); }
+.pp-section-banner[data-sec="vaiyai"]  { background: linear-gradient(135deg,#0d5a6e,#063848); }
+.pp-section-banner::after {
+  content: ''; position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+  width: 15px; height: 15px; border-radius: 50%;
+  background: rgba(0,0,0,.28); border: 1.5px solid rgba(255,255,255,.18);
+}
+.pp-banner-num { font-family: var(--font-display); font-size: .7rem; letter-spacing: .3em; text-transform: uppercase; opacity: .7; margin-bottom: .5rem; }
+.pp-banner-deity { font-family: var(--font-tamil); font-size: clamp(1.75rem,4vw,2.4rem); font-weight: 800; line-height: 1.1; margin-bottom: .2rem; }
+.pp-banner-eng { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; opacity: .85; margin-bottom: .75rem; }
+.pp-banner-desc { font-size: .9rem; line-height: 1.6; opacity: .75; max-width: 680px; }
+
+/* Poem card grid */
+.pp-poem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+.pp-poem-card {
+  display: block;
+  background: var(--bg-paper);
+  background-image: repeating-linear-gradient(0deg,
+    rgba(58,26,90,0.015) 0px, rgba(58,26,90,0.015) 1px,
+    transparent 1px, transparent 8px);
+  border: 1px solid rgba(58,26,90,0.22);
+  border-left: 4px solid var(--pp-violet);
+  border-radius: 4px;
+  padding: 1.1rem 1.3rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  box-shadow: 0 1px 3px rgba(30,10,50,0.07);
+}
+.pp-poem-card[data-sec="tirumal"] { border-left-color: var(--pp-tirumal); }
+.pp-poem-card[data-sec="murugan"] { border-left-color: var(--pp-murugan); }
+.pp-poem-card[data-sec="vaiyai"]  { border-left-color: var(--pp-vaiyai); }
+.pp-poem-card:hover { transform: translateY(-3px); box-shadow: 0 4px 14px rgba(30,10,50,0.14); border-color: rgba(58,26,90,0.45); }
+.pp-card-num { font-family: var(--font-display); font-size: .67rem; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: .3rem; }
+.pp-card-poet { font-family: var(--font-display); font-style: italic; font-size: .82rem; color: var(--ink-muted); margin-bottom: .35rem; }
+.pp-card-incipit { font-family: var(--font-tamil); font-size: .98rem; color: var(--ink-primary); line-height: 1.5; margin-bottom: .5rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.pp-card-theme { font-size: .78rem; color: var(--ink-secondary); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: .6rem; }
+.pp-card-footer { display: flex; justify-content: space-between; align-items: center; font-size: .7rem; color: var(--ink-muted); padding-top: .55rem; border-top: 1px solid var(--border-subtle); }
+
+/* Section prev/next */
+.pp-sec-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }
+.pp-nav-link { display: block; padding: 1rem 1.3rem; background: var(--bg-paper); border: 1px solid rgba(58,26,90,0.2); border-radius: 4px; text-decoration: none; color: inherit; transition: all .2s ease; }
+.pp-nav-link:hover { border-color: var(--pp-violet); transform: translateY(-2px); box-shadow: 0 3px 10px rgba(30,10,50,.1); }
+.pp-nav-link.next { text-align: right; }
+.pp-nav-link.disabled { opacity: .3; pointer-events: none; }
+.pp-nav-dir { font-size: .67rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: .25rem; font-family: var(--font-display); }
+.pp-nav-deity { font-family: var(--font-tamil); font-size: 1rem; color: var(--pp-violet); margin-bottom: .1rem; }
+.pp-nav-sub { font-size: .78rem; color: var(--ink-muted); font-style: italic; font-family: var(--font-display); }
+
+/* ---------------------------------------------------------------------------
+   Poem detail page
+   --------------------------------------------------------------------------- */
+.pp-poem-banner {
+  padding: 1.5rem 2rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  color: white;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem;
+  align-items: center;
+}
+.pp-poem-banner[data-sec="tirumal"] { background: linear-gradient(135deg,#3a1a5a,#200840); }
+.pp-poem-banner[data-sec="murugan"] { background: linear-gradient(135deg,#6a2a08,#3a1008); }
+.pp-poem-banner[data-sec="vaiyai"]  { background: linear-gradient(135deg,#0d5a6e,#063848); }
+.pp-banner-poem-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; line-height: 1; opacity: .8; min-width: 2rem; }
+.pp-banner-poem-deity { font-family: var(--font-tamil); font-size: 1.2rem; font-weight: 700; margin-bottom: .15rem; }
+.pp-banner-poem-poet { font-family: var(--font-display); font-style: italic; font-size: .9rem; opacity: .78; margin-bottom: .2rem; }
+.pp-banner-poem-meta { font-size: .72rem; opacity: .62; letter-spacing: .05em; font-family: var(--font-display); }
+
+/* Verse card */
+.pp-verse-card {
+  background: var(--bg-paper);
+  background-image: repeating-linear-gradient(0deg,
+    rgba(58,26,90,0.013) 0px, rgba(58,26,90,0.013) 1px,
+    transparent 1px, transparent 8px);
+  border: 1px solid rgba(58,26,90,0.28);
+  border-radius: 4px;
+  padding: 2rem 2.5rem 1.75rem;
+  box-shadow: 0 1px 4px rgba(30,10,50,0.07), 0 4px 18px rgba(30,10,50,0.07);
+  position: relative;
+  margin-bottom: 2rem;
+}
+.pp-verse-card::before, .pp-verse-card::after {
+  content: ''; position: absolute; top: 50%; transform: translateY(-50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--bg-primary); border: 1.5px solid rgba(58,26,90,0.4);
+}
+.pp-verse-card::before { left: 12px; }
+.pp-verse-card::after  { right: 12px; }
+
+.pp-layer-label { font-family: var(--font-display); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--pp-violet); margin-bottom: .7rem; font-weight: 500; }
+.pp-verse-layer { margin-bottom: 1.75rem; padding-bottom: 1.75rem; border-bottom: 1px solid var(--border-subtle); }
+.pp-verse-layer:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+.pp-tamil-text { font-family: var(--font-tamil); font-size: 1.35rem; line-height: 1.9; color: var(--ink-primary); font-weight: 500; white-space: pre-line; }
+.pp-translit-text { font-family: var(--font-body); font-style: italic; font-size: 1.05rem; line-height: 1.75; color: var(--ink-secondary); white-space: pre-line; }
+.pp-english-text { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.8; color: var(--ink-primary); white-space: pre-line; }
+.pp-urai-text { font-family: var(--font-tamil); font-size: .98rem; line-height: 1.9; color: var(--ink-secondary); }
+.pp-alt-text { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; line-height: 1.8; color: var(--ink-secondary); white-space: pre-line; }
+.pp-note { background: var(--pp-violet-pale); border-left: 3px solid var(--pp-violet-mid); padding: .9rem 1.1rem; border-radius: 2px; font-size: .95rem; line-height: 1.75; color: var(--ink-secondary); }
+
+/* Music notation note */
+.pp-music-note { background: var(--pp-gold-pale); border: 1px solid rgba(154,122,24,0.3); border-radius: 4px; padding: .7rem 1rem; font-size: .82rem; color: var(--ink-secondary); font-family: var(--font-display); font-style: italic; margin-bottom: 2rem; text-align: center; }
+
+/* Poem prev/next */
+.pp-poem-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+.pp-pnav-link { display: block; padding: 1.1rem 1.4rem; background: var(--bg-paper); border: 1px solid rgba(58,26,90,0.22); border-radius: 4px; text-decoration: none; color: inherit; transition: all .2s ease; }
+.pp-pnav-link:hover { border-color: var(--pp-violet); transform: translateY(-2px); box-shadow: 0 3px 10px rgba(30,10,50,.1); }
+.pp-pnav-link.next { text-align: right; }
+.pp-pnav-link.disabled { opacity: .3; pointer-events: none; }
+.pp-pnav-dir { font-size: .67rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: .25rem; font-family: var(--font-display); }
+.pp-pnav-incipit { font-family: var(--font-tamil); font-size: .95rem; color: var(--pp-violet); margin-bottom: .1rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.pp-pnav-sub { font-size: .75rem; color: var(--ink-muted); font-style: italic; font-family: var(--font-display); }
+
+/* Misc */
+.pp-stat-row { display: flex; justify-content: center; gap: 2.5rem; margin: 1.75rem auto 0; flex-wrap: wrap; }
+.pp-stat { text-align: center; }
+.pp-stat-num { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; color: var(--pp-violet); line-height: 1; margin-bottom: .2rem; }
+.pp-stat-label { font-size: .67rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-muted); }
+
+.pp-deity-badge {
+  display: inline-block;
+  padding: .12rem .55rem;
+  border-radius: 10px;
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: white;
+}
+.pp-deity-badge[data-sec="tirumal"] { background: var(--pp-tirumal); }
+.pp-deity-badge[data-sec="murugan"] { background: var(--pp-murugan); }
+.pp-deity-badge[data-sec="vaiyai"]  { background: var(--pp-vaiyai); }
+
+@media (max-width: 640px) {
+  .pp-sections { grid-template-columns: 1fr; }
+  .pp-poem-grid { grid-template-columns: 1fr; }
+  .pp-verse-card { padding: 1.5rem 1.1rem; }
+  .pp-poem-nav, .pp-sec-nav { grid-template-columns: 1fr; }
+  .pp-poem-banner { grid-template-columns: 1fr; gap: .5rem; }
+}

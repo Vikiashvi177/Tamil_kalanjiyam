@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">பாடல் · நற்றிணை</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/nattrinai.css"/>
+  <style>
+    .poem-page{max-width:860px;margin:0 auto;padding:2rem 1.5rem 4rem}
+    .poem-bc{display:flex;align-items:center;gap:.5rem;font-size:.875rem;color:var(--ink-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .poem-bc a{color:var(--ink-secondary);text-decoration:none}
+    .poem-bc a:hover{color:var(--nt-sandal,#8a3a28)}
+    .poem-bc .sep{opacity:.45}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 20 36 Q 20 24 20 18" stroke-width="1.6" opacity="0.7"/>
+            <path d="M 20 24 Q 14 20 10 16" stroke-width="1.2" opacity="0.65"/>
+            <path d="M 20 24 Q 26 20 30 16" stroke-width="1.2" opacity="0.65"/>
+            <path d="M 20 30 Q 13 27 8 24" stroke-width="1" opacity="0.5"/>
+            <path d="M 20 30 Q 27 27 32 24" stroke-width="1" opacity="0.5"/>
+            <circle cx="20" cy="16" r="4" fill="currentColor" opacity="0.8" stroke="none"/>
+            <circle cx="10" cy="14" r="3" fill="currentColor" opacity="0.65" stroke="none"/>
+            <circle cx="30" cy="14" r="3" fill="currentColor" opacity="0.65" stroke="none"/>
+            <circle cx="8"  cy="22" r="2.2" fill="currentColor" opacity="0.45" stroke="none"/>
+            <circle cx="32" cy="22" r="2.2" fill="currentColor" opacity="0.45" stroke="none"/>
+            <circle cx="20" cy="16" r="1.5" fill="white" stroke="none" opacity="0.5"/>
+            <circle cx="10" cy="14" r="1.2" fill="white" stroke="none" opacity="0.4"/>
+            <circle cx="30" cy="14" r="1.2" fill="white" stroke="none" opacity="0.4"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">நற்றிணை</span>
+          <span class="wordmark-english">Naṟṟiṇai</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="poem-page">
+      <nav class="poem-bc">
+        <a href="../index.html">Library</a>
+        <span class="sep">›</span>
+        <a href="index.html">Naṟṟiṇai</a>
+        <span class="sep">›</span>
+        <span id="bc-poem">…</span>
+      </nav>
+
+      <div id="poem-container"></div>
+      <nav class="nt-poem-nav" id="poem-nav"></nav>
+    </article>
+  </main>
+
+  <footer style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(138,58,40,.2);color:var(--ink-muted);font-size:.875rem;letter-spacing:.05em;margin-top:3rem">
+    <div style="color:var(--nt-sandal,#8a3a28);letter-spacing:1em;padding-left:1em;margin-bottom:.5rem;opacity:.4">❧ ❧ ❧</div>
+    <div>நற்றிணை · <a href="../index.html" style="color:var(--nt-sandal,#8a3a28)">Tamil Literature Library</a></div>
+  </footer>
+
+  <script src="data/poems.js"></script>
+  <script>
+  (function(){
+    const data = window.NT_DATA;
+    const params = new URLSearchParams(window.location.search);
+    const num = parseInt(params.get('n'),10) || 1;
+    function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+    const byNum = new Map(data.poems.map(p=>[p.num,p]));
+    const poem = byNum.get(num);
+    const container = document.getElementById('poem-container');
+
+    if(!poem){
+      container.innerHTML=`<div style="text-align:center;padding:3rem;background:var(--bg-paper);border:1px solid var(--border-subtle);border-radius:4px">
+        <p style="font-family:var(--font-display);color:var(--ink-secondary)">Poem ${num} not found.</p>
+        <a href="index.html" style="display:inline-block;margin-top:1.5rem;color:var(--nt-sandal,#8a3a28);font-family:var(--font-display);letter-spacing:.1em;text-transform:uppercase;font-size:.85rem">← Back to Naṟṟiṇai</a>
+      </div>`;
+      document.getElementById('bc-poem').textContent=`Poem ${num}`;
+      return;
+    }
+
+    document.title = `Poem ${poem.num} · ${poem.poet} · நற்றிணை`;
+    document.getElementById('page-title').textContent = `Poem ${poem.num} · நற்றிணை`;
+    document.getElementById('bc-poem').textContent = `Poem ${poem.num} · ${poem.tinaiEnglish}`;
+
+    container.innerHTML = `
+      <div class="nt-poem-banner" data-tinai="${esc(poem.tinai)}">
+        <div class="nt-banner-num">${poem.num}</div>
+        <div>
+          <div class="nt-banner-poet">${esc(poem.poet)} · ${esc(poem.poetEnglish)}</div>
+          <div class="nt-banner-speaker">${esc(poem.speakerEnglish)}</div>
+          <div class="nt-banner-turai">${esc(poem.turai)}</div>
+          <div class="nt-banner-meta">${esc(poem.tinaiEnglish)} · Naṟṟiṇai ${poem.num} of 400</div>
+        </div>
+      </div>
+
+      <div class="nt-verse-card">
+        <div class="nt-verse-layer">
+          <div class="nt-layer-label">Tamil · தமிழ்</div>
+          <div class="nt-tamil-text">${esc(poem.tamil)}</div>
+        </div>
+        <div class="nt-verse-layer">
+          <div class="nt-layer-label">Transliteration</div>
+          <div class="nt-translit-text">${esc(poem.transliteration)}</div>
+        </div>
+        <div class="nt-verse-layer">
+          <div class="nt-layer-label">English Translation</div>
+          <div class="nt-english-text">${esc(poem.english)}</div>
+        </div>
+        <div class="nt-verse-layer">
+          <div class="nt-layer-label">Tamil Commentary · உரை</div>
+          <div class="nt-urai-text">${esc(poem.tamilUrai)}</div>
+        </div>
+        <div class="nt-verse-layer">
+          <div class="nt-layer-label">Alternative Rendering</div>
+          <div class="nt-alt-text">${esc(poem.altTranslation)}</div>
+        </div>
+        <div class="nt-verse-layer">
+          <div class="nt-layer-label">Literary Note</div>
+          <div class="nt-note">${esc(poem.note)}</div>
+        </div>
+      </div>`;
+
+    // Prev / Next (adjacent numbers, not same-tinai only)
+    const prev = byNum.get(num-1) || null;
+    const next = byNum.get(num+1) || null;
+
+    document.getElementById('poem-nav').innerHTML = `
+      <a href="${prev?`poem.html?n=${prev.num}`:'#'}" class="nt-pnav-link ${prev?'':'disabled'}">
+        <div class="nt-pnav-dir">← முந்தைய · Previous</div>
+        <div class="nt-pnav-incipit">${prev?esc(prev.tamil.split('\n')[0]):'—'}</div>
+        <div class="nt-pnav-sub">${prev?'Poem '+prev.num+' · '+esc(prev.poetEnglish):''}</div>
+      </a>
+      <a href="${next?`poem.html?n=${next.num}`:'#'}" class="nt-pnav-link next ${next?'':'disabled'}">
+        <div class="nt-pnav-dir">அடுத்தது · Next →</div>
+        <div class="nt-pnav-incipit">${next?esc(next.tamil.split('\n')[0]):'—'}</div>
+        <div class="nt-pnav-sub">${next?'Poem '+next.num+' · '+esc(next.poetEnglish):''}</div>
+      </a>`;
+  })();
+  </script>
+</body>
+</html>

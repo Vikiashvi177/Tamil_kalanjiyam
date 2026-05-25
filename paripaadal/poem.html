@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">பாடல் · பரிபாடல்</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/paripaadal.css"/>
+  <style>
+    .poem-page{max-width:860px;margin:0 auto;padding:2rem 1.5rem 4rem}
+    .poem-bc{display:flex;align-items:center;gap:.5rem;font-size:.875rem;color:var(--ink-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .poem-bc a{color:var(--ink-secondary);text-decoration:none}
+    .poem-bc a:hover{color:var(--pp-violet,#3a1a5a)}
+    .poem-bc .sep{opacity:.45}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 20 8 Q 30 8 32 16 Q 34 24 28 28 Q 22 32 16 28 Q 10 24 12 16 Q 14 10 20 8 Z" stroke-width="1.3" opacity="0.85"/>
+            <path d="M 20 12 Q 27 12 28 18 Q 29 22 25 25 Q 21 27 17 25 Q 13 22 14 17 Q 15 13 20 12 Z" stroke-width="0.8" opacity="0.5"/>
+            <path d="M 14 28 Q 10 32 8 36" stroke-width="1.8" opacity="0.8"/>
+            <path d="M 32 16 Q 35 12 34 10 Q 33 9 31 10" stroke-width="1" opacity="0.55"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">பரிபாடல்</span>
+          <span class="wordmark-english">Paripaāṭal</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="poem-page">
+      <nav class="poem-bc">
+        <a href="../index.html">Library</a>
+        <span class="sep">›</span>
+        <a href="index.html">Paripaāṭal</a>
+        <span class="sep">›</span>
+        <a href="#" id="bc-sec-link" style="color:var(--ink-secondary);text-decoration:none">…</a>
+        <span class="sep">›</span>
+        <span id="bc-poem">…</span>
+      </nav>
+
+      <div id="poem-container"></div>
+      <nav class="pp-poem-nav" id="poem-nav"></nav>
+    </article>
+  </main>
+
+  <footer style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(58,26,90,.2);color:var(--ink-muted);font-size:.875rem;letter-spacing:.05em;margin-top:3rem">
+    <div style="color:var(--pp-violet,#3a1a5a);letter-spacing:1em;padding-left:1em;margin-bottom:.5rem;opacity:.4">❧ ❧ ❧</div>
+    <div>பரிபாடல் · <a href="../index.html" style="color:var(--pp-violet,#3a1a5a)">Tamil Literature Library</a></div>
+  </footer>
+
+  <script src="data/poems.js"></script>
+  <script>
+  (function(){
+    const data = window.PP_DATA;
+    const params = new URLSearchParams(window.location.search);
+    const num = parseInt(params.get('n'),10) || 1;
+    function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+    const byNum = new Map(data.poems.map(p=>[p.num,p]));
+    const poem = byNum.get(num);
+    const container = document.getElementById('poem-container');
+
+    if(!poem){
+      container.innerHTML=`<div style="text-align:center;padding:3rem;background:var(--bg-paper);border:1px solid var(--border-subtle);border-radius:4px">
+        <p style="font-family:var(--font-display);color:var(--ink-secondary)">Poem ${num} not found.</p>
+        <a href="index.html" style="display:inline-block;margin-top:1.5rem;color:var(--pp-violet,#3a1a5a);font-family:var(--font-display);letter-spacing:.1em;text-transform:uppercase;font-size:.85rem">← Back to Paripaāṭal</a>
+      </div>`;
+      document.getElementById('bc-poem').textContent=`Poem ${num}`;
+      return;
+    }
+
+    document.title = `Poem ${poem.num} · ${poem.deity} · பரிபாடல்`;
+    document.getElementById('page-title').textContent = `Poem ${poem.num} · பரிபாடல்`;
+    document.getElementById('bc-poem').textContent = `Poem ${poem.num}`;
+
+    const secLink = document.getElementById('bc-sec-link');
+    const sec = data.sections.find(s=>s.slug===poem.section);
+    if(sec && secLink){
+      secLink.textContent = sec.tamil + ' · ' + sec.nameEnglish;
+      secLink.href = 'section.html?s=' + poem.section;
+    }
+
+    container.innerHTML = `
+      <div class="pp-poem-banner" data-sec="${esc(poem.section)}">
+        <div class="pp-banner-poem-num">${poem.num}</div>
+        <div>
+          <div class="pp-banner-poem-deity">${esc(poem.deity)}</div>
+          <div class="pp-banner-poem-poet">${esc(poem.poet)} · ${esc(poem.poetEnglish)}</div>
+          <div class="pp-banner-poem-meta">${esc(poem.deityEnglish)} · Poem ${poem.num} of 22 surviving</div>
+        </div>
+      </div>
+
+      <div class="pp-music-note">
+        ♪ This poem was composed with music notation (iṭam) — the melody is lost, but the text endures.
+        Theme: ${esc(poem.theme)}
+      </div>
+
+      <div class="pp-verse-card">
+        <div class="pp-verse-layer">
+          <div class="pp-layer-label">Tamil · தமிழ்</div>
+          <div class="pp-tamil-text">${esc(poem.tamil)}</div>
+        </div>
+        <div class="pp-verse-layer">
+          <div class="pp-layer-label">Transliteration</div>
+          <div class="pp-translit-text">${esc(poem.transliteration)}</div>
+        </div>
+        <div class="pp-verse-layer">
+          <div class="pp-layer-label">English Translation</div>
+          <div class="pp-english-text">${esc(poem.english)}</div>
+        </div>
+        <div class="pp-verse-layer">
+          <div class="pp-layer-label">Tamil Commentary · உரை</div>
+          <div class="pp-urai-text">${esc(poem.tamilUrai)}</div>
+        </div>
+        <div class="pp-verse-layer">
+          <div class="pp-layer-label">Alternative Rendering</div>
+          <div class="pp-alt-text">${esc(poem.altTranslation)}</div>
+        </div>
+        <div class="pp-verse-layer">
+          <div class="pp-layer-label">Literary Note</div>
+          <div class="pp-note">${esc(poem.note)}</div>
+        </div>
+      </div>`;
+
+    // Prev / next within same section
+    const secPoems = data.poems.filter(p=>p.section===poem.section).sort((a,b)=>a.num-b.num);
+    const idx = secPoems.findIndex(p=>p.num===num);
+    const prev = idx>0 ? secPoems[idx-1] : null;
+    const next = idx<secPoems.length-1 ? secPoems[idx+1] : null;
+
+    document.getElementById('poem-nav').innerHTML = `
+      <a href="${prev?`poem.html?n=${prev.num}`:'#'}" class="pp-pnav-link ${prev?'':'disabled'}">
+        <div class="pp-pnav-dir">← முந்தைய · Previous</div>
+        <div class="pp-pnav-incipit">${prev?esc(prev.tamil.split('\n')[0]):'—'}</div>
+        <div class="pp-pnav-sub">${prev?'Poem '+prev.num+' · '+esc(prev.poetEnglish):''}</div>
+      </a>
+      <a href="${next?`poem.html?n=${next.num}`:'#'}" class="pp-pnav-link next ${next?'':'disabled'}">
+        <div class="pp-pnav-dir">அடுத்தது · Next →</div>
+        <div class="pp-pnav-incipit">${next?esc(next.tamil.split('\n')[0]):'—'}</div>
+        <div class="pp-pnav-sub">${next?'Poem '+next.num+' · '+esc(next.poetEnglish):''}</div>
+      </a>`;
+  })();
+  </script>
+</body>
+</html>

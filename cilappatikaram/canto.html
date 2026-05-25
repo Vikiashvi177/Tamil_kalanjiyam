@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Canto — Cilappatikāram</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/cilappatikaram.css"/>
+  <style>
+    /* Passage nav within long cantos */
+    .cp-passage-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 820px;
+      margin: 0 auto 2rem;
+      padding: 0 1.5rem;
+      font-size: .85rem;
+      color: var(--ink-muted);
+    }
+    .cp-passage-nav a {
+      color: var(--book-accent, var(--cp-gold));
+      text-decoration: none;
+      font-family: var(--font-display);
+    }
+    .cp-passage-nav a:hover { text-decoration: underline; }
+
+    /* Coming soon placeholder */
+    .cp-coming-soon {
+      max-width: 820px;
+      margin: 2rem auto;
+      padding: 2.5rem;
+      text-align: center;
+      background: var(--bg-paper);
+      border: 1px dashed rgba(184,134,11,0.3);
+      border-radius: 3px;
+    }
+    .cp-coming-soon p {
+      color: var(--ink-muted);
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+    .cp-coming-soon .tamil-note {
+      font-family: var(--font-tamil);
+      font-size: 1.25rem;
+      color: var(--cp-gold);
+      display: block;
+      margin-bottom: .75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Story context strip — persistent location indicator -->
+  <div class="cp-context-strip" id="context-strip" style="display:none">
+    <span class="ctx-book" id="ctx-book"></span>
+    <span class="ctx-sep">·</span>
+    <span id="ctx-canto"></span>
+    <span class="ctx-sep">·</span>
+    <span class="ctx-situation" id="ctx-situation"></span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Cilappatikāram home">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" width="32" height="32"
+               xmlns="http://www.w3.org/2000/svg" fill="none"
+               stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+               style="color:var(--cp-gold)">
+            <path d="M 20 6 A 14 14 0 1 1 19.5 6" stroke-width="2.4" opacity="0.9"/>
+            <circle cx="20" cy="34" r="2.5" fill="currentColor" stroke="none" opacity="0.85"/>
+            <circle cx="7" cy="22" r="1.8" fill="currentColor" stroke="none" opacity="0.62"/>
+            <circle cx="33" cy="22" r="1.8" fill="currentColor" stroke="none" opacity="0.62"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">சிலப்பதிகாரம்</span>
+          <span class="wordmark-english">Cilappatikāram</span>
+        </span>
+      </a>
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html">Home</a>
+        <a href="#" id="nav-book-link">Book</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Canto hero -->
+    <section class="cp-canto-hero" id="canto-hero">
+      <!-- filled by JS -->
+    </section>
+
+    <!-- Passage nav: prev / next canto -->
+    <div class="cp-passage-nav" id="passage-nav"></div>
+
+    <!-- Passages -->
+    <div class="cp-passages" id="passages-container">
+      <!-- filled by JS -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      <a href="index.html">← Cilappatikāram</a>
+      &emsp;·&emsp;
+      <a id="footer-book-link" href="index.html">Book</a>
+      &emsp;·&emsp;
+      <a href="../index.html">Library</a>
+    </p>
+  </footer>
+
+  <script src="data/cantos.js"></script>
+  <script src="data/passages.js" onerror="window.CP_PASSAGES=[]"></script>
+  <script>
+  (function() {
+    if (!window.CP_PASSAGES) window.CP_PASSAGES = [];
+
+    const params = new URLSearchParams(window.location.search);
+    const cantoNum = parseInt(params.get('c')) || 1;
+
+    const canto = CP_CANTOS.find(c => c.num === cantoNum);
+    if (!canto) {
+      document.title = 'Canto not found — Cilappatikāram';
+      return;
+    }
+
+    // Book colour mapping
+    const BOOK_ACCENTS = {
+      1: { accent: 'var(--cp-pukar)',   bg: 'var(--cp-pukar-pale)'   },
+      2: { accent: 'var(--cp-madurai)', bg: 'var(--cp-madurai-pale)' },
+      3: { accent: 'var(--cp-vanci)',   bg: 'var(--cp-vanci-pale)'   }
+    };
+    const bm = BOOK_ACCENTS[canto.book];
+    document.body.style.setProperty('--book-accent', bm.accent);
+    document.body.style.setProperty('--book-bg', bm.bg);
+
+    // Page title
+    document.title = `Canto ${cantoNum}: ${canto.nameEnglish} — Cilappatikāram`;
+
+    // Context strip
+    const strip = document.getElementById('context-strip');
+    strip.style.display = 'flex';
+    strip.style.setProperty('--book-accent', bm.accent);
+    document.getElementById('ctx-book').textContent =
+      `${canto.bookEnglish}`;
+    document.getElementById('ctx-canto').textContent =
+      `Canto ${cantoNum} · ${canto.nameEnglish}`;
+    document.getElementById('ctx-situation').textContent =
+      canto.dramatic;
+
+    // Nav links
+    const bookLink = document.getElementById('nav-book-link');
+    bookLink.href = `book.html?b=${canto.book}`;
+    bookLink.textContent = canto.bookEnglish;
+    document.getElementById('footer-book-link').href = `book.html?b=${canto.book}`;
+    document.getElementById('footer-book-link').textContent = canto.bookEnglish;
+
+    // Canto hero
+    const hero = document.getElementById('canto-hero');
+    hero.innerHTML = `
+      <div class="canto-book-tag" style="color:${bm.accent}">
+        ${canto.bookTamil} · ${canto.bookEnglish} · Canto ${cantoNum}
+      </div>
+      <h1>${canto.name}</h1>
+      <h2>${canto.nameEnglish}</h2>
+      <div class="cp-canto-dramatic">${canto.dramatic}</div>
+      <p style="font-size:.92rem;color:var(--ink-muted)">
+        Setting: ${canto.setting} &emsp;·&emsp; ~${canto.lines} lines
+      </p>`;
+
+    // Prev / next navigation
+    const prev = CP_CANTOS.find(c => c.num === cantoNum - 1);
+    const next = CP_CANTOS.find(c => c.num === cantoNum + 1);
+    const nav = document.getElementById('passage-nav');
+    nav.innerHTML = `
+      <span>${prev
+        ? `<a href="canto.html?c=${prev.num}">← Canto ${prev.num}: ${prev.nameEnglish}</a>`
+        : '<span style="opacity:.35">← First Canto</span>'}</span>
+      <span style="color:var(--ink-muted);font-size:.78rem">Canto ${cantoNum} of ${CP_CANTOS.length}</span>
+      <span>${next
+        ? `<a href="canto.html?c=${next.num}">Canto ${next.num}: ${next.nameEnglish} →</a>`
+        : '<span style="opacity:.35">Final Canto →</span>'}</span>`;
+
+    // Passages for this canto
+    const passages = CP_PASSAGES.filter(p => p.canto === cantoNum);
+    const container = document.getElementById('passages-container');
+
+    if (passages.length === 0) {
+      // Canto exists but text not yet loaded (sessions 2–4)
+      container.innerHTML = `
+        <div class="cp-coming-soon">
+          <span class="tamil-note">${canto.name}</span>
+          <p>
+            The full text of this canto — <em>${canto.nameEnglish}</em> —
+            will be added in an upcoming session.
+          </p>
+          <p style="margin-top:.75rem;font-size:.92rem">
+            ${canto.summary}
+          </p>
+        </div>`;
+      return;
+    }
+
+    // Render passages
+    const TYPE_LABELS = {
+      narrative: 'Narrative',
+      song: 'Song',
+      description: 'Description',
+      dialogue: 'Dialogue',
+      catalogue: 'Catalogue',
+    };
+
+    passages.forEach(p => {
+      const typeClass = p.type || 'narrative';
+      const typeLabel = TYPE_LABELS[p.type] || p.type || 'Narrative';
+
+      container.innerHTML += `
+        <div class="cp-passage" id="passage-${p.num}">
+          <div class="cp-passage-header">
+            <span class="cp-passage-num">Passage ${p.num}</span>
+            ${p.name ? `<span class="cp-passage-name-tamil">${p.name}</span>` : ''}
+            ${p.nameEnglish ? `<span class="cp-passage-name-eng">${p.nameEnglish}</span>` : ''}
+            <span class="cp-passage-type-badge ${typeClass}">${typeLabel}</span>
+          </div>
+          <div class="cp-layers">
+            ${p.tamil ? `
+              <div class="cp-layer">
+                <div class="cp-layer-label">Tamil</div>
+                <div class="cp-layer-text tamil">${p.tamil}</div>
+              </div>` : ''}
+            ${p.transliteration ? `
+              <div class="cp-layer">
+                <div class="cp-layer-label">Transliteration</div>
+                <div class="cp-layer-text transliteration">${p.transliteration}</div>
+              </div>` : ''}
+            ${p.english ? `
+              <div class="cp-layer">
+                <div class="cp-layer-label">English</div>
+                <div class="cp-layer-text">${p.english}</div>
+              </div>` : ''}
+            ${p.tamilUrai ? `
+              <div class="cp-layer">
+                <div class="cp-layer-label">Tamil Urai</div>
+                <div class="cp-layer-text urai">${p.tamilUrai}</div>
+              </div>` : ''}
+            ${p.altTranslation ? `
+              <div class="cp-layer">
+                <div class="cp-layer-label">Alt. Translation</div>
+                <div class="cp-layer-text">${p.altTranslation}</div>
+              </div>` : ''}
+            ${p.note ? `
+              <div class="cp-layer">
+                <div class="cp-layer-label">Note</div>
+                <div class="cp-layer-text note">${p.note}</div>
+              </div>` : ''}
+          </div>
+        </div>`;
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

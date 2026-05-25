@@ -1,0 +1,565 @@
+/* ==========================================================================
+   பத்துப்பாட்டு · Pattuppāṭṭu — The Ten Songs · c. 100 BCE – 250 CE
+   Ten long poems, the grand canvases of Sangam poetry
+
+   Visual identity:
+   The Pattuppāṭṭu is the other half of the Sangam canon alongside the
+   Eṭṭutokai — but where those anthologies are concentrated gems,
+   these are long poems: landscapes, journeys, cities, mountains, the sea.
+   The palette evokes the physical world they traverse:
+
+     - Sacred violet    (#5a2a78 / #7a3a98) — Murukaṉ's divine presence
+     - Forest green     (#2a5a18 / #4a8a28) — the kuṟiñci mountain world
+     - River ochre      (#7a4a18 / #b07030) — the great Cōḷa river valleys
+     - Mountain brown   (#5a3808 / #8a5818) — the hill-country chieftains
+     - Ocean blue       (#1a4a6a / #2e6da0) — the sea-ports, Kāvēripaṭṭiṉam
+     - Winter blue      (#1a3a6a / #2a5a9a) — the north wind, winter waiting
+     - Madurai crimson  (#8a1a28 / #b82838) — the sacred city, kāñci impermanence
+
+   Each poem has its own accent colour. The shared palette is the forest
+   green of the kuṟiñci landscape — the mountain is the Pattuppāṭṭu's
+   natural home, even for the sea-poems and city-poems.
+
+   The mark: a vel (spear) — Murukaṉ's weapon, the first poem's icon —
+   pointing upward, with a small lotus at the base (the mountain shrine
+   and the divine meeting-point).
+   ========================================================================== */
+
+:root {
+  /* ── Murukaṉ violet (primary) ────────────────────────── */
+  --pp-violet:        #5a2a78;
+  --pp-violet-mid:    #7a3a98;
+  --pp-violet-bright: #9a50b8;
+  --pp-violet-pale:   rgba(90,42,120,0.10);
+  --pp-violet-pale2:  rgba(90,42,120,0.06);
+
+  /* ── Forest green (secondary) ───────────────────────── */
+  --pp-green:         #2a5a18;
+  --pp-green-mid:     #4a8a28;
+  --pp-green-pale:    rgba(42,90,24,0.10);
+
+  /* ── River ochre (tertiary) ─────────────────────────── */
+  --pp-ochre:         #7a4a18;
+  --pp-ochre-mid:     #b07030;
+  --pp-ochre-pale:    rgba(122,74,24,0.10);
+
+  /* ── Per-poem accent palette ─────────────────────────── */
+  --pp-poem1:  #5a2a78;   /* Tirumurukaṟṟuppaṭai — Murukaṉ violet */
+  --pp-poem2:  #1a4a6a;   /* Porunarāṟṟuppaṭai   — ocean blue */
+  --pp-poem3:  #3a5a18;   /* Ciṟupāṇāṟṟuppaṭai   — forest green */
+  --pp-poem4:  #6a2a08;   /* Perumpāṇāṟṟuppaṭai  — bark brown */
+  --pp-poem5:  #2a5a18;   /* Mullaippāṭṭu         — deep forest */
+  --pp-poem6:  #8a1a28;   /* Maturaikkāñci        — Madurai crimson */
+  --pp-poem7:  #1a3a6a;   /* Neṭunalvāṭai         — winter blue */
+  --pp-poem8:  #1a5a3a;   /* Kuṟiñcippāṭṭu        — kuṟiñci green */
+  --pp-poem9:  #1a4a6a;   /* Paṭṭiṉappālai        — harbour blue */
+  --pp-poem10: #5a3808;   /* Malaipaṭukaṭām       — mountain brown */
+
+  /* ── Override site-wide palette ────────────────────── */
+  --accent-vermillion: var(--pp-violet);
+  --accent-kumkum:     var(--pp-violet-mid);
+  --accent-ochre:      var(--pp-ochre-mid);
+  --accent-gold:       var(--pp-ochre);
+}
+
+/* ---------------------------------------------------------------------------
+   Background: mountain parchment — slightly cooler and greener than
+   the Patiṟṟuppattu's warm royal amber background
+   --------------------------------------------------------------------------- */
+body { background: #bfb898; }
+body::before {
+  background-image:
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 3px,
+      rgba(90,42,120,0.018) 3px, rgba(90,42,120,0.018) 4px),
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 60px,
+      rgba(42,90,24,0.03) 60px, rgba(42,90,24,0.03) 61px,
+      transparent 61px, transparent 140px,
+      rgba(90,42,120,0.018) 140px, rgba(90,42,120,0.018) 142px),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.28 0 0 0 0 0.22 0 0 0 0 0.18 0 0 0 0.11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Header */
+.site-header { border-bottom-color: rgba(90,42,120,0.28); }
+.site-logo .mark { color: var(--pp-violet); }
+.wordmark-tamil { color: var(--pp-violet); }
+.site-nav a { color: var(--pp-ochre); }
+.site-nav a:hover { color: var(--pp-violet); }
+a { color: var(--pp-violet); }
+a:hover { color: var(--pp-violet-mid); }
+
+/* ---------------------------------------------------------------------------
+   Index page hero
+   --------------------------------------------------------------------------- */
+.pp-hero {
+  text-align: center;
+  padding: 3.5rem 1.5rem 2.5rem;
+  max-width: 840px;
+  margin: 0 auto;
+}
+.pp-hero h1 {
+  font-family: var(--font-tamil);
+  font-size: clamp(2.75rem,6vw,4.2rem);
+  font-weight: 800;
+  color: var(--pp-violet);
+  line-height: 1.05;
+  margin-bottom: .35rem;
+}
+.pp-hero h2 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.2rem,2.5vw,1.6rem);
+  color: var(--ink-secondary);
+  letter-spacing: .04em;
+  margin-bottom: .5rem;
+}
+.pp-hero .era {
+  font-size: .77rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--pp-violet-mid);
+  margin-bottom: 1.75rem;
+}
+.pp-hero p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--ink-secondary);
+  margin-bottom: 1rem;
+}
+
+/* Stat row */
+.pp-stat-row {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+.pp-stat { text-align: center; }
+.pp-stat-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--pp-violet);
+  line-height: 1;
+}
+.pp-stat-label {
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-top: .2rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Poem cards grid
+   --------------------------------------------------------------------------- */
+.pp-poems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 2rem auto 4rem;
+  padding: 0 1.5rem;
+}
+
+.pp-poem-card {
+  display: block;
+  text-decoration: none;
+  background: var(--bg-paper);
+  border: 1px solid rgba(74,40,24,0.22);
+  border-radius: 4px;
+  padding: 1.75rem 1.6rem 1.5rem;
+  transition: transform .15s, box-shadow .15s;
+  position: relative;
+  overflow: hidden;
+}
+.pp-poem-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--pp-card-accent, var(--pp-violet));
+  transition: width .15s;
+}
+.pp-poem-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-paper-hover);
+}
+.pp-poem-card:hover::before { width: 6px; }
+
+.pp-card-num {
+  font-size: .7rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: .5rem;
+  font-family: var(--font-display);
+}
+.pp-card-tamil {
+  font-family: var(--font-tamil);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--pp-card-accent, var(--pp-violet));
+  line-height: 1.2;
+  margin-bottom: .15rem;
+}
+.pp-card-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-secondary);
+  margin-bottom: .15rem;
+}
+.pp-card-subtitle {
+  font-family: var(--font-display);
+  font-size: .85rem;
+  color: var(--ink-muted);
+  margin-bottom: .75rem;
+}
+.pp-card-divider {
+  text-align: center;
+  color: var(--pp-card-accent, var(--pp-violet));
+  opacity: .35;
+  font-size: .8rem;
+  margin: .6rem 0;
+  letter-spacing: .3em;
+}
+.pp-card-desc {
+  font-size: .9rem;
+  line-height: 1.7;
+  color: var(--ink-secondary);
+  margin-bottom: 1rem;
+}
+.pp-card-meta {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: .78rem;
+  color: var(--ink-muted);
+}
+.pp-card-badge {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: .78rem;
+  padding: .2rem .55rem;
+  border-radius: 2px;
+  background: var(--pp-violet-pale2);
+  color: var(--pp-violet-mid);
+  border: 1px solid var(--pp-violet-pale);
+}
+.pp-card-cta {
+  font-family: var(--font-display);
+  color: var(--pp-card-accent, var(--pp-violet));
+  font-size: .85rem;
+  letter-spacing: .05em;
+  transition: letter-spacing .15s;
+}
+.pp-poem-card:hover .pp-card-cta { letter-spacing: .12em; }
+
+/* ---------------------------------------------------------------------------
+   Poem page
+   --------------------------------------------------------------------------- */
+.pp-poem-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+
+.pp-bc {
+  display: flex; align-items: center; gap: .5rem;
+  font-size: .875rem; color: var(--ink-muted);
+  margin-bottom: 2rem; flex-wrap: wrap;
+}
+.pp-bc a { color: var(--ink-secondary); text-decoration: none; }
+.pp-bc a:hover { color: var(--pp-violet); }
+.pp-bc .sep { opacity: .45; }
+
+/* Poem header */
+.pp-poem-header {
+  text-align: center;
+  padding: 2rem 0 1.5rem;
+  border-bottom: 1px solid rgba(74,40,24,.2);
+  margin-bottom: 2.5rem;
+}
+.pp-poem-num-label {
+  font-size: .72rem; letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--pp-poem-accent, var(--pp-violet-mid));
+  margin-bottom: .6rem;
+}
+.pp-poem-h1 {
+  font-family: var(--font-tamil);
+  font-size: clamp(2rem,5vw,3.2rem);
+  font-weight: 800;
+  color: var(--pp-poem-accent, var(--pp-violet));
+  line-height: 1.1;
+  margin-bottom: .3rem;
+}
+.pp-poem-h1-eng {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.1rem,2.5vw,1.5rem);
+  color: var(--ink-secondary);
+  margin-bottom: .25rem;
+}
+.pp-poem-subtitle {
+  font-family: var(--font-display);
+  font-size: .95rem;
+  color: var(--ink-muted);
+  margin-bottom: 1rem;
+}
+.pp-poem-meta-row {
+  display: flex; justify-content: center;
+  gap: 1.5rem; flex-wrap: wrap;
+  font-size: .8rem; color: var(--ink-muted);
+  font-family: var(--font-display); font-style: italic;
+}
+.pp-poem-meta-row span::before {
+  content: '·';
+  margin-right: .75rem;
+  opacity: .4;
+}
+.pp-poem-meta-row span:first-child::before { content: ''; margin: 0; }
+
+/* Description block */
+.pp-desc-block {
+  background: var(--pp-violet-pale2,rgba(90,42,120,.06));
+  border: 1px solid rgba(90,42,120,.15);
+  border-radius: 4px;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 2.5rem;
+  font-size: .95rem;
+  line-height: 1.85;
+  color: var(--ink-secondary);
+  font-family: var(--font-display);
+}
+
+/* Tamil text panel */
+.pp-tamil-panel {
+  background: var(--bg-paper);
+  border: 1px solid rgba(74,40,24,.22);
+  border-radius: 4px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 1.25rem;
+}
+.pp-panel-label {
+  font-size: .68rem; letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: .9rem;
+  font-family: var(--font-display);
+}
+.pp-tamil-text {
+  font-family: var(--font-tamil);
+  font-size: 1.25rem;
+  line-height: 2.1;
+  color: var(--ink-primary);
+  white-space: pre-wrap;
+}
+.pp-transliteration {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: .95rem;
+  line-height: 1.95;
+  color: var(--ink-secondary);
+  white-space: pre-wrap;
+}
+.pp-english-text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 2;
+  color: var(--ink-primary);
+  white-space: pre-wrap;
+}
+
+/* Toggle panels */
+.pp-panel-toggle {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1.1rem 1.6rem;
+  font-family: var(--font-display);
+  font-size: .9rem;
+  color: var(--ink-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(74,40,24,.15);
+  transition: background .12s;
+}
+.pp-panel-toggle:hover { background: rgba(90,42,120,.04); }
+.pp-panel-toggle .arrow {
+  font-size: .75rem;
+  transition: transform .2s;
+  color: var(--pp-violet-mid);
+}
+.pp-panel-toggle.open .arrow { transform: rotate(180deg); }
+.pp-panel-body {
+  padding: 1.25rem 1.6rem 1.5rem;
+  display: none;
+}
+.pp-panel-body.open { display: block; }
+
+/* Urai box */
+.pp-urai-text {
+  font-family: var(--font-tamil);
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--ink-secondary);
+}
+
+/* Alt translation */
+.pp-alt-text {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.95;
+  color: var(--ink-secondary);
+}
+
+/* Scholarly note */
+.pp-note-text {
+  font-family: var(--font-display);
+  font-size: .92rem;
+  line-height: 1.85;
+  color: var(--ink-secondary);
+}
+
+/* Collapsible wrapper */
+.pp-collapsible {
+  background: var(--bg-paper);
+  border: 1px solid rgba(74,40,24,.2);
+  border-radius: 4px;
+  margin-bottom: .75rem;
+  overflow: hidden;
+}
+
+/* Navigation between poems */
+.pp-poem-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(74,40,24,.18);
+}
+.pp-nav-link {
+  display: block;
+  padding: 1rem 1.25rem;
+  background: var(--bg-paper);
+  border: 1px solid rgba(74,40,24,.2);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--ink-secondary);
+  transition: border-color .15s, background .15s;
+}
+.pp-nav-link:hover {
+  border-color: var(--pp-violet-mid);
+  background: var(--pp-violet-pale2);
+}
+.pp-nav-link.next { text-align: right; }
+.pp-nav-link.disabled {
+  opacity: .3;
+  pointer-events: none;
+}
+.pp-nav-dir {
+  font-size: .72rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: .3rem;
+  font-family: var(--font-display);
+}
+.pp-nav-title {
+  font-family: var(--font-tamil);
+  font-size: 1rem;
+  color: var(--pp-violet);
+}
+.pp-nav-sub {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: .8rem;
+  color: var(--ink-muted);
+}
+
+/* Intro section header */
+.pp-intro-header {
+  max-width: 840px;
+  margin: 2.5rem auto 1.5rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+.pp-intro-label {
+  font-size: .72rem; letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--pp-violet-mid);
+  margin-bottom: .35rem;
+}
+.pp-intro-label-tamil {
+  font-family: var(--font-tamil);
+  font-size: 1.25rem;
+  color: var(--ink-secondary);
+  margin-bottom: .5rem;
+}
+.pp-intro-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem,2.5vw,1.75rem);
+  color: var(--ink-primary);
+  font-weight: 400;
+  letter-spacing: .02em;
+}
+.pp-intro-heading em { color: var(--pp-violet); }
+
+/* Genre badge */
+.pp-genre-badge {
+  display: inline-block;
+  font-size: .7rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: .2rem .6rem;
+  border-radius: 2px;
+  background: var(--pp-violet-pale2);
+  color: var(--pp-violet-mid);
+  border: 1px solid var(--pp-violet-pale);
+  font-family: var(--font-display);
+  margin-bottom: .6rem;
+}
+
+/* About page */
+.pp-about-page {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 5rem;
+}
+.pp-about-page h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--pp-violet);
+  margin: 2rem 0 .75rem;
+}
+.pp-about-page h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--ink-primary);
+  margin: 1.5rem 0 .5rem;
+}
+.pp-about-page p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--ink-secondary);
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  .pp-poems-grid { grid-template-columns: 1fr; padding: 0 1rem; }
+  .pp-poem-nav { grid-template-columns: 1fr; }
+  .pp-nav-link.next { text-align: left; }
+  .pp-stat-row { gap: 1.5rem; }
+}

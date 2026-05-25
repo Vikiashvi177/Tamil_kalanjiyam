@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">பாடல் · பதிற்றுப்பத்து</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/patirrupattu.css"/>
+  <style>
+    .poem-page{max-width:860px;margin:0 auto;padding:2rem 1.5rem 4rem}
+    .poem-bc{display:flex;align-items:center;gap:.5rem;font-size:.875rem;color:var(--ink-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .poem-bc a{color:var(--ink-secondary);text-decoration:none}
+    .poem-bc a:hover{color:var(--pt-amber,#9a6800)}
+    .poem-bc .sep{opacity:.45}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 8 28 Q 10 22 16 20 Q 22 18 28 20 Q 34 22 36 28" stroke-width="1.5" opacity="0.85"/>
+            <path d="M 8 28 Q 8 32 12 33 Q 16 34 20 33 Q 24 34 28 33 Q 32 32 32 28" stroke-width="1.2" opacity="0.8"/>
+            <path d="M 12 33 L 12 37" stroke-width="2" opacity="0.7"/>
+            <path d="M 20 33 L 20 37" stroke-width="2" opacity="0.7"/>
+            <path d="M 28 33 L 28 37" stroke-width="2" opacity="0.7"/>
+            <path d="M 32 28 Q 35 28 36 26 Q 37 24 35 23" stroke-width="1.2" opacity="0.65"/>
+            <path d="M 8 28 Q 5 28 4 26 Q 3 24 5 23" stroke-width="1.2" opacity="0.65"/>
+            <path d="M 16 20 Q 18 14 20 12 Q 22 14 24 20" stroke-width="1.1" opacity="0.7"/>
+            <circle cx="20" cy="11" r="2.5" fill="currentColor" opacity="0.6" stroke="none"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">பதிற்றுப்பத்து</span>
+          <span class="wordmark-english">Patiṟṟuppattu</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="poem-page">
+      <nav class="poem-bc">
+        <a href="../index.html">Library</a>
+        <span class="sep">›</span>
+        <a href="index.html">Patiṟṟuppattu</a>
+        <span class="sep">›</span>
+        <a href="#" id="bc-dec-link" style="color:var(--ink-secondary);text-decoration:none">…</a>
+        <span class="sep">›</span>
+        <span id="bc-poem">…</span>
+      </nav>
+
+      <div id="poem-container"></div>
+      <nav class="pt-poem-nav" id="poem-nav"></nav>
+    </article>
+  </main>
+
+  <footer style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(154,104,0,.2);color:var(--ink-muted);font-size:.875rem;letter-spacing:.05em;margin-top:3rem">
+    <div style="color:var(--pt-amber,#9a6800);letter-spacing:1em;padding-left:1em;margin-bottom:.5rem;opacity:.4">❧ ❧ ❧</div>
+    <div>பதிற்றுப்பத்து · <a href="../index.html" style="color:var(--pt-amber,#9a6800)">Tamil Literature Library</a></div>
+  </footer>
+
+  <script src="data/poems.js"></script>
+  <script>
+  (function(){
+    const data = window.PT_DATA;
+    const params = new URLSearchParams(window.location.search);
+    const num = parseInt(params.get('n'),10) || 1;
+    function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+    const byNum = new Map(data.poems.map(p=>[p.num,p]));
+    const poem = byNum.get(num);
+    const container = document.getElementById('poem-container');
+
+    if(!poem){
+      container.innerHTML=`<div style="text-align:center;padding:3rem;background:var(--bg-paper);border:1px solid var(--border-subtle);border-radius:4px">
+        <p style="font-family:var(--font-display);color:var(--ink-secondary)">Poem ${num} not found.</p>
+        <a href="index.html" style="display:inline-block;margin-top:1.5rem;color:var(--pt-amber,#9a6800);font-family:var(--font-display);letter-spacing:.1em;text-transform:uppercase;font-size:.85rem">← Back to Patiṟṟuppattu</a>
+      </div>`;
+      document.getElementById('bc-poem').textContent=`Poem ${num}`;
+      return;
+    }
+
+    document.title = `Poem ${poem.num} · ${poem.king} · பதிற்றுப்பத்து`;
+    document.getElementById('page-title').textContent = `Poem ${poem.num} · பதிற்றுப்பத்து`;
+    document.getElementById('bc-poem').textContent = `Poem ${poem.num}`;
+
+    // Decade breadcrumb
+    const decLink = document.getElementById('bc-dec-link');
+    const dec = data.decades.find(d=>d.num===poem.decade);
+    if(dec && decLink){
+      decLink.textContent = `Decade ${dec.num} · ${dec.king}`;
+      decLink.href = `decade.html?d=${dec.num}`;
+    }
+
+    container.innerHTML = `
+      <div class="pt-poem-banner" data-dec="${poem.decade}">
+        <div class="pt-banner-poem-num">${poem.num}</div>
+        <div>
+          <div class="pt-banner-poem-king">${esc(poem.king)}</div>
+          <div class="pt-banner-poem-poet">By ${esc(poem.poet)} · ${esc(poem.poetEnglish)}</div>
+          <div class="pt-banner-poem-meta">Decade ${poem.decade} · ${esc(poem.themeEnglish)}</div>
+        </div>
+      </div>
+
+      <p style="font-size:.9rem;line-height:1.7;color:var(--ink-secondary);margin-bottom:2rem;padding:.85rem 1.1rem;background:var(--pt-amber-pale);border-left:3px solid var(--pt-amber-mid);border-radius:2px">
+        <strong style="color:var(--pt-court);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase">Dramatic Situation · </strong>${esc(poem.theme)}
+      </p>
+
+      <div class="pt-verse-card">
+        <div class="pt-verse-layer">
+          <div class="pt-layer-label">Tamil · தமிழ்</div>
+          <div class="pt-tamil-text">${esc(poem.tamil)}</div>
+        </div>
+        <div class="pt-verse-layer">
+          <div class="pt-layer-label">Transliteration</div>
+          <div class="pt-translit-text">${esc(poem.transliteration)}</div>
+        </div>
+        <div class="pt-verse-layer">
+          <div class="pt-layer-label">English Translation</div>
+          <div class="pt-english-text">${esc(poem.english)}</div>
+        </div>
+        <div class="pt-verse-layer">
+          <div class="pt-layer-label">Tamil Commentary · உரை</div>
+          <div class="pt-urai-text">${esc(poem.tamilUrai)}</div>
+        </div>
+        <div class="pt-verse-layer">
+          <div class="pt-layer-label">Alternative Rendering</div>
+          <div class="pt-alt-text">${esc(poem.altTranslation)}</div>
+        </div>
+        <div class="pt-verse-layer">
+          <div class="pt-layer-label">Literary Note</div>
+          <div class="pt-note">${esc(poem.note)}</div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.5rem;padding:.85rem 1.1rem;background:var(--pt-court-pale);border:1px solid rgba(154,104,0,.18);border-radius:4px;font-size:.85rem;color:var(--ink-secondary)">
+        <span style="font-family:var(--font-display);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pt-amber)">Royal Gifts · </span>
+        ${esc(poem.gifts)} &nbsp;·&nbsp; ${esc(poem.giftsEnglish)}
+      </div>`;
+
+    // Prev/next within same decade
+    const decPoems = data.poems.filter(p=>p.decade===poem.decade).sort((a,b)=>a.num-b.num);
+    const idx = decPoems.findIndex(p=>p.num===num);
+    const prev = idx>0 ? decPoems[idx-1] : null;
+    const next = idx<decPoems.length-1 ? decPoems[idx+1] : null;
+
+    document.getElementById('poem-nav').innerHTML = `
+      <a href="${prev?`poem.html?n=${prev.num}`:'#'}" class="pt-pnav-link ${prev?'':'disabled'}">
+        <div class="pt-pnav-dir">← முந்தைய · Previous</div>
+        <div class="pt-pnav-incipit">${prev?esc(prev.tamil.split('\n')[0]):'—'}</div>
+        <div class="pt-pnav-sub">${prev?'Poem '+prev.num:''}</div>
+      </a>
+      <a href="${next?`poem.html?n=${next.num}`:'#'}" class="pt-pnav-link next ${next?'':'disabled'}">
+        <div class="pt-pnav-dir">அடுத்தது · Next →</div>
+        <div class="pt-pnav-incipit">${next?esc(next.tamil.split('\n')[0]):'—'}</div>
+        <div class="pt-pnav-sub">${next?'Poem '+next.num:''}</div>
+      </a>`;
+  })();
+  </script>
+</body>
+</html>

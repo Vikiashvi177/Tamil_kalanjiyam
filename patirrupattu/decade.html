@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">பத்து · பதிற்றுப்பத்து</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/patirrupattu.css"/>
+  <style>
+    .dec-page{max-width:1020px;margin:0 auto;padding:2rem 1.5rem 4rem}
+    .dec-bc{display:flex;align-items:center;gap:.5rem;font-size:.875rem;color:var(--ink-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .dec-bc a{color:var(--ink-secondary);text-decoration:none}
+    .dec-bc a:hover{color:var(--pt-amber,#9a6800)}
+    .dec-bc .sep{opacity:.45}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 8 28 Q 10 22 16 20 Q 22 18 28 20 Q 34 22 36 28" stroke-width="1.5" opacity="0.85"/>
+            <path d="M 8 28 Q 8 32 12 33 Q 16 34 20 33 Q 24 34 28 33 Q 32 32 32 28" stroke-width="1.2" opacity="0.8"/>
+            <path d="M 12 33 L 12 37" stroke-width="2" opacity="0.7"/>
+            <path d="M 20 33 L 20 37" stroke-width="2" opacity="0.7"/>
+            <path d="M 28 33 L 28 37" stroke-width="2" opacity="0.7"/>
+            <path d="M 32 28 Q 35 28 36 26 Q 37 24 35 23" stroke-width="1.2" opacity="0.65"/>
+            <path d="M 8 28 Q 5 28 4 26 Q 3 24 5 23" stroke-width="1.2" opacity="0.65"/>
+            <path d="M 16 20 Q 18 14 20 12 Q 22 14 24 20" stroke-width="1.1" opacity="0.7"/>
+            <circle cx="20" cy="11" r="2.5" fill="currentColor" opacity="0.6" stroke="none"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">பதிற்றுப்பத்து</span>
+          <span class="wordmark-english">Patiṟṟuppattu</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="dec-page">
+      <nav class="dec-bc">
+        <a href="../index.html">Library</a>
+        <span class="sep">›</span>
+        <a href="index.html">Patiṟṟuppattu</a>
+        <span class="sep">›</span>
+        <span id="bc-dec">…</span>
+      </nav>
+      <div id="decade-banner"></div>
+      <div id="poem-grid" class="pt-poem-grid"></div>
+      <nav class="pt-dec-nav" id="dec-nav"></nav>
+    </div>
+  </main>
+
+  <footer style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(154,104,0,.2);color:var(--ink-muted);font-size:.875rem;letter-spacing:.05em;margin-top:1rem">
+    <div style="color:var(--pt-amber,#9a6800);letter-spacing:1em;padding-left:1em;margin-bottom:.5rem;opacity:.4">❧ ❧ ❧</div>
+    <div>பதிற்றுப்பத்து · <a href="../index.html" style="color:var(--pt-amber,#9a6800)">Tamil Literature Library</a></div>
+  </footer>
+
+  <script src="data/poems.js"></script>
+  <script>
+  (function(){
+    const data = window.PT_DATA;
+    const params = new URLSearchParams(window.location.search);
+    const decNum = parseInt(params.get('d'),10) || 2;
+    function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+    const dec = data.decades.find(d=>d.num===decNum);
+    if(!dec){ document.getElementById('decade-banner').innerHTML='<p style="text-align:center;padding:3rem">Decade not found.</p>'; return; }
+
+    document.title = `Decade ${decNum} · ${dec.king} · பதிற்றுப்பத்து`;
+    document.getElementById('page-title').textContent = `Decade ${decNum} · பதிற்றுப்பத்து`;
+    document.getElementById('bc-dec').textContent = `Decade ${decNum} · ${dec.king}`;
+
+    document.getElementById('decade-banner').innerHTML = `
+      <div class="pt-decade-banner" data-dec="${decNum}">
+        <div class="pt-banner-decade-num">பத்து ${decNum} · Decade ${decNum} · ${esc(dec.poems)}</div>
+        <div class="pt-banner-king">${esc(dec.king)}</div>
+        <div class="pt-banner-king-eng">${esc(dec.kingEnglish)}</div>
+        <div class="pt-banner-poet">By ${esc(dec.poet)} · ${esc(dec.poetEnglish)}</div>
+        <div class="pt-banner-desc">${esc(dec.desc)}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;font-size:.78rem;color:var(--ink-muted);letter-spacing:.1em;text-transform:uppercase;margin-top:1.5rem">
+        <span style="font-family:var(--font-display);">Royal Gifts: ${esc(dec.gifts)} · ${esc(dec.giftsEnglish)}</span>
+        <span style="flex:1;height:1px;background:rgba(154,104,0,.2)"></span>
+        <span>10 poems</span>
+      </div>`;
+
+    const poems = data.poems.filter(p=>p.decade===decNum);
+    const grid = document.getElementById('poem-grid');
+    poems.forEach(p=>{
+      const incipit = p.tamil.split('\n')[0];
+      const card = document.createElement('a');
+      card.href = `poem.html?n=${p.num}`;
+      card.className = 'pt-poem-card';
+      card.dataset.dec = decNum;
+      card.innerHTML = `
+        <div class="pt-card-num">Poem ${p.num} · ${esc(p.poet)}</div>
+        <div class="pt-card-incipit">${esc(incipit)}…</div>
+        <div class="pt-card-theme">${esc(p.themeEnglish)}</div>
+        <div class="pt-card-footer">
+          <span style="font-size:.7rem;color:var(--ink-muted)">${esc(p.theme)}</span>
+          <span>→</span>
+        </div>`;
+      grid.appendChild(card);
+    });
+
+    const decOrder = [2,3,4,5,6,7,8,9];
+    const idx = decOrder.indexOf(decNum);
+    const prevD = idx>0 ? data.decades.find(d=>d.num===decOrder[idx-1]) : null;
+    const nextD = idx<decOrder.length-1 ? data.decades.find(d=>d.num===decOrder[idx+1]) : null;
+    document.getElementById('dec-nav').innerHTML = `
+      <a href="${prevD?`decade.html?d=${prevD.num}`:'#'}" class="pt-nav-link ${prevD?'':'disabled'}">
+        <div class="pt-nav-dir">← முந்தைய · Previous Decade</div>
+        <div class="pt-nav-king">${prevD?esc(prevD.king):'—'}</div>
+        <div class="pt-nav-sub">${prevD?esc(prevD.kingEnglish):''}</div>
+      </a>
+      <a href="${nextD?`decade.html?d=${nextD.num}`:'#'}" class="pt-nav-link next ${nextD?'':'disabled'}">
+        <div class="pt-nav-dir">அடுத்தது · Next Decade →</div>
+        <div class="pt-nav-king">${nextD?esc(nextD.king):'—'}</div>
+        <div class="pt-nav-sub">${nextD?esc(nextD.kingEnglish):''}</div>
+      </a>`;
+  })();
+  </script>
+</body>
+</html>

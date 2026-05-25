@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>மூதுரை · Moodhurai — The Maxims of Avvaiyar</title>
+  <meta name="description" content="The Moodhurai by Avvaiyar — 30 ethical maxims in venpa metre, with original Tamil, transliteration, English translation, Tamil commentary, and alternative rendering." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .work-intro {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .work-intro h1 {
+      font-family: var(--font-tamil);
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 700;
+      color: var(--accent-vermillion);
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+    }
+    .work-intro h2 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--ink-secondary);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+    }
+    .work-intro .author-line {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-ochre);
+      margin-bottom: 2rem;
+    }
+    .work-intro p {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--ink-secondary);
+      margin-bottom: 1.25rem;
+      text-align: left;
+    }
+
+    .section-divider {
+      text-align: center;
+      margin: 3rem auto 2rem;
+      color: var(--accent-ochre);
+      letter-spacing: 1em;
+      padding-left: 1em;
+      opacity: 0.7;
+      font-size: 1.25rem;
+    }
+
+    .verses-grid-container {
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      padding: 0 1.5rem;
+    }
+
+    .verse-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .verse-tile {
+      background: var(--bg-paper);
+      background-image: repeating-linear-gradient(0deg,
+        rgba(43, 22, 7, 0.025) 0px, rgba(43, 22, 7, 0.025) 1px,
+        transparent 1px, transparent 8px);
+      border: 1px solid var(--border-medium);
+      border-radius: 3px;
+      padding: 1.25rem 1rem;
+      box-shadow: var(--shadow-paper);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      min-height: 150px;
+      position: relative;
+    }
+
+    .verse-tile:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-paper-hover);
+      border-color: var(--accent-vermillion);
+    }
+
+    .verse-tile-number {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+    }
+
+    .verse-tile-tamil {
+      font-family: var(--font-tamil);
+      font-size: 0.95rem;
+      line-height: 1.55;
+      text-align: center;
+      color: var(--ink-primary);
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .verse-tile-eng {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      text-align: center;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Moodhurai home">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="20" cy="30" rx="10" ry="3" fill="currentColor" opacity="0.25" stroke="none"/>
+            <path d="M 14 30 L 12 20 Q 20 13 28 20 L 26 30 Z" fill="currentColor" opacity="0.4" stroke="none"/>
+            <path d="M 20 13 Q 18.5 8 20 5 Q 21.5 8 20 13 Z" fill="currentColor" opacity="0.9" stroke="none"/>
+            <ellipse cx="20" cy="14.5" rx="3" ry="2" fill="currentColor" opacity="0.75" stroke="none"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">மூதுரை</span>
+          <span class="wordmark-english">Moodhurai</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="work-intro">
+      <h1>மூதுரை</h1>
+      <h2>Moodhurai</h2>
+      <p class="author-line">By Avvaiyar · The Grandmother Poet</p>
+      <p>
+        The <em>Moodhurai</em> — literally "the wise saying" or "the elder's counsel" —
+        is a collection of thirty ethical maxims composed in the <em>venpa</em> metre
+        by Avvaiyar, the beloved poet-sage of Tamil literature.
+      </p>
+      <p>
+        Where the <em>Aathichudi</em> teaches through single aphorisms arranged by
+        the alphabet, the <em>Moodhurai</em> speaks in fuller couplets, drawing on
+        vivid imagery from rain, sunlight, the cow, the king's sceptre, and the
+        tenderness of the young shoot — to frame timeless truths about virtue, fate,
+        companionship, and the conduct of a good life.
+      </p>
+      <p>
+        Each verse is presented in five layers: the original Tamil, a romanized
+        transliteration, an English meaning, a Tamil prose commentary
+        (<em>உரை</em>), and an alternative English rendering.
+      </p>
+    </section>
+
+    <div class="section-divider">◆ ◆ ◆</div>
+
+    <div class="verses-grid-container">
+      <div class="verse-grid" id="verse-grid">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="hub-footer" style="text-align: center; padding: 2rem 1.5rem; border-top: 1px solid var(--border-subtle); color: var(--ink-muted); font-size: 0.875rem; letter-spacing: 0.05em;">
+    <div style="color: var(--accent-vermillion); letter-spacing: 1em; padding-left: 1em; margin-bottom: 0.75rem; opacity: 0.5;">◆ ◆ ◆</div>
+    <div>மூதுரை by Avvaiyar · Part of the Tamil Literature library</div>
+  </footer>
+
+  <script src="data/verses.js"></script>
+  <script>
+    (function() {
+      const data = window.MOODHURAI_DATA;
+      const grid = document.getElementById('verse-grid');
+
+      data.verses.forEach(v => {
+        const a = document.createElement('a');
+        a.href = 'verse.html?n=' + v.num;
+        a.className = 'verse-tile';
+
+        // Show only first line of Tamil for tile
+        const firstLine = v.tamil.split('\n')[0];
+
+        a.innerHTML =
+          '<div class="verse-tile-number">Verse ' + v.num + '</div>' +
+          '<div class="verse-tile-tamil">' + firstLine + '</div>' +
+          '<div class="verse-tile-eng">' + v.english.substring(0, 60) + (v.english.length > 60 ? '…' : '') + '</div>';
+
+        grid.appendChild(a);
+      });
+    })();
+  </script>
+
+</body>
+</html>

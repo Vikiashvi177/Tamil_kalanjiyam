@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>சிலப்பதிகாரம் · Book — Cilappatikāram</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/cilappatikaram.css"/>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Cilappatikāram home">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" width="32" height="32"
+               xmlns="http://www.w3.org/2000/svg" fill="none"
+               stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+               style="color:var(--cp-gold)">
+            <path d="M 20 6 A 14 14 0 1 1 19.5 6" stroke-width="2.4" opacity="0.9"/>
+            <circle cx="20" cy="34" r="2.5" fill="currentColor" stroke="none" opacity="0.85"/>
+            <circle cx="7" cy="22" r="1.8" fill="currentColor" stroke="none" opacity="0.62"/>
+            <circle cx="33" cy="22" r="1.8" fill="currentColor" stroke="none" opacity="0.62"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">சிலப்பதிகாரம்</span>
+          <span class="wordmark-english">Cilappatikāram</span>
+        </span>
+      </a>
+      <nav class="site-nav" id="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="book.html?b=1">Book I</a>
+        <a href="book.html?b=2">Book II</a>
+        <a href="book.html?b=3">Book III</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Book hero -->
+    <section class="cp-book-hero" id="book-hero">
+      <!-- filled by JS -->
+    </section>
+
+    <!-- Canto grid -->
+    <section class="cp-cantos-section">
+      <h2 class="cp-section-heading" id="cantos-heading">Cantos</h2>
+      <div class="cp-cantos-grid" id="cantos-grid">
+        <!-- filled by JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      <a href="index.html">← Cilappatikāram</a>
+      &emsp;·&emsp;
+      <a href="../index.html">Library</a>
+    </p>
+  </footer>
+
+  <script src="data/cantos.js"></script>
+  <script>
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const bookNum = parseInt(params.get('b')) || 1;
+
+    const BOOK_META = {
+      1: {
+        colorClass: "pukar",
+        accent: "var(--cp-pukar)",
+        bg: "var(--cp-pukar-pale)",
+        icon: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    style="display:block;margin:0 auto 1rem;">
+                <path d="M 8 50 Q 20 38 32 50 Q 44 62 56 50 Q 68 38 80 50" opacity="0.8"/>
+                <path d="M 8 62 Q 20 50 32 62 Q 44 74 56 62 Q 68 50 80 62" opacity="0.55"/>
+                <path d="M 8 38 Q 20 26 32 38 Q 44 50 56 38 Q 68 26 80 38" opacity="0.4"/>
+                <line x1="40" y1="10" x2="40" y2="32" stroke-width="2.2" opacity="0.7"/>
+                <path d="M 40 12 L 56 24 L 40 28 Z" fill="currentColor" opacity="0.52" stroke="none"/>
+                <path d="M 40 12 L 26 22 L 40 28 Z" fill="currentColor" opacity="0.36" stroke="none"/>
+              </svg>`,
+        desc: "The world before the fall — Pukār, the great Cōḷa port city, seen at its height. Here Kaṇṇaki and Kōvalaṉ live in prosperity and love. Here the Festival of Indra draws the fateful gaze. Here Kōvalaṉ squanders his world and returns. And from here the two of them depart, southward, with only one golden anklet between them."
+      },
+      2: {
+        colorClass: "madurai",
+        accent: "var(--cp-madurai)",
+        bg: "var(--cp-madurai-pale)",
+        icon: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    style="display:block;margin:0 auto 1rem;">
+                <path d="M 40 72 Q 28 58 28 44 Q 28 32 40 24 Q 52 32 52 44 Q 52 58 40 72 Z"
+                      fill="currentColor" opacity="0.28" stroke="none"/>
+                <path d="M 40 72 Q 28 58 28 44 Q 28 32 40 24 Q 52 32 52 44 Q 52 58 40 72"
+                      stroke-width="2" opacity="0.78"/>
+                <path d="M 40 58 Q 34 48 34 40 Q 34 32 40 26 Q 46 32 46 40 Q 46 48 40 58 Z"
+                      fill="currentColor" opacity="0.55" stroke="none"/>
+                <path d="M 40 46 Q 37 40 37 34 Q 37 28 40 24 Q 43 28 43 34 Q 43 40 40 46 Z"
+                      fill="currentColor" opacity="0.82" stroke="none"/>
+                <rect x="12" y="46" width="10" height="18" opacity="0.4" stroke-width="1.3"/>
+                <path d="M 12 46 L 17 36 L 22 46" opacity="0.4" stroke-width="1.3"/>
+                <rect x="58" y="46" width="10" height="18" opacity="0.4" stroke-width="1.3"/>
+                <path d="M 58 46 L 63 36 L 68 46" opacity="0.4" stroke-width="1.3"/>
+              </svg>`,
+        desc: "The dramatic heart of the epic — thirteen cantos of mounting catastrophe and transcendence. Madurai: the city of the Pāṇṭiya kings, the greatest in the Tamil south. A city of wealth, splendour, and ultimately injustice. Here Kōvalaṉ is falsely accused and executed. Here Kaṇṇaki confronts a king. Here a city burns."
+      },
+      3: {
+        colorClass: "vanci",
+        accent: "var(--cp-vanci)",
+        bg: "var(--cp-vanci-pale)",
+        icon: `<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    style="display:block;margin:0 auto 1rem;">
+                <path d="M 4 68 Q 22 36 40 22 Q 58 36 76 68 Z"
+                      fill="currentColor" opacity="0.18" stroke="none"/>
+                <path d="M 4 68 Q 22 36 40 22 Q 58 36 76 68" stroke-width="1.8" opacity="0.65"/>
+                <rect x="32" y="40" width="16" height="14" opacity="0.65" stroke-width="1.3"/>
+                <path d="M 29 40 L 40 22 L 51 40" opacity="0.82" stroke-width="1.8"/>
+                <line x1="40" y1="22" x2="40" y2="14" stroke-width="2" opacity="0.7"/>
+                <path d="M 40 14 L 50 20 L 40 22 Z" fill="currentColor" opacity="0.65" stroke="none"/>
+                <path d="M 12 68 L 12 52 M 7 57 Q 12 52 17 57" stroke-width="1.4" opacity="0.5"/>
+                <path d="M 68 68 L 68 52 M 63 57 Q 68 52 73 57" stroke-width="1.4" opacity="0.5"/>
+              </svg>`,
+        desc: "Justice fulfilled and memory made stone. The Cēra capital Vañci lies in the forested hills west of the Tamil plains — remote, powerful, righteous. Here the just king Ceṅkuṭṭuvaṉ hears the full story of Kaṇṇaki and responds with the greatest possible act of royal honour: a temple carved from Himalayan stone."
+      }
+    };
+
+    const meta = BOOK_META[bookNum];
+    const cantos = CP_CANTOS.filter(c => c.book === bookNum);
+    if (!cantos.length) return;
+
+    const firstCanto = cantos[0];
+    const totalLines = cantos.reduce((s, c) => s + c.lines, 0);
+
+    // Set page title
+    document.title = `${firstCanto.bookTamil} · ${firstCanto.bookEnglish} — Cilappatikāram`;
+
+    // Set body colour accent via CSS var
+    document.body.style.setProperty('--book-accent', meta.accent);
+    document.body.style.setProperty('--book-bg', meta.bg);
+
+    // Build book hero
+    const hero = document.getElementById('book-hero');
+    hero.innerHTML = `
+      <div class="cp-book-hero-num">Book ${bookNum} · ${cantos.length} Cantos</div>
+      <div style="color:${meta.accent}">${meta.icon}</div>
+      <h1 style="color:${meta.accent}">${firstCanto.bookTamil}</h1>
+      <h2>${firstCanto.bookEnglish}</h2>
+      <div class="book-setting">${firstCanto.bookSetting}</div>
+      <p style="max-width:680px;margin:1rem auto 0">${meta.desc}</p>
+      <div class="cp-stat-row" style="margin-top:1.5rem">
+        <div class="cp-stat">
+          <div class="cp-stat-num" style="color:${meta.accent}">${cantos.length}</div>
+          <div class="cp-stat-label">Cantos</div>
+        </div>
+        <div class="cp-stat">
+          <div class="cp-stat-num" style="color:${meta.accent}">~${totalLines.toLocaleString()}</div>
+          <div class="cp-stat-label">Lines</div>
+        </div>
+      </div>`;
+
+    // Build canto grid
+    const heading = document.getElementById('cantos-heading');
+    heading.textContent = `${firstCanto.bookEnglish} — All Cantos`;
+
+    const grid = document.getElementById('cantos-grid');
+    cantos.forEach(c => {
+      grid.innerHTML += `
+        <a href="canto.html?c=${c.num}" class="cp-canto-tile"
+           style="--book-accent:${meta.accent};border-top-color:${meta.accent}">
+          <div class="cp-canto-num">Canto ${c.num}</div>
+          <div class="cp-canto-name-tamil">${c.name}</div>
+          <div class="cp-canto-name-english">${c.nameEnglish}</div>
+          <div class="cp-canto-summary">${c.summary.substring(0, 120)}…</div>
+          <div class="cp-canto-lines">~${c.lines} lines</div>
+        </a>`;
+    });
+
+    // Highlight current book in nav
+    document.querySelectorAll('.site-nav a').forEach(a => {
+      if (a.getAttribute('href') === `book.html?b=${bookNum}`) {
+        a.style.fontWeight = '700';
+        a.style.color = meta.accent;
+      }
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

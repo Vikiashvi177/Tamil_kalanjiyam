@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fragments · குண்டலகேசி · Kuṇṭalakēci</title>
+  <meta name="description" content="All surviving verses of குண்டலகேசி Kuṇṭalakēci — the fifth of the Five Great Tamil Epics — with Tamil text, transliteration, English prose, and scholarly notes. View by fragment type or by narrative position."/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/kundalakesi.css"/>
+</head>
+<body>
+
+  <!-- ── Header ─────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Kuṇṭalakēci home">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" width="36" height="36"
+               xmlns="http://www.w3.org/2000/svg" fill="none"
+               stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" style="display:block;color:var(--kk-gold)">
+            <path d="M 20 20 m 2 0 a 2 2 0 1 1 -4 0 a 4 4 0 1 0 8 0 a 6 6 0 1 1 -12 0 a 8 8 0 1 0 16 0 a 10 10 0 1 1 -7 9.5"
+                  stroke-width="1.8" opacity="0.85" stroke-linecap="round"/>
+            <circle cx="26" cy="13" r="1.6" fill="currentColor" stroke="none" opacity="0.60"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">குண்டலகேசி</span>
+          <span class="wordmark-roman">Kuṇṭalakēci</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Site navigation">
+        <a href="index.html">Overview</a>
+        <a href="fragments.html" aria-current="page">Fragments</a>
+        <a href="about.html">About</a>
+        <a href="../index.html">← Library</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Fragments intro + mode toggle ────────────────── -->
+  <div class="kk-fragments-intro">
+    <div class="kk-fragments-intro-inner">
+      <h1>The Surviving Fragments</h1>
+      <p class="kk-fragments-subtitle">~19 verses recovered from four centuries of grammatical quotation · the fewest of any work in this library</p>
+      <p class="kk-fragments-count-line" id="kk-frag-count-line">19 fragments · 4 fragment types · 5 narrative positions</p>
+      <div style="margin-top:0.9rem">
+        <div class="kk-mode-toggle" role="group" aria-label="Reading mode">
+          <button class="kk-mode-btn active" id="btn-type" onclick="setMode('type')">By Type</button>
+          <button class="kk-mode-btn" id="btn-position" onclick="setMode('position')">By Narrative Position</button>
+        </div>
+      </div>
+      <p style="font-size:0.75rem;color:var(--kk-ash);margin-top:0.6rem;font-style:italic">
+        <em>Narrative position view</em> places fragments within the reconstructed story arc — gaps are labelled and Pali sources are quoted.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Fragment reader ───────────────────────────────── -->
+  <main class="kk-fragments-main" id="kk-fragments-main">
+    <!-- JS-rendered -->
+  </main>
+
+  <!-- ── Footer ────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <p>
+      Tamil Literature Library ·
+      <a href="../index.html">All works</a> ·
+      <a href="about.html">About Kuṇṭalakēci</a>
+    </p>
+    <p class="footer-note">
+      Fragment attribution varies between scholars. Verses marked "disputed" are included because the
+      scholarly majority accepts them; their status is noted on each card. Tamil verse texts represent
+      scholarly consensus of the recovered fragments.
+    </p>
+  </footer>
+
+  <!-- ── Data ──────────────────────────────────────────── -->
+  <script src="data/context.js"></script>
+  <script src="data/fragments.js"></script>
+
+  <!-- ── Renderer ──────────────────────────────────────── -->
+  <script>
+  (function () {
+
+    /* ── helpers ── */
+    function esc(s) {
+      return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+    function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : ""; }
+    function verse(s) { return s.trim().split(/\n/).map(function(l){ return esc(l.trim()); }).join('<br>'); }
+
+    /* ── source badge colours ── */
+    var SRC_STYLE = {
+      "YāpVir":   "background:rgba(42,42,110,0.09);color:var(--kk-indigo);border-color:rgba(42,42,110,0.30)",
+      "PuṟaVen":  "background:rgba(201,168,76,0.12);color:var(--kk-gold-mid);border-color:rgba(201,168,76,0.35)",
+      "NaṉṉūlC":  "background:rgba(26,90,88,0.09);color:var(--kk-doctrinal);border-color:rgba(26,90,88,0.28)",
+      "Scattered":"background:rgba(138,136,136,0.10);color:var(--kk-ash-mid);border-color:rgba(138,136,136,0.30)"
+    };
+
+    /* ── type colour map ── */
+    var TYPE_COLOR = {
+      "debate":       "var(--kk-debate)",
+      "renunciation": "var(--kk-renunciation)",
+      "descriptive":  "var(--kk-descriptive)",
+      "doctrinal":    "var(--kk-doctrinal)"
+    };
+
+    /* ── build one fragment card ── */
+    function buildFragment(frag) {
+      var srcStyle = SRC_STYLE[frag.sourceShort] || "";
+      var attrLabel = frag.attribution === "certain" ? "" :
+                      frag.attribution === "probable" ? "Probable attribution" : "Disputed attribution";
+
+      var el = document.createElement("div");
+      el.className = "kk-fragment";
+      el.id = "frag-" + frag.num;
+      el.innerHTML = `
+        <div class="kk-fragment-header">
+          <span class="kk-fragment-num">${frag.num}</span>
+          <span class="kk-type-badge ${esc(frag.type)}">${cap(frag.type)}</span>
+          ${attrLabel ? `<span class="kk-attribution-badge">${esc(attrLabel)}</span>` : ""}
+          <span class="kk-source-badge" style="${srcStyle}">${esc(frag.source)}</span>
+        </div>
+        <div class="kk-fragment-body">
+
+          <details class="kk-layer" open>
+            <summary class="kk-layer-toggle">Tamil</summary>
+            <div class="kk-layer-content kk-tamil-verse">${verse(frag.tamil)}</div>
+          </details>
+
+          <details class="kk-layer">
+            <summary class="kk-layer-toggle">Transliteration</summary>
+            <div class="kk-layer-content kk-translit-verse">${verse(frag.transliteration)}</div>
+          </details>
+
+          <details class="kk-layer">
+            <summary class="kk-layer-toggle">English</summary>
+            <div class="kk-layer-content kk-english-prose">${esc(frag.english)}</div>
+          </details>
+
+          <details class="kk-layer">
+            <summary class="kk-layer-toggle">Tamil Urai (உரை)</summary>
+            <div class="kk-layer-content kk-tamil-urai">${esc(frag.tamilUrai)}</div>
+          </details>
+
+          ${frag.note ? `
+          <details class="kk-layer">
+            <summary class="kk-layer-toggle">Scholarly Note</summary>
+            <div class="kk-layer-content kk-note">${esc(frag.note)}</div>
+          </details>` : ""}
+          ${frag.altTranslation ? `
+          <details class="kk-layer">
+            <summary class="kk-layer-toggle">Alternate Translation</summary>
+            <div class="kk-layer-content kk-alt-trans" style="font-style:italic;color:#5a4830">${esc(frag.altTranslation)}</div>
+          </details>` : ""}
+
+        </div>
+      `;
+      return el;
+    }
+
+    /* ── build lacuna block ── */
+    function buildLacuna(lac) {
+      var el = document.createElement("div");
+      el.className = "kk-lacuna-block";
+      el.innerHTML = `
+        <div class="kk-lacuna">
+          <div class="kk-lacuna-line"></div>
+          <div class="kk-lacuna-icon" aria-hidden="true">◌</div>
+          <div class="kk-lacuna-label">${esc(lac.shortDesc)}</div>
+          <div class="kk-lacuna-icon" aria-hidden="true">◌</div>
+          <div class="kk-lacuna-line"></div>
+        </div>
+        <p class="kk-lacuna-note">${esc(lac.fullNote)}</p>
+        ${lac.paliNote ? `
+        <div class="kk-lacuna-pali">
+          <span class="kk-lacuna-pali-label">From Pali sources · ${esc(lac.paliSource)}</span>
+          ${esc(lac.paliNote)}
+        </div>` : ""}
+      `;
+      return el;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       MODE: BY TYPE
+       ══════════════════════════════════════════════════════ */
+    function renderByType(main) {
+      KK_FRAGMENT_TYPES.forEach(function (type) {
+        var frags = KK_FRAGMENTS.filter(function(f){ return f.type === type.key; });
+        if (!frags.length) return;
+
+        var section = document.createElement("section");
+        section.id = "type-" + type.key;
+        section.className = "kk-group-section";
+
+        section.innerHTML = `
+          <div class="kk-section-header">
+            <div class="kk-section-accent" style="background:${esc(type.color)}"></div>
+            <div class="kk-section-titles">
+              <div class="kk-section-tamil">${esc(type.tamil)}</div>
+              <div class="kk-section-english">${esc(type.english)}</div>
+              <div class="kk-section-desc">${esc(type.description)}</div>
+            </div>
+            <div class="kk-section-count-badge">${frags.length} fragment${frags.length !== 1 ? 's' : ''}</div>
+          </div>
+        `;
+
+        var container = document.createElement("div");
+        container.className = "kk-fragments-container";
+        frags.forEach(function(f){ container.appendChild(buildFragment(f)); });
+        section.appendChild(container);
+        main.appendChild(section);
+      });
+    }
+
+    /* ══════════════════════════════════════════════════════
+       MODE: BY NARRATIVE POSITION
+       ══════════════════════════════════════════════════════ */
+    function renderByPosition(main) {
+
+      /* Pali banner at top */
+      var banner = document.createElement("div");
+      banner.className = "kk-pali-banner";
+      banner.style.maxWidth = "none";
+      banner.style.margin = "0 0 2rem";
+      banner.innerHTML = `
+        <div class="kk-pali-label">Reading guide — narrative position mode</div>
+        In this view, each surviving Tamil verse is placed at its probable position within the story arc
+        reconstructed from Pali Buddhist sources. <strong>Sections marked in purple</strong> draw on
+        the Pali tradition to describe what happened where no Tamil verse survives.
+        The Tamil verses themselves are primary; the reconstructions are clearly labelled.
+      `;
+      main.appendChild(banner);
+
+      KK_NARRATIVE_POSITIONS.forEach(function (pos) {
+        var frags = KK_FRAGMENTS.filter(function(f){ return f.narrativePosition === pos.key; });
+
+        var section = document.createElement("section");
+        section.id = "pos-" + pos.key;
+
+        var accentColor = frags.length > 0 ? "var(--kk-gold)" : "var(--kk-pali)";
+        section.innerHTML = `
+          <div class="kk-section-header">
+            <div class="kk-section-accent" style="background:${accentColor}"></div>
+            <div class="kk-section-titles">
+              <div class="kk-section-tamil">${esc(pos.tamil)}</div>
+              <div class="kk-section-english">${esc(pos.english)}</div>
+              <div class="kk-section-desc">${esc(pos.description)}</div>
+              <div class="kk-pos-source">${esc(pos.sourceBasis)}</div>
+            </div>
+            <div class="kk-section-count-badge" style="${frags.length === 0 ? 'color:var(--kk-ash);background:var(--kk-ash-pale);border-color:rgba(138,136,136,0.2)' : ''}">
+              ${frags.length > 0 ? frags.length + ' verse' + (frags.length !== 1 ? 's' : '') : 'No verses'}
+            </div>
+          </div>
+        `;
+
+        if (frags.length === 0) {
+          /* No Tamil verses here — show Pali reconstruction */
+          var noneEl = document.createElement("div");
+          noneEl.className = "kk-lacuna-pali";
+          noneEl.style.marginBottom = "2rem";
+          noneEl.innerHTML = `
+            <span class="kk-lacuna-pali-label">No surviving Tamil verses · Reconstructed from Pali sources</span>
+            ${esc(pos.description)}
+          `;
+          section.appendChild(noneEl);
+        } else {
+          var container = document.createElement("div");
+          container.className = "kk-fragments-container";
+          frags.forEach(function(f){ container.appendChild(buildFragment(f)); });
+          section.appendChild(container);
+        }
+
+        main.appendChild(section);
+
+        /* Lacuna after this position? */
+        if (pos.lacunaAfter && pos.lacunaShort) {
+          var lac = KK_LACUNAE.find(function(l){ return l.after === pos.key; });
+          if (lac) main.appendChild(buildLacuna(lac));
+        }
+      });
+    }
+
+    /* ══════════════════════════════════════════════════════
+       END MARKER
+       ══════════════════════════════════════════════════════ */
+    function buildEnd(main) {
+      var endEl = document.createElement("div");
+      endEl.className = "kk-fragments-end";
+      endEl.innerHTML = `
+        <div class="kk-end-mark" aria-hidden="true">
+          <svg viewBox="0 0 80 80" width="56" height="56"
+               xmlns="http://www.w3.org/2000/svg" fill="none"
+               stroke="currentColor" stroke-linecap="round"
+               style="color:var(--kk-gold);opacity:0.50">
+            <path d="M 40 40 m 4 0 a 4 4 0 1 1 -8 0 a 8 8 0 1 0 16 0 a 12 12 0 1 1 -24 0 a 16 16 0 1 0 32 0 a 20 20 0 1 1 -14 18"
+                  stroke-width="2.8"/>
+          </svg>
+        </div>
+        <p class="kk-end-text">These are all that remain.</p>
+        <p class="kk-end-subtext">Nineteen verses. The rest is silence — and Pali.</p>
+        <div class="kk-end-links">
+          <a href="about.html">About Kuṇṭalakēci →</a>
+          <a href="../manimekalai/index.html">Maṇimēkalai →</a>
+          <a href="../valayapathi/index.html">Valayāpati →</a>
+        </div>
+      `;
+      main.appendChild(endEl);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       MODE SWITCHING
+       ══════════════════════════════════════════════════════ */
+    var currentMode = "type";
+
+    function render() {
+      var main = document.getElementById("kk-fragments-main");
+      main.innerHTML = "";
+
+      if (currentMode === "type") {
+        renderByType(main);
+      } else {
+        renderByPosition(main);
+      }
+      buildEnd(main);
+    }
+
+    window.setMode = function (mode) {
+      if (mode === currentMode) return;
+      currentMode = mode;
+      document.getElementById("btn-type").classList.toggle("active", mode === "type");
+      document.getElementById("btn-position").classList.toggle("active", mode === "position");
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    /* ── Check URL param for initial mode ── */
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("mode") === "position") {
+      currentMode = "position";
+      document.getElementById("btn-type").classList.remove("active");
+      document.getElementById("btn-position").classList.add("active");
+    }
+
+    /* ── Initial render ── */
+    render();
+
+    /* ── Handle anchor jump after render (for type links from index) ── */
+    if (window.location.hash) {
+      setTimeout(function () {
+        var target = document.querySelector(window.location.hash);
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+
+  })();
+  </script>
+
+</body>
+</html>

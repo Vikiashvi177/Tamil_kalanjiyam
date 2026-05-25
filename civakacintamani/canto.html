@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Canto — Cīvaka Cintāmaṇi</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/civakacintamani.css"/>
+</head>
+<body>
+
+  <!-- Story context strip -->
+  <div class="cc-context-strip" id="context-strip" style="display:none">
+    <span class="ctx-canto-id" id="ctx-canto-id"></span>
+    <span class="ctx-sep">·</span>
+    <span id="ctx-named-for"></span>
+    <span class="ctx-sep">·</span>
+    <span class="ctx-situation" id="ctx-situation"></span>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Cīvaka Cintāmaṇi home">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" width="32" height="32"
+               xmlns="http://www.w3.org/2000/svg" fill="none"
+               stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round"
+               style="color:var(--cc-gold)">
+            <polygon points="20,4 34,14 34,28 20,38 6,28 6,14" stroke-width="2" opacity="0.88"/>
+            <line x1="20" y1="4"  x2="20" y2="16" stroke-width="1.2" opacity="0.52"/>
+            <line x1="34" y1="14" x2="20" y2="16" stroke-width="1"   opacity="0.40"/>
+            <line x1="6"  y1="14" x2="20" y2="16" stroke-width="1"   opacity="0.40"/>
+            <line x1="20" y1="38" x2="20" y2="24" stroke-width="1.2" opacity="0.52"/>
+            <line x1="34" y1="28" x2="20" y2="24" stroke-width="1"   opacity="0.36"/>
+            <line x1="6"  y1="28" x2="20" y2="24" stroke-width="1"   opacity="0.36"/>
+            <circle cx="20" cy="20" r="2.5" fill="currentColor" stroke="none" opacity="0.80"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">சீவக சிந்தாமணி</span>
+          <span class="wordmark-english">Cīvaka Cintāmaṇi</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="../index.html">Library</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="cc-canto-hero" id="canto-hero">
+      <!-- filled by JS -->
+    </section>
+
+    <div class="cc-passage-nav" id="passage-nav"></div>
+
+    <div class="cc-passages" id="passages-container">
+      <!-- filled by JS -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      <a href="index.html">← Cīvaka Cintāmaṇi</a>
+      &emsp;·&emsp;
+      <a href="../index.html">Library</a>
+    </p>
+  </footer>
+
+  <script src="data/cantos.js"></script>
+  <script src="data/passages.js" onerror="window.CC_PASSAGES=[]"></script>
+  <script>
+  (function() {
+    if (!window.CC_PASSAGES) window.CC_PASSAGES = [];
+
+    const params  = new URLSearchParams(window.location.search);
+    const cantoNum = parseInt(params.get('c')) || 1;
+    const canto   = CC_CANTOS.find(c => c.num === cantoNum);
+    if (!canto) return;
+
+    const accent = canto.tileAccent || '#1e1a5e';
+    document.body.style.setProperty('--tile-accent', accent);
+    document.title = `Canto ${cantoNum}: ${canto.nameEnglish} — Cīvaka Cintāmaṇi`;
+
+    // Context strip
+    const strip = document.getElementById('context-strip');
+    strip.style.display = 'flex';
+    strip.style.borderBottomColor = accent;
+    document.getElementById('ctx-canto-id').textContent  = `Canto ${cantoNum}`;
+    document.getElementById('ctx-named-for').textContent = canto.namedFor;
+    document.getElementById('ctx-situation').textContent  = canto.dramatic;
+
+    const TYPE_LABELS = {
+      narrative: 'Narrative', romance: 'Romance', music: 'Music',
+      combat: 'Combat', journey: 'Journey', liberation: 'Liberation',
+      mixed: 'Mixed', description: 'Description'
+    };
+
+    // Canto hero
+    const hero = document.getElementById('canto-hero');
+    hero.innerHTML = `
+      <div class="canto-tag" style="color:${accent}">
+        Canto ${cantoNum} of ${CC_CANTOS.length}
+        &ensp;<span class="cc-type-badge ${canto.type}" style="vertical-align:middle">
+          ${TYPE_LABELS[canto.type] || canto.type}
+        </span>
+      </div>
+      <h1>${canto.name}</h1>
+      <h2>${canto.nameEnglish}</h2>
+      <div class="named-for" style="color:${accent}">${canto.namedFor}</div>
+      <div class="cc-canto-dramatic">${canto.dramatic}</div>
+      <p style="font-size:.9rem;color:var(--ink-muted)">
+        Setting: ${canto.setting}
+        &emsp;·&emsp; ${canto.quatrains} quatrains
+      </p>`;
+
+    // Prev / next
+    const prev = CC_CANTOS.find(c => c.num === cantoNum - 1);
+    const next = CC_CANTOS.find(c => c.num === cantoNum + 1);
+    document.getElementById('passage-nav').innerHTML = `
+      <span>${prev
+        ? `<a href="canto.html?c=${prev.num}" style="color:${prev.tileAccent||'#1e1a5e'}">← Canto ${prev.num}: ${prev.nameEnglish}</a>`
+        : '<span style="opacity:.3">← First Canto</span>'}</span>
+      <span style="color:var(--ink-muted);font-size:.78rem">
+        ${canto.quatrains} quatrains · ${TYPE_LABELS[canto.type] || canto.type}
+      </span>
+      <span>${next
+        ? `<a href="canto.html?c=${next.num}" style="color:${next.tileAccent||'#1e1a5e'}">Canto ${next.num}: ${next.nameEnglish} →</a>`
+        : '<span style="opacity:.3">Final Canto →</span>'}</span>`;
+
+    // Passages
+    const passages = CC_PASSAGES.filter(p => p.canto === cantoNum);
+    const container = document.getElementById('passages-container');
+
+    if (passages.length === 0) {
+      container.innerHTML = `
+        <div class="cc-coming-soon">
+          <span class="tamil-note">${canto.name}</span>
+          <p>
+            The full text of this canto — <em>${canto.nameEnglish}</em> —
+            will be added in an upcoming session.
+          </p>
+          <p style="margin-top:.75rem;font-size:.94rem">${canto.summary}</p>
+        </div>`;
+      return;
+    }
+
+    passages.forEach(p => {
+      const ptypeClass = p.type || 'narrative';
+      const ptypeLabel = TYPE_LABELS[p.type] || p.type || 'Narrative';
+      const isMusic = p.type === 'music';
+
+      container.innerHTML += `
+        <div class="cc-passage" id="passage-${p.num}">
+          <div class="cc-passage-header">
+            <span class="cc-passage-num">Passage ${p.num}</span>
+            ${p.name       ? `<span class="cc-passage-name-tamil">${p.name}</span>` : ''}
+            ${p.nameEnglish? `<span class="cc-passage-name-eng">${p.nameEnglish}</span>` : ''}
+            <span class="cc-passage-type-badge ${ptypeClass}">${ptypeLabel}</span>
+          </div>
+          ${isMusic && p.tamil ? `
+          <div class="cc-music-block">
+            <div class="cc-music-label">Viruttam · Tamil</div>
+            <div class="cc-music-text">${p.tamil}</div>
+          </div>` : ''}
+          <div class="cc-layers">
+            ${renderLayers(p, isMusic)}
+          </div>
+        </div>`;
+    });
+
+    function renderLayers(p, skipTamil) {
+      let html = '';
+      if (!skipTamil && p.tamil) html += layer('Tamil', `<span class="tamil">${p.tamil}</span>`);
+      if (p.transliteration)     html += layer('Transliteration', `<span class="transliteration">${p.transliteration}</span>`);
+      if (p.english)             html += layer('English', p.english);
+      if (p.tamilUrai)           html += layer('Tamil Urai', `<span class="urai">${p.tamilUrai}</span>`);
+      if (p.altTranslation)      html += layer('Alt. Translation', p.altTranslation);
+      if (p.note)                html += layer('Note', `<span class="note">${p.note}</span>`);
+      return html;
+    }
+    function layer(label, content) {
+      return `<div class="cc-layer">
+        <div class="cc-layer-label">${label}</div>
+        <div class="cc-layer-text">${content}</div>
+      </div>`;
+    }
+
+  })();
+  </script>
+
+</body>
+</html>

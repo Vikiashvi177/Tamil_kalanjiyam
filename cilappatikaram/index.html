@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>சிலப்பதிகாரம் · Cilappatikāram — The Ankle Bracelet</title>
+  <meta name="description" content="சிலப்பதிகாரம் — The Ankle Bracelet. The great Tamil epic by Iḷaṅkō Aṭikaḷ. 30 cantos, three books, ~6,000 lines. The story of Kaṇṇaki, Kōvalaṉ, justice, and divine fury."/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/cilappatikaram.css"/>
+  <style>
+    /* Anklet SVG mark — used in the header */
+    .cp-anklet-mark {
+      display: block;
+      color: var(--cp-gold, #b8860b);
+    }
+    /* Prevent grid blowout on narrow screens */
+    .cp-books-grid > * { min-width: 0; }
+    .cp-book-tamil { overflow-wrap: break-word; word-break: break-word; }
+    /* Icon SVGs: constrain */
+    .cp-book-card svg { max-width: 100%; height: auto; overflow: visible; }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ─────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Cilappatikāram home">
+        <span class="mark">
+          <!-- Ankle bracelet mark: circle with gap and gem dot -->
+          <svg class="cp-anklet-mark" viewBox="0 0 40 40" width="36" height="36"
+               xmlns="http://www.w3.org/2000/svg" fill="none"
+               stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <!-- The bracelet circle — open at top (the clasp) -->
+            <path d="M 20 6 A 14 14 0 1 1 19.5 6" stroke-width="2.4" opacity="0.9"/>
+            <!-- Clasp gap hint -->
+            <line x1="18.5" y1="6.2" x2="21.5" y2="6.2" stroke-width="1.6" opacity="0.5"/>
+            <!-- Gem dot at base -->
+            <circle cx="20" cy="34" r="2.5" fill="currentColor" stroke="none" opacity="0.85"/>
+            <!-- Two small bells on sides -->
+            <circle cx="7" cy="22" r="1.8" fill="currentColor" stroke="none" opacity="0.62"/>
+            <circle cx="33" cy="22" r="1.8" fill="currentColor" stroke="none" opacity="0.62"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">சிலப்பதிகாரம்</span>
+          <span class="wordmark-english">Cilappatikāram</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">Home</a>
+        <a href="book.html?b=1">Book I</a>
+        <a href="book.html?b=2">Book II</a>
+        <a href="book.html?b=3">Book III</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Hero ─────────────────────────────────────────── -->
+    <section class="cp-hero">
+      <!-- Large anklet mark -->
+      <svg viewBox="0 0 100 100" width="90" height="90"
+           xmlns="http://www.w3.org/2000/svg" fill="none"
+           stroke="currentColor" stroke-width="3"
+           stroke-linecap="round"
+           style="display:block;margin:0 auto 1.5rem;color:var(--cp-gold)">
+        <path d="M 50 12 A 36 36 0 1 1 48.5 12" stroke-width="3.2" opacity="0.92"/>
+        <line x1="46.5" y1="12.5" x2="53.5" y2="12.5" stroke-width="2" opacity="0.45"/>
+        <circle cx="50" cy="88" r="5.5" fill="currentColor" stroke="none" opacity="0.88"/>
+        <circle cx="16" cy="56" r="4" fill="currentColor" stroke="none" opacity="0.65"/>
+        <circle cx="84" cy="56" r="4" fill="currentColor" stroke="none" opacity="0.65"/>
+        <!-- Inner decorative ring -->
+        <path d="M 50 22 A 26 26 0 1 1 49 22" stroke-width="0.8" opacity="0.28" stroke-dasharray="3 3"/>
+      </svg>
+
+      <h1>சிலப்பதிகாரம்</h1>
+      <h2>Cilappatikāram — The Ankle Bracelet</h2>
+      <p class="era">Iḷaṅkō Aṭikaḷ · c. 5th century CE · மாகாவியம் — The Great Epics</p>
+
+      <div class="cp-stat-row">
+        <div class="cp-stat">
+          <div class="cp-stat-num">~6,000</div>
+          <div class="cp-stat-label">Lines</div>
+        </div>
+        <div class="cp-stat">
+          <div class="cp-stat-num">30</div>
+          <div class="cp-stat-label">Cantos</div>
+        </div>
+        <div class="cp-stat">
+          <div class="cp-stat-num">3</div>
+          <div class="cp-stat-label">Books</div>
+        </div>
+        <div class="cp-stat">
+          <div class="cp-stat-num">1st</div>
+          <div class="cp-stat-label">Tamil Epic</div>
+        </div>
+      </div>
+
+      <p>
+        The oldest surviving Tamil narrative epic — a continuous story arc of ~6,000 lines,
+        spanning three cities, three kingdoms, and one woman's transformation from devoted wife
+        to goddess of justice. Written by a Cēra prince turned Jain monk, it is unlike anything
+        else in the Tamil literary tradition: not an anthology, not a grammar, not a devotional
+        collection — but a <em>kāviyam</em>, a great poem with named characters, dramatic scenes,
+        embedded songs, and a tragic arc that ends in the divine.
+      </p>
+      <p>
+        At its centre is a golden ankle bracelet — the <em>cilampu</em> — an object of beauty,
+        identity, evidence, and catastrophe. One anklet destroys a city. One woman's grief
+        becomes fire. One king's carelessness condemns an innocent man. And another king,
+        eight hundred miles away, leads an army to the Himālayas to carve a goddess out of
+        stone, and set her in a temple, so the world will never forget.
+      </p>
+    </section>
+
+    <!-- Story synopsis box -->
+    <div class="cp-synopsis" style="max-width:800px;margin:0 auto 3rem;">
+      <div class="cp-synopsis-title">The Story</div>
+      <p>
+        Kaṇṇaki and Kōvalaṉ are a wealthy Cōḷa couple in the great port city of Pukār.
+        Kōvalaṉ abandons Kaṇṇaki for the courtesan Mātatavi. He returns, penniless, years later.
+        She receives him without reproach, and gives him her golden ankle bracelet — their last wealth —
+        so they can start again in Madurai.
+      </p>
+      <p>
+        In Madurai, Kōvalaṉ is falsely accused of stealing the Pāṇṭiya queen's ankle bracelet
+        by a treacherous goldsmith. The king, without proper investigation, orders his execution.
+        Kaṇṇaki, in fury, takes the remaining anklet to the king's court, breaks it open —
+        it contains rubies, not pearls like the queen's — and proves her husband's innocence.
+        The king dies of shame.
+      </p>
+      <p>
+        Kaṇṇaki, grief made divine, tears off her own breast and hurls it at the city.
+        Madurai burns. She is vindicated and ascends to heaven. In Vañci, the just Cēra king
+        Ceṅkuṭṭuvaṉ hears her story, leads his army to the Himālayas, fetches a sacred stone,
+        and carves her image — installing her as Paṭṭiṉi, the Goddess of Chastity, for eternity.
+      </p>
+    </div>
+
+    <div class="cp-divider">◆ ◆ ◆ ◆ ◆</div>
+
+    <!-- ── Three Books ─────────────────────────────────── -->
+    <section class="cp-books-section">
+      <h2 class="cp-section-heading">The Three Books — Kāṇṭam</h2>
+
+      <div class="cp-books-grid" id="books-grid">
+        <!-- Rendered by JS from CP_CANTOS data -->
+      </div>
+    </section>
+
+    <div class="cp-divider">◆ ◆ ◆ ◆ ◆</div>
+
+    <!-- ── Character Guide ─────────────────────────────── -->
+    <section class="cp-characters-section">
+      <h2 class="cp-section-heading">The Characters</h2>
+      <div class="cp-characters-grid" id="characters-grid">
+        <!-- Rendered by JS from CP_CHARACTERS data -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <p>
+      <a href="../index.html">← Tamil Literature Library</a>
+      &emsp;·&emsp;
+      சிலப்பதிகாரம் · Iḷaṅkō Aṭikaḷ · c. 5th century CE
+      &emsp;·&emsp;
+      <a href="about.html">About this text</a>
+    </p>
+  </footer>
+
+  <script src="data/cantos.js"></script>
+  <script src="data/characters.js"></script>
+  <script>
+  (function() {
+
+    /* ── Three book cards ── */
+    const BOOKS = [
+      {
+        num: 1,
+        tamil: "புகார்க்காண்டம்",
+        english: "The Book of Pukār",
+        setting: "Pukār · The Cōḷa Port City",
+        cantoRange: "Cantos 1–10",
+        desc: "The world of Kaṇṇaki and Kōvalaṉ — their prosperous city, their love, the great Festival of Indra, Mātatavi's fateful dance, Kōvalaṉ's fall and return, and the departure southward with the golden anklet. Pukār is the world before the fall: wealthy, beautiful, and lost.",
+        icon: `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+                <!-- Ocean wave motif for Pukār the port city -->
+                <path d="M 6 35 Q 14 28 22 35 Q 30 42 38 35 Q 46 28 54 35" opacity="0.85"/>
+                <path d="M 6 43 Q 14 36 22 43 Q 30 50 38 43 Q 46 36 54 43" opacity="0.6"/>
+                <path d="M 6 27 Q 14 20 22 27 Q 30 34 38 27 Q 46 20 54 27" opacity="0.45"/>
+                <!-- Ship sail -->
+                <line x1="30" y1="8" x2="30" y2="24" stroke-width="1.8" opacity="0.7"/>
+                <path d="M 30 10 L 44 20 L 30 22 Z" fill="currentColor" opacity="0.55" stroke="none"/>
+                <path d="M 30 10 L 18 18 L 30 22 Z" fill="currentColor" opacity="0.38" stroke="none"/>
+              </svg>`,
+        keyEvents: ["Mātatavi's debut dance", "Kōvalaṉ's abandonment of Kaṇṇaki", "The return and departure", "Journey south with the cilampu"]
+      },
+      {
+        num: 2,
+        tamil: "மதுரைக்காண்டம்",
+        english: "The Book of Madurai",
+        setting: "Madurai · The Pāṇṭiya Capital",
+        cantoRange: "Cantos 11–23",
+        desc: "The dramatic heart of the epic — thirteen cantos of mounting catastrophe and fury. The great city description. The treacherous goldsmith. The king's injustice. Kōvalaṉ's execution. Kaṇṇaki's accusation of the king. The proof. The burning of Madurai. The ascent to heaven.",
+        icon: `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+                <!-- Flame motif for Madurai -->
+                <path d="M 30 52 Q 22 44 22 34 Q 22 26 30 20 Q 38 26 38 34 Q 38 44 30 52 Z"
+                      fill="currentColor" opacity="0.35" stroke="none"/>
+                <path d="M 30 52 Q 22 44 22 34 Q 22 26 30 20 Q 38 26 38 34 Q 38 44 30 52"
+                      stroke-width="1.6" opacity="0.82"/>
+                <path d="M 30 44 Q 26 38 26 32 Q 26 26 30 22 Q 34 26 34 32 Q 34 38 30 44 Z"
+                      fill="currentColor" opacity="0.55" stroke="none"/>
+                <path d="M 30 36 Q 28 32 28 28 Q 28 24 30 22 Q 32 24 32 28 Q 32 32 30 36 Z"
+                      fill="currentColor" opacity="0.8" stroke="none"/>
+                <!-- Palace towers -->
+                <rect x="10" y="34" width="8" height="14" opacity="0.45" stroke-width="1.1"/>
+                <rect x="42" y="34" width="8" height="14" opacity="0.45" stroke-width="1.1"/>
+                <path d="M 10 34 L 14 28 L 18 34" opacity="0.45" stroke-width="1.1"/>
+                <path d="M 42 34 L 46 28 L 50 34" opacity="0.45" stroke-width="1.1"/>
+              </svg>`,
+        keyEvents: ["Madurai city description", "The goldsmith's treachery", "Kōvalaṉ's execution", "Kaṇṇaki confronts the king", "Madurai burns", "Kaṇṇaki ascends"]
+      },
+      {
+        num: 3,
+        tamil: "வஞ்சிக்காண்டம்",
+        english: "The Book of Vañci",
+        setting: "Vañci · The Cēra Capital",
+        cantoRange: "Cantos 24–30",
+        desc: "Justice fulfilled. In the hill-girt Cēra capital, King Ceṅkuṭṭuvaṉ hears Kaṇṇaki's story and makes a monument of it — leading his army to the Himālayas to fetch a sacred stone, and installing Kaṇṇaki as the goddess Paṭṭiṉi. The epic ends with the poet's voice and a meditation on righteous kingship.",
+        icon: `<svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+                <!-- Hill and temple motif for Vañci -->
+                <path d="M 4 50 Q 18 26 30 18 Q 42 26 56 50 Z"
+                      fill="currentColor" opacity="0.22" stroke="none"/>
+                <path d="M 4 50 Q 18 26 30 18 Q 42 26 56 50" stroke-width="1.5" opacity="0.7"/>
+                <!-- Temple on the hill -->
+                <rect x="24" y="30" width="12" height="10" opacity="0.7" stroke-width="1.1"/>
+                <path d="M 22 30 L 30 18 L 38 30" opacity="0.85" stroke-width="1.5"/>
+                <line x1="30" y1="18" x2="30" y2="12" stroke-width="1.8" opacity="0.7"/>
+                <!-- Flag / divine marker -->
+                <path d="M 30 12 L 38 16 L 30 18 Z" fill="currentColor" opacity="0.65" stroke="none"/>
+                <!-- Trees -->
+                <path d="M 10 50 L 10 38 M 6 42 Q 10 38 14 42" stroke-width="1.2" opacity="0.5"/>
+                <path d="M 50 50 L 50 38 M 46 42 Q 50 38 54 42" stroke-width="1.2" opacity="0.5"/>
+              </svg>`,
+        keyEvents: ["Ceṅkuṭṭuvaṉ hears the story", "The Himalayan expedition", "The Gaṅgā stone", "Installation of Paṭṭiṉi", "The poet's epilogue"]
+      }
+    ];
+
+    const booksGrid = document.getElementById('books-grid');
+    BOOKS.forEach(b => {
+      const cantosInBook = CP_CANTOS.filter(c => c.book === b.num);
+      const totalLines = cantosInBook.reduce((s, c) => s + c.lines, 0);
+      booksGrid.innerHTML += `
+        <a href="book.html?b=${b.num}" class="cp-book-card" data-book="${b.num}">
+          <div class="cp-book-num">Book ${b.num} · ${b.cantoRange}</div>
+          <div style="text-align:center;margin:.5rem 0 .75rem;color:var(--book-accent)">
+            ${b.icon}
+          </div>
+          <div class="cp-book-tamil">${b.tamil}</div>
+          <div class="cp-book-english">${b.english}</div>
+          <div class="cp-book-setting">${b.setting}</div>
+          <div class="cp-book-desc">${b.desc}</div>
+          <div class="cp-book-meta">
+            <span><strong>${cantosInBook.length}</strong>Cantos</span>
+            <span><strong>~${totalLines.toLocaleString()}</strong>Lines</span>
+          </div>
+          <div class="cp-book-cta">Enter →</div>
+        </a>`;
+    });
+
+    /* ── Character cards ── */
+    const charsGrid = document.getElementById('characters-grid');
+    CP_CHARACTERS.forEach(ch => {
+      charsGrid.innerHTML += `
+        <div class="cp-char-card" style="--char-accent:${ch.accent}">
+          <div class="cp-char-role">${ch.role}</div>
+          <div class="cp-char-tamil">${ch.tamil}</div>
+          <div class="cp-char-english">${ch.english}</div>
+          <div class="cp-char-desc">${ch.description}</div>
+        </div>`;
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
