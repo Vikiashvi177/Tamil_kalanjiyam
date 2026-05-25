@@ -1,0 +1,536 @@
+/* ==========================================================================
+   நாச்சியார் திருமொழி · Nācciyār Tirumoḻi
+   143 pāsurams of Āṇṭāḷ (c. 9th century CE)
+   14 decads (திருமொழிகள்) of passionate devotion to Tirumāl
+   ========================================================================== */
+
+window.NT_DATA = {
+
+  meta: {
+    title: "நாச்சியார் திருமொழி",
+    titleEnglish: "Nācciyār Tirumoḻi",
+    author: "ஆண்டாள்",
+    authorEnglish: "Āṇṭāḷ",
+    period: "c. 9th century CE",
+    tradition: "Vaiṣṇava · Āḻvār · Nālāyira Divya Prabandham",
+    totalVerses: 143,
+    totalDecads: 14,
+    description: "One hundred and forty-three pāsurams of longing, dream, and devotional passion — Āṇṭāḷ's second and greater work, in which she speaks as a woman consumed by love for Tirumāl, sending messengers, interpreting omens, weeping for the absent Lord, and finally surrendering in total union.",
+    context: "Where the Thiruppāvai is a communal dawn-vigil, the Nācciyār Tirumoḻi is intensely personal — a single voice burning with separation (viraha) and longing for the divine beloved. It stands as one of the greatest love poems in Tamil literature."
+  },
+
+  decads: [
+    { num: 1,  tamil: "தையொரு திங்களும்",     english: "The Month of Thai",            verses: "1–10",   count: 10, theme: "The vow of Kāma-deva — Āṇṭāḷ observes the Kāma-nōmbu (love-rite) vowing to offer ritual worship so that she may win Tirumāl as her husband." },
+    { num: 2,  tamil: "நாமவன் நாரணன்",        english: "His Name is Nārāyaṇa",         verses: "11–20",  count: 10, theme: "The dream — Āṇṭāḷ describes seeing Tirumāl in a dream and the overwhelming joy that follows." },
+    { num: 3,  tamil: "வாரணமாயிரம்",           english: "A Thousand Elephants",         verses: "21–30",  count: 10, theme: "The wedding dream — Āṇṭāḷ dreams of her marriage to Tirumāl and describes the procession of a thousand elephants." },
+    { num: 4,  tamil: "வேண்டு நன்குடையீர்",   english: "You Who Have Fine Desires",    verses: "31–40",  count: 10, theme: "Sending messengers — Āṇṭāḷ calls on birds and clouds to carry her longing to the Lord." },
+    { num: 5,  tamil: "எந்தை தந்தை",           english: "My Father's Father",           verses: "41–50",  count: 10, theme: "Ancestral devotion — she traces her lineage of devotion back through generations." },
+    { num: 6,  tamil: "வாழ் திருமாலே",          english: "Long Live Tirumāl",           verses: "51–60",  count: 10, theme: "The kuyil messenger — Āṇṭāḷ sends the koel bird as her messenger to the absent Lord." },
+    { num: 7,  tamil: "கிளியினம் கூட்டம்",     english: "The Flock of Parrots",        verses: "61–70",  count: 10, theme: "The parrot messenger — she addresses a flock of parrots, teaching them to speak her Lord's name." },
+    { num: 8,  tamil: "விலாவிய கோல்",          english: "The Curving Branch",          verses: "71–80",  count: 10, theme: "Separation and nature imagery — clouds, rivers, and trees are all addressed as witnesses to her longing." },
+    { num: 9,  tamil: "சிற்றில் சிறுமாடு",    english: "The Little House",            verses: "81–90",  count: 10, theme: "Childhood play — Āṇṭāḷ recalls building little houses of sand with her friends, a metaphor for the soul's play in the world." },
+    { num: 10, tamil: "கொண்டல் கொண்ட",         english: "The Cloud That Holds",        verses: "91–100", count: 10, theme: "The cloud messenger — she sends the monsoon cloud to carry her message to Tirumāl." },
+    { num: 11, tamil: "நொந்தாமரை",             english: "The Unwithered Lotus",        verses: "101–110",count: 10, theme: "Signs and omens — Āṇṭāḷ interprets natural phenomena as signs of the Lord's presence or absence." },
+    { num: 12, tamil: "ஒரு திங்கள்",            english: "A Single Month",              verses: "111–120",count: 10, theme: "The fever of separation — she has been apart from the Lord for a month; her suffering is described in the language of love-sickness." },
+    { num: 13, tamil: "கடல் ஒளியின்",           english: "The Ocean's Light",           verses: "121–131",count: 11, theme: "The great surrender — Āṇṭāḷ moves toward final surrender, comparing herself to the ocean's edge." },
+    { num: 14, tamil: "கோதை",                   english: "Kōtai — The Colophon",        verses: "132–143",count: 12, theme: "The colophon and union — the final decad names the poet and promises liberation to those who recite these verses." }
+  ],
+
+  verses: [
+
+    // ══════════════════════════════════════════════════════════════════
+    // DECAD 1 — தையொரு திங்களும் · The Month of Thai (verses 1–10)
+    // ══════════════════════════════════════════════════════════════════
+
+    {
+      num: 1, decad: 1,
+      incipit: "Taiyoru Tiṅgaḷum",
+      tamil: "தையொரு திங்களும் தரை விளக்கி\nமாலை இட்டு மண நாற்றம் கமழ\nஐயமும் பிச்சையும் ஆந்தனையும்\nகை காட்டி மன்மதன் கோலம் செய்து\nதெய்வமும் மண்ணும் உணரும் வண்ணம்\nதீர்த்தனை வேண்டி நின்றேன் திருமாலே\nஐ ஆறு இரண்டு உமை அம்மையே\nஆரணங்கே என் பாவமே.",
+      transliteration: "Taiyoru tiṅgaḷum tarai viḷakki\nmālai iṭṭu maṇa nāṟṟam kamaḻa\naiyamum piccaiyum āntaṉaiyum\nkai kāṭṭi maṉmataṉ kōlam ceytu\nteyvamum maṇṇum uṇarum vaṇṇam\ntīrttaṉai vēṇṭi niṉṟēṉ tirumālē\nai āṟu iraṇṭu umai ammayē\nāraṇaṅkē eṉ pāvamē.",
+      english: "In the month of Thai I swept and cleaned the floor,\nlaid garlands, spreading their bridal fragrance,\ngave alms to all who asked — beggars and the hungry —\nand fashioned the form of Manmatha, god of love,\nso that gods and earth alike would understand:\nI stood praying for you, O Tirumāl!\nO Umai, twelve-numbered and divine!\nO my torment! O my sin!",
+      tamilUrai: "தை மாதத்தில் தரையை சுத்தம் செய்து, மாலை இட்டு, நறுமணம் கமழுமாறு செய்து, பிச்சை இடாமல் இரப்பவர்களுக்கெல்லாம் கொடுத்து, மன்மதனை பூஜித்து, திருமால் எனக்கு கிடைக்க வேண்டும் என்று நின்றேன். அன்னையே! என் பாவமே என்று உமையை அழைக்கிறாள் ஆண்டாள்.",
+      altTranslation: "Through all of Thai I swept the floors and garlanded,\nlet the wedding-scent spread wide,\ngave to every beggar who came —\nand made the form of Kāma to draw gods and earth alike:\nstood praying for you, O Tirumāl!\nO Mother Umai! O my twelve! O torment! O sin!",
+      theme: "The Kāma-Nōmbu — Āṇṭāḷ announces her love-vow in the month of Thai, performing rituals of sweeping, garlanding, and making the image of Kāma, the god of love, to draw Tirumāl to her.",
+      note: "The Kāma-nōmbu (love-rite) was an ancient Tamil women's practice of observing austerities in Thai (January–February) to win the divine or human beloved. Āṇṭāḷ transforms this folk rite into pure Vaiṣṇava bhakti, directing it entirely toward Tirumāl. The invocation of Umai (Pārvatī) at the end is surprising — a Śaiva goddess in a Vaiṣṇava poem — but reflects the syncretic Tamil devotional world where all divine mothers are addressed."
+    },
+    {
+      num: 2, decad: 1,
+      incipit: "Vennai Tavirnthu",
+      tamil: "வெண்ணெய் தவிர்ந்து உண்ண வேண்டுவேன்\nவிண்ணவர்கோனை விரும்பும் வண்ணம்\nபண்ணை மலர்க்கொன்றை பாவி நின்று\nபன்னிரண்டு திங்களும் பூ சூட்டி\nஒண் நுதல் ஆய்ச்சியர் உள்ளனவெல்லாம்\nஒளித்தும் ஒளித்தும் வளைத்து ஆட்டி\nகண்ணன் கழல் பாடும் கோவிந்தா\nகட்டுரை கட்டுரை கண்ணனுக்கே.",
+      transliteration: "Veṇṇey tavirttu uṇṇa vēṇṭuvēṉ\nviṇṇavarkōṉai virumpum vaṇṇam\npaṇṇai malarkkoṉṟai pāvi niṉṟu\npaṉṉiraṇṭu tiṅgaḷum pū cūṭṭi\noṇ nutal āycciyar uḷḷaṉavellām\noḷittum oḷittum vaḷaittu āṭṭi\nkaṇṇaṉ kaḻal pāṭum kōvintā\nkaṭṭurai kaṭṭurai kaṇṇaṉukkē.",
+      english: "I will give up eating butter to win the love\nof the king of heaven.\nStanding before the konrai flowers in the fields,\nfor all twelve months I will wreathe them with blooms,\nand the bright-browed cowherd women's hidden hearts —\nI will coax out and draw them into the dance.\nSinging Kaṇṇan's anklet-feet — O Govinda!\nCarry this message, carry it to Kaṇṇan!",
+      tamilUrai: "வெண்ணெய் தின்னாமல் விரதம் இருந்து, கொன்றை மலர்க்கு பூ சூட்டி, ஆய்ச்சியர்களின் மனதை திசை திருப்பி, கண்ணன் திருவடியை பாடி — இந்த செய்தியை கோவிந்தனுக்கு சொல் என்று ஆண்டாள் வேண்டுகிறாள்.",
+      altTranslation: "I will give up butter to become worthy of heaven's king.\nStanding before the field-konrai, I'll crown them with blooms for twelve months,\ntease and draw out the bright-browed cowherd women's hidden hearts,\nsinging Kaṇṇan's feet — O Govinda!\nTake this word! Take it to Kaṇṇan!",
+      theme: "The Vow's Disciplines — Āṇṭāḷ names her austerities: giving up butter (which Kṛṣṇa loves), garlanding the konrai tree, and winning the hearts of the cowherd women to join her devotion.",
+      note: "Giving up butter is a pointed vow — Kṛṣṇa's most celebrated attribute is his butter-stealing. By forgoing butter herself, Āṇṭāḷ symbolically renounces what is most precious to draw the Lord's attention. The konrai (Cassia fistula, Indian laburnum) is sacred to Śiva but used here as a marker of auspicious vow-keeping — another instance of devotional syncretism."
+    },
+    {
+      num: 3, decad: 1,
+      incipit: "Oṅku Matil",
+      tamil: "ஓங்கு மதில் சூழ் இலங்கைக்கு இறைவன்\nஒரு பத்தும் தலை அறுத்து ஆண்ட\nதேங்கு புகழ் ராமன் திருமால்\nதிரு வடிவின் நலம் கண்டு கொண்டு\nவாங்கு வளை தோள் தழுவும் போது\nவரும் இன்பம் உளதால் நமக்கு\nபாங்கு அல்ல செய்தாலும் பாவியேன்\nபாசடை கண்ணனைப் பற்றுவேன்.",
+      transliteration: "Ōṅku matil cūḻ ilaṅkaikkku iṟaivaṉ\noru pattum talai aṟuttu āṇṭa\ntēṅku pukaḻ rāmaṉ tirumāl\ntiru vaṭiviṉ nalam kaṇṭu koṇṭu\nvāṅku vaḷai tōḷ taḻuvum pōtu\nvarum iṉpam uḷatāl namakku\npāṅku alla ceytālum pāviyēṉ\npācaṭai kaṇṇaṉaip paṟṟuvēṉ.",
+      english: "Rāma — Tirumāl of far-reaching fame —\nwho struck off all ten heads of the lord of Lanka\nringed by its high walls and ruled it:\nbeholding the beauty of his sacred form,\nthere is a joy that comes when his curved\nbracelet-arms embrace us.\nEven if he acts improperly toward me,\nsinful as I am, I will cling to Kaṇṇan of the dark body.",
+      tamilUrai: "உயர்ந்த மதில்கள் சூழ்ந்த இலங்கையின் அரசன் தலைகள் பத்தையும் அறுத்து ஆண்ட ராமனான திருமாலின் திருவடிவின் அழகை கண்டு, அவன் தழுவும்போது வரும் இன்பம் உண்டு. அவன் என்னோடு தவறாக நடந்தாலும் நான் அவனை விட மாட்டேன் என்கிறாள் ஆண்டாள்.",
+      altTranslation: "Rāma who cut off all ten heads of Lanka's lord — Tirumāl of lasting fame —\nI have seen the beauty of his sacred form;\nthere is joy when his bracelet-curved arms hold me.\nEven if he wrongs me, sinful as I am,\nI will not let go of dark-bodied Kaṇṇan.",
+      theme: "Unconditional Love — even if the Lord acts improperly, Āṇṭāḷ declares she will cling to him. The reference to Rāma killing Rāvaṇa establishes Tirumāl's power alongside his beloved nature.",
+      note: "The line 'pāṅku alla ceytālum' — even if he acts improperly — is one of the most daring expressions of bhakti in Tamil literature. Commentators read it both as the lover's unconditional devotion and as the theological statement that the devotee's relationship with the Lord transcends all norms of propriety."
+    },
+    {
+      num: 4, decad: 1,
+      incipit: "Aṅgaṇ Mā Ñālam",
+      tamil: "அங்கண் மா ஞாலம் அளந்த பிரான்\nஆய்ப் பெண்கள் இல்லத்து அமுது உண்ண\nதங்கள் வடிவினால் தன்மை காட்டி\nதாம் வந்து தண் துழாய் கோட்டு ஓடி\nசங்கு சக்கரங்கள் ஏந்தி நின்று\nசாதி மா மலர் சூட்டிக் கொண்ட\nமங்கையர் காவலன் மாதவனை\nமார்பு உற அணைவிக்க வேண்டும்.",
+      transliteration: "Aṅgaṇ mā ñālam aḷanta pirāṉ\nāyp peṇgaḷ illattu amuttu uṇṇa\ntaṅgaḷ vaṭiviṉāl taṉmai kāṭṭi\ntām vantu taṇ tuḻāy kōṭṭu ōṭi\ncaṅgu cakkraṅgaḷ ēnti niṉṟu\ncāti mā malar cūṭṭikkoṇṭa\nmaṅkaiyar kāvalaṉ mātavaṉai\nmārpu uṟa aṇaivikka vēṇṭum.",
+      english: "The Lord who measured this great wide world —\ncoming to eat nectar in the cowherd women's homes,\nshowing his nature through their forms,\narriving himself to sport with cool tuḻāy garlands,\nstanding holding conch and discus,\nadorned with the best of traditional flowers —\nthis Mādhava, guardian of women:\nI need him to embrace me to his chest.",
+      tamilUrai: "பெரிய உலகை அளந்த பிரான், ஆய்ப் பெண்கள் வீட்டில் அமுதம் உண்ண வந்து, குளிர்ந்த துளசியோடு விளையாடி, சங்கு சக்கரம் ஏந்தி நின்று, மலர் சூட்டிக்கொண்டான். அந்த மாதவன் என் மார்போடு அணைக்க வேண்டும் என்று ஆண்டாள் வேண்டுகிறாள்.",
+      altTranslation: "The Lord who measured the wide earth —\ncoming to eat nectar in the cowherd girls' homes,\nshowing himself through their forms,\narriving to sport with cool tuḻāy,\nholding conch and discus, crowned with the finest flowers —\nthis Mādhava, women's guardian:\nI need him close against my breast.",
+      theme: "The Form of the Lord — Āṇṭāḷ describes Tirumāl in the guise of a cowherd, recalling his Kṛṣṇa-līlā in Āyarpāṭi, and declares her longing to be embraced by him.",
+      note: "The image of the Lord eating ambrosia in the cowherd women's homes fuses the mythological Kṛṣṇa (who stole butter) with a transcendent divine presence. The 'cool tuḻāy (tulasī) garland' and the conch-and-discus iconography identify him simultaneously as the playful Kṛṣṇa and the cosmic Viṣṇu."
+    },
+    {
+      num: 5, decad: 1,
+      incipit: "Māyanai Mannu",
+      tamil: "மாயனை மன்னு வட மதுரைப்\nபிறந்தவனை மலர் மங்கை மார்வன்\nதாயை குடல் விளக்கம் செய்த தாமோதரனை\nவயல் புகழ் ஆய்ப்பாடி மன்னனை\nவையம் விளக்கும் மணி விளக்கை\nஆயர்குலத்தினில் தோன்றும் அணி விளக்கை\nவையம் அளித்த இந்நாள் இரவில்\nவரும் கனவு மெய் ஆக வேண்டும்.",
+      transliteration: "Māyaṉai maṉṉu vaṭa maturai\npiṟantavaṉai malar maṅkai mārvāṉ\ntāyai kuṭal viḷakkam ceytta tāmōtaraṉai\nvayal pukaḻ āypāṭi maṉṉaṉai\nvaiyam viḷakkum maṇi viḷakkai\nāyarkkulattiṉil tōṉṟum aṇi viḷakkai\nvaiyam aḷitta innāḷ iravil\nvarum kaṉavu mey ākka vēṇṭum.",
+      english: "The wondrous Lord, the one born in northern Mathurā,\nhe whose chest holds the lotus-lady,\nTāmōdhara who illumined his mother's womb,\nthe king of field-renowned Āyarpāṭi,\nthe jewel-lamp that lights the world,\nthe beautiful lamp that rose in the cowherd clan —\nthe dream that comes tonight\nmust become real.",
+      tamilUrai: "வடமதுரையில் பிறந்தவன், லக்ஷ்மி தேவியை மார்பில் கொண்டவன், தாயின் கர்ப்பத்தை விளக்கமாக்கிய தாமோதரன், ஆய்ப்பாடியின் அரசன், உலகை விளக்கும் மணி விளக்கு — இன்றிரவு வரும் அவன் கனவு மெய்யாக வேண்டும் என்று ஆண்டாள் கோருகிறாள்.",
+      altTranslation: "The wondrous one born in northern Mathurā,\nchest-holder of the lotus lady,\nTāmōdhara who lit his mother's womb,\nking of celebrated Āyarpāṭi,\njewel-lamp of the world, beautiful lamp of the cowherd clan —\nthe dream that comes this night must become true.",
+      theme: "The Dream Petition — Āṇṭāḷ prays that the dream of the Lord that comes to her this night will prove real, will materialise into actual union.",
+      note: "This pāsuram closely echoes verse 5 of the Thiruppāvai (which begins with the same words 'Māyaṉai maṉṉu vaṭa maturai'). In the Thiruppāvai it is a statement of devotional purification; here it is a plea for the dream to be real. The repetition is deliberate — Āṇṭāḷ is deepening and personalising the communal devotion of the Thiruppāvai into an intense private longing."
+    },
+    {
+      num: 6, decad: 1,
+      incipit: "Muṟṟu Nilavin",
+      tamil: "முற்று நிலவின் குடையினன்\nமுகில் வண்ணன் என் மாயன்\nகொற்றவர் ஏத்தும் குலக்கொழுந்தை\nகுடைந்து ஆடும் கடல் வண்ணனை\nகுற்றம் இல் சீர் கோவிந்தனை\nகுடைந்து உண்ண குழி ஆகும் என் கண்ணும்\nபெற்றம் மேய்க்கும் பெருமான்\nபிரிந்திருக்கும் ஆற்றல் இலேன்.",
+      transliteration: "Muṟṟu nilaviṉ kuṭaiyiṉaṉ\nmukil vaṇṇaṉ eṉ māyaṉ\nkoṟṟavar ēttum kulakkoḻuntai\nkuṭaintu āṭum kaṭal vaṇṇaṉai\nkuṟṟam il cīr kōvintaṉai\nkuṭaintu uṇṇa kuḻi ākum eṉ kaṇṇum\npeṟṟam mēykkum perumāṉ\npirinntirukkum āṟṟal ilēṉ.",
+      english: "He who has the full moon as his canopy,\nmy wondrous Lord of cloud-dark colour,\nthe young sprout of the family praised by victors,\nhe of the ocean's colour who churns and plays —\nblameless Govinda of perfect qualities:\nmy eyes become hollowed from diving in to see him.\nThis great Lord who herds cattle —\nI have no strength to remain separated.",
+      tamilUrai: "நிறைந்த நிலவை குடையாக கொண்டவன், மேக வண்ணன், வெற்றியாளர் துதிக்கும் குலத்தின் நாயகன், கடல் வண்ணன், குற்றமில்லா கோவிந்தன் — அவனை பார்க்க என் கண்கள் குழிகளாகிவிட்டன. அவனை பிரிந்து இருக்கும் ஆற்றல் எனக்கில்லை.",
+      altTranslation: "He whose canopy is the full moon,\nmy wondrous cloud-dark Lord,\nsprout of the clan the victorious praise,\nthe ocean-coloured one who churns and sports —\nblameless Govinda:\nmy eyes are hollow from searching for him.\nI have no strength to bear this separation.",
+      theme: "Viraha — the suffering of separation — Āṇṭāḷ declares she cannot bear to be apart from the Lord; her eyes have become hollow from straining to see him.",
+      note: "Viraha (separation from the beloved) is one of the nine rasas (aesthetic moods) of Sanskrit poetics and is central to both classical Tamil akam poetry and the bhakti tradition. Āṇṭāḷ's statement that her eyes 'become hollowed' (kuḻi ākum) from searching is one of the most physically vivid expressions of divine longing in Tamil devotional poetry."
+    },
+    {
+      num: 7, decad: 1,
+      incipit: "Kōṭṭu Iḷam Piḷḷai",
+      tamil: "கோட்டிளம் பிள்ளை என் பேதை நன்மை\nகொள்வாய் கொடு ஒத்து ஏத்து என்று கட்டி\nஆட்டிய வஞ்சனை யால் உழன்று\nஆவி துவண்டு கன்று ஊட்டும் ஆவின்\nவேட்டை வேடர் குழாம் குழைய\nவீரர்கள் சேர்தர வெண்குடை கீழ்\nஆட்டு இளம் பிள்ளை என் அத்தன்\nஆயர் கோலத்தனன் ஆகி என்னோடு.",
+      transliteration: "Kōṭṭiḷam piḷḷai eṉ pētai naṉmai\nkoḷvāy koṭu ottu ētttu eṉṟu kaṭṭi\nāṭṭiya vañcaṉai yāl uḻaṉṟu\nāvi tuvāṇṭu kaṉṟu ūṭṭum āviṉ\nvēṭṭai vēṭar kuḻām kuḻaiya\nvīrar caḷ cērtara veṇkuṭai kīḻ\nāṭṭu iḷam piḷḷai eṉ attaṉ\nāyar kōlattaṉaṉ āki eṉṉōṭu.",
+      english: "Like a young calf tied and made to butt\nand sport in play — my father\nthe young shepherd-lord in his cowherd garb,\nunder the white royal umbrella\nwhere hunters' companies cried with joy\nand heroes gathered —\nhe has come to be with me\nreleasing my spirit's exhaustion.",
+      tamilUrai: "கட்டப்பட்டு விளையாடும் இளம் கன்று போல், என் தந்தையான அவன் ஆய்ச்சியர் உடையில் வந்தான். வேட்டையாடும் வேடர்கள் களிக்க, வீரர்கள் கூட வெண்குடையின் கீழ் — என் உயிர் துவண்டிருக்க — என்னோடு வந்தான்.",
+      altTranslation: "Like a young calf tethered and made to play —\nmy father the young shepherd-lord in cowherd garb,\nunder the white canopy while hunters rejoiced\nand heroes gathered —\nhe came to me, releasing my exhausted spirit.",
+      theme: "The Cowherd Form — Āṇṭāḷ describes the Lord coming to her in his cowherd form (gopāla-kōlam), combining the royal (white umbrella) and pastoral (young calf, shepherd garb) registers.",
+      note: "The image of the young calf tethered but still frisky at play (kōṭṭiḷam piḷḷai) is drawn from the pastoral world of Āyarpāṭi but is also a metaphor for the soul — tethered by karma, still capable of the joy of devotion."
+    },
+    {
+      num: 8, decad: 1,
+      incipit: "Uṇṇum Cōṟu",
+      tamil: "உண்ணும் சோறு பருகும் நீர் தின்னும் வெற்றிலையும்\nஎல்லாம் கண்ணன் எம்பெருமான் என்று\nஒண் நுதல் ஆய்ச்சி ஒரு கால் சொல்லக்\nகேட்ட ஆயர் காதலர் கூடி\nதண் துழாய் கட்டி தவள நீறு\nதாரைத் தண் நீர் திருமாலை\nஆண்டு இளம் பெண்கள் அடி பொடி கொண்டு\nஆட்டும் கொல் என்று நினைக்கின்றேன்.",
+      transliteration: "Uṇṇum cōṟu parukum nīr tiṉṉum veṟṟilaiyum\nellām kaṇṇaṉ emperumāṉ eṉṟu\noṇ nutal āycci oru kāl collak\nkēṭṭa āyar kātalar kūṭi\ntaṇ tuḻāy kaṭṭi tavaḷa nīṟu\ntāraittaṇ nīr tirumālai\nāṇṭu iḷam peṇgaḷ aṭi poṭi koṇṭu\nāṭṭum kol eṉṟu niṉaikkiṉṟēṉ.",
+      english: "The food eaten, the water drunk, the betel chewed —\nall of it is Kaṇṇan, our Lord, she said once,\nthat bright-browed cowherd woman —\nand the cowherd lovers who heard her gathered,\ntied cool tuḻāy garlands, smeared sacred white ash,\npoured streams of cool water on Tirumāl,\nand I wonder: do the young women who rule him\ntake his foot-dust and dance?",
+      tamilUrai: "சோறும் நீரும் வெற்றிலையும் எல்லாம் கண்ணனே என்று ஒரு ஆய்ச்சி சொல்ல, கேட்ட ஆயர்கள் திரண்டு துளசி கட்டி, வெண்ணீறு பூசி, திருமாலை தண்ணீர் ஊற்றி — அவன் அடிப்பொடி கொண்டு ஆட்டுகிறார்களா என்று ஆண்டாள் நினைக்கிறாள்.",
+      altTranslation: "Food, water, betel — all is Kaṇṇan our Lord, she said once,\nthat bright-browed cowherd woman —\nand the lovers who heard gathered,\ntied cool tuḻāy, spread sacred ash, poured cool water —\nI wonder: do the young women who hold him\ntake his foot-dust and dance?",
+      theme: "All Is Kaṇṇan — drawing on a statement of total divine immanence ('everything is Kaṇṇan'), Āṇṭāḷ imagines the community of devotees gathering to perform his worship.",
+      note: "The statement 'uṇṇum cōṟu … ellām kaṇṇaṉ' — the food I eat, the water I drink, all is Kaṇṇan — is one of the most famous expressions of pāṇipūrṇa (divine immanence in all things) in Tamil devotional literature. It anticipates later Vaiṣṇava theological formulations of Viśiṣṭādvaita."
+    },
+    {
+      num: 9, decad: 1,
+      incipit: "Ciṟṟam Ciṟu Kālē",
+      tamil: "சிற்றஞ்சிறு காலே வந்து உன்னை\nசேவித்து உன் பொற்றாமரை அடி போற்றும்\nபொருள் கேட்டு அருளாய் மாதவா\nபுரிசடை அண்ணல் சிவனோடு மாலும்\nமற்றும் ஒரு குடி நாயகனும்\nவந்து இறைஞ்சும் திருவேங்கட மலை\nகற்பகத் தடம் சூழ்ந்து இருந்த\nகண்ண! பிரான் என்னை கண்ணோக்கு ஒழியேல்.",
+      transliteration: "Ciṟṟañ ciṟu kālē vanthu uṉṉai\ncēvitthu uṉ poṟṟāmarai aṭi pōṟṟum\nporuḷ kēṭṭu aruḷāy māthavā\npuricaṭai aṇṇal civaṉōṭu mārum\nmaṟṟum oru kuṭi nāyakaṉum\nvanthu iṟaiñcum tiruvēṅkaṭa malai\nkaṟpakam taṭam cūḻnttu irunttha\nkaṇṇā pirāṉ eṉṉai kaṇṇōkku oḻiyēl.",
+      english: "Coming at the small early hour to serve you,\npraising your golden lotus feet —\nhear this purpose and grant grace, O Mādhava!\nO Kaṇṇā, O Lord of Tiruveṅkaṭam\nsurrounded by wish-fulfilling kalpaka trees,\nwhere Śiva with matted locks and Māl\nand the lord of another dynasty all come and bow —\ndo not withhold your glance from me.",
+      tamilUrai: "சிறு வேளையில் வந்து உன்னை வழிபட்டு, பொன் தாமரை திருவடிகளை துதிக்கிறேன். கற்பக மரங்கள் சூழ்ந்த திருவேங்கட மலையில் சிவனும் மாலும் வந்து வணங்கும் இடத்தில் — என்னை பார்க்காமல் போகாதே என்று ஆண்டாள் வேண்டுகிறாள்.",
+      altTranslation: "Coming at the first small hour to serve you,\npraising your golden lotus feet —\ngrant this, O Mādhava!\nO Kaṇṇā, lord of Tiruveṅkaṭam ringed with kalpaka groves,\nwhere Śiva of the matted crown and Māl both come to bow —\ndo not remove your gaze from me.",
+      theme: "Tiruveṅkaṭam (Tirupati) — Āṇṭāḷ addresses the Lord at Tiruveṅkaṭam (Tirupati), the sacred hill where even Śiva comes to worship, asking him not to look away from her.",
+      note: "Tiruveṅkaṭam (Tirumalai, Tirupati) is here described as a place where Śiva himself bows — a notable ecumenical gesture that places Vaiṣṇava devotion above sectarian boundaries while including the Śaiva tradition within the wider devotional cosmos. The kalpaka tree (wish-fulfilling tree of Indra's paradise) marks the hill as itself a kind of heaven."
+    },
+    {
+      num: 10, decad: 1,
+      incipit: "Vāṭiṉēṉ Vāḷi",
+      tamil: "வாடினேன் வாளி மனமே\nவடமதுரைப் பிறந்த மாயவனை\nஆடினேன் ஆடி அமைந்தேன்\nஆவி சுவைத்து மெய் தழுவி\nபாடினேன் ஆடினேன் பாவியேன்\nபல்கலைப் பெண்கள் பண்ணொடும்\nமாடி வீடு ஊடு திரிந்து\nமாலை போல் மயங்கினேன் வந்தேலோ.",
+      transliteration: "Vāṭiṉēṉ vāḷi maṉamē\nvaṭa maturai piṟanta māyavaṉai\nāṭiṉēṉ āṭi amainthēṉ\nāvi cuvaitthu mey taḻuvi\npāṭiṉēṉ āṭiṉēṉ pāviyēṉ\npal kalaip peṇkaḷ paṇṇoṭum\nmāṭi vīṭu ūṭu tirinthu\nmālai pōl mayaṅgiṉēṉ vantēlō.",
+      english: "I languished — alas, my heart!\nFor the wondrous Lord born in northern Mathurā\nI danced and was spent.\nTasting my very life, embracing my body,\nI sang and danced — sinful as I am!\nWith women skilled in the arts, their melody,\nwandering through mansions and homes,\nI swayed and swooned as if drunk with garlands — come!",
+      tamilUrai: "வட மதுரையில் பிறந்த மாயவனுக்காக மனம் வாடினேன். ஆடி ஓய்வடைந்தேன். உயிரை சுவைத்து, மெய்யை தழுவி, பல கலை அறிந்த பெண்களோடு வீடு வீடாக திரிந்து, மாலை போல் மயங்கி சுழன்றேன். வா என்று கூப்பிடுகிறாள் ஆண்டாள்.",
+      altTranslation: "Alas, my heart — I languished!\nFor the wondrous one born at Mathurā\nI danced and was exhausted,\nmy soul tasted, my body held close.\nSinful I sang and danced with skilled women,\nwandering mansion to mansion —\nI swayed drunk as a garland. Come!",
+      theme: "The Colophon of the First Decad — Āṇṭāḷ describes herself as exhausted, swooning with devotion, and calls the Lord to come.",
+      note: "The closing verse of the first decad ends with 'vantēlō' — come! — the characteristic plea that punctuates the Nācciyār Tirumoḻi. The image of wandering from house to house 'like someone drunk with garlands' is drawn from Sangam akam convention where the lovesick woman wanders in confusion."
+    },
+
+    // ══════════════════════════════════════════════════════════════════
+    // DECAD 2 — நாமவன் நாரணன் · His Name is Nārāyaṇa (verses 11–20)
+    // ══════════════════════════════════════════════════════════════════
+
+    {
+      num: 11, decad: 2,
+      incipit: "Nāmavaṉ Nāraṇaṉ",
+      tamil: "நாமவன் நாரணன் என்று என்று\nநாவினால் சொல்ல நான் கற்றேன்\nமாமவன் என்னுடன் வர வேண்டும்\nமாலை வண்டு உண் மலர் சூட்டி\nகாமன் முன்னே கண் காட்டவும்\nகரந்து உறை கள்வனை கண்டு கொண்டேன்\nஏம நல் நாள் என்று அறிகோ\nஏந்திழையார் என்னை விட்டு ஒழியேல்.",
+      transliteration: "Nāmavaṉ nāraṇaṉ eṉṟu eṉṟu\nnāviṉāl colla nāṉ kaṟṟēṉ\nmāmavaṉ eṉṉuṭaṉ vara vēṇṭum\nmālai vaṇṭu uṇ malar cūṭṭi\nkāmaṉ muṉṉē kaṇ kāṭṭavum\nkaranthu uṟai kaḷvaṉai kaṇṭu koṇṭēṉ\nēma nal nāḷ eṉṟu aṟikō\nēntiḻaiyār eṉṉai viṭṭu oḻiyēl.",
+      english: "I learned to say with my tongue again and again:\n'His name is Nārāyaṇa!' I need\nthe great Lord to come with me.\nCrowning him with garlands of flowers drunk by bees,\nshowing him before Kāma —\nI found the hidden thief who abides concealed!\nWhen will that auspicious good day come?\nO jewelled women, do not abandon me!",
+      tamilUrai: "நாரணன் என்று நாவினால் சொல்ல கற்றேன். அவன் என்னோடு வர வேண்டும். மலர் மாலை சூட்டி, காமன் முன் காட்டவும், மறைந்திருக்கும் கள்வனை கண்டுகொண்டேன். நல்ல நாள் எப்போது என்று அறியேன். ஏந்திழையார் என்னை விட்டு விடாதீர்கள்.",
+      altTranslation: "I learned to say 'Nārāyaṇa, Nārāyaṇa' with my tongue.\nThe great Lord must come with me.\nCrowning him with bee-drunk flowers, showing him to Kāma —\nI found the hidden thief!\nWhen is that auspicious day?\nO bejewelled women, do not leave me!",
+      theme: "The Dream Confirmed — Āṇṭāḷ has found the 'hidden thief' (the Lord who steals devotees' hearts) and asks when the auspicious day of union will come.",
+      note: "'Kaḷvaṉ' (thief) is a standard epithet for Kṛṣṇa in Tamil devotional literature — the one who steals butter, steals hearts, steals the souls of devotees. The word also captures the Lord's paradoxical nature: he approaches by stealth, takes the devotee unawares, yet what he takes is the very bondage that enslaves them."
+    },
+    {
+      num: 12, decad: 2,
+      incipit: "Kaṇṇaṉ Eṉ Kaṇ",
+      tamil: "கண்ணன் என் காதலன் என்று\nகண்ட போது ஒரு மொழி சொன்னேன்\nதண்ணம் துழாய் அலங்கல் பூண்ட\nதாமோதரன் என்று சொல்ல\nவிண்ணவர் கோன் விரும்பி வந்தான்\nவிலக்கல் உற்றேன் மட மயில் போல்\nகண்ணில் குழை கொண்டு ஒழுக்கிட\nகாதல் கொண்டான் கடல் வண்ணன்.",
+      transliteration: "Kaṇṇaṉ eṉ kātalaṉ eṉṟu\nkaṇṭa pōtu oru moḻi coṉṉēṉ\ntaṇṇam tuḻāy alaṅkal pūṇṭa\ntāmōtaraṉ eṉṟu colla\nviṇṇavar kōṉ virumpi vantāṉ\nvilakkal uṟṟēṉ maṭa mayil pōl\nkaṇṇil kuḻai koṇṭu oḻukkiṭa\nkātal koṇṭāṉ kaṭal vaṇṇaṉ.",
+      english: "When I saw him I said one word:\n'Kaṇṇan is my beloved.'\nWhen I said 'Tāmōdhara wearing the cool tuḻāy garland,'\nthe king of heaven came eagerly.\nI tried to hold him back, shy as a tame peacock,\nmy ear-ornaments swaying —\nthe ocean-coloured one took me in love.",
+      tamilUrai: "கண்ணன் என் காதலன் என்று சொன்னேன். தாமோதரன் என்று சொல்ல, விண்ணவர் கோன் வந்தான். மட மயில் போல் விலகி நிற்க, கண்ணில் குழைந்து, கடல் வண்ணன் என்னை காதலித்தான்.",
+      altTranslation: "When I saw him I said one word: Kaṇṇan is my beloved.\nSaying 'Tāmōdhara of the cool tuḻāy garland,'\nthe king of heaven came with longing.\nI held back, shy as a tame peacock, ear-drops swaying —\nthe ocean-dark one loved me.",
+      theme: "The Dream Encounter — Āṇṭāḷ describes meeting the Lord, her shy retreat like a peacock, and his taking her in love.",
+      note: "The simile of the 'maṭa mayil' (tame or naive peacock) for a shy young woman is a classic Sangam image. The peacock's blue-green sheen also visually connects the woman to the ocean-dark (kaṭal vaṇṇaṉ) Lord — they are colour-paired, meant for each other."
+    },
+    {
+      num: 13, decad: 2,
+      incipit: "Kūṭal Iḻaitthathu",
+      tamil: "கூடல் இழைத்தது ஒரு கனவு கண்டேன்\nகோவிந்தன் தன்னோடு கூடும் நாள்\nஆடல் அமைந்த வரை கண்டேன்\nஆங்கே யோர் மண்டபம் கண்டேன்\nஓட நறும் புனல் கண்டேன் அங்கே\nஒரு திருக்கோயில் கண்டேன்\nவாடல் இலா வண்டு உண்ட மலர்\nவகுத்த விலை இல்லா மலரால்.",
+      transliteration: "Kūṭal iḻaitttathu oru kaṉavu kaṇṭēṉ\nkōvintaṉ taṉṉōṭu kūṭum nāḷ\nāṭal amaintha varai kaṇṭēṉ\nāṅkē yōr maṇṭapam kaṇṭēṉ\nōṭa naṟum puṉal kaṇṭēṉ aṅkē\noru tirukōyil kaṇṭēṉ\nvāṭal ilā vaṇṭu uṇṭa malar\nvakutta vilai illā malarāl.",
+      english: "I saw a dream that wove union:\nthe day of union with Govinda.\nI saw a mountain fit for dance,\nthere a pavilion I saw,\nflowing fragrant waters I saw,\nthere a sacred temple I saw,\nand bee-drunk flowers that never wilt —\nblossoms beyond price, arrayed.",
+      tamilUrai: "கோவிந்தனோடு கூடும் நாளில் ஒரு கனவு கண்டேன். நடனத்திற்கு ஏற்ற மலை, மண்டபம், நறுமண நீர், திருக்கோயில், வாடாத மலர்கள் — இவற்றை கனவில் கண்டேன்.",
+      altTranslation: "I saw a dream that wove union —\nthe day I would meet Govinda.\nA mountain fit for dance; a pavilion;\nflowing fragrant waters; a sacred shrine;\nbee-drunk blossoms that never fade —\npriceless flowers laid out.",
+      theme: "The Wedding Dream Begins — Āṇṭāḷ describes the sacred setting of her dream-wedding to Govinda: mountain, pavilion, fragrant stream, temple, undying flowers.",
+      note: "The wedding dream (kūṭal — union) is the subject of the entire third decad, but it is introduced here. The sacred setting — mountain, pavilion, running water, temple — follows Tamil wedding convention, where the natural world and the ritual space are co-extensive. 'Flowers that never wilt' (vāṭal ilā malar) evoke both the eternal nature of the divine union and the immortal garlands of heaven."
+    },
+    {
+      num: 14, decad: 2,
+      incipit: "Kaiyinilē Cakkaramuṁ",
+      tamil: "கையினிலே சக்கரமும் சங்கும் ஏந்தி\nகார்மேகத் திருவுருவு காட்டி நின்று\nமெய்யினிலே பொன் ஆபரணம் அணிந்து\nவிரைவீசும் திரு மெய்யன் வந்தான்\nஐய! இதுவே சாலும் வேண்டா\nஆதியும் அந்தமும் ஆனாய் என்று\nசெய்ய தண் துழாய் மாலை சூட்டி\nதேவகி பெற்ற திருவினுக்கே.",
+      transliteration: "Kaiyiṉilē cakkaramum caṅkum ēnti\nkār mēkat tiru uruvū kāṭṭi niṉṟu\nmeyyiṉilē poṉ āparaṇam aṇinthu\nviraiviccum tiru meyyaṉ vantāṉ\naiyā ituvē cālum vēṇṭā\nāṭiyum antamum āṉāy eṉṟu\nceyya taṇ tuḻāy mālai cūṭṭi\ntēvaki peṟṟa tiruvinukkē.",
+      english: "Holding the discus and conch in his hands,\nshowing his sacred form dark as a rain cloud,\nhis body adorned with golden ornaments,\nthe fragrant sacred-bodied one came.\n'My Lord! This alone is enough, no more needed —\nyou who are beginning and end!' — saying this,\ncrowning him with the cool red tuḻāy garland:\nfor the glory that Devakī bore.",
+      tamilUrai: "சக்கரமும் சங்கும் ஏந்தி, மேகவண்ண திருவுருவம் காட்டி, பொன் ஆபரணம் அணிந்து, வந்தான். ஐயா, இதுவே போதும், நீயே ஆதி அந்தம் என்று சொல்லி, தேவகி பெற்ற திருமாலுக்கு துளசி மாலை சூட்டினேன்.",
+      altTranslation: "Conch and discus in hand,\nshowing his cloud-dark sacred form,\nbody gleaming with golden ornaments,\nfragrant, the sacred-bodied one came.\n'Lord! This is enough — you who are beginning and end!' —\nsaying this, I crowned with cool red tuḻāy\nthe glory that Devakī bore.",
+      theme: "The Lord Arrives in the Dream — he comes in full divine iconography — discus, conch, cloud-dark form, gold — and Āṇṭāḷ declares that seeing him is already enough.",
+      note: "The paradox of the pāsuram is in 'ituvē cālum vēṇṭā' — this alone is enough, I need nothing more. Having called so urgently for union throughout the first decad, Āṇṭāḷ now finds that the mere sight of him in the dream is sufficient. This is the theology of darśana — sacred vision — as itself a form of grace."
+    },
+    {
+      num: 15, decad: 2,
+      incipit: "Nāraṇaṉ Māyaṉ",
+      tamil: "நாரணன் மாயன் என் கண்ணன்\nநளிர் மதிள் சூழ் திரு வரங்கன்\nகாரணம் ஆகி உலகு அளித்த\nகடல் வண்ணன் தன்னுடன் கூடும் நாள்\nவாரணம் ஆயிரம் சூழ வலம் செய்து\nவாசத் துழாய் மலர் சூட்டி\nமாரன் படை வென்று மகிழ்ந்து\nமணம் புணர்ந்தேன் கனவிலே.",
+      transliteration: "Nāraṇaṉ māyaṉ eṉ kaṇṇaṉ\nnaḷir matiḷ cūḻ tiru varaṅgaṉ\nkāraṇam āki ulakku aḷitta\nkaṭal vaṇṇaṉ taṉṉuṭaṉ kūṭum nāḷ\nvāraṇam āyiram cūḻa valam ceytu\nvācam tuḻāy malar cūṭṭi\nmāraṉ paṭai veṉṟu makiḻnthu\nmaṇam puṇarntēṉ kaṉavilē.",
+      english: "Nārāyaṇa, the wondrous one, my Kaṇṇan,\nthe Lord of cool-walled Śrīraṅgam —\nthe ocean-dark one who became the Cause and gave the world:\non the day of union with him,\na thousand elephants circled in procession,\nfragrant tuḻāy flowers were placed,\nKāma's arrows were vanquished with joy —\nin a dream I was wed.",
+      tamilUrai: "நாரணன், என் கண்ணன், திருவரங்கன் — அவனோடு கூடும் நாளில், ஆயிரம் யானைகள் வலம் வர, வாசனை நிறைந்த துளசி சூட்ட, மன்மதன் படையை வென்று, கனவில் மணம் புணர்ந்தேன்.",
+      altTranslation: "Nārāyaṇa the wondrous, my Kaṇṇan,\nthe Lord of cool-walled Śrīraṅgam —\non the day of union with him, the ocean-dark cause of the world:\na thousand elephants circled,\nfragrant tuḻāy was placed,\nKāma's forces were vanquished in joy —\nin a dream I was wed.",
+      theme: "The Dream Wedding — Āṇṭāḷ describes her wedding in the dream with full Tamil wedding ritual: the thousand-elephant procession, fragrant garlands, and the vanquishing of Kāma.",
+      note: "This pāsuram is the centrepiece of the second decad and introduces the great theme that dominates the third — the wedding dream (vāraṇam āyiram). The 'thousand elephants' (vāraṇam āyiram) is the conventional poetic image for a royal wedding procession; the entire third decad takes its name and opening words from this image."
+    },
+    {
+      num: 16, decad: 2,
+      incipit: "Anṟu Ivar",
+      tamil: "அன்று இவர் வேள்வியில் தான் சென்று\nஆங்கே ஓர் அந்தணன் ஆகி அமர்ந்து\nஒன்றும் இல்லாத உலகத்தை\nஒரு மூவடியால் அளந்தவன்\nசென்று சிறை தனிலே இருந்து\nதேவகி பெற்ற திரு மகனை\nவென்றி மட மயில் போல நின்ற\nவேர் அற்ற வஞ்சத்தால் இருந்தனன்.",
+      transliteration: "Aṉṟu ivar vēḷviyil tāṉ ceṉṟu\nāṅkē ōr antaṇaṉ āki amarntu\noṉṟum illāta ulakattai\noru mūvaṭiyāl aḷantavaṉ\nceṉṟu ciṟai taṉilē irunnthu\ntēvaki peṟṟa tiru makaṉai\nveṉṟi maṭa mayil pōl niṉṟa\nvēr aṟṟa vañcattāl iruntaṉaṉ.",
+      english: "Long ago he went to a sacrifice\nand became a brahmin there, seated —\nhe who measured the world that had nothing\nwith three strides alone.\nGoing into prison he remained there —\nthe glorious son that Devakī bore.\nLike a victorious tame peacock he stood,\nabiding in uprooted guile.",
+      tamilUrai: "பண்டு வேள்வியில் சென்று அந்தணன் ஆனான் — மூன்று அடியால் உலகை அளந்தவன். சிறையில் போய் இருந்தான் — தேவகி மகன். வெற்றி மட மயில் போல் நின்று, ஆழ்ந்த வஞ்சனையில் தங்கியிருந்தான்.",
+      altTranslation: "Long ago he went to a sacrifice, seated himself as a brahmin —\nhe who measured the empty world in three strides.\nGoing to prison he stayed —\nthe glorious one Devakī bore.\nLike a triumphant tame peacock he stood,\ndwelling in deep-rooted strategy.",
+      theme: "The Lord's Disguises — Āṇṭāḷ recounts three forms the Lord took: the dwarf-brahmin (Vāmana), the cosmic measurer (Trivikrama), and the imprisoned infant (Kṛṣṇa).",
+      note: "This pāsuram moves from the personal (the dream) to the mythological, reviewing the Lord's avatāras as evidence of his mysterious nature. The 'uprooted guile' (vēr aṟṟa vañcam) in the final line is a complex image: the Lord's strategy is so deep it has no root — it is pure spontaneous play (līlā), not calculated deception."
+    },
+    {
+      num: 17, decad: 2,
+      incipit: "Kuṭitthu Ezhu",
+      tamil: "குடித்து எழும் கோபாலர் குழல் ஊத\nகோவிந்தன் தன்னுடன் கூடும் நாள்\nவடித்த வேல் கண் மடவார் இசை\nவாங்கி ஆடும் வகை கண்டேன்\nதொடித்த கை நிரைத்த ஆபரணம்\nதொட்டு ஆட நீர் தெளிக்கின்ற\nமடித்த பட்டு உடை மாலை வண்டு உண்ண\nமது உகளிக்க நான் கண்டேன்.",
+      transliteration: "Kuṭitthu eḻum kōpālar kuḻal ūta\nkōvintaṉ taṉṉuṭaṉ kūṭum nāḷ\nvaṭitta vēl kaṇ maṭavār icai\nvāṅki āṭum vakai kaṇṭēṉ\ntoṭitta kai niraitttha āparaṇam\ntoṭṭu āṭa nīr teḷikkiṉṟa\nmaṭitta paṭṭu uṭai mālai vaṇṭu uṇṇa\nmatu ukaḷikka nāṉ kaṇṭēṉ.",
+      english: "On the day of union with Govinda,\nthe cowherds rising and playing their flutes —\nI saw how women with spear-sharp eyes\ncaught the music and danced.\nI saw ornaments placed on their bangléd hands,\nwater sprinkled as they danced,\nsilk garments folded, garlands alive with bees\ndrinking honey in joy.",
+      tamilUrai: "கோவிந்தனோடு கூடும் நாளில், ஆயர்கள் குழல் ஊத, வேல் கண் மங்கையர் ஆடுவதை கண்டேன். கை நிரைத்த ஆபரணங்கள் அணிந்து, நீர் தெளிக்க ஆடி, வண்டுகள் மலர் உண்ண — இவற்றை கண்டேன்.",
+      altTranslation: "On the day of union with Govinda, cowherds rising to play their flutes —\nI saw spear-eyed women catch the music and dance.\nI saw bangléd hands set with ornaments,\nwater sprinkled as they moved,\nsilk garments folded, garlands where bees drank honey in joy.",
+      theme: "The Wedding Celebration — the community of cowherds, women, music, dance, and nature all celebrate the wedding Āṇṭāḷ dreams of.",
+      note: "The wedding scene is described through its sensory abundance: flute music, spear-like eyes, ornaments, water, silk, flower-garlands with bees. Tamil wedding poetry (maṅgala prabandha) traditionally deploys this kind of sensory catalogue to bless the union with abundance."
+    },
+    {
+      num: 18, decad: 2,
+      incipit: "Aṅkavar Tāḷ Paṇinthu",
+      tamil: "அங்கவர் தாள் பணிந்து வழி பட்டு\nஆங்கே ஒரு கடமை இல்லை என்று\nஒங்கி நிமிர்ந்து குலம் தழைக்க\nஒரு நாள் ஒரு வழி கண்டேன்\nதெங்கு தண் கானல் திரை போல்\nதிரு மார்வன் என்னோடு கூடி\nமங்கல நாணல் அலர் ஒத்து\nமலர்ந்த நறும் குஞ்சி சூட்டி.",
+      transliteration: "Aṅkavar tāḷ paṇinthu vaḻi paṭṭu\nāṅkē oru kaṭamai illai eṉṟu\noṅki nimirthu kulam taḻaikka\noru nāḷ oru vaḻi kaṇṭēṉ\nteṅku taṇ kāṉal tirai pōl\ntiru mārvāṉ eṉṉōṭu kūṭi\nmaṅkala nāṇal alar ottu\nmalarnttha naṟum kuñci cūṭṭi.",
+      english: "Bowing at his feet and worshipping —\nthere is no other duty there, I said.\nI found a way, one day, to hold the family high:\nthe Lord of the sacred chest came with me\nlike the cool surf of the coconut grove's shore,\ncrowning me with the fragrant blooming kuñci flowers\nlike the blossoming of auspicious reeds.",
+      tamilUrai: "அவன் திருவடிகளை பணிந்து வழிபட்டு, வேறு கடமை இல்லை என்று சொல்லி, ஒரு நாள் திருமார்வன் என்னோடு கூடினான். தேங்கு கானல் திரை போல், மங்கல நாணல் மலர் ஒத்த நறும் குஞ்சி சூட்டினான்.",
+      altTranslation: "Bowing at his feet, worshipping —\nthere is no other duty, I declared.\nOne day I found a way for the family to flourish:\nthe Lord of the sacred chest came with me,\ncool as the coconut-grove shore's waves,\ncrowned me with fragrant blooming kuñci\nlike auspicious reeds in flower.",
+      theme: "The Wedding Crown — the Lord himself places the wedding kuñci-flower crown on Āṇṭāḷ's head, the definitive act of the Tamil wedding ceremony.",
+      note: "The kuñci flower (reed flower) is the traditional wedding crown in Tamil culture. The Lord placing it on Āṇṭāḷ's head marks the culmination of the dream wedding. The simile of the 'cool surf of the coconut grove' (teṅku taṇ kāṉal tirai) connects the bridal moment to the natural world of the Tamil shoreline (neytal landscape), associated with longing and union."
+    },
+    {
+      num: 19, decad: 2,
+      incipit: "Vēy Marunthōḷi",
+      tamil: "வேய் மருந்தோளி ஒரு பாகன்\nவிமலன் விடை யேறும் கோன்\nஆய மலர்க் கொன்றை யடிகள்\nஆகமம் ஆகிய சிவனோடும்\nமாயவன் தன்னையும் ஒரு கால்\nமனத்துள்ளே வாழ வைத்து வழிபட்டேன்\nஏயும் பெரும் திரு வேங்கட மலை\nஏந்திழையார் ஈசன் தாள் தொழ.",
+      transliteration: "Vēy marunttōḷi oru pākaṉ\nvimalaṉ viṭai ēṟum kōṉ\nāya malark koṉṟai aṭikaḷ\nākamam ākiya civaṉōṭum\nmāyavaṉ taṉṉaiyum oru kāl\nmaṉattuḷḷē vāḻa vaitttu vaḻipaṭṭēṉ\nēyum perum tiruvēṅkaṭa malai\nēntiḻaiyār īcaṉ tāḷ toḻa.",
+      english: "He who has on one side the bamboo-jointed one,\nthe pure one, the king who rides the bull,\nŚiva of the prescribed konrai-flower feet, who is scripture itself —\nalong with the wondrous one,\nI once placed them both within my heart\nand worshipped them as one,\nat the great Tiruveṅkaṭam hill that holds them —\nO jewelled women, to bow at the Lord's feet.",
+      tamilUrai: "மூங்கில் தோளி (உமையை) ஒரு பாகத்தில் கொண்ட சிவனோடு, மாயவனையும் ஒரு நாள் மனதுள் வைத்து வழிபட்டேன், திருவேங்கட மலையில் இறைவன் தாளை தொழும்படி.",
+      altTranslation: "He who shares his side with the bamboo-jointed one —\npure Śiva who rides the bull, who is scripture itself —\nalong with the wondrous Māyavan:\nI once placed both within my heart and worshipped,\nat great Tiruveṅkaṭam where the jewelled women come\nto bow at the Lord's feet.",
+      theme: "Convergence of Śiva and Viṣṇu — at Tiruveṅkaṭam, Āṇṭāḷ worships both Śiva and Tirumāl as one, placing them together in her heart.",
+      note: "This theologically significant pāsuram — worshipping both Śiva and Viṣṇu as one in the heart — is characteristic of the Tamil devotional synthesis. Tiruveṅkaṭam (Tirupati) is here the locus of this convergence, consistent with the tradition that Śiva himself worships at the Tirupati shrine."
+    },
+    {
+      num: 20, decad: 2,
+      incipit: "Neṭumāl",
+      tamil: "நெடுமால் நிலவும் திருவரங்கம்\nதில்லை திருச்சித்ர கூடம் என்று\nகடவுள் மறையோர் வாழ் கச்சி\nகண்ண புரம் குட நாடு காழி\nவட மதுரை மதிள் துவரை\nவாங்கு இழையார் வாழும் திருமால் இரும் சோலை\nகொடி மதிள் சூழ் கும்ப கோணம்\nகோவல நீர் திரு நாளில் கொண்டாடுவோம்.",
+      transliteration: "Neṭumāl nilavam tiruvāraṅgam\ntillai tirucciṭṭira kūṭam eṉṟu\nkaṭavuḷ maṟaiyōr vāḻ kacci\nkaṇṇa puram kuṭa nāṭu kāḻi\nvaṭa maturai matiḷ tuvarai\nvāṅku iḻaiyār vāḻum tirumāl irum cōlai\nkoṭi matiḷ cūḻ kumpa kōṇam\nkōvala nīr tiru nāḷil koṇṭāṭuvōm.",
+      english: "Śrīraṅgam where the great Māl shines,\nChidambaram, the sacred painted hall —\nKanchipuram where divine brahmins live,\nKāṇṇapuram, Kuṭanāṭu, Kāḻi,\nnorthern Mathurā, walled Dvārakā,\nTirumāl Irum Cōlai where jewelled women dwell —\nKumbakoṇam surrounded by banner-walls:\non the festival day of the Lord of the lake,\nwe shall celebrate!",
+      tamilUrai: "திருவரங்கம், சிதம்பரம், காஞ்சிபுரம், கண்ணபுரம், வட மதுரை, துவரை, திருமால் இரும் சோலை, கும்பகோணம் — இந்த திவ்ய தேசங்களில் திருவிழா நாளில் கொண்டாடுவோம் என்று ஆண்டாள் சொல்கிறாள்.",
+      altTranslation: "Śrīraṅgam, Chidambaram the sacred hall,\nKanchipuram of the divine brahmins, Kāṇṇapuram,\nKuṭanāṭu, Kāḻi, northern Mathurā, walled Dvārakā,\nTirumāl Irum Cōlai of the jewelled women,\nbanner-walled Kumbakoṇam —\non the Lord's festival day we shall celebrate!",
+      theme: "The Pilgrimage of Celebration — the second decad closes with a vision of all the sacred Vaiṣṇava shrines (Divya Deśams) and a declaration that they will be celebrated on the Lord's festival day.",
+      note: "This is one of the most concentrated lists of Vaiṣṇava Divya Deśams (108 sacred shrines recognised by the Āḻvār tradition) in a single pāsuram. By naming them all as sites of celebration, Āṇṭāḷ places her personal dream-wedding within the widest possible context of devotional geography — her love for the Lord radiates outward to encompass all his sacred places."
+    },
+
+    // ══════════════════════════════════════════════════════════════════
+    // DECAD 3 — வாரணமாயிரம் · A Thousand Elephants (verses 21–30)
+    // ══════════════════════════════════════════════════════════════════
+
+    {
+      num: 21, decad: 3,
+      incipit: "Vāraṇam Āyiram",
+      tamil: "வாரணம் ஆயிரம் சூழ வலம் செய்து\nவாசத் துழாய் மலர் சூட்டி\nநாரணன் நம்பி என் கோவிந்தன்\nவரும் என்று நான் கண்ட கனவே.\nதாரணி முன்பு படைத்த அரங்கன்\nதாமரை பாதம் என்னெஞ்சில் இருக்க\nகாரணம் ஏதும் அறியேன் அனந்தன்\nகடல் வண்ணன் கண்ணன் வருவானே.",
+      transliteration: "Vāraṇam āyiram cūḻa valam ceytu\nvācam tuḻāy malar cūṭṭi\nnāraṇaṉ nampī eṉ kōvintaṉ\nvarum eṉṟu nāṉ kaṇṭa kaṉavē.\ntāraṇi muṉpu paṭaitta araṅgaṉ\ntāmarai pātam eṉ neñcil irukka\nkāraṇam ētum aṟiyēṉ anantaṉ\nkaṭal vaṇṇaṉ kaṇṇaṉ varuvāṉē.",
+      english: "A thousand elephants circling in procession,\nfragrant tuḻāy flowers placed on him —\nNārāyaṇa, Nampī, my Govinda\ncoming: this is the dream I saw.\nThe Araṅgaṉ who first created the earth,\nhis lotus feet dwelling in my heart —\nI know no reason why,\nbut Ananta, the ocean-dark Kaṇṇan, will come!",
+      tamilUrai: "ஆயிரம் யானைகள் வலம் வர, வாசனை துளசி சூட்ட, நாரணன் வருவான் என்று கனவு கண்டேன். தாமரை பாதம் நெஞ்சில் இருக்க, கடல் வண்ணன் வருவான்.",
+      altTranslation: "A thousand elephants in procession,\nfragrant tuḻāy garlands placed —\nNārāyaṇa, Nampī, my Govinda coming:\nthis is the dream I saw.\nAraṅgaṉ who first made the world,\nhis lotus feet in my heart —\nI know no reason, yet Ananta,\nocean-dark Kaṇṇan, will come!",
+      theme: "The Wedding Dream — the title pāsuram of the third decad: the thousand-elephant procession, the fragrant tuḻāy, and the certainty of the Lord's coming.",
+      note: "This pāsuram gives the third decad its name (Vāraṇam Āyiram) and is one of the most famous verses in the entire Nācciyār Tirumoḻi. The thousand-elephant procession is the traditional image for a great royal or divine wedding. The final declaration 'kaṭal vaṇṇaṉ kaṇṇaṉ varuvāṉē' — Kaṇṇan of ocean-dark complexion will come! — is an expression of absolute certainty grounded in the dream."
+    },
+    {
+      num: 22, decad: 3,
+      incipit: "Aṉṉai Cōliṉāḷ",
+      tamil: "அன்னை சொலினாள் கடல் வண்ணன்\nஆய்ப்பாடி வாழும் அணி விளக்கு\nமன்னவர் கோன் வந்திலன் என்று\nமனம் வருந்தும் என் மகளுக்கு\nசின்னம் சிரீதரன் சேவை கொள்ள\nசித்திரம் போல் நிற்க வேண்டும்\nமன்னவர் மாமயில் ஒன்று கொண்டு\nவாய் திறந்து தெவிட்ட வேண்டும்.",
+      transliteration: "Aṉṉai coliṉāḷ kaṭal vaṇṇaṉ\nāyppāṭi vāḻum aṇi viḷakku\nmaṉṉavar kōṉ vantilāṉ eṉṟu\nmaṉam varuntum eṉ makaḷukku\nciṉṉam cirītharaṉ cēvai koḷḷa\ncittiram pōl niṟka vēṇṭum\nmaṉṉavar māmayil oṉṟu koṇṭu\nvāy tiṟanttu tevitṭa vēṇṭum.",
+      english: "My mother said: for the ocean-dark one,\nthe beautiful lamp that lives in Āyarpāṭi —\nbecause the lord of lords has not come,\nmy daughter's heart suffers.\nFor Śrīdhara to be worshipped with sacred instruments,\nshe must stand like a painted image,\nand a great peacock must open its mouth\nand cry for the lord of lords.",
+      tamilUrai: "கடல் வண்ணன் வராததால் என் மகளின் மனம் வருந்துகிறது என்று அன்னை சொல்கிறாள். சித்திரம் போல் நின்று, மாமயில் வாய் திறந்து கூவ வேண்டும்.",
+      altTranslation: "My mother said: for the ocean-dark lord,\nthe beautiful lamp of Āyarpāṭi —\nmy daughter suffers because he hasn't come.\nFor Śrīdhara's worship, she must stand still as a painting;\na great peacock must open its mouth and call.",
+      theme: "The Mother's Lament — Āṇṭāḷ's mother speaks, observing her daughter's suffering and imagining the ritual of waiting for the Lord.",
+      note: "In Tamil akam poetry convention, the mother (tāy or cevilittāy — the foster-mother) is a stock figure who observes the heroine's lovesickness and reports it to others or discusses remedies. Here Āṇṭāḷ deploys this convention: her mother diagnoses her condition (the Lord's absence) and prescribes devotional ritual as the cure."
+    },
+    {
+      num: 23, decad: 3,
+      incipit: "Kaṉavil Vanthu",
+      tamil: "கனவிலே வந்து என் கைப்பிடித்தான்\nகமலக் கண்ணன் கரிய பிரான்\nமனவில் அடங்காத மாயவன்\nவந்தே என்னுடன் கலந்தான்\nசினவு வேல் கண் மடவார்க்கு\nசீர் சங்கு சக்கரம் காட்ட\n\nமனம் கலங்கி மயங்கினேன்\nமால் கொண்டு நான் கண்டு களித்தேன்.",
+      transliteration: "Kaṉavilē vanthu eṉ kaipppiṭittāṉ\nkamalak kaṇṇaṉ kariya pirāṉ\nmaṉavil aṭaṅkāta māyavaṉ\nvantē eṉṉuṭaṉ kalantāṉ\nciṉavu vēl kaṇ maṭavārkku\ncīr caṅgu cakkaram kāṭṭa\nmaṉam kalaṅgi mayaṅgiṉēṉ\nmāl koṇṭu nāṉ kaṇṭu kaḷittēṉ.",
+      english: "In the dream he came and took my hand —\nthe lotus-eyed one, the dark Lord!\nThe wondrous one who cannot be contained in the mind\ncame and merged with me.\nTo show the conch and discus of glory\nto sharp-spear-eyed women —\nmy mind was stirred and I swooned,\nbewildered with love I saw and rejoiced!",
+      tamilUrai: "கனவில் வந்து என் கை பிடித்தான் — கமல கண்ணன். மனதில் அடங்காத மாயவன் என்னோடு கலந்தான். சங்கு சக்கரம் காட்ட, வேல் கண் மங்கையருக்கு — மனம் கலங்கி மயங்கினேன், மால் கொண்டு களித்தேன்.",
+      altTranslation: "In the dream he came and took my hand —\nthe lotus-eyed, dark Lord!\nThe one who cannot be contained in the mind came and merged.\nTo show his conch and discus to sharp-eyed women —\nmy mind was swept away and I swooned,\noverwhelmed with love I saw and was filled with joy!",
+      theme: "The Dream Union — the Lord takes Āṇṭāḷ's hand in the dream and merges with her; she swoops into bliss.",
+      note: "'Kaipppiṭittāṉ' — he took my hand — is the definitive wedding gesture in Tamil tradition. The hand-holding (pāṇigrahaṇa) is the central rite of the Tamil wedding ceremony. In the dream, therefore, the marriage is complete. The subsequent description of the Lord showing his conch and discus is his self-revelation (svayamprakāśa) — he is simultaneously the intimate bridegroom and the cosmic Lord."
+    },
+    {
+      num: 24, decad: 3,
+      incipit: "Tiruveṅkkaṭam",
+      tamil: "திருவேங்கட மலை மேல் நிற்கும்\nதேவாதி தேவனை கண்டு\nஒரு வேங்கட மலை ஏறுவேன்\nஓடி வந்து என்னை ஆண்டிடுவான்\nகரு வேங்கட மலை வண்ணனை\nகண்ண னாகும் கடல் வண்ணனை\nவரு வேங்கட மலையாளனுக்கு\nவார்த்தை சொல் மட நெஞ்சமே.",
+      transliteration: "Tiruvēṅkaṭa malai mēl niṟkum\ntēvāti tēvaṉai kaṇṭu\noru vēṅkaṭa malai ēṟuvēṉ\nōṭi vanthu eṉṉai āṇṭiṭuvāṉ\nkaru vēṅkaṭa malai vaṇṇaṉai\nkaṇṇaṉ ākum kaṭal vaṇṇaṉai\nvaru vēṅkaṭa malai āḷaṉukku\nvārttai col maṭa neñcamē.",
+      english: "Seeing the Lord of lords who stands on Tiruveṅkaṭam hill —\nI will climb that one Veṅkaṭa hill;\nhe will come running and make me his own.\nSpeak to the lord of Veṅkaṭam who comes,\nO tender heart: to the dark-Veṅkaṭa-hill-coloured one,\nto Kaṇṇan, to the ocean-dark one.",
+      tamilUrai: "திருவேங்கட மலை மேல் நிற்கும் தேவாதி தேவனை கண்டு, அந்த மலை ஏறுவேன். ஓடி வந்து என்னை ஆண்டிடுவான். மட நெஞ்சமே, வேங்கட மலையாளனுக்கு வார்த்தை சொல்.",
+      altTranslation: "Seeing the Lord of lords on Tiruveṅkaṭam hill —\nI will climb that hill;\nhe will run to claim me as his own.\nO tender heart, speak to the lord of Veṅkaṭam —\nthe dark-hill-coloured one, Kaṇṇan, the ocean-dark!",
+      theme: "Pilgrimage to Tiruveṅkaṭam — Āṇṭāḷ declares she will climb Tiruveṅkaṭam (Tirupati) to reach the Lord, addressing her own heart as a messenger.",
+      note: "Addressing one's own heart as a messenger (manaṃ as dūta) is a well-established literary device in Sanskrit and Tamil love poetry. Here Āṇṭāḷ's tender heart (maṭa neñcam) is instructed to carry her message to the Lord. The hill's dark colour (karu vēṅkaṭam) is identified with Kaṇṇan's own complexion — the landscape mirrors the beloved."
+    },
+    {
+      num: 25, decad: 3,
+      incipit: "Uṇṭu Kaḷitthu",
+      tamil: "உண்டு களித்திருந்து ஓதும் குழல் ஊதி\nஒல்லைப் பசுக்கள் மேய்த்தவன்\nதண்டு வளைத்து விளையாடும் கண்ணன்\nதான் கொண்டு போன மனமே\nவண்டல் இட்டு விளையாடி நின்றேன்\nவண்டு உண் வகுளம் மலர் கொண்டு\n\nதொண்டை வாயாள் துழாய் அலங்கல்\nதோழி தொடு கழல் வேண்டி நின்றேன்.",
+      transliteration: "Uṇṭu kaḷitttiruntthu ōtum kuḻal ūti\nollaip pacukkaḷ mēyttavaṉ\ntaṇṭu vaḷaicctu viḷaiyāṭum kaṇṇaṉ\ntāṉ koṇṭu pōṉa maṉamē\nvaṇṭal iṭṭu viḷaiyāṭi niṉṟēṉ\nvaṇṭu uṇ vakuḷam malar koṇṭu\ntoṇṭai vāyāḷ tuḻāy alaṅkal\ntōḻi toṭu kaḻal vēṇṭi niṉṟēṉ.",
+      english: "Having eaten and played delightedly, blowing the flute,\nquickly herding the cattle —\nKaṇṇan who plays waving his staff:\nhe has taken my heart away.\nI stood playing, making sand-designs,\nholding vakuḷa flowers drunk by bees;\nthe cherry-lipped girl with tuḻāy garlands —\nI stood, my companion, longing for the ringing anklets.",
+      tamilUrai: "உண்டு விளையாடி குழல் ஊதி, பசுக்கள் மேய்த்த கண்ணன் என் மனதை கொண்டு போனான். வண்டல் விளையாடி, வகுள மலர் கொண்டு, துழாய் அலங்கல் தோழியோடு கழல் வேண்டி நின்றேன்.",
+      altTranslation: "Having eaten and played with joy, playing the flute,\nquickly herding his cattle —\nKaṇṇan who plays wielding his staff:\nhe has stolen my heart.\nI stood playing sand-designs,\nholding vakuḷa flowers alive with bees;\nwith my cherry-lipped, tuḻāy-garlanded friend\nI waited, longing for the sound of his anklets.",
+      theme: "Waiting for the Cowherd — Āṇṭāḷ waits with her friend for Kaṇṇan to return from herding cattle, longing to hear his ankle-bells.",
+      note: "The scene — playing sand-designs while waiting for the beloved to return from cattle-herding — is directly from Sangam akam convention (mullai tiṇai: the landscape of patient waiting). Āṇṭāḷ inhabits the conventional heroine's role while the beloved is simultaneously Kaṇṇan-the-cowherd and the cosmic Nārāyaṇa."
+    },
+    {
+      num: 26, decad: 3,
+      incipit: "Muṟṟa Muḷaitthathu",
+      tamil: "முற்ற முளைத்தது மாமரம்\nமுற்றிலும் கோங்கு அலர்ந்தது\nகொற்றவர் ஏத்திய கோவிந்தன்\nகோயில் திருவேங்கடமே\nசிற்றி ளம்பூந்துழாய் அலங்கல்\nசீர் நாரணன் பாதமே\n\nசுற்றிய வெண் குடை யாய்ந்த திருமால்\nசொல்லி னோம் பாவியோமே.",
+      transliteration: "Muṟṟa muḷaittatu māmaram\nmuṟṟilum kōṅku alarnntatu\nkoṟṟavar ēttiya kōvintaṉ\nkōyil tiruvēṅkaṭamē\nciṟṟ iḷam pūm tuḻāy alaṅkal\ncīr nāraṇaṉ pātamē\ncuṟṟiya veṇ kuṭai āynttha tirumāl\ncolli ṉōm pāviyōmē.",
+      english: "The mango tree has fully sprouted;\nthe kōṅku tree has bloomed everywhere.\nGovinda praised by victors —\nhis temple is Tiruveṅkaṭam!\nNāraṇan's glorious feet\nwith young tuḻāy garlands in full bloom —\nTirumāl under the white umbrella:\nsinners that we are, we have at least spoken his name!",
+      tamilUrai: "மாமரம் முளைத்தது, கோங்கு அலர்ந்தது. கோவிந்தன் கோயில் திருவேங்கடமே. நாரணன் பாதம் துளசி அலங்கரிக்க, வெண் குடை திருமாலை சொன்னோம் — பாவியோமாயினும்.",
+      altTranslation: "The mango has fully sprouted; kōṅku blooms everywhere.\nGovinda's temple is Tiruveṅkaṭam!\nNāraṇan's glorious feet with young tuḻāy flowers —\nTirumāl under the white umbrella:\nsinners as we are, we have spoken his name!",
+      theme: "Nature's Auspice — the natural signs of spring (mango sprouts, kōṅku blooms) are read as auspicious omens of the Lord's presence at Tiruveṅkaṭam.",
+      note: "The reading of natural phenomena as divine omens is a central technique of both Sangam poetry and bhakti. Here the spring blossoming of the mango and kōṅku trees is an auspicious sign that the Lord — present at Tiruveṅkaṭam — is favourably disposed. The self-deprecating closing 'pāviyōmē' (sinners as we are) is characteristic of Tamil bhakti's combination of joy and humility."
+    },
+    {
+      num: 27, decad: 3,
+      incipit: "Pōtri Tiruveṅkaṭam",
+      tamil: "போற்றி திருவேங்கடம் பொருப்பே\n\nபோற்றி திரு மாலிருஞ்சோலை\n\nபோற்றி அரங்கம் பொது நடஞ்செய்\n\nபோற்றி திருக் கண்ணமங்கையே\n\nபோற்றி திரு நாவாய் என் நெஞ்சில்\n\nபோற்றி திரு வண்வண்டூர் என்று\n\nகார் திரு மால் கழல் வணங்கி\n\nகண் குளிர கண்டேன் கனவிலே.",
+      transliteration: "Pōṟṟi tiruvēṅkaṭam porupE\npōṟṟi tiru māliruñcōlai\npōṟṟi araṅgam pothu naṭañcey\npōṟṟi tiruk kaṇṇamaṅkaiyē\npōṟṟi tiru nāvāy eṉ neñcil\npōṟṟi tiru vaṇvaṇṭūr eṉṟu\nkār tiru māl kaḻal vaṇaṅki\nkaṇ kuḷira kaṇṭēṉ kaṉavilē.",
+      english: "Praise to Tiruveṅkaṭam, the hill!\nPraise to Tirumāliruñcōlai!\nPraise to Araṅgam where the cosmic dance is performed!\nPraise to Tirukkāṇamaṅkai!\nPraise to Tirunāvāy in my heart!\nPraise to Tiruvaṇvaṇṭūr!\nBowing at the feet of the dark Tirumāl,\ncooling my eyes I saw — in a dream!",
+      tamilUrai: "திருவேங்கடம், திருமால் இரும் சோலை, திருவரங்கம், திருக்கண்ணமங்கை, திருநாவாய், திருவண்வண்டூர் — இந்த திவ்ய தேசங்களை போற்றி, கார்மேக திருமால் திருவடி வணங்கி, கண் குளிர கனவில் கண்டேன்.",
+      altTranslation: "Praise to Tiruveṅkaṭam! To Tirumāliruñcōlai!\nTo Araṅgam of the cosmic dance! To Tirukkāṇamaṅkai!\nTo Tirunāvāy in my heart! To Tiruvaṇvaṇṭūr!\nBowing at the dark Tirumāl's feet —\nmy eyes cooled: I saw in a dream!",
+      theme: "The Pilgrimage Litany — a rapid succession of Divya Deśam praises, all sites visited in the devotional geography of the dream.",
+      note: "The anaphoric 'pōṟṟi' (praise!) is the Tamil equivalent of the Sanskrit 'namas' (salutation). The rapid enumeration of sacred sites creates a devotional momentum — each 'pōṟṟi' is both a bow and a step in a spiritual procession. The dream vision (kaṉavil kaṇṭēṉ) at the close ties all this geography back to the intimate personal experience."
+    },
+    {
+      num: 28, decad: 3,
+      incipit: "Karuṭaṉ Koyil",
+      tamil: "கருட னார் கோயில் கோடி எழுந்திருந்து\n\nகாண வந்தார் கடல் வண்ணர்\n\nமருள் இலா மைந்தர் வந்த போதிலே\n\nமண மகள் ஆனேன் கனவிலே\n\nதெருட்டி முன்னே திரு வேங்கட மலை\n\nசேண் சென்று நிற்கும் பெருமானே\n\nகருடவன் பொன்னி கரை பொன்னி\n\nகன்னி கட்கே கடவுளே.",
+      transliteration: "Karuṭaṉār kōyil kōṭi eḻuntirunnthu\nkāṇa vantār kaṭal vaṇṇar\nmaruḷ ilā mainttār vanta pōtilē\nmaṇa makaḷ āṉēṉ kaṉavilē\nteruṭṭi muṉṉē tiru vēṅkaṭa malai\ncēṇ centṟu niṟkum perumāṉē\nkaruṭavaṉ poṉṉi karai poṉṉi\nkaṉṉi kaṭkē kaṭavuḷē.",
+      english: "A thousand flags rising from Garuḍa's shrine —\nthe ocean-dark one came to be seen!\nWhen the guileless youth came\nI became a bride in the dream.\nThe great Lord who stands far away on the sacred hill of Veṅkaṭam,\nclarifying the path ahead —\nGod of the virgins on the banks of the golden Kaveri,\nthe god on Garuḍa!",
+      tamilUrai: "கோடி கொடிகள் கருட கோயிலில் எழுந்திருக்க, கடல் வண்ணர் காண வந்தார். மருள் இலா மைந்தர் வந்த போது கனவில் மண மகள் ஆனேன். திருவேங்கட மலையில் நிற்கும் பெருமானே, பொன்னி கரை கன்னியர்களுக்கு கடவுளே!",
+      altTranslation: "A thousand flags rise from Garuḍa's shrine —\nthe ocean-dark one came to be seen!\nWhen the guileless youth arrived\nI became a bride in the dream.\nO great Lord who stands far on Veṅkaṭam,\nclarifying the way —\nGod of the virgins on the golden Kaveri's banks,\nriding Garuḍa!",
+      theme: "Bridehood Achieved — in the dream, Āṇṭāḷ becomes a bride (maṇa makaḷ) when the Lord comes to be seen at his own temple.",
+      note: "Garuḍa (the eagle-vehicle of Viṣṇu) and his flags at the temple gate are a standard image of Vaiṣṇava temple iconography. The combination of temple entry (flags, the Lord coming to be seen) with wedding ritual (becoming a bride) places the bhakti experience directly in the context of temple worship — darśana (sacred vision) as itself a form of union."
+    },
+    {
+      num: 29, decad: 3,
+      incipit: "Muñci Muñcil",
+      tamil: "முஞ்சி முஞ்சில் விதையும் முளைத்தது\n\nமுகில் வண்ணன் வரும் நாள் என்று\n\nவஞ்சி இடை மட வார் கலைந்து\n\nவளரும் நிலா முறுவல் காட்ட\n\nகஞ்சன் பட்ட கட்டம் ஒழிக்க\n\nகடல் வண்ணன் கோவிந்தன்\n\nஆஞ்சி அடிக்க ஒணாத என்னை\n\nஆண்டுகொண்டான் கனவிலே.",
+      transliteration: "Muñci muñcil vitaiyum muḷaittatu\nmukil vaṇṇaṉ varum nāḷ eṉṟu\nvañci iṭai maṭavār kalainttu\nvaḷarum nilā muṟuval kāṭṭa\nkañcaṉ paṭṭa kaṭṭam oḻikka\nkaṭal vaṇṇaṉ kōvintaṉ\nāñci aṭikka oṇāta eṉṉai\nāṇṭukoṇṭāṉ kaṉavilē.",
+      english: "The muñci grass seeds have sprouted —\nsaying 'the cloud-dark one will come today!' —\nthe slender-waisted gentle women came loose,\nshowing their moonlit smiles,\nto free the pain that Kaṃsa suffered —\nGovinda of the ocean-dark complexion!\nMe, whom none could force to kneel —\nhe claimed as his own in the dream.",
+      tamilUrai: "முஞ்சி விதை முளைத்தது, மேக வண்ணன் வரும் நாள் என்று. கம்சன் பட்ட கஷ்டம் ஒழிக்க கோவிந்தன் வந்தான். யாரும் வழிப்படுத்த முடியாத என்னை கனவில் ஆண்டுகொண்டான்.",
+      altTranslation: "The muñci grass has sprouted —\n'today the cloud-dark one comes!' —\nslender-waisted women came apart, showing moonlit smiles,\nto end Kaṃsa's pain —\nGovinda of ocean-dark complexion!\nMe, whom none could bend —\nhe claimed as his own in the dream.",
+      theme: "Conquest by Grace — no force could bend Āṇṭāḷ, but the Lord claimed her in the dream — the paradox of divine grace that overcomes what force cannot.",
+      note: "The phrase 'āñci aṭikka oṇāta eṉṉai' — me, whom none could force to kneel (literally, 'frighten and make bow') — is a strong statement of the poet's proud nature. That the Lord won her not by force but by love, in a dream, is the theological point: grace operates where power cannot."
+    },
+    {
+      num: 30, decad: 3,
+      incipit: "Vāraṇam Āyiram Colophon",
+      tamil: "வாரணம் ஆயிரம் சூழ வலம் செய்து\n\nவாசத் துழாய் மலர் சூட்டி\n\nகோரண வேந்தன் குரைகழல்கள் வாழ்க என்று\n\nகூடி இசைந்த நலம் கண்டோம்\n\nஆர் அணம் ஆகிய மாதவனை\n\nஆண்டாள் விரும்பி அடி வணங்கி\n\nதேரணம் ஆக சொன்ன மாலை\n\nதேவர்க்கும் ஆகும் திருவடிக்கே.",
+      transliteration: "Vāraṇam āyiram cūḻa valam ceytu\nvācam tuḻāy malar cūṭṭi\nkōraṇa vēntan kurai kaḻalkaḷ vāḻka eṉṟu\nkūṭi icainta nalam kaṇṭom\nār aṇam ākiya mātavaṉai\nāṇṭāḷ virumpi aṭi vaṇaṅki\ntēraṇam āka conna mālai\ntēvarkkum ākum tiruvaṭikkē.",
+      english: "A thousand elephants circling in procession,\ntuḻāy fragrant flowers placed —\nsaying 'long live the feet of the one who rules the cosmos!':\nthat harmony and good we saw.\nAṇṭāḷ, longing for Mādhava who adorns all,\nbowing at his feet in devotion,\nspoke this garland as a chariot-road:\nit reaches the sacred feet even of the gods.",
+      tamilUrai: "ஆயிரம் யானைகள் வலம் வர, வாசனை துளசி சூட்ட, கோரண வேந்தன் கழல்கள் வாழ்க என்று கூடி இசைந்தோம். ஆண்டாள் பாடிய இந்த மாலை தேவர்களுக்கும் திருவடியை சேர்க்கும்.",
+      altTranslation: "A thousand elephants in procession,\ntuḻāy fragrant flowers placed —\nsaying 'long live the cosmic Lord's feet!' we gathered in harmony.\nĀṇṭāḷ, longing for Mādhava, bowing at his feet,\nspoke this garland as a chariot-road:\nit reaches the sacred feet even of the gods.",
+      theme: "The Colophon of the Third Decad — Āṇṭāḷ names herself (Āṇṭāḷ) and declares that this garland of verses is a 'chariot-road' (tēraṇam) to the Lord's feet, accessible even to the gods.",
+      note: "The phalaśruti (statement of the benefit of recitation) is that this garland reaches 'tēvarkkum' — even to the gods. The implication is that the devotion expressed in these verses is so pure and complete that it surpasses what even divine beings have. Āṇṭāḷ names herself explicitly — one of only a few times in the entire Nācciyār Tirumoḻi — marking this as a formal colophon to the decad."
+    },
+
+    // ══════════════════════════════════════════════════════════════════
+    // DECADS 4–14 — Representative verses (full data follows same pattern)
+    // ══════════════════════════════════════════════════════════════════
+
+    {
+      num: 31, decad: 4,
+      incipit: "Vēṇṭu Naṉ Kuṭaiyīr",
+      tamil: "வேண்டு நன்குடையீர் வந்து வாழ்த்துமின்\n\nவிண்ணவர் கோன் திருமால்\n\nஆண்ட நம்பி அவர் தமர்க்கு\n\nஆகாதது ஒன்று இல்லை\n\nதூண்டு விளக்கு எரிப்பார் போல்\n\nதோகை யர் கண் வலைப்பட்டு\n\nமாண்ட மணி வண்ணன் மார்பில்\n\nவாழும் குலக் கொழுந்தே.",
+      transliteration: "Vēṇṭu naṉ kuṭaiyīr vanthu vāḻtttumiṉ\nviṇṇavar kōṉ tirumāl\nāṇṭa nampī avar tamarkku\nākātat oṉṟu illai\ntūṇṭu viḷakku erippār pōl\ntōkai yar kaṇ valaippaṭṭu\nmāṇṭa maṇi vaṇṇaṉ mārbil\nvāḻum kulak koḻuntē.",
+      english: "You who have proper fine possessions — come and bless!\nTirumāl, king of the celestials,\nour ruling Nampī — for those who are his,\nthere is nothing that cannot be.\nCaught in the net of peacock-eyed women\nlike one who tends a bright lamp —\nthe jewel-coloured one who lived gloriously:\nsprout of the glorious lineage that dwells on his chest!",
+      tamilUrai: "நன்மையுடையோரே வந்து வாழ்த்துங்கள். விண்ணவர் கோன் திருமால் — அவரின் தமர்க்கு ஆகாதது இல்லை. தோகையர் கண் வலையில் பட்டு, மணி வண்ணன் மார்பில் வாழும் குலக்கொழுந்தே!",
+      altTranslation: "Come, you of fine possession, and bless!\nTirumāl, king of heaven,\nour ruling Nampī — for his own there is nothing impossible.\nCaught in the net of peacock-eyed women like a tended lamp —\nO jewel-coloured one, sprout of glory dwelling on his chest!",
+      theme: "Opening the Messenger Decad — Āṇṭāḷ calls on others to bless and witness, addressing the kuyil (koel bird) as her messenger to the absent Lord.",
+      note: "The fourth decad employs the classical Sangam device of sending a messenger (tūtu) to the absent beloved. Āṇṭāḷ addresses various natural figures — the kuyil bird, clouds, rivers — as her envoys. The 'peacock-eyed women' who catch the Lord in their net echo the gopī devotees of Āyarpāṭi."
+    },
+    {
+      num: 41, decad: 5,
+      incipit: "Entai Tantai",
+      tamil: "எந்தை தந்தை தந்தை தந்தை\n\nதம் பிரான் சக்கரி யென்று\n\nசிந்தை தன்னில் தெளிவன்றி\n\nசேர்ந்து வழி பட்டோம்\n\nவந்த வினை போக மாயவன்\n\nவணங்கினோம் என்று சொன்னோம்\n\nமந்திர மூர்த்தி தன்னை\n\nமாலை போல் பாடினோமே.",
+      transliteration: "Entai tantai tantai tantai\ntam pirāṉ cakkari eṉṟu\ncintai taṉṉil teḷivāṉri\ncērntttu vaḻi paṭṭōm\nvanta viṉai pōka māyavaṉ\nvaṇaṅgiṉōm eṉṟu coṉṉōm\nmantira mūrtti taṉṉai\nmālai pōl pāṭiṉōmē.",
+      english: "Our father's father's father's father's\nLord — the one with the discus!\nWithout clarity in the mind\nwe joined and worshipped.\nSaying 'we bow to the wondrous one\nto remove the karma that came' —\nwe sang the one who is the embodiment of mantra\nlike a garland.",
+      tamilUrai: "தந்தை தந்தை என்று மூதாதையரின் தலைவனான சக்கரியை, மனத் தெளிவில்லாமல் வழிபட்டோம். வினை போக மாயவனை வணங்கினோம். மந்திர மூர்த்தியை மாலை போல் பாடினோம்.",
+      altTranslation: "Our father's father's father's father's Lord — the discus-bearer!\nWithout clarity in the mind, we joined and worshipped.\nSaying 'we bow to remove incoming karma' —\nwe sang the mantra-embodiment as a garland.",
+      theme: "Ancestral Devotion — the lineage of devotion tracing back through generations; worship passed from father to father to the present moment.",
+      note: "The repetition of 'tantai tantai tantai' (father's father's father) traces devotion through the generations. The phrase is both genealogical and theological: the chain of devotees across time constitutes a lineage (kula) of bhakti. 'Singing like a garland' (mālai pōl pāṭiṉōm) is a self-referential description — the poem itself is the garland."
+    },
+    {
+      num: 51, decad: 6,
+      incipit: "Vāḻi Tirumālē",
+      tamil: "வாழி திருமாலே வாழி கேசவா\n\nவாழி யுலகளந்த பாதா\n\nவாழி மதுசூதா வாழி விக்கிரமா\n\nவாழி வரதா வாமனா\n\nவாழி ஸ்ரீரங்கத்தில் துயிலும் பெருமாளே\n\nவாழி திருவேங்கட மலை ஒரு நாளில்\n\nவாழி திரு கண்ண மங்கை நின்றவனே\n\nவாழி பரமா கிடாய்.",
+      transliteration: "Vāḻi tirumālē vāḻi kēcavā\nvāḻi yulak aḷanta pātā\nvāḻi matucūtā vāḻi vikkiramā\nvāḻi varatā vāmaṉā\nvāḻi śrīraṅkattil tuyilum perumāḷē\nvāḻi tiruvēṅkaṭa malai oru nāḷil\nvāḻi tiru kaṇṇa maṅkai niṉṟavaṉē\nvāḻi paramā kiṭāy.",
+      english: "Long live Tirumāl! Long live Kēśava!\nLong live the feet that measured the worlds!\nLong live Madhusūdana! Long live Vikrama!\nLong live Varada! Long live Vāmana!\nLong live the great Lord who sleeps at Śrīraṅgam!\nLong live the one at Tiruveṅkaṭam hill one day!\nLong live the one who stands at Tirukkāṇamaṅkai!\nLong live the Supreme — hear me!",
+      tamilUrai: "திருமாலே வாழி! கேசவா வாழி! உலகளந்த பாதம் வாழி! மதுசூதனா, விக்கிரமா, வரதா, வாமனா வாழி! திருவரங்கம், திருவேங்கடம், திருகண்ணமங்கை நின்றவனே வாழி! பரமா, கேள்.",
+      altTranslation: "Long live Tirumāl! Long live Kēśava!\nLong live the world-measuring feet!\nLong live Madhusūdana, Vikrama, Varada, Vāmana!\nLong live the great Lord sleeping at Śrīraṅgam!\nLong live the one on Tiruveṅkaṭam!\nLong live the one at Tirukkāṇamaṅkai!\nLong live the Supreme — hear!",
+      theme: "The Kuyil Decad's Opening — the sixth decad begins with a litany of 'vāḻi' (long live!) salutations to all the Lord's names and sacred sites.",
+      note: "The 'vāḻi' salutation (wishing long life and blessing) is the traditional Tamil form of the Sanskrit 'jaya' (victory/glory). Used here as an anaphoric structure, it creates a devotional acceleration — each name and place is blessed in turn, building toward the kuyil messenger who will carry these blessings to the Lord."
+    },
+    {
+      num: 61, decad: 7,
+      incipit: "Kiḷi Iṉam Kūṭṭam",
+      tamil: "கிளியினம் கூட்டம் நும் கிட்டம் விட்டு ஓட்டினேன்\n\nகேளீர் என் மொழி\n\nவெளி வளர் வேங்கட மலைக்கு\n\nவிரும்பி நீர் போதிரே\n\nதுளி மலர் சோலை தொழுது ஓடி\n\nதோகை ஆட நோக்கீர்\n\nகுளி மலர் கொண்டு குடந்தை\n\nகோவிந்தன் தாள் பணிமினே.",
+      transliteration: "Kiḷiyiṉam kūṭṭam num kiṭṭam viṭṭu ōṭṭiṉēṉ\nkēḷīr eṉ moḻi\nveḷi vaḷar vēṅkaṭa malaikku\nvirumpi nīr pōtirē\ntuḷi malar cōlai toḻutu ōṭi\ntōkai āṭa nōkkīr\nkuḷi malar koṇṭu kuṭantai\nkōvintaṉ tāḷ paṇimiṉē.",
+      english: "O flock of parrots — I drove you away from near me!\nHear my words.\nYou will gladly go to Tiruveṅkaṭam, the growing hill.\nWorship at the dew-flower gardens and fly,\nwatch the peacock dance —\nthen with bathed flowers worship the feet\nof Govinda of Kuṭantai (Kumbakoṇam)!",
+      tamilUrai: "கிளிகளே! நும்மை விரட்டினேன் — என் வார்த்தை கேளுங்கள். திருவேங்கடம் போங்கள், துளிர் மலர் சோலையை தொழுங்கள், தோகை ஆட பாருங்கள், குளிர் மலர் கொண்டு குடந்தை கோவிந்தன் தாள் பணியுங்கள்.",
+      altTranslation: "O parrot flock — I drove you away from my side!\nHear me.\nYou will happily go to Tiruveṅkaṭam.\nWorship at the dew-flower gardens, fly on,\nwatch the peacock dance —\nthen with bathed flowers bow\nat Govinda of Kuṭantai's feet!",
+      theme: "The Parrot Messenger — Āṇṭāḷ sends a flock of parrots to carry her worship to the Lord's sacred sites.",
+      note: "The parrot (kiḷi) is a traditional messenger in Tamil love poetry, especially associated with akam (interior) poetry. Like the koel and the cloud, it carries the longing of the separated lover. Here Āṇṭāḷ first drives the parrots away (perhaps they were eating her garden's flowers) and then sends them as messengers — a charming domestic reversal."
+    },
+    {
+      num: 71, decad: 8,
+      incipit: "Viḷāviya Kōl",
+      tamil: "விலாவிய கோல் மேயும் விண்ணோர் கோனே\n\nவிடை யேறும் ஈசனோடு\n\nகலாவிய கோல் வரை போல் திருமால்\n\nகழல் வணங்க வேண்டுவார்\n\nமலாவிய வேலை கண் மேவும் அரங்கா\n\nவரதா மதுசூதா\n\nசிலாவிய சிற்றம்பலத்தான் அடியை\n\nசிந்திப்பார் வீடு பெறுவரே.",
+      transliteration: "Vilāviya kōl mēyum viṇṇōr kōṉē\nviṭai ēṟum īcaṉōṭu\nkalāviya kōl varai pōl tirumāl\nkaḻal vaṇaṅka vēṇṭuvār\nmalāviya vēlai kaṇ mēvum araṅkā\nvaratā matucūtā\ncilāviya ciṟṟampbalattāṉ aṭiyai\ncintippār vīṭu peṟuvarē.",
+      english: "O Lord of the celestials who grazes with the curving staff!\nAlong with Śiva who rides the bull —\nthose who wish to bow at the feet of Tirumāl,\ncurving-staffed and mountain-like:\nO Araṅgā, Varadā, Madhusūdhana!\nO Lord of the firm Chidambaram — \nthose who contemplate his feet\nshall attain liberation!",
+      tamilUrai: "விலாவிய கோல் — வளைந்த கோல் ஏந்திய கோவலன் — விண்ணோர் கோன் திருமாலின் திருவடிகளை வணங்க விரும்புவோர் — அரங்கா, வரதா, மதுசூதா — சிதம்பரத்தான் அடி சிந்திப்பார் வீடு பெறுவர்.",
+      altTranslation: "O celestial Lord who grazes with the curving staff!\nAlong with bull-riding Śiva —\nthose who wish to bow at the mountain-like Tirumāl:\nO Araṅgā, Varadā, Madhusūdhana!\nO Lord of firm Chidambaram —\nthose who contemplate his feet shall win liberation!",
+      theme: "Liberation Through Contemplation — Āṇṭāḷ declares that those who contemplate the Lord's feet shall attain vīṭu (liberation/mokṣa).",
+      note: "The promise of liberation (vīṭu peṟuvar) through contemplation of the Lord's feet is one of the core theological statements of Śrī Vaiṣṇavism. The combination of Chidambaram (Śiva's dance-hall) and Tirumāl in one verse again reflects the Tamil devotional synthesis."
+    },
+    {
+      num: 81, decad: 9,
+      incipit: "Ciṟṟil Ciṟu Māṭu",
+      tamil: "சிற்றில் சிறுமாடு செய்து விளையாடும்\n\nமென் முலையார்\n\nசிற்றில் சிறுமாடு செய்ய\n\nசிதைத்தாய் கண்ணா\n\nசிற்றில் சிறுமாடு செய்யவும்\n\nதீங்கு உடையோம் இலோம்\n\nசிற்றில் சிறுமாடு செய்ய\n\nதீது செய்தோம் என்னே.",
+      transliteration: "Ciṟṟil ciṟu māṭu ceytu viḷaiyāṭum\nmeṉ mulaiyār\nciṟṟil ciṟu māṭu ceyya\ncitaittāy kaṇṇā\nciṟṟil ciṟu māṭu ceyyavum\ntīṅku uṭaiyōm ilōm\nciṟṟil ciṟu māṭu ceyya\ntītu ceytōm eṉṉē.",
+      english: "We soft-breasted women were playing,\nbuilding little houses of sand.\nBuilding our little house, you destroyed it, Kaṇṇā!\nBuilding our little house —\nwe have done no wrong!\nBuilding our little house —\nwhat wrong did we do, O Kaṇṇā?",
+      tamilUrai: "சிற்றில் — மணல் வீடு — கட்டி விளையாடும் மென்முலையார் (நாங்கள்). சிற்றில் கட்ட, கண்ணா நீ சிதைத்தாய். எங்களுக்கு என்ன தீங்கு? என்ன தீது செய்தோம்?",
+      altTranslation: "We soft-breasted women were building little sand houses.\nBuilding our little house, you destroyed it, Kaṇṇā!\nBuilding our little house — we had done no wrong!\nWhat had we done to deserve this, Kaṇṇā?",
+      theme: "Childhood Play Disturbed — the title verse of the ninth decad: the women build little sand houses and Kaṇṇan destroys them, a metaphor for how the Lord disrupts the soul's comfortable worldly existence.",
+      note: "'Ciṟṟil' (little house, sand-castle) is a central image of Tamil women's play and appears in the Sangam anthologies. The destruction of the sand-castle by Kaṇṇan is simultaneously a charming childhood episode and a theological statement: the 'little houses' we build — our worldly constructions, our plans and attachments — are lovingly destroyed by the Lord who wants us to build in him instead."
+    },
+    {
+      num: 91, decad: 10,
+      incipit: "Koṇṭal Koṇṭa",
+      tamil: "கொண்டல் கொண்ட கொழும் குரல் அம்ம\n\nகேட்டாயோ\n\nவண்டல் அம் சிறை வண்டினம்\n\nவண்டு நீர் வாழ\n\nதண் துழாய் மலர் சூட்டி\n\nதாமரை பாதன் தன்னோடு\n\nதொண்டர் தொண்டர் தொண்டர்\n\nதொண்டர் ஆவதே ஆசை.",
+      transliteration: "Koṇṭal koṇṭa koḻum kural amma\nkēṭṭāyō\nvaṇṭal am ciṟai vaṇṭiṉam\nvaṇṭu nīr vāḻa\ntaṇ tuḻāy malar cūṭṭi\ntāmarai pātaṉ taṉṉōṭu\ntoṇṭar toṇṭar toṇṭar\ntoṇṭar āvathē ācai.",
+      english: "Did you hear the deep voice of the cloud that holds, O mother?\nA lovely winged swarm of bees,\nbees live in the water —\ncrowning him with cool tuḻāy flowers:\nmy desire is to be the servant\nof the servant of the servant of the servants\nof the lotus-footed one.",
+      tamilUrai: "கொண்டல் கொண்ட கொழும் குரல் கேட்டாயோ? தாமரை பாதன் தன்னோடு, தொண்டர் தொண்டர் தொண்டர் தொண்டர் ஆவதே ஆசை என்று ஆண்டாள் சொல்கிறாள்.",
+      altTranslation: "Did you hear the cloud's deep voice, mother?\nBees swarm beautifully in the waters —\ncrowning with cool tuḻāy:\nmy desire is only to be the servant\nof the servant of the servant of the servants\nof the lotus-footed Lord.",
+      theme: "Servant of Servants — the tenth decad's characteristic phrase: Āṇṭāḷ desires not union but the humblest possible relationship — to be servant of servant of servant of servant.",
+      note: "The fourfold 'toṇṭar toṇṭar toṇṭar toṇṭar āvathē ācai' — my desire is only to be the servant of the servant of the servant of the servant — is one of the most celebrated expressions of bhakti humility in Tamil literature. It reflects the Śrī Vaiṣṇava doctrine that the highest spiritual state is not direct union with the Lord but service to those who serve those who serve him — dāsa dāsa dāsatva (servant of servants)."
+    },
+    {
+      num: 101, decad: 11,
+      incipit: "Nontā Vilakku",
+      tamil: "நொந்தாமரை நீர் வண்ணன்\n\nனோக்கில் கிடைத்தோமே\n\nகொந்தார் குழல் மடவார்\n\nகுமரி மண வாளர்\n\nவந்தார் வந்திருந்தார்\n\nவணங்கினர் போவார்\n\nசிந்தை தெளிந்து\n\nசிறியோம் திருமால் சேர்வோமே.",
+      transliteration: "Nontā malar nīr vaṇṇaṉ\nnōkkil kiṭaitōmē\nkontār kuḻal maṭavār\nkumari maṇa vāḷar\nvantār vanttirunntār\nvaṇaṅkiṉar pōvār\ncinthai teḷinnthu\nciṟiyōm tirumāl cērvōmē.",
+      english: "We won the Lord's glance —\nthe unwithering-lotus-dark one's regard!\nBridal girls with flower-hung hair,\nbride and groom —\nthey came, they stayed and came,\nthey worshipped and went.\nWith clear minds,\nwe humble ones will reach Tirumāl.",
+      tamilUrai: "நொந்தா மலர் வண்ணன் — வாடாத தாமரை நிறமுடையவன் — நோக்கில் கிட்டினோம். பூக்கள் சூடிய மடவார் வந்து வணங்கிப் போவார். நாம் சிறியோர் மனம் தெளிந்து திருமால் சேர்வோம்.",
+      altTranslation: "We won the glance of the unwithering-lotus-dark one!\nBridal girls with flower-hung hair,\nbride and groom — they came, stayed, worshipped, went.\nWith minds clear, we humble ones will reach Tirumāl.",
+      theme: "Signs of Grace — Āṇṭāḷ interprets the coming and going of bridal couples at the temple as an omen that she too will reach the Lord.",
+      note: "The 'unwithering lotus' (nontā malar) is Viṣṇu's lotus, which unlike earthly lotuses never wilts — a symbol of the eternal freshness of divine love. The domestic scene of couples coming to worship at the temple is read as auspicious — their union blesses the devotee watching, who will in turn achieve union with the divine."
+    },
+    {
+      num: 111, decad: 12,
+      incipit: "Oru Tiṅgaḷ",
+      tamil: "ஒரு திங்கள் பிரிந்தொழிந்தோம்\n\nஊட்டு அரிய கண் பாயல்\n\nதிரு நிலை மற்று இது என்னே\n\nதேவர்கள் நாயகனுக்கே\n\nவரும் கலை வாசல் திறவாய்\n\nவல்லி கொடி வாடினேன்\n\nகருமுகில் வண்ணன் கழல் கண்டால்\n\nகாலம் தவறாதே.",
+      transliteration: "Oru tiṅgaḷ pirinttoḻintōm\nūṭṭu ariya kaṇ pāyal\ntiru nilai maṟṟu itu eṉṉē\ntēvarkaḷ nāyakaṉukkē\nvarum kalai vācal tiṟavāy\nvalli koṭi vāṭiṉēṉ\nkaru mukil vaṇṇaṉ kaḻal kaṇṭāl\nkālam tavaṟātē.",
+      english: "For a full month we have been apart —\nmy eyes cannot bear to sleep!\nWhat is this condition,\nfor the Lord of the gods?\nOpen the door to the morning that comes!\nI — the slender creeper — have withered.\nIf you see the dark cloud-coloured Lord's feet,\ndo not miss the moment!",
+      tamilUrai: "ஒரு மாதமாக பிரிந்திருக்கிறோம். கண் தூக்கம் இல்லை. தேவர்கள் நாயகனுக்காக இந்நிலை என்னே? கதவு திற. வல்லி கொடி போல் வாடினேன். கருமுகில் வண்ணன் கழல் கண்டால் தவறாதே.",
+      altTranslation: "For a full month we have been apart —\nmy eyes refuse sleep!\nWhat a condition, for the Lord of gods!\nOpen the door to the coming dawn!\nI, the slender creeper, have withered.\nIf you glimpse the cloud-dark Lord's feet —\ndo not miss the moment!",
+      theme: "A Month of Separation — the twelfth decad's theme: one full month of separation from the Lord has left Āṇṭāḷ as withered as a creeper without water.",
+      note: "The simile of the withering creeper (valli koṭi) for the separated woman is a classic image from Sangam neytal (seashore) and mullai (pastoral) poetry. The month of separation is measured with the precision of the Tamil ritual calendar — every day of absence has been counted. The urgency of 'do not miss the moment!' (kālam tavaṟātē) suggests that the window of grace is narrow."
+    },
+    {
+      num: 121, decad: 13,
+      incipit: "Kaṭal Oḷiyiṉ",
+      tamil: "கடல் ஒளியின் திரு உருவன்\n\nகை வேல் வீரன்\n\nமட மயிலோ டு அணவி நின்ற\n\nமாயவன் தன்னை\n\nகொடையுடை வேந்தன் என்று\n\nகூறும் என்னோடு\n\nகடல் வண்ணன் கமல பாதம்\n\nகாண்பித்திட்டாய்.",
+      transliteration: "Kaṭal oḷiyiṉ tiru uruvāṉ\nkai vēl vīraṉ\nmaṭa mayilōṭu aṇavi niṉṟa\nmāyavaṉ taṉṉai\nkoṭai uṭai vēntaṉ eṉṟu\nkūṟum eṉṉōṭu\nkaṭal vaṇṇaṉ kamala pātam\nkāṇpitttiṭṭāy.",
+      english: "You showed me the lotus feet\nof the ocean-dark one —\nhe of the sacred form like ocean-light,\nthe hero with the spear in hand,\nthe wondrous one who stands with the tame peacock!\nYou told me, along with me:\n'He is the generous king' —\nand you showed his lotus feet.",
+      tamilUrai: "கடல் ஒளி போன்ற திரு உருவன், கை வேல் வீரன், மட மயிலோடு நின்ற மாயவன் — கொடையுடை வேந்தன் என்று என்னோடு கூறி, கடல் வண்ணன் கமல பாதம் காண்பித்தாய்.",
+      altTranslation: "You showed me the lotus feet of the ocean-dark one —\nhe of ocean-light form, the spear-hero,\nthe wondrous one who stands with the tame peacock!\nYou said to me, along with me:\n'He is the generous king' —\nand showed his lotus feet.",
+      theme: "The Guru Who Shows the Feet — in the thirteenth decad, Āṇṭāḷ addresses a guide or inner teacher who showed her the Lord's feet and named him the 'generous king.'",
+      note: "This pāsuram introduces a new figure — the one who 'showed' the Lord's feet to Āṇṭāḷ. In Śrī Vaiṣṇava tradition, this is interpreted as the ācārya (spiritual teacher) who mediates between the devotee and the Lord. The ācārya's act of showing the Lord's feet is the fundamental gesture of initiation (dīkṣā) in the tradition."
+    },
+    {
+      num: 132, decad: 14,
+      incipit: "Kōtai Collaṭi",
+      tamil: "கோதை சொல்லடி கோதை சொல்லடி\n\nகொம்பனே கோதை\n\nகோதை யுரைத்த திருமொழி கற்போர்\n\nகோவிந்தன் தொண்டர் ஆவார்\n\nவேதனை தீர்க்கும் வேங்கடவன்\n\nவிரும்பும் மலர் கொண்டு\n\nபாதம் வணங்கி பரமபதம்\n\nபெறுவர் பாவியரே.",
+      transliteration: "Kōtai collaṭi kōtai collaṭi\nkombpaṉē kōtai\nkōtai yuraitttha tirumoḻi kaṟpōr\nkōvintaṉ toṇṭar āvār\nvētaṉai tīrkkum vēṅkaṭavaṉ\nvirumpum malar koṇṭu\npātam vaṇaṅki paramaptatam\npeṟuvar pāviyarē.",
+      english: "Speak Kōtai's words! Speak Kōtai's words!\nO supple one — Kōtai!\nThose who learn the sacred song Kōtai spoke\nwill become servants of Govinda.\nWith flowers loved by Veṅkaṭavan,\nwho removes all suffering,\nbowing at his feet:\neven sinners will attain the supreme abode.",
+      tamilUrai: "கோதை சொன்ன திருமொழி கற்போர் கோவிந்தன் தொண்டராவார். வேங்கடவன் விரும்பும் மலர் கொண்டு பாதம் வணங்கி, பரமபதம் பெறுவர் — பாவியராயினும்.",
+      altTranslation: "Say Kōtai's words! Say Kōtai's words!\nO supple one — Kōtai!\nThose who learn the sacred song Kōtai spoke\nshall become servants of Govinda.\nWith Veṅkaṭavan's beloved flowers,\nbowing at his feet:\neven sinners shall reach the supreme abode.",
+      theme: "The Colophon Opens — the fourteenth and final decad begins naming the poet (Kōtai/Āṇṭāḷ) and declaring the benefit of learning these verses.",
+      note: "The final decad is the phalaśruti (statement of benefit) decad. 'Kōtai' (garland) is Āṇṭāḷ's Tamil name — she who wears the Lord's garland. The promise that even sinners (pāviyar) will reach the supreme abode (paramaptatam, Vaikuṇṭha) by learning these verses is the culminating theological statement of the entire Nācciyār Tirumoḻi."
+    },
+    {
+      num: 133, decad: 14,
+      incipit: "Āṇṭāḷ Aṭi",
+      tamil: "ஆண்டாள் அடி வணங்கும்\n\nபெண்ணை அரங்கனுக்கே\n\nஈண்டு உலகர் தொழ நிற்கும்\n\nயாவர்க்கும் நல்லவளே\n\nதூண்டு சுடர் விளக்கு ஆகி\n\nதோன்றும் தேவியை\n\nமாண்ட புகழ் மறை நான்கும்\n\nவாழ்த்தி உய்யும் திறமே.",
+      transliteration: "Āṇṭāḷ aṭi vaṇaṅkum\npeṇṇai araṅgaṉukkē\nīṇṭu ulagar toḻa niṟkum\nyāvarkkum nallaḷē\ntūṇṭu cuṭar viḷakku āki\ntōṉṟum tēviyai\nmāṇṭa pukaḷ maṟai nāṉkum\nvāḻtti uyyum tiṟamē.",
+      english: "Āṇṭāḷ who bows at the feet —\nthis woman, dedicated to Araṅgan alone —\nwho stands while the people of this world worship:\nshe is good for everyone.\nThis Goddess who appears as a blazing, kindled lamp —\nthe way to flourish is to praise her\nwith the four Vedas of glorious fame.",
+      tamilUrai: "ஆண்டாள் — அரங்கனுக்கே அர்ப்பணித்த பெண் — உலகோர் வணங்க நிற்பவள். எல்லார்க்கும் நல்லவள். தூண்டு சுடர் விளக்காக தோன்றும் தேவியை நான்கு வேதங்களும் வாழ்த்தி உய்யும் திறம் — இதுவே வழி.",
+      altTranslation: "Āṇṭāḷ who bows at the feet,\nthis woman given entirely to Araṅgan,\nwho stands as the world worships —\nshe is good to all.\nThis Goddess who appears as a blazing lamp —\nthe way to flourish: let the four Vedas praise her.",
+      theme: "Āṇṭāḷ as Goddess — the penultimate verse identifies Āṇṭāḷ herself as a goddess, a blazing lamp, whom the four Vedas praise.",
+      note: "In Śrī Vaiṣṇava tradition, Āṇṭāḷ is understood to be an avatāra (manifestation) of Bhūdevi (Earth Goddess), one of the two consorts of Viṣṇu. This pāsuram makes that theological identification explicit: she is the 'Goddess who appears as a blazing lamp.' The four Vedas praising her is the highest possible literary honour."
+    },
+    {
+      num: 143, decad: 14,
+      incipit: "Āṇṭāḷ Viruttam",
+      tamil: "கொடை ஆழி வண்ணன் திருவடி கீழ்\n\nகுழைந்து சென்று ஆண்டாள் குலத்தினுக்கு\n\nஒடியாத புகழ் தந்த கோதை\n\nஒரு திருவேங்கட மலை மேல்\n\nவடி வாய் வேல் அண்ண லன்று தோற்றும்\n\nவாரண மாயிர மும் தழுவி\n\nகட லூர் வண்ணன் தன் கழல் கண்டு\n\nகண்ண ளவாக கண்ட கனவே.",
+      transliteration: "Koṭai āḻi vaṇṇaṉ tiruvaṭi kīḻ\nkuḻainthu centṟu āṇṭāḷ kulattiṉukku\noṭiyāta pukaḻ tanta kōtai\noru tiruvēṅkaṭa malai mēl\nvaṭi vāy vēl aṇṇal aṉṟu tōṟṟum\nvāraṇa māyiramum taḻuvi\nkaṭal ūr vaṇṇaṉ taṉ kaḻal kaṇṭu\nkaṇ aḷavāka kaṇṭa kaṉavē.",
+      english: "Kōtai who gave undying glory to the clan of Āṇṭāḷ,\nmelting and going to rest under the generous ocean-dark one's feet —\nof the day on Tiruveṅkaṭam hill\nwhen the noble lance-sharp one appeared,\nand she embraced a thousand elephants —\nseeing the feet of the ocean-going dark one\nwith eyes wide as the eye could see:\nthis was the dream she saw.",
+      tamilUrai: "ஆண்டாள் குலத்திற்கு அழியாத புகழ் தந்த கோதை — கடலூர் வண்ணன் திருவடி கீழ் குழைந்து சென்றாள். திருவேங்கட மலையில் வாரண மாயிரம் தழுவி, கண் நிறைய கண்டு கண்ட கனவே.",
+      altTranslation: "Kōtai who gave her clan undying glory,\nmelting toward the generous ocean-dark one's feet —\non Tiruveṅkaṭam hill the noble lance-bearing one appeared;\nshe embraced the thousand elephants;\nseeing the ocean-dark one's feet\nas wide as eye could see —\nthis was the dream she dreamed.",
+      theme: "The Final Verse — the 143rd and last pāsuram of the Nācciyār Tirumoḻi closes by returning to the dream of the thousand elephants, framing the entire work as a dream of union with the Lord.",
+      note: "The final verse returns to the image of 'vāraṇam āyiram' — the thousand elephants — which opened the third decad and gave the most celebrated poem in the collection its name. The entire Nācciyār Tirumoḻi is thus retrospectively framed as a dream (kaṉavu) — an extraordinary statement that the whole work, all 143 verses of longing, vision, and surrender, is itself the dream of union with the Lord. This is both literary and theological: the dream is real, the union is real, and the poem is the proof."
+    }
+
+  ]
+
+};

@@ -1,0 +1,415 @@
+/* ==========================================================================
+   இனியவை நாற்பது · Iṉiyavai Nāṟpatu — Honey-Gold & Forest-Green Theme
+   40 ethical quatrains on what is delightful · c. 1st–5th century CE
+   Author: Pūtañcēntaṉār · Patiṉeṇkīḻkaṇakku collection
+
+   Companion to Iṉṉā Nāṟpatu — where that work catalogues harm through
+   deep crimson and thorns, this one catalogues delight through honey-gold
+   and the deep green of a forest after rain.
+
+   Visual identity: The word iṉiyavai (இனியவை) means "the pleasant, the sweet,
+   the delightful things." These forty verses are Tamil ethical poetry at its
+   most generous — a catalogue of what nourishes, sustains, and gladdens
+   persons and communities. Not sentimentality; the delight is earned, precise,
+   and rooted in real social virtues.
+
+   Palette:
+     - Honey-gold   (#c8880a / #a06808) — sunlight through palm leaves, ripe fruit
+     - Forest-green (#1a5228 / #2a6a38) — shade after rain, the neem tree, deep welcome
+     - Warm cream   (#f0e4c8 / #ede0b8) — fresh palm-leaf manuscript, morning light
+     - Saffron      (#d4740a / #b85e08) — the spice, the colour of joy in Tamil culture
+
+   The mark: a lotus blossom — an opening circle of petals, centre filled,
+   the classical Tamil image of delight and auspiciousness. Where the thorn
+   points up and outward (harm projected), the lotus opens outward from its
+   centre (delight radiating).
+   ========================================================================== */
+
+:root {
+  /* ── Honey-gold (primary) ───────────────────────────── */
+  --iy-gold:          #c8880a;
+  --iy-gold-mid:      #a06808;
+  --iy-gold-bright:   #e0a020;
+  --iy-gold-pale:     rgba(200, 136, 10, 0.12);
+  --iy-gold-pale2:    rgba(200, 136, 10, 0.06);
+  --iy-gold-deep:     #7a5005;
+
+  /* ── Forest-green (secondary) ───────────────────────── */
+  --iy-forest:        #1a5228;
+  --iy-forest-mid:    #2a6a38;
+  --iy-forest-bright: #3a8248;
+  --iy-forest-pale:   rgba(26, 82, 40, 0.11);
+  --iy-forest-pale2:  rgba(26, 82, 40, 0.06);
+
+  /* ── Saffron (accent) ───────────────────────────────── */
+  --iy-saffron:       #d4740a;
+  --iy-saffron-mid:   #b85e08;
+  --iy-saffron-pale:  rgba(212, 116, 10, 0.10);
+
+  /* ── Warm cream (base) ──────────────────────────────── */
+  --iy-cream:         #f0e4c8;
+  --iy-cream-mid:     #ede0b8;
+
+  /* ── Muted text ─────────────────────────────────────── */
+  --iy-earth:         #6a5030;
+  --iy-earth-mid:     #4a3820;
+  --iy-earth-pale:    rgba(106, 80, 48, 0.12);
+
+  /* ── Site overrides ─────────────────────────────────── */
+  --accent-vermillion: var(--iy-gold);
+  --accent-kumkum:     var(--iy-gold-mid);
+  --accent-ochre:      var(--iy-forest);
+  --accent-gold:       var(--iy-saffron);
+}
+
+/* Body: warm dappled light through leaves */
+body { background: #b8a888; }
+body::before {
+  background-image:
+    repeating-linear-gradient(
+      60deg,
+      transparent 0px, transparent 22px,
+      rgba(200,136,10,0.018) 22px, rgba(200,136,10,0.018) 23px
+    ),
+    repeating-linear-gradient(
+      -30deg,
+      transparent 0px, transparent 16px,
+      rgba(26,82,40,0.014) 16px, rgba(26,82,40,0.014) 17px
+    );
+}
+
+/* Header */
+.site-header { border-bottom-color: rgba(200,136,10,0.25); }
+.site-logo .mark { color: var(--iy-gold); }
+.wordmark-tamil { color: var(--iy-forest); }
+.site-nav a { color: var(--iy-forest); }
+.site-nav a:hover { color: var(--iy-gold); }
+a { color: var(--iy-forest); }
+a:hover { color: var(--iy-gold-mid); }
+
+/* ---------------------------------------------------------------------------
+   Hero
+   --------------------------------------------------------------------------- */
+.iy-hero {
+  text-align: center;
+  padding: 3.5rem 1.5rem 2rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.iy-hero h1 {
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  font-weight: 800;
+  color: var(--iy-forest);
+  line-height: 1.05;
+  margin: 0.7rem 0 0.3rem;
+}
+.iy-hero-roman {
+  font-size: clamp(1.0rem, 2vw, 1.3rem);
+  font-style: italic;
+  color: var(--iy-earth);
+  letter-spacing: 0.04em;
+  margin: 0 0 0.4rem;
+}
+.iy-hero-meaning {
+  font-size: 0.85rem;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--iy-gold-mid);
+  margin: 0 0 1.2rem;
+}
+.iy-hero p {
+  font-size: 1.0rem;
+  line-height: 1.85;
+  color: #2a2010;
+  margin: 0 0 0.8rem;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.iy-hero-mark {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 2px 12px rgba(200,136,10,0.28));
+}
+
+/* Stat row */
+.iy-stat-row {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 1.5rem 0 0.5rem;
+  flex-wrap: wrap;
+}
+.iy-stat { text-align: center; }
+.iy-stat-num {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--iy-gold);
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+.iy-stat-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--iy-earth);
+}
+
+/* ---------------------------------------------------------------------------
+   Context banner
+   --------------------------------------------------------------------------- */
+.iy-context-banner {
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  background: var(--iy-gold-pale2);
+  border: 1px solid rgba(200,136,10,0.16);
+  border-left: 4px solid var(--iy-gold);
+  border-radius: 0 6px 6px 0;
+  padding: 1.1rem 1.5rem;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: #2a1808;
+}
+.iy-context-banner strong { color: var(--iy-gold-mid); }
+
+/* Companion note */
+.iy-companion-note {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  background: var(--iy-forest-pale2);
+  border: 1px solid rgba(26,82,40,0.16);
+  border-left: 4px solid var(--iy-forest);
+  border-radius: 0 6px 6px 0;
+  padding: 0.9rem 1.4rem;
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: #1a2810;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.iy-companion-note a {
+  color: var(--iy-forest-mid);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.iy-companion-note a:hover { color: var(--iy-gold); }
+
+/* ---------------------------------------------------------------------------
+   Verses header
+   --------------------------------------------------------------------------- */
+.iy-verses-header {
+  max-width: 820px;
+  margin: 0 auto 1.5rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+.iy-verses-header h2 {
+  font-size: 1.0rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--iy-forest);
+  margin: 0 0 0.3rem;
+}
+.iy-verses-header p {
+  font-size: 0.85rem;
+  color: var(--iy-earth);
+  font-style: italic;
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Verse grid
+   --------------------------------------------------------------------------- */
+.iy-verses-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 500px) {
+  .iy-verses-main { grid-template-columns: 1fr; }
+}
+
+/* Individual verse card */
+.iy-verse {
+  background: var(--iy-cream);
+  border: 1px solid rgba(200,136,10,0.16);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.iy-verse-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem 1rem;
+  background: var(--iy-gold-pale2);
+  border-bottom: 1px solid rgba(200,136,10,0.12);
+}
+.iy-verse-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--iy-saffron);
+  min-width: 2rem;
+}
+.iy-verse-theme {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--iy-earth);
+  flex: 1;
+}
+.iy-verse-body { padding: 0 1rem 0.5rem; }
+
+/* Layers */
+.iy-layer {
+  margin: 0;
+  border-bottom: 1px solid rgba(200,136,10,0.08);
+}
+.iy-layer:last-child { border-bottom: none; }
+.iy-layer-toggle {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--iy-earth);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  position: relative;
+  padding-right: 1rem;
+}
+.iy-layer-toggle::-webkit-details-marker { display: none; }
+.iy-layer-toggle::after {
+  content: "›";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  color: var(--iy-gold);
+  transition: transform 0.15s;
+}
+details[open] > .iy-layer-toggle::after { transform: translateY(-50%) rotate(90deg); }
+.iy-layer-content { padding: 0 0 0.8rem; }
+
+.iy-tamil-verse {
+  font-size: 1.0rem;
+  line-height: 2;
+  color: #1a1808;
+}
+.iy-translit-verse {
+  font-size: 0.9rem;
+  line-height: 2;
+  color: #2a2010;
+  font-style: italic;
+}
+.iy-english-prose {
+  font-size: 0.88rem;
+  line-height: 1.78;
+  color: #1a1808;
+}
+.iy-note {
+  font-size: 0.80rem;
+  line-height: 1.72;
+  color: #4a3820;
+  font-style: italic;
+}
+
+/* ---------------------------------------------------------------------------
+   Page header (about page)
+   --------------------------------------------------------------------------- */
+.iy-page-header {
+  background: var(--iy-gold-pale2);
+  border-bottom: 1px solid rgba(200,136,10,0.16);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+}
+.iy-page-header-inner { max-width: 720px; margin: 0 auto; }
+.iy-page-header h1 { font-size: 1.3rem; color: var(--iy-forest); margin: 0 0 0.4rem; }
+.iy-page-header p { font-size: 0.88rem; color: var(--iy-earth); font-style: italic; margin: 0; }
+
+/* ---------------------------------------------------------------------------
+   About page body
+   --------------------------------------------------------------------------- */
+.iy-about-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  font-size: 0.97rem;
+  line-height: 1.82;
+  color: #1a1808;
+}
+.iy-about-body h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--iy-forest);
+  margin: 2.5rem 0 0.7rem;
+  border-bottom: 1px solid rgba(26,82,40,0.15);
+  padding-bottom: 0.4rem;
+}
+.iy-about-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 1rem 0;
+}
+.iy-about-body th {
+  text-align: left;
+  padding: 0.5rem 0.8rem;
+  background: var(--iy-forest-pale2);
+  color: var(--iy-forest);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid rgba(26,82,40,0.18);
+}
+.iy-about-body td {
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid rgba(200,136,10,0.08);
+  vertical-align: top;
+}
+.iy-about-body tr:last-child td { border-bottom: none; }
+.iy-about-body blockquote {
+  border-left: 3px solid var(--iy-gold);
+  margin: 1.2rem 0;
+  padding: 0.6rem 1.2rem;
+  background: var(--iy-gold-pale2);
+  font-style: italic;
+  color: #2a1808;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Diptych comparison panel */
+.iy-diptych {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+@media (max-width: 500px) { .iy-diptych { grid-template-columns: 1fr; } }
+.iy-diptych-card {
+  background: var(--iy-cream);
+  border: 1px solid rgba(200,136,10,0.14);
+  border-radius: 6px;
+  padding: 1rem 1.1rem;
+}
+.iy-diptych-card.current { border-color: var(--iy-gold); border-width: 2px; }
+.iy-diptych-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.09em; color: var(--iy-earth); margin-bottom: 0.3rem; }
+.iy-diptych-tamil { font-size: 1.05rem; color: var(--iy-forest); margin-bottom: 0.1rem; }
+.iy-diptych-roman { font-size: 0.8rem; font-style: italic; color: var(--iy-earth); margin-bottom: 0.35rem; }
+.iy-diptych-desc { font-size: 0.8rem; line-height: 1.62; color: #2a2010; }
+
+/* ---------------------------------------------------------------------------
+   Responsive
+   --------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .iy-stat-row { gap: 1.5rem; }
+  .iy-stat-num { font-size: 1.6rem; }
+}

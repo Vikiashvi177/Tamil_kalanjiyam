@@ -1,0 +1,2602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>தமிழ் இலக்கியம் · Tamil Literature — A Living Library</title>
+  <meta name="description" content="A digital library of classical Tamil literature — Thirukkural, Aathichudi, and more — presented with original Tamil, transliteration, English translation, and traditional commentary." />
+  <link rel="stylesheet" href="css/hub.css" />
+  <style>
+    /* Hub-specific overrides */
+    .hub-header .header-inner {
+      justify-content: center;
+    }
+    .hub-header .site-logo {
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .hub-header .wordmark {
+      align-items: center;
+    }
+    .hub-header .wordmark-tamil {
+      font-size: 1.5rem;
+    }
+    .hub-header .wordmark-english {
+      font-size: 0.95rem;
+      letter-spacing: 0.15em;
+    }
+
+    .hub-hero {
+      text-align: center;
+      padding: 5rem 1.5rem 3rem;
+      position: relative;
+    }
+    .hub-hero .hero-ornament svg {
+      width: 96px;
+      height: 96px;
+      color: var(--accent-vermillion);
+      margin-bottom: 2rem;
+    }
+    .hub-title {
+      font-family: var(--font-tamil);
+      font-size: clamp(2.5rem, 6vw, 4.25rem);
+      font-weight: 700;
+      color: var(--accent-vermillion);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      text-shadow: 1px 1px 0 rgba(255, 240, 200, 0.3);
+    }
+    .hub-subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+      color: var(--ink-secondary);
+      letter-spacing: 0.04em;
+      margin-bottom: 1.5rem;
+    }
+    .hub-tagline {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--ink-secondary);
+    }
+
+    .hub-divider {
+      text-align: center;
+      margin: 3rem auto 2rem;
+      color: var(--accent-ochre);
+      font-size: 1.25rem;
+      letter-spacing: 1.5em;
+      padding-left: 1.5em;
+      opacity: 0.65;
+    }
+
+    .works-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 4rem;
+    }
+
+    .works-section-title {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 2.5rem;
+      font-weight: 500;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+      gap: 2.5rem;
+    }
+
+    /* Each work card is a palm-leaf page */
+    .work-card {
+      position: relative;
+      background: var(--bg-paper);
+      background-image:
+        linear-gradient(180deg, rgba(43, 22, 7, 0) 0%, rgba(43, 22, 7, 0.04) 50%, rgba(43, 22, 7, 0) 100%),
+        repeating-linear-gradient(0deg,
+          rgba(43, 22, 7, 0.025) 0px, rgba(43, 22, 7, 0.025) 1px,
+          transparent 1px, transparent 8px);
+      border: 1px solid var(--border-medium);
+      border-radius: 4px;
+      padding: 3rem 2rem 2.5rem;
+      box-shadow: var(--shadow-paper);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      min-height: 560px;
+      overflow: visible;
+    }
+
+    .work-card::before,
+    .work-card::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg-primary);
+      border: 1.5px solid var(--border-strong);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    .work-card::before { left: 12px; }
+    .work-card::after { right: 12px; }
+
+    .work-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-paper-hover);
+    }
+
+    /* Decorative top ornament inside card */
+    .work-card-ornament {
+      text-align: center;
+      color: var(--accent-vermillion);
+      margin-bottom: 1.25rem;
+    }
+    .work-card-ornament svg {
+      width: 56px;
+      height: 56px;
+    }
+
+    .work-card-tamil {
+      text-align: center;
+      font-family: var(--font-tamil);
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: var(--accent-vermillion);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    .work-card-english {
+      text-align: center;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--ink-secondary);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .work-card-author {
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-ochre);
+      margin-bottom: 1.5rem;
+    }
+
+    .work-card-divider {
+      text-align: center;
+      color: var(--accent-ochre);
+      opacity: 0.5;
+      letter-spacing: 0.5em;
+      margin: 0.5rem 0 1.5rem;
+      padding-left: 0.5em;
+    }
+
+    .work-card-description {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--ink-primary);
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .work-card-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 1.5rem;
+    }
+
+    .work-stat {
+      text-align: center;
+    }
+    .work-stat-num {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--accent-vermillion);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .work-stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .work-card-cta {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-vermillion);
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border: 1.5px solid var(--accent-vermillion);
+      border-radius: 2px;
+      background: rgba(139, 26, 14, 0.04);
+      transition: all 0.2s ease;
+    }
+    .work-card:hover .work-card-cta {
+      background: var(--accent-vermillion);
+      color: var(--bg-paper);
+    }
+
+    /* Coming-soon placeholder cards */
+    .work-card-placeholder {
+      background: rgba(232, 212, 168, 0.4);
+      border-style: dashed;
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .work-card-placeholder::before,
+    .work-card-placeholder::after {
+      opacity: 0.4;
+    }
+    .work-card-placeholder .work-card-cta {
+      color: var(--ink-muted);
+      border-color: var(--ink-muted);
+      background: transparent;
+    }
+
+    /* About section */
+    .about-section {
+      max-width: 780px;
+      margin: 4rem auto 0;
+      padding: 0 1.5rem 4rem;
+      text-align: center;
+    }
+    .about-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--accent-vermillion);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.04em;
+    }
+    .about-section p {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--ink-secondary);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Hub footer */
+    .hub-footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--ink-muted);
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+    }
+    .hub-footer .ornament {
+      display: block;
+      color: var(--accent-vermillion);
+      letter-spacing: 1em;
+      padding-left: 1em;
+      margin-bottom: 0.75rem;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 960px) {
+      .works-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .work-card { padding: 2.5rem 2rem 2rem; min-height: auto; }
+      .hub-hero { padding: 3rem 1.5rem 2rem; }
+    }
+  
+
+    /* ── Category sections ─────────────────────────── */
+    .works-category {
+      margin-bottom: 4.5rem;
+    }
+
+    /* The category banner — a full-width illustrated header panel */
+    .works-category-header {
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+      padding: 0 1.5rem;
+      position: relative;
+    }
+
+    /* Inner panel — the decorated rule block */
+    .works-category-inner {
+      position: relative;
+      padding: 1.5rem 2rem 1.4rem 5.5rem;
+      border: 1px solid rgba(74,40,24,0.28);
+      border-left: none;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0px, transparent 7px,
+          rgba(74,40,24,0.06) 7px, rgba(74,40,24,0.06) 8px
+        ),
+        var(--bg-paper);
+      box-shadow:
+        0 2px 8px rgba(74,40,24,0.08),
+        0 1px 2px rgba(74,40,24,0.12);
+    }
+
+    /* Thick left accent bar — colour varies per category via data attr */
+    .works-category-inner::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Category numeral — sits inside the left bar */
+    .works-category-num {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: white;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      z-index: 2;
+    }
+
+    /* Colour the left bar and numeral by category */
+    .works-category[data-cat="ettuthogai"]  .works-category-inner { border-left: 4.5rem solid #7a1a0a; }
+    .works-category[data-cat="niti"]         .works-category-inner { border-left: 4.5rem solid #4a5a1a; }
+    .works-category[data-cat="bhakti"]       .works-category-inner { border-left: 4.5rem solid #3a1a5a; }
+    .works-category[data-cat="grammar"]      .works-category-inner { border-left: 4.5rem solid #1a2e5a; }
+    .works-category[data-cat="maakaviyam"]   .works-category-inner { border-left: 4.5rem solid #8b1a1a; }
+    .works-category[data-cat="soon"]         .works-category-inner { border-left: 4.5rem solid #6a4a1a; }
+
+    /* Top ornamental rule across the panel */
+    .works-category-inner::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 4.5rem; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, currentColor 0%, transparent 100%);
+      opacity: .18;
+    }
+
+    /* Text layout */
+    .works-category-text {
+      display: flex;
+      align-items: baseline;
+      gap: .85rem;
+      flex-wrap: wrap;
+      margin-bottom: .5rem;
+    }
+    .works-category-tamil {
+      font-family: var(--font-tamil);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--ink-primary);
+      line-height: 1.15;
+    }
+    .works-category-eng {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--accent-vermillion, #8b1a0e);
+    }
+    .works-category-count {
+      margin-left: auto;
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      font-family: var(--font-display);
+      white-space: nowrap;
+      align-self: center;
+    }
+    .works-category-desc {
+      font-size: .88rem;
+      color: var(--ink-secondary);
+      line-height: 1.65;
+      max-width: 740px;
+    }
+
+    /* Decorative kolam dots at top-right corner of each panel */
+    .works-category-ornament {
+      position: absolute;
+      top: .6rem;
+      right: .9rem;
+      color: var(--accent-vermillion, #8b1a0e);
+      opacity: .22;
+      font-size: .7rem;
+      letter-spacing: .4em;
+      font-family: var(--font-display);
+      pointer-events: none;
+    }
+
+    /* Complete badge */
+    .works-category-badge {
+      display: inline-block;
+      padding: .12rem .6rem;
+      border-radius: 2px;
+      font-size: .62rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+      font-weight: 600;
+      background: rgba(74,40,24,0.10);
+      color: var(--accent-vermillion, #8b1a0e);
+      border: 1px solid rgba(74,40,24,0.20);
+      vertical-align: middle;
+      margin-left: .5rem;
+    }
+
+    /* Hover lift on the whole category block */
+    .works-category-inner:hover {
+      box-shadow:
+        0 4px 16px rgba(74,40,24,0.12),
+        0 2px 4px rgba(74,40,24,0.14);
+    }
+
+    @media (max-width: 600px) {
+      .works-category-inner { padding-left: 4rem; }
+      .works-category[data-cat="ettuthogai"]  .works-category-inner,
+      .works-category[data-cat="niti"]         .works-category-inner,
+      .works-category[data-cat="bhakti"]       .works-category-inner,
+      .works-category[data-cat="grammar"]      .works-category-inner,
+      .works-category[data-cat="maakaviyam"]  .works-category-inner,
+      .works-category[data-cat="soon"]         .works-category-inner { border-left-width: 3.5rem; }
+      .works-category-num { width: 3.5rem; font-size: 1.5rem; }
+      .works-category-tamil { font-size: 1.35rem; }
+    }
+
+    tyle>tml>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>தமிழ் இலக்கியம் · Tamil Literature — A Living Library</title>
+  <meta name="description" content="A digital library of classical Tamil literature — Thirukkural, Aathichudi, and more — presented with original Tamil, transliteration, English translation, and traditional commentary." />
+  <link rel="stylesheet" href="css/hub.css" />
+  
+    /* Hub-specific overrides */
+    .hub-header .header-inner {
+      justify-content: center;
+    }
+    .hub-header .site-logo {
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .hub-header .wordmark {
+      align-items: center;
+    }
+    .hub-header .wordmark-tamil {
+      font-size: 1.5rem;
+    }
+    .hub-header .wordmark-english {
+      font-size: 0.95rem;
+      letter-spacing: 0.15em;
+    }
+
+    .hub-hero {
+      text-align: center;
+      padding: 5rem 1.5rem 3rem;
+      position: relative;
+    }
+    .hub-hero .hero-ornament svg {
+      width: 96px;
+      height: 96px;
+      color: var(--accent-vermillion);
+      margin-bottom: 2rem;
+    }
+    .hub-title {
+      font-family: var(--font-tamil);
+      font-size: clamp(2.5rem, 6vw, 4.25rem);
+      font-weight: 700;
+      color: var(--accent-vermillion);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      text-shadow: 1px 1px 0 rgba(255, 240, 200, 0.3);
+    }
+    .hub-subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+      color: var(--ink-secondary);
+      letter-spacing: 0.04em;
+      margin-bottom: 1.5rem;
+    }
+    .hub-tagline {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--ink-secondary);
+    }
+
+    .hub-divider {
+      text-align: center;
+      margin: 3rem auto 2rem;
+      color: var(--accent-ochre);
+      font-size: 1.25rem;
+      letter-spacing: 1.5em;
+      padding-left: 1.5em;
+      opacity: 0.65;
+    }
+
+    .works-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 4rem;
+    }
+
+    .works-section-title {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 2.5rem;
+      font-weight: 500;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2.5rem;
+    }
+
+    /* Each work card is a palm-leaf page */
+    .work-card {
+      position: relative;
+      background: var(--bg-paper);
+      background-image:
+        linear-gradient(180deg, rgba(43, 22, 7, 0) 0%, rgba(43, 22, 7, 0.04) 50%, rgba(43, 22, 7, 0) 100%),
+        repeating-linear-gradient(0deg,
+          rgba(43, 22, 7, 0.025) 0px, rgba(43, 22, 7, 0.025) 1px,
+          transparent 1px, transparent 8px);
+      border: 1px solid var(--border-medium);
+      border-radius: 4px;
+      padding: 3rem 2.5rem 2.5rem;
+      box-shadow: var(--shadow-paper);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      min-height: 560px;
+      overflow: visible;
+    }
+
+    .work-card::before,
+    .work-card::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg-primary);
+      border: 1.5px solid var(--border-strong);
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    .work-card::before { left: 12px; }
+    .work-card::after { right: 12px; }
+
+    .work-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-paper-hover);
+    }
+
+    /* Decorative top ornament inside card */
+    .work-card-ornament {
+      text-align: center;
+      color: var(--accent-vermillion);
+      margin-bottom: 1.25rem;
+    }
+    .work-card-ornament svg {
+      width: 56px;
+      height: 56px;
+    }
+
+    .work-card-tamil {
+      text-align: center;
+      font-family: var(--font-tamil);
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 700;
+      color: var(--accent-vermillion);
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    .work-card-english {
+      text-align: center;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--ink-secondary);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .work-card-author {
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-ochre);
+      margin-bottom: 1.5rem;
+    }
+
+    .work-card-divider {
+      text-align: center;
+      color: var(--accent-ochre);
+      opacity: 0.5;
+      letter-spacing: 0.5em;
+      margin: 0.5rem 0 1.5rem;
+      padding-left: 0.5em;
+    }
+
+    .work-card-description {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--ink-primary);
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .work-card-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 1.5rem;
+    }
+
+    .work-stat {
+      text-align: center;
+    }
+    .work-stat-num {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--accent-vermillion);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .work-stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .work-card-cta {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-vermillion);
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border: 1.5px solid var(--accent-vermillion);
+      border-radius: 2px;
+      background: rgba(139, 26, 14, 0.04);
+      transition: all 0.2s ease;
+    }
+    .work-card:hover .work-card-cta {
+      background: var(--accent-vermillion);
+      color: var(--bg-paper);
+    }
+
+    /* Coming-soon placeholder cards */
+    .work-card-placeholder {
+      background: rgba(232, 212, 168, 0.4);
+      border-style: dashed;
+      cursor: default;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .work-card-placeholder::before,
+    .work-card-placeholder::after {
+      opacity: 0.4;
+    }
+    .work-card-placeholder .work-card-cta {
+      color: var(--ink-muted);
+      border-color: var(--ink-muted);
+      background: transparent;
+    }
+
+    /* About section */
+    .about-section {
+      max-width: 780px;
+      margin: 4rem auto 0;
+      padding: 0 1.5rem 4rem;
+      text-align: center;
+    }
+    .about-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--accent-vermillion);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.04em;
+    }
+    .about-section p {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--ink-secondary);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Hub footer */
+    .hub-footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--ink-muted);
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+    }
+    .hub-footer .ornament {
+      display: block;
+      color: var(--accent-vermillion);
+      letter-spacing: 1em;
+      padding-left: 1em;
+      margin-bottom: 0.75rem;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 640px) {
+      .works-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .work-card { padding: 2.5rem 2rem 2rem; min-height: auto; }
+      .hub-hero { padding: 3rem 1.5rem 2rem; }
+    }
+  
+    </style>
+
+</head>
+<body>
+
+  <header class="site-header hub-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Tamil Literature home">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="20" r="3" fill="currentColor" stroke="none"/>
+            <path d="M 20 7 Q 24 12 20 17 Q 16 12 20 7 Z" fill="currentColor" opacity="0.85"/>
+            <path d="M 20 33 Q 24 28 20 23 Q 16 28 20 33 Z" fill="currentColor" opacity="0.85"/>
+            <path d="M 7 20 Q 12 24 17 20 Q 12 16 7 20 Z" fill="currentColor" opacity="0.85"/>
+            <path d="M 33 20 Q 28 24 23 20 Q 28 16 33 20 Z" fill="currentColor" opacity="0.85"/>
+            <circle cx="10" cy="10" r="1.2" fill="currentColor"/>
+            <circle cx="30" cy="10" r="1.2" fill="currentColor"/>
+            <circle cx="10" cy="30" r="1.2" fill="currentColor"/>
+            <circle cx="30" cy="30" r="1.2" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">தமிழ் இலக்கியம்</span>
+          <span class="wordmark-english">TAMIL LITERATURE</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hub-hero">
+      <div class="hero-ornament fade-in">
+        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="40" cy="40" r="4" fill="currentColor"/>
+          <path d="M 40 20 Q 46 30 40 36 Q 34 30 40 20 Z" fill="currentColor" opacity="0.9"/>
+          <path d="M 40 60 Q 46 50 40 44 Q 34 50 40 60 Z" fill="currentColor" opacity="0.9"/>
+          <path d="M 20 40 Q 30 46 36 40 Q 30 34 20 40 Z" fill="currentColor" opacity="0.9"/>
+          <path d="M 60 40 Q 50 46 44 40 Q 50 34 60 40 Z" fill="currentColor" opacity="0.9"/>
+          <path d="M 26 26 Q 34 30 40 36 Q 30 34 26 26 Z" fill="currentColor" opacity="0.55"/>
+          <path d="M 54 26 Q 46 30 40 36 Q 50 34 54 26 Z" fill="currentColor" opacity="0.55"/>
+          <path d="M 26 54 Q 34 50 40 44 Q 30 46 26 54 Z" fill="currentColor" opacity="0.55"/>
+          <path d="M 54 54 Q 46 50 40 44 Q 50 46 54 54 Z" fill="currentColor" opacity="0.55"/>
+          <circle cx="40" cy="12" r="1.5" fill="currentColor"/>
+          <circle cx="40" cy="68" r="1.5" fill="currentColor"/>
+          <circle cx="12" cy="40" r="1.5" fill="currentColor"/>
+          <circle cx="68" cy="40" r="1.5" fill="currentColor"/>
+        </svg>
+      </div>
+      <h1 class="hub-title">தமிழ் இலக்கிய களஞ்சியம்</h1>
+      <p class="hub-subtitle">A Library of Classical Tamil Literature</p>
+      <p class="hub-tagline">
+        Two thousand years of Tamil wisdom — preserved on palm leaves, sung in temple courtyards,
+        whispered in village lanes. Read here in original Tamil, transliterated, translated,
+        and accompanied by traditional commentary.
+      </p>
+    </section>
+
+    <div class="hub-divider">◆ ◆ ◆</div>
+
+            <section class="works-section">
+      <h2 class="works-section-title">The Collection</h2>
+
+      <!-- ══ I. PATHINENMELKANAKKU ═══════════════════════════════════════════════ -->
+      <div class="works-category" data-cat="pathinenmelkanakku">
+        <div class="works-category-header">
+          <div class="works-category-inner" style="border-left:4.5rem solid #7a1a0a">
+            <span class="works-category-num" style="color:#fff">I</span>
+            <div class="works-category-ornament">◆ ◆ ◆ ◆ ◆ ◆</div>
+            <div class="works-category-text">
+              <span class="works-category-tamil">பதினெண்மேற்கணக்கு</span>
+              <span class="works-category-eng">Patiṉeṉmēṟkaṇakku — The Eighteen Major Works</span>
+              <span class="works-category-count">18 works
+                <span class="works-category-badge">Complete — 18 / 18</span>
+              </span>
+            </div>
+            <div class="works-category-desc">The eighteen major Sangam works — the crowning achievement of classical Tamil poetry (c. 300 BCE – 300 CE). Divided into the Eṭṭutokai (eight lyric anthologies) and the Pattuppāṭṭu (ten long poems). Together they form the oldest surviving body of secular poetry in any Indian language.</div>
+          </div>
+        </div>
+        <div class="works-grid">
+          <div class="works-subcategory-header" style="grid-column:1/-1;border-left:3px solid #2c3a6e;padding:0.75rem 1.25rem;margin-top:1.5rem;margin-bottom:0.25rem;background:rgba(0,0,0,0.035);border-radius:2px;">
+            <span style="font-family:var(--font-tamil);font-size:1.15rem;color:#2c3a6e;font-weight:700;">எட்டுத்தொகை</span>
+            <span style="font-family:var(--font-display);font-style:italic;color:var(--ink-secondary);margin-left:0.75rem;">Eṭṭutokai — The Eight Anthologies</span>
+            <span style="font-size:0.8rem;letter-spacing:0.1em;color:var(--accent-ochre);margin-left:0.75rem;text-transform:uppercase;">8 anthologies</span>
+          </div>
+          <a href="kurunthokai/index.html" class="work-card" style="
+          --accent-vermillion: #2c3a6e;
+          --accent-kumkum: #3d5080;
+          --accent-ochre: #9ba8c0;
+          --accent-gold: #2c3a6e;
+        ">
+          <div class="work-card-ornament">
+            <!-- Moon-on-water motif -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Moon -->
+              <circle cx="30" cy="20" r="10" stroke-width="1.3" opacity="0.9"/>
+              <path d="M 30 10 Q 40 14 40 20 Q 40 26 30 30 Q 36 25 36 20 Q 36 14 30 10 Z" fill="currentColor" opacity="0.22" stroke="none"/>
+              <!-- Still water ripples -->
+              <path d="M 14 38 Q 30 34 46 38" stroke-width="1.1" opacity="0.7"/>
+              <path d="M 17 42 Q 30 38.5 43 42" stroke-width="1" opacity="0.5"/>
+              <path d="M 20 46 Q 30 43 40 46" stroke-width="0.9" opacity="0.35"/>
+              <!-- Moon reflection -->
+              <ellipse cx="30" cy="38" rx="4" ry="1.8" fill="currentColor" opacity="0.3" stroke="none"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">குறுந்தொகை</h3>
+          <p class="work-card-english">Kuṟuntokai</p>
+          <p class="work-card-author">Compiled by Pūrikō · c. 300 BCE – 300 CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            Four hundred and one short poems — each just four to eight lines — the
+            compressed gems of Sangam love poetry. Every poem belongs to one of five
+            landscapes where the landscape <em>is</em> the emotion. Where the Akanāṉūṟu
+            is a great river, the Kuṟuntokai is moonlight on a still pond: dark, deep,
+            and luminous.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">401</div>
+              <div class="work-stat-label">Poems</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">4–8</div>
+              <div class="work-stat-label">Lines Each</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">200+</div>
+              <div class="work-stat-label">Poets</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="nattrinai/index.html" class="work-card" style="--accent-vermillion:#8a3a28;--accent-kumkum:#a84a38;--accent-ochre:#c86050;--accent-gold:#8a3a28;">
+          <div class="work-card-ornament">
+            <!-- Jasmine spray -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 30 54 Q 30 36 30 26" stroke-width="2.5" opacity="0.6"/>
+              <path d="M 30 36 Q 20 30 13 22" stroke-width="1.8" opacity="0.58"/>
+              <path d="M 30 36 Q 40 30 47 22" stroke-width="1.8" opacity="0.58"/>
+              <path d="M 30 44 Q 18 38 10 32" stroke-width="1.4" opacity="0.42"/>
+              <path d="M 30 44 Q 42 38 50 32" stroke-width="1.4" opacity="0.42"/>
+              <circle cx="30" cy="23" r="7" fill="currentColor" opacity="0.80" stroke="none"/>
+              <circle cx="13" cy="19" r="5.5" fill="currentColor" opacity="0.65" stroke="none"/>
+              <circle cx="47" cy="19" r="5.5" fill="currentColor" opacity="0.65" stroke="none"/>
+              <circle cx="10" cy="29" r="4" fill="currentColor" opacity="0.45" stroke="none"/>
+              <circle cx="50" cy="29" r="4" fill="currentColor" opacity="0.45" stroke="none"/>
+              <circle cx="30" cy="23" r="3" fill="white" stroke="none" opacity="0.48"/>
+              <circle cx="13" cy="19" r="2.2" fill="white" stroke="none" opacity="0.4"/>
+              <circle cx="47" cy="19" r="2.2" fill="white" stroke="none" opacity="0.4"/>
+            </svg>
+          </div>
+          <h3 class="work-card-tamil">நற்றிணை</h3>
+          <p class="work-card-english">Naṟṟiṇai</p>
+          <p class="work-card-author">175+ Sangam Poets · Compiled by Paraṇar · c. 300 BCE – 300 CE</p>
+          <div class="work-card-divider">⁂</div>
+          <p class="work-card-description">The Good Anthology — 400 fragrant medium-length love poems mixed across all five tiṇai landscapes. The middle register of Sangam love poetry: longer than the Kuṟuntokai, shorter than the Akanāṉūṟu. Includes Kapilar's famous red-earth-rain poem (parallel to Kuṟuntokai 1), and poems by Nakkīrar, Paraṇar, and over 175 others.</p>
+          <div class="work-card-stats">
+            <div class="work-stat"><div class="work-stat-num">400</div><div class="work-stat-label">Poems</div></div>
+            <div class="work-stat"><div class="work-stat-num">175+</div><div class="work-stat-label">Poets</div></div>
+            <div class="work-stat"><div class="work-stat-num">5</div><div class="work-stat-label">Tiṇai</div></div>
+          </div>
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="akanaanooru/index.html" class="work-card">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Akam motif: a heart-shaped lotus with five petals for the five landscapes -->
+              <circle cx="30" cy="30" r="3" fill="currentColor"/>
+              <path d="M 30 12 Q 36 22 30 28 Q 24 22 30 12 Z" fill="currentColor" opacity="0.85"/>
+              <path d="M 14 20 Q 22 26 28 30 Q 22 24 14 20 Z" fill="currentColor" opacity="0.7"/>
+              <path d="M 46 20 Q 38 26 32 30 Q 38 24 46 20 Z" fill="currentColor" opacity="0.7"/>
+              <path d="M 18 44 Q 26 38 30 32 Q 24 40 18 44 Z" fill="currentColor" opacity="0.55"/>
+              <path d="M 42 44 Q 34 38 30 32 Q 36 40 42 44 Z" fill="currentColor" opacity="0.55"/>
+              <circle cx="30" cy="48" r="1.5" fill="currentColor"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">அகநானூறு</h3>
+          <p class="work-card-english">Akanāṉūṟu</p>
+          <p class="work-card-author">Sangam Anthology · c. 300 BCE – 300 CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            The four hundred interior poems of the Sangam age — the great anthology
+            of <em>akam</em> (love) poetry. Mountains, forests, fields, seashores,
+            wastelands: each landscape carries its own phase of love, from the
+            secret tryst before marriage to the lover's distant journey across the desert.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">5</div>
+              <div class="work-stat-label">Landscapes</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">400</div>
+              <div class="work-stat-label">Poems</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">145+</div>
+              <div class="work-stat-label">Poets</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="puranaanooru/index.html" class="work-card">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Sangam-era motif: a stylised banner with sun & moon -->
+              <circle cx="18" cy="18" r="5" fill="currentColor" opacity="0.85"/>
+              <circle cx="42" cy="18" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M 30 26 L 30 50" stroke="currentColor" stroke-width="2"/>
+              <path d="M 22 32 Q 30 28 38 32 Q 30 38 22 32 Z" fill="currentColor" opacity="0.7"/>
+              <path d="M 24 42 Q 30 40 36 42 Q 30 46 24 42 Z" fill="currentColor" opacity="0.5"/>
+              <circle cx="30" cy="50" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">புறநானூறு</h3>
+          <p class="work-card-english">Puṟanāṉūṟu</p>
+          <p class="work-card-author">Sangam Anthology · c. 300 BCE – 300 CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            The four hundred public poems of the Sangam age — songs of kings and
+            war, generosity and lament, the ethics of governance and the
+            impermanence of glory. A polyphonic chorus of some 150 poets, this
+            anthology preserves the lived political and social world of early
+            Tamil civilization.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">150+</div>
+              <div class="work-stat-label">Poets</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">400</div>
+              <div class="work-stat-label">Poems</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">600y</div>
+              <div class="work-stat-label">Span</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="ainkurunooru/index.html" class="work-card" style="--accent-vermillion:#8a6a08;--accent-kumkum:#a88020;--accent-ochre:#c89a30;--accent-gold:#8a6a08;">
+          <div class="work-card-ornament">
+            <!-- Five-petal flower -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="30" cy="30" r="5.5" fill="currentColor" opacity="0.85" stroke="none"/>
+              <path d="M 30 30 Q 27 18 30 8 Q 33 18 30 30 Z" fill="currentColor" opacity="0.72" stroke="none"/>
+              <path d="M 30 30 Q 40 22 48 14 Q 42 25 30 30 Z" fill="currentColor" opacity="0.72" stroke="none"/>
+              <path d="M 30 30 Q 42 36 52 42 Q 40 40 30 30 Z" fill="currentColor" opacity="0.62" stroke="none"/>
+              <path d="M 30 30 Q 20 42 16 52 Q 22 40 30 30 Z" fill="currentColor" opacity="0.62" stroke="none"/>
+              <path d="M 30 30 Q 18 24 10 16 Q 20 22 30 30 Z" fill="currentColor" opacity="0.67" stroke="none"/>
+            </svg>
+          </div>
+          <h3 class="work-card-tamil">ஐங்குறுநூறு</h3>
+          <p class="work-card-english">Aiṅkuṟunūṟu</p>
+          <p class="work-card-author">Five Sangam Poets · c. 300 BCE – 300 CE</p>
+          <div class="work-card-divider">⁂</div>
+          <p class="work-card-description">The Five Hundreds — 500 short love poems, exactly 100 per tiṇai landscape, each landscape given entirely to a single poet. Kapilar on the mountains, Pēyaṉār in the forest, Ammūvaṉār at the shore, Ōrampōkiyār by the river, Ōtalāntaiyār in the burning wasteland. Five voices, five worlds, one grammar of love.</p>
+          <div class="work-card-stats">
+            <div class="work-stat"><div class="work-stat-num">500</div><div class="work-stat-label">Poems</div></div>
+            <div class="work-stat"><div class="work-stat-num">5</div><div class="work-stat-label">Poets</div></div>
+            <div class="work-stat"><div class="work-stat-num">100</div><div class="work-stat-label">Each</div></div>
+          </div>
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="kalithogai/index.html" class="work-card" style="--accent-vermillion:#0d5c6e;--accent-kumkum:#1a7a8a;--accent-ochre:#c8a020;--accent-gold:#0d5c6e;">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="30" cy="30" r="20" stroke-width="0.8" opacity="0.3" stroke-dasharray="3 3"/>
+              <path d="M 30 8 Q 37 18 30 28" stroke-width="1.3" opacity="0.85"/>
+              <path d="M 30 52 Q 23 42 30 32" stroke-width="1.3" opacity="0.85"/>
+              <path d="M 8 30 Q 18 23 28 30" stroke-width="1.3" opacity="0.85"/>
+              <path d="M 52 30 Q 42 37 32 30" stroke-width="1.3" opacity="0.85"/>
+              <path d="M 14 14 Q 22 22 30 30" stroke-width="1.1" opacity="0.65"/>
+              <path d="M 46 14 Q 38 22 30 30" stroke-width="1.1" opacity="0.65"/>
+              <path d="M 14 46 Q 22 38 30 30" stroke-width="1.1" opacity="0.65"/>
+              <path d="M 46 46 Q 38 38 30 30" stroke-width="1.1" opacity="0.65"/>
+              <circle cx="30" cy="30" r="4.5" fill="currentColor" opacity="0.9" stroke="none"/>
+              <circle cx="30" cy="30" r="1.8" fill="white" stroke="none" opacity="0.55"/>
+            </svg>
+          </div>
+          <h3 class="work-card-tamil">கலித்தொகை</h3>
+          <p class="work-card-english">Kalittokai</p>
+          <p class="work-card-author">Five Sangam Poets · c. 300 BCE – 300 CE</p>
+          <div class="work-card-divider">⁂</div>
+          <p class="work-card-description">One hundred and fifty dramatic poems in kali metre — the most theatrically vivid Sangam anthology. Lovers argue and concede across five tiṇai books: the wasteland's grief, the mountain's peacock-dance, the forest's patient rains, the river-field's furious wit, the seashore's aching vigil. Five poets, five landscapes, one insistent drum-beat.</p>
+          <div class="work-card-stats">
+            <div class="work-stat"><div class="work-stat-num">150</div><div class="work-stat-label">Poems</div></div>
+            <div class="work-stat"><div class="work-stat-num">5</div><div class="work-stat-label">Books</div></div>
+            <div class="work-stat"><div class="work-stat-num">5</div><div class="work-stat-label">Poets</div></div>
+          </div>
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="paripaadal/index.html" class="work-card" style="--accent-vermillion:#3a1a5a;--accent-kumkum:#4e2878;--accent-ochre:#9a7a18;--accent-gold:#3a1a5a;">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 30 10 Q 44 10 46 22 Q 48 34 38 40 Q 28 46 20 40 Q 12 34 14 22 Q 16 12 30 10 Z" stroke-width="1.5" opacity="0.85"/>
+              <path d="M 30 16 Q 39 16 40 24 Q 41 32 34 36 Q 27 40 20 36 Q 13 32 14 24" stroke-width="0.8" opacity="0.45"/>
+              <path d="M 20 40 Q 14 47 10 56" stroke-width="3" opacity="0.75"/>
+              <path d="M 46 22 Q 52 15 50 10 Q 48 8 44 12" stroke-width="1.2" opacity="0.5"/>
+              <path d="M 6 48 Q 10 43 14 48" stroke-width="1.1" opacity="0.38"/>
+              <path d="M 3 42 Q 8 35 14 42" stroke-width="1" opacity="0.25"/>
+            </svg>
+          </div>
+          <h3 class="work-card-tamil">பரிபாடல்</h3>
+          <p class="work-card-english">Paripaāṭal</p>
+          <p class="work-card-author">Multiple Sangam Poets · c. 300 BCE – 300 CE</p>
+          <div class="work-card-divider">⁂</div>
+          <p class="work-card-description">The most sacred of the Eight Anthologies — 22 surviving devotional hymns set to music (the melodies are lost). Three divine addresses: to Tirumal the dark-cloud god, to Murukaṉ the spear-dancer, and to the Vaiyai river of Madurai. The earliest Tamil bhakti, ending with: <em>வையை வாழ்க! தமிழ் வாழ்க!</em></p>
+          <div class="work-card-stats">
+            <div class="work-stat"><div class="work-stat-num">22</div><div class="work-stat-label">Surviving</div></div>
+            <div class="work-stat"><div class="work-stat-num">3</div><div class="work-stat-label">Deities</div></div>
+            <div class="work-stat"><div class="work-stat-num">♪</div><div class="work-stat-label">Musical</div></div>
+          </div>
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="patirrupattu/index.html" class="work-card" style="--accent-vermillion:#9a6800;--accent-kumkum:#b88010;--accent-ochre:#d4a020;--accent-gold:#9a6800;">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 10 42 Q 14 32 24 28 Q 36 24 46 28 Q 54 32 56 42" stroke-width="2" opacity="0.85"/>
+              <path d="M 10 42 Q 10 50 18 52 Q 26 54 36 52 Q 46 54 52 52 Q 58 50 58 42" stroke-width="1.5" opacity="0.8"/>
+              <path d="M 18 52 L 18 58" stroke-width="3" opacity="0.7"/>
+              <path d="M 30 53 L 30 58" stroke-width="3" opacity="0.7"/>
+              <path d="M 45 52 L 45 58" stroke-width="3" opacity="0.7"/>
+              <path d="M 56 42 Q 60 42 61 38 Q 62 34 58 32" stroke-width="1.5" opacity="0.6"/>
+              <path d="M 10 42 Q 6 42 5 38 Q 4 34 8 32" stroke-width="1.5" opacity="0.6"/>
+              <path d="M 24 28 Q 30 16 36 12 Q 42 16 46 28" stroke-width="1.3" opacity="0.72"/>
+              <circle cx="36" cy="10" r="4" fill="currentColor" opacity="0.6" stroke="none"/>
+            </svg>
+          </div>
+          <h3 class="work-card-tamil">பதிற்றுப்பத்து</h3>
+          <p class="work-card-english">Patiṟṟuppattu</p>
+          <p class="work-card-author">Eight Sangam Poets · c. 1st–5th century CE</p>
+          <div class="work-card-divider">⁂</div>
+          <p class="work-card-description">The Ten Tens — 80 surviving heroic poems across eight decades, each decade one poet praising one Cēra king. The only Sangam anthology devoted entirely to royal panegyric: gold and elephants given, undying fame returned. Includes Paraṇar's and Kapilar's decades, and the famous Ceṅkuṭṭuvaṉ poems linked to the Cilappatikāram.</p>
+          <div class="work-card-stats">
+            <div class="work-stat"><div class="work-stat-num">80</div><div class="work-stat-label">Poems</div></div>
+            <div class="work-stat"><div class="work-stat-num">8</div><div class="work-stat-label">Decades</div></div>
+            <div class="work-stat"><div class="work-stat-num">8</div><div class="work-stat-label">Kings</div></div>
+          </div>
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <div class="works-subcategory-header" style="grid-column:1/-1;border-left:3px solid #5a2a78;padding:0.75rem 1.25rem;margin-top:1.5rem;margin-bottom:0.25rem;background:rgba(0,0,0,0.035);border-radius:2px;">
+            <span style="font-family:var(--font-tamil);font-size:1.15rem;color:#5a2a78;font-weight:700;">பத்துப்பாட்டு</span>
+            <span style="font-family:var(--font-display);font-style:italic;color:var(--ink-secondary);margin-left:0.75rem;">Pattuppāṭṭu — The Ten Songs</span>
+            <span style="font-size:0.8rem;letter-spacing:0.1em;color:var(--accent-ochre);margin-left:0.75rem;text-transform:uppercase;">10 long poems</span>
+          </div>
+          <a href="pathupaatu/index.html" class="work-card" style="--accent-vermillion:#5a2a78;--accent-kumkum:#7a3a98;--accent-ochre:#9a50b8;--accent-gold:#5a2a78;">
+            <div class="work-card-ornament">
+              <!-- Vel (spear) mark -->
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="30" y1="56" x2="30" y2="14" stroke-width="2.5" opacity="0.62"/>
+                <path d="M 20 26 Q 30 8 40 26 Q 35 20 30 14 Q 25 20 20 26 Z" fill="currentColor" opacity="0.82" stroke="none"/>
+                <path d="M 23 28 Q 30 12 37 28" stroke-width="1.2" opacity="0.45"/>
+                <path d="M 19 34 Q 24 29 30 34 Q 36 29 41 34" stroke-width="1.5" opacity="0.5"/>
+                <path d="M 22 39 Q 26 35 30 39 Q 34 35 38 39" stroke-width="1" opacity="0.35"/>
+                <path d="M 24 50 Q 27 44 30 50 Q 33 44 36 50" stroke-width="1" opacity="0.35"/>
+                <circle cx="30" cy="55" r="3" fill="currentColor" opacity="0.28" stroke="none"/>
+              </svg>
+            </div>
+            <h3 class="work-card-tamil">பத்துப்பாட்டு</h3>
+            <p class="work-card-english">Pattuppāṭṭu</p>
+            <p class="work-card-author">Nine Sangam Poets · c. 100 BCE – 250 CE</p>
+            <div class="work-card-divider">⁂</div>
+            <p class="work-card-description">
+              The Ten Songs — ten long poems, the grand canvases of Sangam poetry. From the sacred
+              Tirumurukaṟṟuppaṭai (Nakkīrar's guide to Murukaṉ's six hill-shrines) to the city-epic
+              Maturaikkāñci (Madurai's glory and impermanence) to Kapilar's mountain poem naming
+              99 flowers. Five āṟṟuppaṭai, three akam love poems, two puṟam city-portraits.
+            </p>
+            <div class="work-card-stats">
+              <div class="work-stat"><div class="work-stat-num">10</div><div class="work-stat-label">Poems</div></div>
+              <div class="work-stat"><div class="work-stat-num">103–782</div><div class="work-stat-label">Lines</div></div>
+              <div class="work-stat"><div class="work-stat-num">9</div><div class="work-stat-label">Poets</div></div>
+            </div>
+            <div class="work-card-cta">Enter →</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ══ II. PATHINENKEEZHKANAKKU ═══════════════════════════════════════════════ -->
+      <div class="works-category" data-cat="pathinenkeezhkanakku">
+        <div class="works-category-header">
+          <div class="works-category-inner" style="border-left:4.5rem solid #4a5a1a">
+            <span class="works-category-num" style="color:#fff">II</span>
+            <div class="works-category-ornament">◆ ◆ ◆ ◆ ◆ ◆</div>
+            <div class="works-category-text">
+              <span class="works-category-tamil">பதினெண்கீழ்க்கணக்கு</span>
+              <span class="works-category-eng">Patiṉeṇkīḻkaṇakku — The Eighteen Minor Works</span>
+              <span class="works-category-count">18 works
+              </span>
+            </div>
+            <div class="works-category-desc">The eighteen minor didactic works — compact verses of moral wisdom and social instruction (c. 100 BCE – 500 CE). Where the Mēṟkaṇakku soar on lyric wings, the Kīḻkaṇakku distil ethical insight into tight, memorable verse-forms. The Tirukkuṟaḷ stands as the pinnacle — one of the world's great wisdom texts, translated into over a hundred languages. Kaḷavaḻi Nāṟpatu is the sole puram (heroic) work in this corpus.</div>
+          </div>
+        </div>
+        <div class="works-grid">
+          <a href="thirukkural/index.html" class="work-card">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="30" cy="30" r="3" fill="currentColor"/>
+              <path d="M 30 12 Q 36 22 30 28 Q 24 22 30 12 Z" fill="currentColor" opacity="0.85"/>
+              <path d="M 30 48 Q 36 38 30 32 Q 24 38 30 48 Z" fill="currentColor" opacity="0.85"/>
+              <path d="M 12 30 Q 22 36 28 30 Q 22 24 12 30 Z" fill="currentColor" opacity="0.85"/>
+              <path d="M 48 30 Q 38 36 32 30 Q 38 24 48 30 Z" fill="currentColor" opacity="0.85"/>
+              <circle cx="15" cy="15" r="1.3" fill="currentColor" opacity="0.7"/>
+              <circle cx="45" cy="15" r="1.3" fill="currentColor" opacity="0.7"/>
+              <circle cx="15" cy="45" r="1.3" fill="currentColor" opacity="0.7"/>
+              <circle cx="45" cy="45" r="1.3" fill="currentColor" opacity="0.7"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">திருக்குறள்</h3>
+          <p class="work-card-english">Thirukkural</p>
+          <p class="work-card-author">By Thiruvalluvar · c. 5th c. BCE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            The sacred couplets — 1,330 verses across the three pillars of life:
+            <em>Aṟam</em> (virtue), <em>Poruḷ</em> (wealth and polity), and <em>Inbam</em> (love).
+            Universal in scope, secular in spirit, and revered for two millennia as the
+            distilled wisdom of human living.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">3</div>
+              <div class="work-stat-label">Sections</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">133</div>
+              <div class="work-stat-label">Chapters</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">1,330</div>
+              <div class="work-stat-label">Couplets</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="naaladiyar/index.html" class="work-card" style="
+          --accent-vermillion: #7a3e1a;
+          --accent-kumkum: #9a5228;
+          --accent-ochre: #c8922a;
+          --accent-gold: #7a3e1a;
+        ">
+          <div class="work-card-ornament">
+            <!-- Banyan tree motif -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Trunk -->
+              <path d="M 30 55 L 30 34" stroke-width="2.5" opacity="0.8"/>
+              <!-- Aerial roots -->
+              <path d="M 20 42 L 20 55" stroke-width="1.3" opacity="0.5"/>
+              <path d="M 40 42 L 40 55" stroke-width="1.3" opacity="0.5"/>
+              <path d="M 14 46 L 14 55" stroke-width="1" opacity="0.35"/>
+              <path d="M 46 46 L 46 55" stroke-width="1" opacity="0.35"/>
+              <!-- Canopy -->
+              <path d="M 8 34 Q 18 18 30 15 Q 42 18 52 34 Q 42 30 30 32 Q 18 30 8 34 Z" fill="currentColor" opacity="0.85"/>
+              <!-- Inner layer -->
+              <path d="M 13 34 Q 21 22 30 19 Q 39 22 47 34 Q 39 30 30 32 Q 21 30 13 34 Z" fill="currentColor" opacity="0.25" stroke="none"/>
+              <!-- Ground -->
+              <path d="M 6 55 L 54 55" stroke-width="1.2" opacity="0.3"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">நாலடியார்</h3>
+          <p class="work-card-english">Nālaṭiyār</p>
+          <p class="work-card-author">Compiled by Jain Scholars · c. 300–500 CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            Four hundred wisdom quatrains — each exactly four lines — organized in forty
+            chapters on the moral life. The great Tamil book of ethical instruction: on the
+            impermanence of wealth, the nature of true friendship, right livelihood,
+            and the path of renunciation. Written in the patina of aged copper.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">400</div>
+              <div class="work-stat-label">Verses</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">40</div>
+              <div class="work-stat-label">Chapters</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">4</div>
+              <div class="work-stat-label">Lines each</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="innaanaarpathu/index.html" class="work-card" style="
+          --accent-vermillion: #8a1a1a;
+          --accent-kumkum:     #6a1212;
+          --accent-ochre:      #6a4018;
+          --accent-gold:       #b87820;
+        ">
+          <div class="work-card-ornament">
+            <!-- Thorn mark: diagonal stroke with lateral spines -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 stroke="currentColor" stroke-width="2.0"
+                 stroke-linecap="round">
+              <line x1="18" y1="50" x2="42" y2="10" stroke-width="3.0" opacity="0.85"/>
+              <line x1="28" y1="36" x2="16" y2="30" stroke-width="1.8" opacity="0.65"/>
+              <line x1="34" y1="24" x2="46" y2="18" stroke-width="1.8" opacity="0.65"/>
+              <circle cx="42" cy="10" r="3.2" fill="currentColor" stroke="none" opacity="0.55"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">இன்னா நாற்பது</h3>
+          <p class="work-card-english">Iṉṉā Nāṟpatu — The Forty on the Unpleasant</p>
+          <p class="work-card-author">Kaḷḷāṭaṉār · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            Forty quatrains in the venba metre, each cataloguing three painful things — two
+            circumstantial, one moral — that build to a social or ethical climax. Part of the
+            Patiṉeṇkīḻkaṇakku anthology. The companion work to Iṉiyavai Nāṟpatu ("Forty on
+            the Pleasant"). Ethics through negation: what harms, what shames, what ruins
+            persons and communities. Sharper and more satirical than the Nālaṭiyār, and
+            just as precise.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">40</div>
+              <div class="work-stat-label">Quatrains</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Venba</div>
+              <div class="work-stat-label">Metre</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Patiṉeṇ</div>
+              <div class="work-stat-label">Collection</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="iniyavainaarpathu/index.html" class="work-card" style="
+          --accent-vermillion: #c8880a;
+          --accent-kumkum:     #a06808;
+          --accent-ochre:      #1a5228;
+          --accent-gold:       #d4740a;
+        ">
+          <div class="work-card-ornament">
+            <!-- Lotus mark: opening petals -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+              <circle cx="30" cy="30" r="7" fill="currentColor" opacity="0.40" stroke="none"/>
+              <ellipse cx="30" cy="16" rx="4.5" ry="8.5" stroke-width="1.8" opacity="0.82"/>
+              <ellipse cx="30" cy="16" rx="4.5" ry="8.5" stroke-width="1.8" opacity="0.82"
+                       transform="rotate(45 30 30)"/>
+              <ellipse cx="30" cy="16" rx="4.5" ry="8.5" stroke-width="1.8" opacity="0.82"
+                       transform="rotate(90 30 30)"/>
+              <ellipse cx="30" cy="16" rx="4.5" ry="8.5" stroke-width="1.8" opacity="0.82"
+                       transform="rotate(135 30 30)"/>
+              <ellipse cx="30" cy="16" rx="4.5" ry="8.5" stroke-width="1.8" opacity="0.82"
+                       transform="rotate(180 30 30)"/>
+              <ellipse cx="30" cy="16" rx="4.5" ry="8.5" stroke-width="1.8" opacity="0.82"
+                       transform="rotate(225 30 30)"/>
+              <ellipse cx="30" cy="16" rx="4.5" ry="8.5" stroke-width="1.8" opacity="0.82"
+                       transform="rotate(270 30 30)"/>
+              <ellipse cx="30" cy="16" rx="4.5" ry="8.5" stroke-width="1.8" opacity="0.82"
+                       transform="rotate(315 30 30)"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">இனியவை நாற்பது</h3>
+          <p class="work-card-english">Iṉiyavai Nāṟpatu — The Forty on the Pleasant</p>
+          <p class="work-card-author">Pūtañcēntaṉār · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            Forty quatrains in the venba metre, each cataloguing three pleasant things — two from
+            nature or circumstance, one a social or ethical virtue — that build to a celebration of
+            what genuinely nourishes persons and communities. The direct companion to Iṉṉā Nāṟpatu.
+            Together the two works form the Patiṉeṇkīḻkaṇakku's complete moral diptych: what harms
+            and what delights, what to avoid and what to seek.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">40</div>
+              <div class="work-stat-label">Quatrains</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Venba</div>
+              <div class="work-stat-label">Metre</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Patiṉeṇ</div>
+              <div class="work-stat-label">Collection</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="karnarpathu/index.html" class="work-card" style="
+          --accent-vermillion: #0e1e38;
+          --accent-kumkum:     #182848;
+          --accent-ochre:      #2a5830;
+          --accent-gold:       #4a8050;
+        ">
+          <div class="work-card-ornament">
+            <!-- Rain cloud with drops -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path d="M 12 28 Q 11 16 21 14 Q 21 7 30 8 Q 39 7 39 14 Q 49 16 48 28 Q 53 29 53 34 Q 53 41 46 42 L 14 42 Q 7 41 7 34 Q 7 29 12 28 Z"
+                    fill="currentColor" opacity="0.82"/>
+              <line x1="21" y1="47" x2="18" y2="55" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" opacity="0.60"/>
+              <line x1="30" y1="47" x2="30" y2="55" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" opacity="0.60"/>
+              <line x1="39" y1="47" x2="42" y2="55" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" opacity="0.60"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">கார் நாற்பது</h3>
+          <p class="work-card-english">Kār Nāṟpatu — Forty on the Rains</p>
+          <p class="work-card-author">Matturai Marutaṉ Iḷanākaṉār · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            Forty akam love poems entirely devoted to the kār (rainy) season — the season
+            of reunion in the mullai tiṇai. The rains come; the kadamba blooms; the jasmine
+            opens. The heroine waits, the friend reassures, the hero hastens home. Unlike the
+            larger Sangam anthologies, every poem here speaks from the same season, the same
+            waiting landscape, the same longing — forty approaches to a single promise:
+            the rains will bring him back.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">40</div>
+              <div class="work-stat-label">Poems</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Mullai</div>
+              <div class="work-stat-label">Tiṇai</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Patiṉeṇ</div>
+              <div class="work-stat-label">Collection</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="ainthinaiaimpathu/index.html" class="work-card" style="
+          --accent-vermillion: #2a1848;
+          --accent-kumkum:     #3a2858;
+          --accent-ochre:      #6a2888;
+          --accent-gold:       #9a68c8;
+        ">
+          <div class="work-card-ornament">
+            <!-- Five dots in a ring — the five tiṇai -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="8"  r="6.5" fill="#6a2888" opacity="0.85"/>
+              <circle cx="52" cy="23" r="6.5" fill="#2a6830" opacity="0.80"/>
+              <circle cx="44" cy="48" r="6.5" fill="#1848a0" opacity="0.80"/>
+              <circle cx="16" cy="48" r="6.5" fill="#1878a8" opacity="0.78"/>
+              <circle cx="8"  cy="23" r="6.5" fill="#9a4808" opacity="0.80"/>
+              <circle cx="30" cy="30" r="3.5" fill="currentColor" opacity="0.25"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">ஐந்திணை ஐம்பது</h3>
+          <p class="work-card-english">Aintiṇai Aimpatu — Fifty on the Five Landscapes</p>
+          <p class="work-card-author">Māmulaṉār · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            Fifty akam love poems across all five classical Tamil landscapes — ten poems
+            each for kuṟiñci (mountain, union), mullai (forest, waiting), marutam
+            (river-fields, quarrel), neytal (seashore, longing), and pālai (wasteland,
+            separation). Where Kār Nāṟpatu goes deep into one season, Aintiṇai Aimpatu
+            surveys the complete grammar of love — five landscapes, five feelings,
+            one unbroken thread running through all.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">50</div>
+              <div class="work-stat-label">Poems</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">5</div>
+              <div class="work-stat-label">Tiṇai</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Patiṉeṇ</div>
+              <div class="work-stat-label">Collection</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="ainthinaiezhupatu/index.html" class="work-card" style="
+          --accent-vermillion: #5a2010;
+          --accent-kumkum:     #6a2c18;
+          --accent-ochre:      #7a3818;
+          --accent-gold:       #a05828;
+        ">
+          <div class="work-card-ornament">
+            <!-- Five dots in a wider pentagon with connecting lines -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="7"  r="6.5" fill="#6a2888" opacity="0.85"/>
+              <circle cx="53" cy="22" r="6.5" fill="#2a6830" opacity="0.80"/>
+              <circle cx="44" cy="50" r="6.5" fill="#1848a0" opacity="0.80"/>
+              <circle cx="16" cy="50" r="6.5" fill="#1878a8" opacity="0.78"/>
+              <circle cx="7"  cy="22" r="6.5" fill="#9a4808" opacity="0.80"/>
+              <circle cx="30" cy="30" r="3.5" fill="currentColor" opacity="0.20"/>
+              <polygon points="30,7 53,22 44,50 16,50 7,22"
+                       fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.18"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">ஐந்திணை எழுபது</h3>
+          <p class="work-card-english">Aintiṇai Eḻupatu — Seventy on the Five Landscapes</p>
+          <p class="work-card-author">Mōcikīraṉār · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            Seventy akam love poems across all five classical Tamil landscapes — fourteen
+            poems each for kuṟiñci (mountain, union), mullai (forest, waiting), marutam
+            (river-fields, quarrel), neytal (seashore, longing), and pālai (wasteland,
+            separation). The companion to Aintiṇai Aimpatu: where that work gives ten
+            poems per tiṇai, this gives fourteen — room for the full emotional arc of
+            each landscape, from first signal through crisis to resolution. Five
+            landscapes, one love, seventy ways of saying it.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">70</div>
+              <div class="work-stat-label">Poems</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">5</div>
+              <div class="work-stat-label">Tiṇai</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Patiṉeṇ</div>
+              <div class="work-stat-label">Collection</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="trikadukam/index.html" class="work-card" style="
+          --accent-vermillion: #3a2010;
+          --accent-kumkum:     #5a3818;
+          --accent-ochre:      #9a5210;
+          --accent-gold:       #b86818;
+        ">
+          <div class="work-card-ornament">
+            <!-- Three dots in a triangle — the three pungents -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="16" r="7.5" fill="currentColor" opacity="0.80"/>
+              <circle cx="16" cy="40" r="7.5" fill="currentColor" opacity="0.80"/>
+              <circle cx="44" cy="40" r="7.5" fill="currentColor" opacity="0.80"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">திரிகடுகம்</h3>
+          <p class="work-card-english">Tirikkaṭukam — The Three Pungents</p>
+          <p class="work-card-author">Nallāṭaṉār · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            One hundred triplet-verses, each naming three co-equal moral truths. Named for the
+            three pungent Ayurvedic spices — dry ginger, black pepper, long pepper — that together
+            stimulate and clear the body. As those spices work on the body, each verse's three
+            truths work on the mind: sharp, direct, medicinal. Not a staircase to a climax
+            (like the Nāṟpatu works) but a stable three-legged tripod — 300 truths in 100 verses.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">100</div>
+              <div class="work-stat-label">Verses</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">300</div>
+              <div class="work-stat-label">Moral truths</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Patiṉeṇ</div>
+              <div class="work-stat-label">Collection</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="nanmanikkadikai/index.html" class="work-card" style="
+          --accent-vermillion: #1a2a5a;
+          --accent-kumkum:     #2a3a6a;
+          --accent-ochre:      #a87810;
+          --accent-gold:       #c89820;
+        ">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8"  y="8"  width="14" height="14" rx="1.5" fill="currentColor" opacity="0.80" transform="rotate(45 15 15)"/>
+              <rect x="38" y="8"  width="14" height="14" rx="1.5" fill="currentColor" opacity="0.80" transform="rotate(45 45 15)"/>
+              <rect x="8"  y="38" width="14" height="14" rx="1.5" fill="currentColor" opacity="0.80" transform="rotate(45 15 45)"/>
+              <rect x="38" y="38" width="14" height="14" rx="1.5" fill="currentColor" opacity="0.80" transform="rotate(45 45 45)"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">நான்மணிக்கடிகை</h3>
+          <p class="work-card-english">Nāṉmaṇikkaṭikai — The Four Gems</p>
+          <p class="work-card-author">Viḷampinilai · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            One hundred and one quatrain-verses, each holding four moral gems in a small casket.
+            The name means "casket of four gems": nāṉku (four) + maṇi (gem, jewel) + kaṭikai
+            (small box). Each verse gathers four things that belong together — four marks of
+            the truly great, four things that cannot be hidden, four companions the wise will find.
+            Not a staircase, not a tripod: a treasury, opened one hundred and one times.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">101</div>
+              <div class="work-stat-label">Verses</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">404</div>
+              <div class="work-stat-label">Moral gems</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Patiṉeṇ</div>
+              <div class="work-stat-label">Collection</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="acharakovai/index.html" class="work-card" style="
+          --accent-vermillion: #1a3d20;
+          --accent-kumkum:     #2a5430;
+          --accent-ochre:      #904c10;
+          --accent-gold:       #b06020;
+        ">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path d="M 8 44 Q 30 10 52 44"
+                    stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" fill="none" opacity="0.80"/>
+              <circle cx="8"  cy="44" r="4.5" fill="currentColor" opacity="0.70"/>
+              <circle cx="30" cy="18" r="4.5" fill="currentColor" opacity="0.70"/>
+              <circle cx="52" cy="44" r="4.5" fill="currentColor" opacity="0.70"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">ஆசாரக்கோவை</h3>
+          <p class="work-card-english">Ācarakōvai — The Garland of Good Conduct</p>
+          <p class="work-card-author">Peruṅkōcaṉār · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            One hundred venba verses — a garland of conduct rules strung like blossoms.
+            Each verse is a self-contained precept about how to live: when to rise, how to eat,
+            what to say, whom to honour, how to serve guests, how to trade honestly, how to age
+            well, and how to meet death without flinching. The most embodied and domestic of all
+            the Patiṉeṇkīḻkaṇakku works.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">100</div>
+              <div class="work-stat-label">Verses</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Ācāram</div>
+              <div class="work-stat-label">Theme</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Patiṉeṇ</div>
+              <div class="work-stat-label">Collection</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="eladhi/index.html" class="work-card" style="
+          --accent-vermillion: #1e4020;
+          --accent-kumkum:     #2e5830;
+          --accent-ochre:      #a86408;
+          --accent-gold:       #c88010;
+        ">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <ellipse cx="14" cy="42" rx="7" ry="10"
+                       fill="currentColor" opacity="0.78" transform="rotate(-22 14 42)"/>
+              <ellipse cx="30" cy="24" rx="7" ry="10"
+                       fill="currentColor" opacity="0.78"/>
+              <ellipse cx="46" cy="42" rx="7" ry="10"
+                       fill="currentColor" opacity="0.78" transform="rotate(22 46 42)"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">ஏலாதி</h3>
+          <p class="work-card-english">Ēlāti — The Cardamom</p>
+          <p class="work-card-author">Kaṇimētāviyār · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            Eighty triplet-verses named after the cardamom — the first and sweetest of the
+            three fragrant spices. Where Tirikkaṭukam is the three pungents, sharp and
+            corrective, Ēlāti is the three aromatics: sweet, gentle, lasting. Each verse
+            gathers three things sharing a single excellence — a threefold sweetness of
+            moral truth, fragrant as the spice itself.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">80</div>
+              <div class="work-stat-label">Verses</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">240</div>
+              <div class="work-stat-label">Moral truths</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Patiṉeṇ</div>
+              <div class="work-stat-label">Collection</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="mudhumozhikkanji/index.html" class="work-card" style="
+          --accent-vermillion: #1e2258;
+          --accent-kumkum:     #2e3278;
+          --accent-ochre:      #607088;
+          --accent-gold:       #a0b4c8;
+        ">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 38 8 A 20 20 0 1 0 38 52 A 14 14 0 1 1 38 8 Z"
+                    fill="currentColor" opacity="0.80"/>
+              <circle cx="48" cy="14" r="5" fill="currentColor" opacity="0.55"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">முதுமொழிக்காஞ்சி</h3>
+          <p class="work-card-english">Mutumoḻikkāñci — The Ancient Sayings Kāñci</p>
+          <p class="work-card-author">Maturai Kumaraṉār · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            One hundred kāñci verses — old truths spoken in the poetic mode of impermanence.
+            Each verse carries a mutumoḻi, an ancient saying proven by time, and presents it
+            through images from nature: the lamp that gives itself, the river that does not
+            return, the seed that contains the forest. The most lyrical of the Patiṉeṇ
+            ethical works — less interested in lists than in resonance.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">100</div>
+              <div class="work-stat-label">Verses</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Kāñci</div>
+              <div class="work-stat-label">Mode</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Patiṉeṇ</div>
+              <div class="work-stat-label">Collection</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="sirupanchamoolam/index.html" class="work-card" style="
+          --accent-vermillion: #1a3820;
+          --accent-kumkum:     #2a5030;
+          --accent-ochre:      #805818;
+          --accent-gold:       #4a8840;
+        ">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="10" r="6.5" fill="currentColor" opacity="0.82"/>
+              <circle cx="52" cy="26" r="6.5" fill="currentColor" opacity="0.82"/>
+              <circle cx="44" cy="50" r="6.5" fill="currentColor" opacity="0.82"/>
+              <circle cx="16" cy="50" r="6.5" fill="currentColor" opacity="0.82"/>
+              <circle cx="8"  cy="26" r="6.5" fill="currentColor" opacity="0.82"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">சிறுபஞ்சமூலம்</h3>
+          <p class="work-card-english">Ciṟupañcamūlam — The Five Small Roots</p>
+          <p class="work-card-author">Āmūvaṉār · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            One hundred quintet-verses, each naming five co-equal moral truths — 500 truths
+            in all, arranged not in hierarchy but as a stable pentagon. Named for the five
+            small Ayurvedic root-medicines that heal together what no single root can heal
+            alone. Small, underground, and sustaining: the most systematically structured
+            of the Patiṉeṇ ethical works.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">100</div>
+              <div class="work-stat-label">Verses</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">500</div>
+              <div class="work-stat-label">Truths</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Patiṉeṇ</div>
+              <div class="work-stat-label">Collection</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="pazhamozhi/index.html" class="work-card" style="
+          --accent-vermillion: #141830;
+          --accent-kumkum:     #202848;
+          --accent-ochre:      #a07208;
+          --accent-gold:       #c8940a;
+        ">
+          <div class="work-card-ornament">
+            <!-- Open palmleaf manuscript — two arcs meeting at a spine -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path d="M 6 30 Q 18 12 30 30 Q 42 48 54 30"
+                    stroke="currentColor" stroke-width="3.5"
+                    stroke-linecap="round" opacity="0.88"/>
+              <path d="M 6 30 Q 18 48 30 30 Q 42 12 54 30"
+                    stroke="currentColor" stroke-width="3.5"
+                    stroke-linecap="round" opacity="0.45"/>
+              <line x1="30" y1="10" x2="30" y2="50"
+                    stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" opacity="0.38"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">பழமொழி நானூறு</h3>
+          <p class="work-card-english">Paḻamoḻi Nāṉūṟu — Four Hundred Proverbs</p>
+          <p class="work-card-author">Muṉṟurai Araiyaṉār · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            Four hundred proverb-and-commentary verses: each verse pairs a classical Tamil
+            proverb — an old saying ripened through generations of oral use — with a venba
+            poem that approaches it from an angle, placing it in a scene or parallel image
+            until its meaning becomes newly visible. The proverb is the keystone; the verse
+            is the arch built around it. Eleven thematic sections, from virtue to the nature
+            of things.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">400</div>
+              <div class="work-stat-label">Verses</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">400</div>
+              <div class="work-stat-label">Proverbs</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Patiṉeṇ</div>
+              <div class="work-stat-label">Collection</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="thinaimozhi/index.html" class="work-card" style="
+          --accent-vermillion: #1e4228;
+          --accent-kumkum:     #2d5e3c;
+          --accent-ochre:      #7a5218;
+          --accent-gold:       #4a7a38;
+        ">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <polyline points="6,46 16,24 26,46" stroke="currentColor" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" opacity="0.85"/>
+              <path d="M 30 14 Q 42 22 30 46 Q 18 22 30 14 Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" opacity="0.70"/>
+              <path d="M 6 52 Q 14 48 22 52 Q 30 56 38 52 Q 46 48 54 52" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" opacity="0.50"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">திணைமொழி ஐம்பது</h3>
+          <p class="work-card-english">Tiṇaimoli Aimpatu — Fifty Landscape-Sayings</p>
+          <p class="work-card-author">Kāñcipuram Nalluruttiraṉār · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            Fifty poems — ten for each of the five classical landscapes — that weave tiṇai
+            symbolism into concise, gem-like verses. Each poem binds an interior emotion
+            to its landscape: mountain-tryst, forest-patience, river-quarrel, sea-longing,
+            wasteland-separation. Part of the Patiṉeṇkīḻkaṇakku, the Eighteen Minor Classics.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">50</div>
+              <div class="work-stat-label">Poems</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">5</div>
+              <div class="work-stat-label">Tiṇai</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Patiṉeṇ</div>
+              <div class="work-stat-label">Collection</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="kainnilai/index.html" class="work-card" style="
+          --accent-vermillion: #1e1f3a;
+          --accent-kumkum:     #2d2f5e;
+          --accent-ochre:      #b87a18;
+          --accent-gold:       #4a3d7a;
+        ">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path d="M 38 12 Q 18 18 18 30 Q 18 42 38 48 Q 22 46 16 30 Q 10 14 38 12 Z"
+                    stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" opacity="0.85"/>
+              <circle cx="30" cy="22" r="2.2" fill="currentColor" opacity="0.5"/>
+              <circle cx="38" cy="28" r="2.2" fill="currentColor" opacity="0.5"/>
+              <circle cx="35" cy="37" r="2.2" fill="currentColor" opacity="0.5"/>
+              <circle cx="25" cy="38" r="2.2" fill="currentColor" opacity="0.5"/>
+              <circle cx="21" cy="29" r="2.2" fill="currentColor" opacity="0.5"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">கைந்நிலை</h3>
+          <p class="work-card-english">Kainnilai — Five Attitudes of Conduct</p>
+          <p class="work-card-author">Pullaṅkāṭar · c. 1st–5th century CE · Discovered 1931</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            Sixty akam love poems — twelve for each of the five tiṇai landscapes — discovered
+            as late as 1931, with roughly eighteen poems surviving only as fragments. The last
+            of the Eighteen Minor Classics, and among the most luminous: each poem binds an
+            interior emotional attitude to its landscape setting.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">60</div>
+              <div class="work-stat-label">Poems</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">~18</div>
+              <div class="work-stat-label">Fragments</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">18th</div>
+              <div class="work-stat-label">in Patiṉeṇ</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="thinaimalai/index.html" class="work-card" style="
+          --accent-vermillion: #2a1018;
+          --accent-kumkum:     #3d1822;
+          --accent-ochre:      #c88a10;
+          --accent-gold:       #b04428;
+        ">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path d="M 14 30 Q 14 10 30 10 Q 46 10 46 30 Q 46 50 30 50 Q 14 50 14 30 Z"
+                    stroke="currentColor" stroke-width="2.2" fill="none" opacity="0.7"/>
+              <circle cx="30" cy="12" r="2.5" fill="currentColor" opacity="0.6"/>
+              <circle cx="44" cy="22" r="2.5" fill="currentColor" opacity="0.6"/>
+              <circle cx="44" cy="38" r="2.5" fill="currentColor" opacity="0.6"/>
+              <circle cx="30" cy="48" r="2.5" fill="currentColor" opacity="0.6"/>
+              <circle cx="16" cy="30" r="2.5" fill="currentColor" opacity="0.6"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">திணைமாலை நூற்றைம்பது</h3>
+          <p class="work-card-english">Tiṇaimālai Nūṟṟaimpatu — The Garland of Landscape Settings</p>
+          <p class="work-card-author">Kaṉimēytaviyar · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            154 akam love poems — roughly 31 per tiṇai — the largest pure-akam anthology
+            in the Eighteen Minor Classics. A garland threading all five landscapes into one
+            continuous vision of love: mountain-tryst, forest-waiting, river-quarrel,
+            sea-longing, and wasteland-separation, each with its full range of speakers.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">154</div>
+              <div class="work-stat-label">Poems</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">5</div>
+              <div class="work-stat-label">Tiṇai</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">~31</div>
+              <div class="work-stat-label">Per Tiṇai</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="kalavali/index.html" class="work-card" style="
+          --accent-vermillion: #7a1820;
+          --accent-kumkum:     #3d1018;
+          --accent-ochre:      #a06018;
+          --accent-gold:       #c87820;
+        ">
+          <div class="work-card-ornament">
+            <!-- War drum with crossed sword -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none">
+              <ellipse cx="30" cy="20" rx="18" ry="7" fill="currentColor" opacity="0.78"/>
+              <rect x="12" y="20" width="36" height="14" fill="currentColor" opacity="0.65"/>
+              <ellipse cx="30" cy="34" rx="18" ry="7" fill="currentColor" opacity="0.52"/>
+              <line x1="8" y1="8" x2="52" y2="52" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.88"/>
+              <line x1="8" y1="15" x2="15" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">களவழி நாற்பது</h3>
+          <p class="work-card-english">Kaḷavaḻi Nāṟpatu — The Battlefield Forty</p>
+          <p class="work-card-author">Poykaiyār · c. 1st–5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            Forty puram poems on the battle of Kaḻumalam — the <em>only</em> puram work
+            in the Eighteen Minor Classics. Poykaiyār composed them to ransom his friend,
+            the captured Chera king, from Chola captivity. Every poem ends with the word
+            <em>களத்து</em> (kalaṭṭu — on the battlefield). War elephants in rut,
+            blood-rivers, peacocks scattering in grief, and the dark humour of a poet
+            who described horror without looking away.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">40</div>
+              <div class="work-stat-label">Poems</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Puram</div>
+              <div class="work-stat-label">Only Puram</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">களத்து</div>
+              <div class="work-stat-label">All End With</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+        </div>
+      </div>
+
+      <!-- ══ III. MAAKAVIYAM ═══════════════════════════════════════════════ -->
+      <div class="works-category" data-cat="maakaviyam">
+        <div class="works-category-header">
+          <div class="works-category-inner" style="border-left:4.5rem solid #8b1a1a">
+            <span class="works-category-num" style="color:#fff">III</span>
+            <div class="works-category-ornament">◆ ◆ ◆ ◆ ◆ ◆</div>
+            <div class="works-category-text">
+              <span class="works-category-tamil">மாகாவியம்</span>
+              <span class="works-category-eng">Māakāviyam — The Five Great Epics</span>
+              <span class="works-category-count">5 epics
+              </span>
+            </div>
+            <div class="works-category-desc">The five great Tamil epics — the Aimperuṅkāppiyam (c. 100 – 900 CE). Each is a vast narrative of dharma, love, and renunciation. Cilappatikāram and Maṇimēkalai form the Sangam pair; Civakacintāmaṇi the Jain masterpiece; Valayāpati and Kuṇṭalakēci the Buddhist contributions. Together they embody the pluralism at the heart of classical Tamil civilisation.</div>
+          </div>
+        </div>
+        <div class="works-grid">
+          <a href="cilappatikaram/index.html" class="work-card" style="
+          --accent-vermillion: #8b1a1a;
+          --accent-kumkum: #b02828;
+          --accent-ochre: #d4a017;
+          --accent-gold: #b8860b;
+        ">
+          <div class="work-card-ornament">
+            <!-- Ankle bracelet mark -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <!-- Bracelet circle with gap at top -->
+              <path d="M 30 8 A 20 20 0 1 1 29.2 8" stroke-width="2.2" opacity="0.92"/>
+              <!-- Clasp gap -->
+              <line x1="27.5" y1="8.4" x2="32.5" y2="8.4" stroke-width="1.4" opacity="0.38"/>
+              <!-- Gem at bottom -->
+              <circle cx="30" cy="50" r="3.5" fill="currentColor" stroke="none" opacity="0.88"/>
+              <!-- Small bells on sides -->
+              <circle cx="11" cy="32" r="2.5" fill="currentColor" stroke="none" opacity="0.62"/>
+              <circle cx="49" cy="32" r="2.5" fill="currentColor" stroke="none" opacity="0.62"/>
+              <!-- Inner decorative ring hint -->
+              <path d="M 30 15 A 13 13 0 1 1 29.5 15" stroke-width="0.7" opacity="0.22" stroke-dasharray="2 3"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">சிலப்பதிகாரம்</h3>
+          <p class="work-card-english">Cilappatikāram — The Ankle Bracelet</p>
+          <p class="work-card-author">Iḷaṅkō Aṭikaḷ · c. 5th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            The oldest Tamil narrative epic — ~6,000 lines, 30 cantos, three cities. A golden
+            ankle bracelet. A wife's unflinching devotion. A king's fatal carelessness. The
+            burning of a city. And a goddess carved in Himalayan stone. Kaṇṇaki and Kōvalaṉ's
+            story is unlike anything else in the Tamil canon: not an anthology, not a grammar
+            — a <em>kāviyam</em>, a great poem with beginning, middle, and end.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">~6,000</div>
+              <div class="work-stat-label">Lines</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">30</div>
+              <div class="work-stat-label">Cantos</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">3</div>
+              <div class="work-stat-label">Books</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="manimekalai/index.html" class="work-card" style="
+          --accent-vermillion: #0d5c63;
+          --accent-kumkum: #1a8a94;
+          --accent-ochre: #d9923e;
+          --accent-gold: #c07830;
+        ">
+          <div class="work-card-ornament">
+            <!-- Bowl mark: hemispherical bowl with lotus base -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <!-- Bowl body -->
+              <path d="M 12 24 Q 12 46 30 46 Q 48 46 48 24" stroke-width="2" opacity="0.90"/>
+              <!-- Bowl rim -->
+              <line x1="11" y1="24" x2="49" y2="24" stroke-width="2" opacity="0.78"/>
+              <!-- Lotus base -->
+              <path d="M 20 46 Q 30 52 40 46" stroke-width="1.6" opacity="0.68"/>
+              <circle cx="30" cy="55" r="2.5" fill="currentColor" stroke="none" opacity="0.60"/>
+              <!-- Inner shimmer — the inexhaustible contents -->
+              <path d="M 18 32 Q 30 29 42 32" stroke-width="1" opacity="0.30" stroke-dasharray="2 3"/>
+              <path d="M 16 39 Q 30 36 44 39" stroke-width="0.8" opacity="0.20" stroke-dasharray="2 4"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">மணிமேகலை</h3>
+          <p class="work-card-english">Maṇimēkalai — The Jewelled Girdle</p>
+          <p class="work-card-author">Cāttaṉār · c. 5th–6th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            The sequel to Cilappatikāram — Mātatavi's daughter, born from grief, walks toward
+            liberation. A sea-goddess. An inexhaustible bowl that feeds all the hungry. Six
+            philosophical schools debated and defeated. This is the Buddhist epic of the Tamil
+            tradition: not fury and fire, but compassion and dependent origination.
+            <em>Cilappatikāram</em>'s sister epic — and its answer.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">~4,600</div>
+              <div class="work-stat-label">Lines</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">30</div>
+              <div class="work-stat-label">Cantos</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">6</div>
+              <div class="work-stat-label">Schools Debated</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="civakacintamani/index.html" class="work-card" style="
+          --accent-vermillion: #1e1a5e;
+          --accent-kumkum:     #3a35a0;
+          --accent-ochre:      #e0b830;
+          --accent-gold:       #c8a020;
+        ">
+          <div class="work-card-ornament">
+            <!-- Cintāmaṇi gem mark: faceted jewel with star-light centre -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 stroke="currentColor" stroke-width="1.6"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="30,5 52,18 52,44 30,57 8,44 8,18" stroke-width="2" opacity="0.88"/>
+              <line x1="30" y1="5"  x2="30" y2="24" stroke-width="1.1" opacity="0.50"/>
+              <line x1="52" y1="18" x2="30" y2="24" stroke-width="1"   opacity="0.38"/>
+              <line x1="8"  y1="18" x2="30" y2="24" stroke-width="1"   opacity="0.38"/>
+              <line x1="30" y1="57" x2="30" y2="38" stroke-width="1.1" opacity="0.50"/>
+              <line x1="52" y1="44" x2="30" y2="38" stroke-width="1"   opacity="0.34"/>
+              <line x1="8"  y1="44" x2="30" y2="38" stroke-width="1"   opacity="0.34"/>
+              <line x1="8"  y1="18" x2="52" y2="18" stroke-width=".8"  opacity="0.24"/>
+              <line x1="8"  y1="44" x2="52" y2="44" stroke-width=".8"  opacity="0.22"/>
+              <circle cx="30" cy="30" r="4" fill="currentColor" stroke="none" opacity="0.78"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">சீவக சிந்தாமணி</h3>
+          <p class="work-card-english">Cīvaka Cintāmaṇi — The Fabulous Gem</p>
+          <p class="work-card-author">Tiruṭakkaṭēvar · c. early 10th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            The most exuberant of the great Tamil epics — warrior, musician, physician, lover,
+            king: Cīvakaṉ masters everything the world offers, wins eight queens across
+            thirteen adventurous cantos, and then renounces it all. The epic that introduced
+            the <em>viruttam</em> metre to Tamil literature, and gave Kambar the model for his
+            Rāmāyaṇam. Also called <em>Maṇa Nūl</em> — the Book of Marriages.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">3,145</div>
+              <div class="work-stat-label">Quatrains</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">13</div>
+              <div class="work-stat-label">Cantos</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">8</div>
+              <div class="work-stat-label">Marriages</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="valayapathi/index.html" class="work-card" style="
+          --accent-vermillion: #2a6b6e;
+          --accent-kumkum:     #1a4a4d;
+          --accent-ochre:      #a07828;
+          --accent-gold:       #c9a84c;
+        ">
+          <div class="work-card-ornament">
+            <!-- Broken bracelet mark: 270° arc with gem, gap at top-right -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 stroke="currentColor" stroke-width="2.2"
+                 stroke-linecap="round">
+              <path d="M 42 12 A 21 21 0 1 0 51 30" stroke-width="2.8" opacity="0.88"/>
+              <circle cx="30" cy="51" r="4" fill="currentColor" stroke="none" opacity="0.82"/>
+              <circle cx="10" cy="31" r="2.5" fill="currentColor" stroke="none" opacity="0.50"/>
+              <path d="M 41 15 A 13 13 0 1 0 49 30" stroke-width="0.9" opacity="0.18" stroke-dasharray="2 4"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">வளையாபதி</h3>
+          <p class="work-card-english">Valayāpati — The Bracelet Lady</p>
+          <p class="work-card-author">Attr. Vañcikovaṉ · c. 5th–8th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            The almost-lost fourth of the Five Great Tamil Epics — ~72 verses surviving from what was once
+            a complete Jain narrative epic set in the great Cōḷa port of Pukār. Its heroine, the
+            bracelet-woman of the title, ascends to the luminous world in the very last line that
+            survives. Recovered from centuries of grammatical quotation by U. V. Swaminatha Iyer.
+            The bracelet is broken; what remains still gleams.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">~72</div>
+              <div class="work-stat-label">Verses</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">4 of 5</div>
+              <div class="work-stat-label">Great Epics</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">4</div>
+              <div class="work-stat-label">Sources</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="kundalakesi/index.html" class="work-card" style="
+          --accent-vermillion: #2a2a6e;
+          --accent-kumkum:     #1a1a4e;
+          --accent-ochre:      #a07828;
+          --accent-gold:       #c9a84c;
+        ">
+          <div class="work-card-ornament">
+            <!-- Coiled ringlet mark: open spiral, 3.5 turns -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 stroke="currentColor" stroke-width="2.0"
+                 stroke-linecap="round">
+              <path d="M 30 30 m 3 0 a 3 3 0 1 1 -6 0 a 6 6 0 1 0 12 0 a 9 9 0 1 1 -18 0 a 12 12 0 1 0 24 0 a 15 15 0 1 1 -10.5 13.5"
+                    stroke-width="2.2" opacity="0.88"/>
+              <circle cx="39" cy="19" r="2.5" fill="currentColor" stroke="none" opacity="0.55"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">குண்டலகேசி</h3>
+          <p class="work-card-english">Kuṇṭalakēci — She of the Curled Hair</p>
+          <p class="work-card-author">Naṭṭarācaṉār · c. 5th–10th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            The fifth and last of the Five Great Tamil Epics — the deepest loss in the Tamil literary
+            canon. ~19 verses survive from what was once a complete Buddhist narrative: a merchant's
+            daughter who killed her husband, became a Jain ascetic, wandered as a debater for years,
+            and was defeated — and liberated — by a single question she could not answer. Sāriputta
+            asked: "What is the one?" She had no answer. The silence was the door.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">~19</div>
+              <div class="work-stat-label">Verses</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">5 of 5</div>
+              <div class="work-stat-label">Great Epics</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">Buddhist</div>
+              <div class="work-stat-label">Tradition</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+        </div>
+      </div>
+
+      <!-- ══ IV. BHAKTI ═══════════════════════════════════════════════ -->
+      <div class="works-category" data-cat="bhakti">
+        <div class="works-category-header">
+          <div class="works-category-inner" style="border-left:4.5rem solid #6b1a6b">
+            <span class="works-category-num" style="color:#fff">IV</span>
+            <div class="works-category-ornament">◆ ◆ ◆ ◆ ◆ ◆</div>
+            <div class="works-category-text">
+              <span class="works-category-tamil">பக்தி இலக்கியம்</span>
+              <span class="works-category-eng">Bhakti Ilakkiyam — Devotional Literature</span>
+              <span class="works-category-count">2 works
+              </span>
+            </div>
+            <div class="works-category-desc">The great Tamil devotional corpus — from the Vaiṣṇava Āḻvārs to the Śaiva Nāyaṉmārs (c. 600 – 900 CE). The Tirupāvai (Āṇṭāḷ's 30 verses) and the Tiruvācakam (Māṇikkavācakar's ecstatic Śiva-hymns) represent two of the most beloved sacred texts in Tamil literature — poetry where devotion is itself a form of cognition.</div>
+          </div>
+        </div>
+        <div class="works-grid">
+          <a href="thiruppavai/index.html" class="work-card" style="
+          --accent-vermillion: #8b6400;
+          --accent-kumkum: #c8940a;
+          --accent-ochre: #9b3a5a;
+          --accent-gold: #8b6400;
+        ">
+          <div class="work-card-ornament">
+            <!-- Lotus SVG motif for Āṇṭāḷ -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="30" cy="34" r="3.5" fill="currentColor" stroke="none"/>
+              <!-- Centre petal -->
+              <path d="M 30 10 Q 36 22 30 31 Q 24 22 30 10 Z" fill="currentColor" opacity="0.9"/>
+              <!-- Upper side petals -->
+              <path d="M 14 18 Q 24 26 30 32 Q 20 28 14 18 Z" fill="currentColor" opacity="0.75"/>
+              <path d="M 46 18 Q 36 26 30 32 Q 40 28 46 18 Z" fill="currentColor" opacity="0.75"/>
+              <!-- Lower side petals -->
+              <path d="M 10 40 Q 22 37 30 34 Q 18 42 10 40 Z" fill="currentColor" opacity="0.6"/>
+              <path d="M 50 40 Q 38 37 30 34 Q 42 42 50 40 Z" fill="currentColor" opacity="0.6"/>
+              <!-- Stem -->
+              <path d="M 30 38 Q 27 48 26 55" stroke-width="1.3" opacity="0.65"/>
+              <!-- Leaf -->
+              <path d="M 28 48 Q 18 44 16 50" stroke-width="1.1" opacity="0.5"/>
+              <!-- Water -->
+              <path d="M 16 55 Q 30 52 44 55" stroke-width="1" opacity="0.3"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">திருப்பாவை</h3>
+          <p class="work-card-english">Thiruppāvai</p>
+          <p class="work-card-author">By Āṇṭāḷ · c. 9th century CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            Thirty dawn-hymns for the month of Mārgaḻi — Āṇṭāḷ, the only woman
+            among the twelve Āḻvār saints, leads the gopikās of Āyarpāṭi in a
+            pre-dawn vigil of longing and surrender to Tirumāl. A single devotional
+            cycle, sung at sunrise in Vaiṣṇava temples every December for twelve
+            centuries without interruption.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">30</div>
+              <div class="work-stat-label">Pāsurams</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">1</div>
+              <div class="work-stat-label">Sacred Month</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">12c</div>
+              <div class="work-stat-label">In Daily Use</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+          <a href="thiruvaasagam/index.html" class="work-card" style="--accent-vermillion:#8b1a1a;--accent-kumkum:#a83222;--accent-ochre:#b8820a;--accent-gold:#8b1a1a;">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="30" cy="30" r="22" stroke-width="0.8" opacity="0.3" stroke-dasharray="3 3"/>
+              <circle cx="30" cy="30" r="5" fill="currentColor" opacity="0.85" stroke="none"/>
+              <path d="M 30 6 Q 34 15 30 21 Q 26 15 30 6 Z" fill="currentColor" opacity="0.9"/>
+              <path d="M 30 54 Q 34 45 30 39 Q 26 45 30 54 Z" fill="currentColor" opacity="0.9"/>
+              <path d="M 6 30 Q 15 34 21 30 Q 15 26 6 30 Z" fill="currentColor" opacity="0.9"/>
+              <path d="M 54 30 Q 45 34 39 30 Q 45 26 54 30 Z" fill="currentColor" opacity="0.9"/>
+              <path d="M 12 12 Q 19 20 22 22 Q 14 19 12 12 Z" fill="currentColor" opacity="0.6"/>
+              <path d="M 48 12 Q 41 20 38 22 Q 46 19 48 12 Z" fill="currentColor" opacity="0.6"/>
+              <path d="M 12 48 Q 19 40 22 38 Q 14 41 12 48 Z" fill="currentColor" opacity="0.6"/>
+              <path d="M 48 48 Q 41 40 38 38 Q 46 41 48 48 Z" fill="currentColor" opacity="0.6"/>
+            </svg>
+          </div>
+          <h3 class="work-card-tamil">திருவாசகம்</h3>
+          <p class="work-card-english">Thiruvaasagam</p>
+          <p class="work-card-author">Māṇikkavācakar · c. 9th century CE · Tirumurai VIII</p>
+          <div class="work-card-divider">⁂</div>
+          <p class="work-card-description">Fifty-one hymns of devotional fire — the Tamil Śaiva masterpiece. From the cosmic Civapurāṇam through festival dawn-vigils and the great Tirukkovai, to final dissolution into grace. The words of a prime minister claimed by Śiva at Chidambaram. Written in sacred ash and eternal flame.</p>
+          <div class="work-card-stats">
+            <div class="work-stat"><div class="work-stat-num">51</div><div class="work-stat-label">Hymns</div></div>
+            <div class="work-stat"><div class="work-stat-num">658+</div><div class="work-stat-label">Verses</div></div>
+            <div class="work-stat"><div class="work-stat-num">5</div><div class="work-stat-label">Sections</div></div>
+          </div>
+          <div class="work-card-cta">Enter →</div>
+        </a>
+        </div>
+      </div>
+
+      <!-- ══ V. AVVAIYAR ═══════════════════════════════════════════════ -->
+      <div class="works-category" data-cat="avvaiyar">
+        <div class="works-category-header">
+          <div class="works-category-inner" style="border-left:4.5rem solid #7a5a00">
+            <span class="works-category-num" style="color:#fff">V</span>
+            <div class="works-category-ornament">◆ ◆ ◆ ◆ ◆ ◆</div>
+            <div class="works-category-text">
+              <span class="works-category-tamil">அவ்வையார் நூல்கள்</span>
+              <span class="works-category-eng">Avvaiyār Nūlkaḷ — Works of Avvaiyār</span>
+              <span class="works-category-count">1 work
+              </span>
+            </div>
+            <div class="works-category-desc">The works attributed to Avvaiyār — one of the most beloved poet-sages of Tamil literature, whose name ("respectable woman") was borne by at least two distinct poets across the centuries. The Āticūṭi is a children's moral primer in alphabetical verse, memorised by generations of Tamil schoolchildren as their first lesson in ethics and language.</div>
+          </div>
+        </div>
+        <div class="works-grid">
+          <a href="aathichudi/index.html" class="work-card">
+          <div class="work-card-ornament">
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Lotus / flower bloom motif for the children's primer -->
+              <circle cx="30" cy="30" r="4" fill="currentColor"/>
+              <path d="M 30 8 Q 35 18 30 26 Q 25 18 30 8 Z" fill="currentColor" opacity="0.9"/>
+              <path d="M 30 52 Q 35 42 30 34 Q 25 42 30 52 Z" fill="currentColor" opacity="0.9"/>
+              <path d="M 8 30 Q 18 35 26 30 Q 18 25 8 30 Z" fill="currentColor" opacity="0.9"/>
+              <path d="M 52 30 Q 42 35 34 30 Q 42 25 52 30 Z" fill="currentColor" opacity="0.9"/>
+              <path d="M 14 14 Q 22 22 30 26 Q 22 18 14 14 Z" fill="currentColor" opacity="0.65"/>
+              <path d="M 46 14 Q 38 22 30 26 Q 38 18 46 14 Z" fill="currentColor" opacity="0.65"/>
+              <path d="M 14 46 Q 22 38 30 34 Q 22 42 14 46 Z" fill="currentColor" opacity="0.65"/>
+              <path d="M 46 46 Q 38 38 30 34 Q 38 42 46 46 Z" fill="currentColor" opacity="0.65"/>
+            </svg>
+          </div>
+
+          <h3 class="work-card-tamil">ஆத்திசூடி</h3>
+          <p class="work-card-english">Aathichudi</p>
+          <p class="work-card-author">By Avvaiyar · c. 12th c. CE</p>
+
+          <div class="work-card-divider">⁂</div>
+
+          <p class="work-card-description">
+            The grandmother-poet's primer — 109 short verses of moral instruction,
+            each beginning with a successive letter of the Tamil alphabet.
+            Written for children but read by all ages, it remains the first lesson in
+            ethics for generations of Tamil speakers.
+          </p>
+
+          <div class="work-card-stats">
+            <div class="work-stat">
+              <div class="work-stat-num">12</div>
+              <div class="work-stat-label">Vowel verses</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">97</div>
+              <div class="work-stat-label">Consonant verses</div>
+            </div>
+            <div class="work-stat">
+              <div class="work-stat-num">109</div>
+              <div class="work-stat-label">Total verses</div>
+            </div>
+          </div>
+
+          <div class="work-card-cta">Enter →</div>
+        </a>
+        </div>
+      </div>
+
+      <!-- ══ VI. ILAKKANAM ═══════════════════════════════════════════════ -->
+      <div class="works-category" data-cat="ilakkanam">
+        <div class="works-category-header">
+          <div class="works-category-inner" style="border-left:4.5rem solid #1a2e5a">
+            <span class="works-category-num" style="color:#fff">VI</span>
+            <div class="works-category-ornament">◆ ◆ ◆ ◆ ◆ ◆</div>
+            <div class="works-category-text">
+              <span class="works-category-tamil">இலக்கணம்</span>
+              <span class="works-category-eng">Ilakkaṇam — Classical Grammar</span>
+              <span class="works-category-count">1 work
+              </span>
+            </div>
+            <div class="works-category-desc">The grammatical tradition that codified and preserved classical Tamil. Tolkaappiyam (c. 500 BCE) is the oldest extant Tamil text of any kind; Nannool (13th c. CE) the definitive medieval systematisation. These works regulated not just language but the entire aesthetic of poetry — the tiṇai system, akam/puṟam conventions, and prosody that shaped everything else in this library.</div>
+          </div>
+        </div>
+        <div class="works-grid">
+          <a href="nannool/index.html" class="work-card" style="--accent-vermillion:#1a2e5a;--accent-kumkum:#2a3e6a;--accent-ochre:#4a5870;--accent-gold:#1a2e5a;">
+          <div class="work-card-ornament">
+            <!-- Stylus mark -->
+            <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 12 50 L 44 12" stroke-width="3.5" opacity="0.82"/>
+              <path d="M 12 50 L 6 56 L 14 53 Z" fill="currentColor" opacity="0.75" stroke="none"/>
+              <path d="M 42 14 Q 48 8 52 10 Q 53 14 47 18 Z" fill="currentColor" opacity="0.65" stroke="none"/>
+              <path d="M 28 48 Q 32 42 36 46" stroke-width="1.2" opacity="0.42"/>
+              <path d="M 34 52 Q 40 44 46 50" stroke-width="1.2" opacity="0.28"/>
+              <circle cx="30" cy="46" r="2" fill="currentColor" opacity="0.3" stroke="none"/>
+            </svg>
+          </div>
+          <h3 class="work-card-tamil">நன்னூல்</h3>
+          <p class="work-card-english">Naṉṉūl</p>
+          <p class="work-card-author">Pavananti Muṉivar · c. 12th–13th century CE</p>
+          <div class="work-card-divider">⁂</div>
+          <p class="work-card-description">The classical Tamil grammar — 462 sūtras in two books and ten chapters. The only non-poetic text in this library, and the most important: the invisible architecture beneath every poem, hymn, and anthology here. Letters, words, sounds, cases, verbs, particles — the complete account of the Tamil language, written in the cool ink-blue of the scholar's stylus.</p>
+          <div class="work-card-stats">
+            <div class="work-stat"><div class="work-stat-num">462</div><div class="work-stat-label">Sūtras</div></div>
+            <div class="work-stat"><div class="work-stat-num">2</div><div class="work-stat-label">Books</div></div>
+            <div class="work-stat"><div class="work-stat-num">10</div><div class="work-stat-label">Chapters</div></div>
+          </div>
+          <div class="work-card-cta">Enter →</div>
+        </a>
+        </div>
+      </div>
+
+    </section>
+
+<section class="about-section">
+      <h2>About This Collection</h2>
+      <p>
+        Each text is presented in five layers — the original Tamil verse,
+        a romanized transliteration with diacritics, a literal English translation,
+        a Tamil prose commentary (<em>urai</em>), and an alternative or classical English
+        rendering for comparison.
+      </p>
+      <p>
+        The aesthetic draws from the <em>ஓலைச் சுவடி</em> (palm-leaf manuscripts)
+        on which these texts survived for centuries — the warm tones of dried palm leaves,
+        the dark ink of iron-gall, the vermilion and turmeric of temple painting,
+        and the geometric grace of the kolam.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="hub-footer">
+    <div class="ornament">◆ ◆ ◆</div>
+    <div>A digital library of Tamil literary heritage · தமிழ் இலக்கிய களஞ்சியம்</div>
+  </footer>
+
+</body>
+</html>

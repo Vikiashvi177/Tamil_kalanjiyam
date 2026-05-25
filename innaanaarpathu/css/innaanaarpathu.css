@@ -1,0 +1,434 @@
+/* ==========================================================================
+   இன்னா நாற்பது · Iṉṉā Nāṟpatu — Deep Crimson & Thorn-Ash Theme
+   40 ethical quatrains on what is painful · c. 1st–5th century CE
+   Author: Kaḷḷāṭaṉār · Patiṉeṇkīḻkaṇakku collection
+
+   Visual identity: The word iṉṉā (இன்னா) means "painful, harmful, unpleasant."
+   These forty verses are Tamil ethical poetry at its most direct — a catalogue
+   of what causes suffering, shame, and ruin. The tone is sharper than Nālaṭiyār,
+   more satirical, with an edge of social critique.
+
+   Palette: deep crimson (the sting of the unpleasant), ash-grey (what is left
+   after ruin), thorn-brown (the sharp dry shrub — harmless-looking, painful to
+   touch), with warm manuscript-ochre as accent.
+
+   The mark: a thorn — a single sharp diagonal stroke with two small lateral
+   spines. Simple, direct, uncomfortable. The shape of iṉṉā itself.
+   ========================================================================== */
+
+:root {
+  /* ── Deep crimson (primary) ─────────────────────────── */
+  --in-crimson:       #8a1a1a;
+  --in-crimson-mid:   #6a1212;
+  --in-crimson-bright:#b02828;
+  --in-crimson-pale:  rgba(138, 26, 26, 0.10);
+  --in-crimson-pale2: rgba(138, 26, 26, 0.05);
+
+  /* ── Ash (secondary) ────────────────────────────────── */
+  --in-ash:           #7a7270;
+  --in-ash-mid:       #5a5250;
+  --in-ash-pale:      rgba(122, 114, 112, 0.14);
+  --in-ash-pale2:     rgba(122, 114, 112, 0.07);
+
+  /* ── Thorn-brown (accent) ───────────────────────────── */
+  --in-thorn:         #6a4018;
+  --in-thorn-mid:     #8a5820;
+  --in-thorn-pale:    rgba(106, 64, 24, 0.10);
+
+  /* ── Warm ochre (verse numbers / highlights) ────────── */
+  --in-ochre:         #b87820;
+  --in-ochre-pale:    rgba(184, 120, 32, 0.12);
+
+  /* ── Parchment base ─────────────────────────────────── */
+  --in-parchment:     #ede0cc;
+  --in-parchment-dark:#d8c8b0;
+
+  /* ── Site overrides ─────────────────────────────────── */
+  --accent-vermillion: var(--in-crimson);
+  --accent-kumkum:     var(--in-crimson-mid);
+  --accent-ochre:      var(--in-thorn);
+  --accent-gold:       var(--in-ochre);
+}
+
+/* Body background: aged parchment with faint thorn-scratch texture */
+body { background: #c8b8a8; }
+body::before {
+  background-image:
+    repeating-linear-gradient(
+      -30deg,
+      transparent 0px, transparent 18px,
+      rgba(138,26,26,0.018) 18px, rgba(138,26,26,0.018) 19px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 4px,
+      rgba(106,64,24,0.012) 4px, rgba(106,64,24,0.012) 5px
+    );
+}
+
+/* Header */
+.site-header { border-bottom-color: rgba(138,26,26,0.22); }
+.site-logo .mark { color: var(--in-crimson); }
+.wordmark-tamil { color: var(--in-crimson); }
+.site-nav a { color: var(--in-crimson-mid); }
+.site-nav a:hover { color: var(--in-thorn); }
+a { color: var(--in-crimson-mid); }
+a:hover { color: var(--in-crimson); }
+
+/* ---------------------------------------------------------------------------
+   Hero
+   --------------------------------------------------------------------------- */
+.in-hero {
+  text-align: center;
+  padding: 3.5rem 1.5rem 2rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.in-hero h1 {
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: 800;
+  color: var(--in-crimson);
+  line-height: 1.05;
+  margin: 0.7rem 0 0.3rem;
+}
+.in-hero-roman {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  font-style: italic;
+  color: var(--in-ash-mid);
+  letter-spacing: 0.04em;
+  margin: 0 0 0.4rem;
+}
+.in-hero-meaning {
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--in-crimson-mid);
+  margin: 0 0 1.2rem;
+}
+.in-hero p {
+  font-size: 1.0rem;
+  line-height: 1.85;
+  color: #3a2820;
+  margin: 0 0 0.8rem;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Thorn mark SVG */
+.in-hero-mark {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 2px 10px rgba(138,26,26,0.20));
+}
+
+/* Stat row */
+.in-stat-row {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 1.5rem 0 0.5rem;
+  flex-wrap: wrap;
+}
+.in-stat { text-align: center; }
+.in-stat-num {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--in-crimson);
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+.in-stat-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--in-ash);
+}
+
+/* ---------------------------------------------------------------------------
+   Context banner
+   --------------------------------------------------------------------------- */
+.in-context-banner {
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  background: var(--in-crimson-pale2);
+  border: 1px solid rgba(138,26,26,0.14);
+  border-left: 4px solid var(--in-crimson);
+  border-radius: 0 6px 6px 0;
+  padding: 1.1rem 1.5rem;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: #2a1818;
+}
+.in-context-banner strong { color: var(--in-crimson); }
+
+/* ---------------------------------------------------------------------------
+   Verse reader
+   --------------------------------------------------------------------------- */
+.in-verses-header {
+  max-width: 820px;
+  margin: 0 auto 1.5rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+.in-verses-header h2 {
+  font-size: 1.0rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--in-crimson);
+  margin: 0 0 0.3rem;
+}
+.in-verses-header p {
+  font-size: 0.85rem;
+  color: var(--in-ash);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Verse grid */
+.in-verses-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 500px) {
+  .in-verses-main { grid-template-columns: 1fr; }
+}
+
+/* Individual verse card */
+.in-verse {
+  background: var(--in-parchment);
+  border: 1px solid rgba(138,26,26,0.13);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.in-verse-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem 1rem;
+  background: var(--in-crimson-pale2);
+  border-bottom: 1px solid rgba(138,26,26,0.10);
+}
+.in-verse-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--in-ochre);
+  min-width: 2rem;
+}
+.in-verse-theme {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--in-ash-mid);
+  flex: 1;
+}
+.in-verse-body { padding: 0 1rem 0.5rem; }
+
+/* Layers */
+.in-layer {
+  margin: 0;
+  border-bottom: 1px solid rgba(138,26,26,0.07);
+}
+.in-layer:last-child { border-bottom: none; }
+.in-layer-toggle {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--in-ash-mid);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  position: relative;
+  padding-right: 1rem;
+}
+.in-layer-toggle::-webkit-details-marker { display: none; }
+.in-layer-toggle::after {
+  content: "›";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  color: var(--in-crimson);
+  transition: transform 0.15s;
+}
+details[open] > .in-layer-toggle::after { transform: translateY(-50%) rotate(90deg); }
+.in-layer-content { padding: 0 0 0.8rem; }
+
+.in-tamil-verse {
+  font-size: 1.0rem;
+  line-height: 2;
+  color: #2a1010;
+}
+.in-translit-verse {
+  font-size: 0.9rem;
+  line-height: 2;
+  color: #3a2020;
+  font-style: italic;
+}
+.in-english-prose {
+  font-size: 0.88rem;
+  line-height: 1.78;
+  color: #2a1818;
+}
+.in-note {
+  font-size: 0.80rem;
+  line-height: 1.72;
+  color: #5a4040;
+  font-style: italic;
+}
+
+/* ---------------------------------------------------------------------------
+   Page header (about page)
+   --------------------------------------------------------------------------- */
+.in-page-header {
+  background: var(--in-crimson-pale2);
+  border-bottom: 1px solid rgba(138,26,26,0.14);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+}
+.in-page-header-inner { max-width: 720px; margin: 0 auto; }
+.in-page-header h1 { font-size: 1.3rem; color: var(--in-crimson); margin: 0 0 0.4rem; }
+.in-page-header p { font-size: 0.88rem; color: var(--in-ash); font-style: italic; margin: 0; }
+
+/* ---------------------------------------------------------------------------
+   About page body
+   --------------------------------------------------------------------------- */
+.in-about-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  font-size: 0.97rem;
+  line-height: 1.82;
+  color: #2a1818;
+}
+.in-about-body h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--in-crimson);
+  margin: 2.5rem 0 0.7rem;
+  border-bottom: 1px solid rgba(138,26,26,0.15);
+  padding-bottom: 0.4rem;
+}
+.in-about-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 1rem 0;
+}
+.in-about-body th {
+  text-align: left;
+  padding: 0.5rem 0.8rem;
+  background: var(--in-crimson-pale2);
+  color: var(--in-crimson);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid rgba(138,26,26,0.18);
+}
+.in-about-body td {
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid rgba(138,26,26,0.07);
+  vertical-align: top;
+}
+.in-about-body tr:last-child td { border-bottom: none; }
+.in-about-body blockquote {
+  border-left: 3px solid var(--in-crimson);
+  margin: 1.2rem 0;
+  padding: 0.6rem 1.2rem;
+  background: var(--in-crimson-pale2);
+  font-style: italic;
+  color: #3a1010;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Companion work panel
+   --------------------------------------------------------------------------- */
+.in-companion-panel {
+  max-width: 820px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+.in-companion-panel h2 {
+  font-size: 1.0rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--in-crimson);
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+.in-companion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 500px) { .in-companion-grid { grid-template-columns: 1fr; } }
+.in-companion-card {
+  background: var(--in-parchment);
+  border: 1px solid rgba(138,26,26,0.12);
+  border-radius: 6px;
+  padding: 1.1rem 1.2rem;
+}
+.in-companion-card.current { border-color: var(--in-crimson); border-width: 2px; }
+.in-companion-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--in-ash-mid);
+  margin-bottom: 0.35rem;
+}
+.in-companion-tamil { font-size: 1.1rem; color: var(--in-crimson); margin-bottom: 0.1rem; }
+.in-companion-roman { font-size: 0.82rem; font-style: italic; color: var(--in-ash-mid); margin-bottom: 0.4rem; }
+.in-companion-desc { font-size: 0.82rem; line-height: 1.65; color: #3a2020; }
+
+/* ---------------------------------------------------------------------------
+   Padinenkeezhkanakku panel
+   --------------------------------------------------------------------------- */
+.in-pkk-panel {
+  max-width: 820px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+.in-pkk-panel h2 {
+  font-size: 1.0rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--in-crimson);
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+.in-pkk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.6rem;
+}
+.in-pkk-item {
+  background: var(--in-parchment);
+  border: 1px solid rgba(138,26,26,0.09);
+  border-radius: 4px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.82rem;
+}
+.in-pkk-item.current {
+  border-color: var(--in-crimson);
+  background: var(--in-crimson-pale2);
+}
+.in-pkk-item-tamil { font-size: 0.92rem; color: var(--in-crimson); margin-bottom: 0.1rem; }
+.in-pkk-item-roman { font-size: 0.75rem; color: var(--in-ash-mid); }
+
+/* ---------------------------------------------------------------------------
+   Responsive
+   --------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .in-stat-row { gap: 1.5rem; }
+  .in-stat-num { font-size: 1.6rem; }
+}

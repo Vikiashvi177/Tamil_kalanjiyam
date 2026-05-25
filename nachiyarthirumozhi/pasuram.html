@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">பாசுரம் · நாச்சியார் திருமொழி</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/nachiyar.css"/>
+  <style>
+    :root {
+      --nt-rose:       #8b1a4a;
+      --nt-rose-mid:   #a8205a;
+      --nt-rose-pale:  rgba(139,26,74,.08);
+      --nt-rose-pale2: rgba(139,26,74,.13);
+      --nt-crimson:    #6b0a2a;
+      --tp-gold:       #8b1a4a;
+      --tp-flame:      #8b1a4a;
+      --tp-flame-mid:  #a8205a;
+      --tp-flame-pale: rgba(139,26,74,.08);
+      --tp-flame-pale2:rgba(139,26,74,.13);
+    }
+
+    .nt-pasuram-page { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+    .nt-bc {
+      display: flex; align-items: center; gap: .5rem;
+      font-size: .875rem; color: var(--ink-muted);
+      margin-bottom: 2rem; letter-spacing: .04em; flex-wrap: wrap;
+    }
+    .nt-bc a { color: var(--ink-secondary); text-decoration: none; }
+    .nt-bc a:hover { color: var(--nt-rose); }
+    .nt-bc .sep { opacity: .45; }
+
+    /* Palm-leaf card */
+    .nt-pasuram-card {
+      position: relative;
+      background: var(--bg-paper);
+      background-image:
+        linear-gradient(180deg, rgba(139,26,74,0) 0%, rgba(139,26,74,.03) 50%, rgba(139,26,74,0) 100%),
+        repeating-linear-gradient(0deg,
+          rgba(139,26,74,.02) 0px, rgba(139,26,74,.02) 1px,
+          transparent 1px, transparent 8px);
+      border: 1px solid var(--border-medium);
+      border-radius: 4px;
+      padding: 3.5rem 3rem;
+      box-shadow: var(--shadow-paper);
+      overflow: hidden;
+    }
+    .nt-pasuram-card::before,
+    .nt-pasuram-card::after {
+      content:''; position:absolute; top:50%; transform:translateY(-50%);
+      width:14px; height:14px; border-radius:50%;
+      background:var(--bg-primary); border:1.5px solid var(--border-strong);
+      box-shadow:inset 0 1px 2px rgba(0,0,0,.3);
+    }
+    .nt-pasuram-card::before { left:14px; }
+    .nt-pasuram-card::after  { right:14px; }
+
+    .nt-pasuram-num {
+      text-align:center; font-family:var(--font-display);
+      font-size:.78rem; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--nt-rose); margin-bottom:.3rem;
+    }
+    .nt-pasuram-decad {
+      text-align:center; font-family:var(--font-tamil);
+      font-size:.95rem; color:var(--ink-muted); margin-bottom:.3rem;
+    }
+    .nt-incipit {
+      text-align:center; font-family:var(--font-display);
+      font-style:italic; font-size:1rem; color:var(--nt-rose);
+      margin-bottom:2rem; letter-spacing:.03em;
+    }
+
+    /* Collapsible panels */
+    .nt-panel-label {
+      font-family:var(--font-display); font-size:.72rem;
+      letter-spacing:.25em; text-transform:uppercase;
+      color:var(--nt-rose); margin-bottom:.65rem; font-weight:500;
+    }
+    .nt-tamil-panel {
+      margin-bottom:1.75rem; padding-bottom:1.75rem;
+      border-bottom:1px solid var(--border-subtle);
+    }
+    .nt-tamil-text {
+      font-family:var(--font-tamil); font-size:1.875rem;
+      line-height:1.65; color:var(--ink-primary); font-weight:600;
+      white-space:pre-line; margin:0;
+    }
+    .nt-listen-btn {
+      display:inline-flex; align-items:center; gap:.45rem;
+      margin-top:.85rem; padding:.45rem .9rem;
+      background:rgba(139,26,74,.08); border:1px solid var(--nt-rose);
+      border-radius:20px; color:var(--nt-rose);
+      font-family:var(--font-display); font-size:.8rem;
+      letter-spacing:.1em; text-transform:uppercase;
+      cursor:pointer; transition:all .15s;
+    }
+    .nt-listen-btn:hover { background:var(--nt-rose); color:var(--bg-paper); }
+
+    .nt-collapsible {
+      background:var(--bg-paper); border:1px solid rgba(139,26,74,.2);
+      border-radius:4px; margin-bottom:.75rem; overflow:hidden;
+    }
+    .nt-toggle {
+      width:100%; text-align:left; background:none; border:none;
+      cursor:pointer; padding:1rem 1.5rem;
+      font-family:var(--font-display); font-size:.9rem;
+      color:var(--ink-secondary); display:flex; align-items:center;
+      justify-content:space-between;
+      border-bottom:1px solid rgba(139,26,74,.12); transition:background .12s;
+    }
+    .nt-toggle:hover { background:rgba(139,26,74,.08); }
+    .nt-toggle .arrow { font-size:.75rem; transition:transform .2s; color:var(--nt-rose); }
+    .nt-toggle.open .arrow { transform:rotate(180deg); }
+    .nt-panel-body { padding:1.2rem 1.5rem 1.4rem; display:none; }
+    .nt-panel-body.open { display:block; }
+
+    .nt-translit { font-family:var(--font-body); font-style:italic; font-size:1.15rem; line-height:1.65; color:var(--ink-secondary); white-space:pre-line; margin:0; }
+    .nt-english  { font-family:var(--font-display); font-size:1.25rem; font-style:italic; line-height:1.65; color:var(--ink-primary); white-space:pre-line; margin:0; }
+    .nt-urai     { font-family:var(--font-tamil); font-size:1.0625rem; line-height:1.85; color:var(--ink-secondary); }
+    .nt-alt      { font-family:var(--font-display); font-style:italic; font-size:1.1rem; line-height:1.7; color:var(--ink-secondary); white-space:pre-line; margin:0; }
+    .nt-theme    { font-family:var(--font-body); font-size:.975rem; line-height:1.75; color:var(--ink-secondary); }
+    .nt-note     { font-family:var(--font-body); font-size:.975rem; line-height:1.8; color:var(--ink-secondary); }
+
+    /* Nav */
+    .nt-nav {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:1rem; margin-top:2.5rem;
+    }
+    .nt-nav-link {
+      display:block; padding:1.2rem 1.4rem;
+      background:var(--bg-paper); border:1px solid var(--border-subtle);
+      border-radius:4px; text-decoration:none; color:inherit;
+      transition:all .2s ease;
+    }
+    .nt-nav-link:hover { border-color:var(--nt-rose); transform:translateY(-2px); box-shadow:var(--shadow-paper); }
+    .nt-nav-link.next { text-align:right; }
+    .nt-nav-link.disabled { opacity:.35; pointer-events:none; }
+    .nt-nav-dir { font-family:var(--font-display); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:.35rem; }
+    .nt-nav-incipit { font-family:var(--font-display); font-style:italic; font-size:.85rem; color:var(--nt-rose); margin-bottom:.2rem; }
+    .nt-nav-tamil { font-family:var(--font-tamil); font-size:.95rem; color:var(--ink-primary); line-height:1.4; }
+
+    @media (max-width:640px) {
+      .nt-pasuram-card { padding:2.5rem 1.5rem; }
+      .nt-tamil-text   { font-size:1.5rem; }
+      .nt-nav          { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark" style="color:var(--nt-rose,#8b1a4a)">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"
+               fill="none" stroke="currentColor" stroke-width="1.4"
+               stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="26" r="3" fill="currentColor" opacity=".85" stroke="none"/>
+            <path d="M 20 8 Q 24 16 20 22 Q 16 16 20 8 Z" fill="currentColor" opacity=".9"/>
+            <path d="M 9 16 Q 15 20 18 24 Q 12 21 9 16 Z" fill="currentColor" opacity=".7"/>
+            <path d="M 31 16 Q 25 20 22 24 Q 28 21 31 16 Z" fill="currentColor" opacity=".7"/>
+            <path d="M 7 28 Q 14 26 19 26 Q 11 30 7 28 Z" fill="currentColor" opacity=".5"/>
+            <path d="M 33 28 Q 26 26 21 26 Q 29 30 33 28 Z" fill="currentColor" opacity=".5"/>
+            <path d="M 20 29 Q 18 35 17 38" stroke-width="1.2" opacity=".5"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil" style="color:var(--nt-rose,#8b1a4a)">நாச்சியார் திருமொழி</span>
+          <span class="wordmark-english">Nācciyār Tirumoḻi</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">All Pāsurams</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="nt-pasuram-page">
+      <nav class="nt-bc" id="bc"></nav>
+      <div class="nt-pasuram-card" id="pasuram-card"></div>
+      <nav class="nt-nav" id="pasuram-nav"></nav>
+    </article>
+  </main>
+
+  <footer style="text-align:center;padding:2.5rem 1.5rem;border-top:1px solid rgba(139,26,74,.15);color:var(--ink-muted);font-size:.875rem;letter-spacing:.05em;margin-top:1rem">
+    <div style="color:var(--nt-rose,#8b1a4a);letter-spacing:1em;padding-left:1em;margin-bottom:.5rem;opacity:.4">❧ ❧ ❧</div>
+    <div>நாச்சியார் திருமொழி · <a href="../index.html" style="color:var(--nt-rose,#8b1a4a)">Tamil Literature Library</a></div>
+  </footer>
+
+  <script src="data/verses.js"></script>
+  <script>
+  (function(){
+    const { decads, verses } = window.NT_DATA;
+    const params  = new URLSearchParams(window.location.search);
+    const num     = parseInt(params.get('n'), 10) || 1;
+    const verse   = verses.find(v => v.num === num);
+    const card    = document.getElementById('pasuram-card');
+    const nav     = document.getElementById('pasuram-nav');
+    const bc      = document.getElementById('bc');
+
+    function esc(s){ return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    function escPre(s){ return String(s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+
+    if (!verse) {
+      card.innerHTML = '<p style="text-align:center;padding:2rem">Pāsuram not found. <a href="index.html" style="color:var(--nt-rose)">Return →</a></p>';
+      return;
+    }
+
+    const decad = decads.find(d => d.num === verse.decad);
+    document.getElementById('page-title').textContent =
+      'Pāsuram ' + verse.num + ' · ' + verse.incipit + ' · நாச்சியார் திருமொழி';
+
+    // Breadcrumb
+    bc.innerHTML =
+      '<a href="../index.html">Library</a><span class="sep"> › </span>' +
+      '<a href="index.html">Nācciyār Tirumoḻi</a><span class="sep"> › </span>' +
+      '<a href="index.html#decad-' + verse.decad + '">' + esc(decad ? decad.english : 'Decad ' + verse.decad) + '</a><span class="sep"> › </span>' +
+      '<span>Pāsuram ' + verse.num + '</span>';
+
+    // Main card
+    card.innerHTML =
+      '<div class="nt-pasuram-num">நாச்சியார் திருமொழி · Pāsuram ' + verse.num + ' of 143</div>' +
+      '<div class="nt-pasuram-decad">' + esc(decad ? decad.tamil + ' — ' + decad.english : '') + '</div>' +
+      '<div class="nt-incipit">' + esc(verse.incipit) + '</div>' +
+
+      // Tamil with listen button
+      '<div class="nt-tamil-panel">' +
+        '<div class="nt-panel-label">Tamil · தமிழ்</div>' +
+        '<pre class="nt-tamil-text">' + escPre(verse.tamil) + '</pre>' +
+        '<button class="nt-listen-btn" onclick="speakTamil(' + JSON.stringify(verse.tamil) + ')">' +
+          '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>' +
+          'Listen · கேட்க' +
+        '</button>' +
+      '</div>' +
+
+      // Transliteration
+      collapsible('translit-' + num, 'Transliteration — ஒலிப்பெயர்ப்பு', false,
+        '<pre class="nt-translit">' + escPre(verse.transliteration) + '</pre>') +
+
+      // English
+      collapsible('english-' + num, 'English Translation — ஆங்கில மொழிபெயர்ப்பு', true,
+        '<pre class="nt-english">' + escPre(verse.english) + '</pre>') +
+
+      // Tamil urai
+      collapsible('urai-' + num, 'தமிழ் உரை — Tamil Commentary', false,
+        '<div class="nt-urai">' + esc(verse.tamilUrai) + '</div>') +
+
+      // Alt translation
+      collapsible('alt-' + num, 'Alternative Rendering', false,
+        '<pre class="nt-alt">' + escPre(verse.altTranslation) + '</pre>') +
+
+      // Theme
+      collapsible('theme-' + num, 'Devotional Theme — பக்தி கருத்து', false,
+        '<div class="nt-theme">' + esc(verse.theme) + '</div>') +
+
+      // Note
+      collapsible('note-' + num, 'Literary & Theological Note', false,
+        '<div class="nt-note">' + esc(verse.note) + '</div>');
+
+    // Prev / next — only among existing verses in the data
+    const idx   = verses.findIndex(v => v.num === num);
+    const prev  = idx > 0 ? verses[idx - 1] : null;
+    const next  = idx < verses.length - 1 ? verses[idx + 1] : null;
+
+    nav.innerHTML =
+      '<a href="' + (prev ? 'pasuram.html?n=' + prev.num : '#') + '" class="nt-nav-link' + (prev ? '' : ' disabled') + '">' +
+        '<div class="nt-nav-dir">← முந்தைய · Previous</div>' +
+        (prev ? '<div class="nt-nav-incipit">' + esc(prev.incipit) + '</div><div class="nt-nav-tamil">' + esc(prev.tamil.split('\n')[0]) + '</div>' : '<div class="nt-nav-tamil">—</div>') +
+      '</a>' +
+      '<a href="' + (next ? 'pasuram.html?n=' + next.num : '#') + '" class="nt-nav-link next' + (next ? '' : ' disabled') + '">' +
+        '<div class="nt-nav-dir">அடுத்தது · Next →</div>' +
+        (next ? '<div class="nt-nav-incipit">' + esc(next.incipit) + '</div><div class="nt-nav-tamil">' + esc(next.tamil.split('\n')[0]) + '</div>' : '<div class="nt-nav-tamil">—</div>') +
+      '</a>';
+
+    // Toggle panels
+    document.querySelectorAll('.nt-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        if (!target) return;
+        const open = target.classList.contains('open');
+        target.classList.toggle('open', !open);
+        btn.classList.toggle('open', !open);
+      });
+    });
+
+    function collapsible(id, label, startOpen, bodyHtml) {
+      return '<div class="nt-collapsible">' +
+        '<button class="nt-toggle' + (startOpen ? ' open' : '') + '" data-target="' + id + '">' +
+          '<span>' + label + '</span><span class="arrow">▾</span>' +
+        '</button>' +
+        '<div class="nt-panel-body' + (startOpen ? ' open' : '') + '" id="' + id + '">' +
+          bodyHtml +
+        '</div>' +
+      '</div>';
+    }
+  })();
+
+  function speakTamil(text) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text.replace(/\n/g, ' '));
+    const voices = window.speechSynthesis.getVoices();
+    const v = voices.find(v => v.lang.startsWith('ta')) || voices.find(v => v.lang.startsWith('en-IN'));
+    if (v) u.voice = v;
+    u.lang = v ? v.lang : 'ta-IN';
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  }
+  if ('speechSynthesis' in window) window.speechSynthesis.getVoices();
+  </script>
+
+</body>
+</html>

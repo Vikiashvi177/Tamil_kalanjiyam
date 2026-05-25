@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ═══════════════════════════════════════════════════════
+       Tamil Kalanjiyam · Tamil Literature Library
+       https://www.nexuvius.com/Tamil_kalanjiyam
+       Generated: 2026-05-14
+       ═══════════════════════════════════════════════════════ -->
+
+  <!-- Library hub -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/index.html</loc>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- ── I. SANGAM ANTHOLOGIES ──────────────────────────── -->
+
+  <!-- Nāṟṟiṇai -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/nattrinai/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/nattrinai/poem.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/nattrinai/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Akānāṉūru -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/akanaanooru/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/akanaanooru/poem.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/akanaanooru/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Kuṟuntokai -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/kurunthokai/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/kurunthokai/poem.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/kurunthokai/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Aiṅkuṟunūṟu -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/ainkurunooru/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/ainkurunooru/section.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/ainkurunooru/poem.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/ainkurunooru/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Kalittokai -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/kalithogai/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/kalithogai/section.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/kalithogai/poem.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/kalithogai/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Pariṉāṭal -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/paripaadal/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/paripaadal/section.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/paripaadal/poem.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/paripaadal/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Puṟanāṉūṟu -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/puranaanooru/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/puranaanooru/poem.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/puranaanooru/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Patirrupattu -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/patirrupattu/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/patirrupattu/decade.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/patirrupattu/poem.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/patirrupattu/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- ── II. PATTUPAṬṬU (Ten Idylls) ────────────────────── -->
+
+  <!-- Pattupaṭṭu -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/pathupaatu/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/pathupaatu/poem.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/pathupaatu/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- ── III. NĪTI ILAKKIYAM (Didactic & Ethical Poetry) ── -->
+
+  <!-- Tirukkuṟaḷ -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/thirukkural/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/thirukkural/section.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/thirukkural/chapters.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/thirukkural/chapter.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/thirukkural/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Nālaṭiyār -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/naaladiyar/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/naaladiyar/iyal.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/naaladiyar/chapter.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/naaladiyar/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Āticūṭi -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/aathichudi/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/aathichudi/verse.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/aathichudi/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Iṉṉā Nāṟpatu -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/innaanaarpathu/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/innaanaarpathu/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Iṉiyavai Nāṟpatu -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/iniyavainaarpathu/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/iniyavainaarpathu/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Tirikkaṭukam -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/trikadukam/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/trikadukam/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Nāṉmaṇikkaṭikai -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/nanmanikkadikai/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/nanmanikkadikai/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Ācarakōvai -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/acharakovai/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/acharakovai/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Ēlāti -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/eladhi/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/eladhi/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- ── IV. BHAKTI ILAKKIYAM (Devotional Literature) ───── -->
+
+  <!-- Tiruppāvai -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/thiruppavai/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/thiruppavai/verse.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/thiruppavai/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Tiruvaacakam -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/thiruvaasagam/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/thiruvaasagam/hymn.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/thiruvaasagam/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- ── V. ILAKKAṆAM (Grammar) ─────────────────────────── -->
+
+  <!-- Naṉṉūl -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/nannool/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/nannool/book.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/nannool/chapter.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/nannool/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- ── VI. MĀAKĀVIYAM (The Five Great Epics) ──────────── -->
+
+  <!-- Cilappatikāram -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/cilappatikaram/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/cilappatikaram/book.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/cilappatikaram/canto.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/cilappatikaram/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Maṇimēkalai -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/manimekalai/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/manimekalai/part.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/manimekalai/canto.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/manimekalai/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Cīvaka Cintāmaṇi -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/civakacintamani/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/civakacintamani/canto.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/civakacintamani/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Valayāpati -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/valayapathi/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/valayapathi/fragments.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/valayapathi/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Kuṇṭalakēci -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/kundalakesi/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/kundalakesi/fragments.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/kundalakesi/about.html</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Ciṟupañcamūlam -->
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/sirupanchamoolam/index.html</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.nexuvius.com/Tamil_kalanjiyam/sirupanchamoolam/about.html</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+</urlset>

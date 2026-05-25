@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Pāsuram · திருப்பாவை</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/thiruppavai.css" />
+  <style>
+    .verse-page {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    .verse-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      margin-bottom: 2rem;
+      letter-spacing: 0.04em;
+      flex-wrap: wrap;
+    }
+    .verse-breadcrumb a { color: var(--ink-secondary); text-decoration: none; }
+    .verse-breadcrumb a:hover { color: var(--tp-gold, #8b6400); }
+    .verse-breadcrumb .sep { opacity: 0.45; }
+
+    .verse-layer {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .verse-layer:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .verse-tamil-text {
+      font-family: var(--font-tamil);
+      font-size: 1.4rem;
+      line-height: 1.9;
+      color: var(--ink-primary);
+      font-weight: 500;
+      white-space: pre-line;
+    }
+    .verse-translit-text {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink-secondary);
+      white-space: pre-line;
+    }
+    .verse-english-text {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--ink-primary);
+      white-space: pre-line;
+    }
+    .verse-urai-text {
+      font-family: var(--font-tamil);
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--ink-secondary);
+    }
+    .verse-alt-text {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--ink-secondary);
+      white-space: pre-line;
+    }
+
+    @media (max-width: 640px) {
+      .tp-verse-banner { gap: 0.5rem; }
+      .verse-tamil-text { font-size: 1.15rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="22" r="2.5" fill="currentColor" stroke="none"/>
+            <path d="M 20 8 Q 24 15 20 20 Q 16 15 20 8 Z" fill="currentColor" opacity="0.9"/>
+            <path d="M 11 15 Q 18 18 20 22 Q 14 20 11 15 Z" fill="currentColor" opacity="0.75"/>
+            <path d="M 29 15 Q 22 18 20 22 Q 26 20 29 15 Z" fill="currentColor" opacity="0.75"/>
+            <path d="M 9 26 Q 17 24 20 22 Q 14 28 9 26 Z" fill="currentColor" opacity="0.6"/>
+            <path d="M 31 26 Q 23 24 20 22 Q 26 28 31 26 Z" fill="currentColor" opacity="0.6"/>
+            <path d="M 20 25 Q 18 32 17 36" stroke-width="1.2" opacity="0.7"/>
+            <path d="M 10 35 Q 20 33 30 35" stroke-width="1" opacity="0.4"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">திருப்பாவை</span>
+          <span class="wordmark-english">THIRUPPĀVAI</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">All Pāsurams</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="verse-page">
+
+      <nav class="verse-breadcrumb">
+        <a href="../index.html">Library</a>
+        <span class="sep">›</span>
+        <a href="index.html">Thiruppāvai</a>
+        <span class="sep">›</span>
+        <span id="bc-verse">…</span>
+      </nav>
+
+      <div id="verse-container"></div>
+
+      <nav class="tp-verse-nav" id="verse-nav"></nav>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div style="text-align: center; color: var(--tp-gold, #8b6400); letter-spacing: 1em; padding-left: 1em; margin-bottom: 0.5rem; opacity: 0.45;">❧ ❧ ❧</div>
+    <div style="text-align: center; color: var(--ink-muted); font-size: 0.875rem; letter-spacing: 0.05em;">
+      திருப்பாவை · Āṇṭāḷ · <a href="../index.html" style="color: var(--tp-gold, #8b6400);">Tamil Literature Library</a>
+    </div>
+  </footer>
+
+  <script src="data/verses.js"></script>
+  <script>
+  (function () {
+    const data = window.THIRUPPAVAI_DATA;
+    const byNum = new Map(data.verses.map(v => [v.num, v]));
+    const params = new URLSearchParams(window.location.search);
+    const num = parseInt(params.get('n'), 10) || 1;
+    const container = document.getElementById('verse-container');
+
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, c => (
+        {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+      ));
+    }
+
+    const v = byNum.get(num);
+    if (!v) {
+      container.innerHTML = `
+        <div style="text-align:center; padding:3rem 2rem; background:var(--bg-paper);
+                    border:1px solid var(--border-subtle); border-radius:4px;">
+          <p style="font-family:var(--font-display); color:var(--ink-secondary); font-size:1.1rem;">
+            Pāsuram ${num} is not in this collection.
+          </p>
+          <a href="index.html" style="display:inline-block; margin-top:1.5rem;
+             color:var(--tp-gold,#8b6400); font-family:var(--font-display);
+             letter-spacing:0.1em; text-transform:uppercase; font-size:0.85rem;">
+            ← Back to all pāsurams
+          </a>
+        </div>`;
+      document.getElementById('bc-verse').textContent = `Pāsuram ${num}`;
+      document.title = `Pāsuram ${num} · திருப்பாவை`;
+      return;
+    }
+
+    document.title = `Pāsuram ${v.num} · ${esc(v.incipit)} · திருப்பாவை`;
+    document.getElementById('bc-verse').textContent = `Pāsuram ${v.num} · ${v.incipit}`;
+
+    /* Theme — short label (before the em dash) */
+    const themeLabel = v.theme.split('—')[0].trim();
+    const themeDetail = v.theme.includes('—') ? v.theme.split('—').slice(1).join('—').trim() : '';
+
+    container.innerHTML = `
+      <!-- Day banner -->
+      <div class="tp-verse-banner">
+        <div class="tp-banner-day">
+          <div class="tp-banner-day-num">${v.num}</div>
+          <span class="tp-banner-day-label">Mārgaḻi · Day ${v.nāḷ}</span>
+        </div>
+        <div class="tp-banner-center">
+          <div class="tp-banner-incipit">${esc(v.incipit)}</div>
+          <div class="tp-banner-incipit-tamil">${esc(v.tamil.split('\n')[0])}</div>
+        </div>
+        <div class="tp-banner-theme-badge">${esc(themeLabel)}</div>
+      </div>
+
+      <!-- Verse palm-leaf card -->
+      <div class="tp-verse-card">
+        <div class="tp-verse-num-badge">
+          Thiruppāvai <span class="num">${v.num}</span> of 30
+        </div>
+
+        <!-- Theme block -->
+        <div class="tp-theme-block">
+          <span class="tp-theme-block-label">Theme</span>
+          <span class="tp-theme-block-text">${esc(themeDetail || v.theme)}</span>
+        </div>
+
+        <!-- Tamil -->
+        <div class="verse-layer">
+          <div class="tp-layer-label">Tamil · தமிழ்</div>
+          <div class="verse-tamil-text">${esc(v.tamil)}</div>
+        </div>
+
+        <!-- Transliteration -->
+        <div class="verse-layer">
+          <div class="tp-layer-label">Transliteration</div>
+          <div class="verse-translit-text">${esc(v.transliteration)}</div>
+        </div>
+
+        <!-- English -->
+        <div class="verse-layer">
+          <div class="tp-layer-label">English Translation</div>
+          <div class="verse-english-text">${esc(v.english)}</div>
+        </div>
+
+        <!-- Tamil Urai -->
+        <div class="verse-layer">
+          <div class="tp-layer-label">Tamil Commentary · உரை</div>
+          <div class="verse-urai-text">${esc(v.tamilUrai)}</div>
+        </div>
+
+        <!-- Alt Translation -->
+        <div class="verse-layer">
+          <div class="tp-layer-label">Alternative Rendering</div>
+          <div class="verse-alt-text">${esc(v.altTranslation)}</div>
+        </div>
+
+        <!-- Note -->
+        <div class="verse-layer">
+          <div class="tp-layer-label">Devotional Note</div>
+          <div class="tp-note">${esc(v.note)}</div>
+        </div>
+
+      </div>
+    `;
+
+    /* Prev / Next */
+    const prev = byNum.get(num - 1) || null;
+    const next = byNum.get(num + 1) || null;
+
+    document.getElementById('verse-nav').innerHTML = `
+      <a href="${prev ? `verse.html?n=${prev.num}` : '#'}"
+         class="tp-nav-link ${prev ? '' : 'disabled'}">
+        <div class="tp-nav-dir">← முந்தைய · Previous</div>
+        <div class="tp-nav-incipit">${prev ? esc(prev.incipit) : '—'}</div>
+        <div class="tp-nav-num">${prev ? `Pāsuram ${prev.num} · Day ${prev.nāḷ}` : ''}</div>
+      </a>
+      <a href="${next ? `verse.html?n=${next.num}` : '#'}"
+         class="tp-nav-link next ${next ? '' : 'disabled'}">
+        <div class="tp-nav-dir">அடுத்தது · Next →</div>
+        <div class="tp-nav-incipit">${next ? esc(next.incipit) : '—'}</div>
+        <div class="tp-nav-num">${next ? `Pāsuram ${next.num} · Day ${next.nāḷ}` : ''}</div>
+      </a>
+    `;
+  })();
+  </script>
+
+</body>
+</html>

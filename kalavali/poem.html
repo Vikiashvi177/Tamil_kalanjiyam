@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">Poem · களவழி நாற்பது</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/kalavali.css"/>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" width="36" height="36"
+               xmlns="http://www.w3.org/2000/svg"
+               style="display:block;color:var(--kv-amber)">
+            <ellipse cx="20" cy="14" rx="12" ry="5" fill="currentColor" opacity="0.80"/>
+            <rect x="8" y="14" width="24" height="10" fill="currentColor" opacity="0.70"/>
+            <ellipse cx="20" cy="24" rx="12" ry="5" fill="currentColor" opacity="0.60"/>
+            <line x1="11" y1="14" x2="13" y2="24" stroke="currentColor" stroke-width="1" opacity="0.50"/>
+            <line x1="20" y1="9"  x2="20" y2="29" stroke="currentColor" stroke-width="1" opacity="0.50"/>
+            <line x1="29" y1="14" x2="27" y2="24" stroke="currentColor" stroke-width="1" opacity="0.50"/>
+            <line x1="6" y1="6" x2="34" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.90"/>
+            <line x1="6" y1="9" x2="9" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.70"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">களவழி நாற்பது</span>
+          <span class="wordmark-roman">Kaḷavaḻi Nāṟpatu</span>
+        </span>
+      </a>
+      <nav class="site-nav">
+        <a href="../index.html">← Library</a>
+        <a href="index.html">All Poems</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="kv-poem-page">
+
+      <nav class="kv-breadcrumb">
+        <a href="../index.html">Library</a>
+        <span class="sep">›</span>
+        <a href="index.html">Kaḷavaḻi Nāṟpatu</a>
+        <span class="sep">›</span>
+        <span id="bc-poem">…</span>
+      </nav>
+
+      <div id="poem-container"></div>
+      <nav class="kv-poem-nav" id="poem-nav"></nav>
+
+    </article>
+  </main>
+
+  <footer>
+    <div style="color:var(--kv-amber);letter-spacing:1em;padding-left:1em;margin-bottom:0.75rem;opacity:0.35;">◆ ◆ ◆</div>
+    <div>களவழி நாற்பது · Part of the <a href="../index.html" style="color:var(--kv-amber);">Tamil Literature Library</a></div>
+  </footer>
+
+  <script src="data/poems.js"></script>
+  <script>
+  (function() {
+    function esc(s) {
+      return String(s)
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // Robust data loading
+    var poemsList;
+    try {
+      var dataObj = window.KLV_DATA;
+      if (dataObj && Array.isArray(dataObj.poems) && dataObj.poems.length > 0) {
+        poemsList = dataObj.poems;
+      } else if (window.KLV_POEMS && Array.isArray(window.KLV_POEMS)) {
+        poemsList = window.KLV_POEMS;
+      } else {
+        throw new Error('KLV_DATA.poems and KLV_POEMS both unavailable');
+      }
+    } catch(e) {
+      document.getElementById('poem-container').innerHTML =
+        '<div style="padding:2rem;text-align:center;color:var(--kv-dust);">' +
+        '<p>Error loading poem data: ' + e.message + '</p>' +
+        '<a href="index.html" style="color:var(--kv-amber);">← Back to all poems</a></div>';
+      document.getElementById('bc-poem').textContent = 'Error';
+      throw e;
+    }
+
+    var poemsByNum = new Map(poemsList.map(function(p) { return [p.num, p]; }));
+    var params = new URLSearchParams(window.location.search);
+    var num = parseInt(params.get('n'), 10) || 1;
+    var poem = poemsByNum.get(num);
+    var container = document.getElementById('poem-container');
+
+    if (!poem) {
+      container.innerHTML =
+        '<div style="text-align:center;padding:3rem 2rem;background:var(--bg-paper);' +
+        'border:1px solid var(--border-subtle);border-radius:4px;">' +
+        '<p style="color:var(--kv-ivory-mid);font-family:var(--font-display);font-size:1.1rem;margin-bottom:1rem;">' +
+        'பாடல் ' + num + ' இன்னும் தயாராகவில்லை · Poem ' + num + ' is not yet available.</p>' +
+        '<a href="index.html" style="color:var(--kv-amber);text-decoration:none;' +
+        'font-family:var(--font-display);letter-spacing:0.1em;text-transform:uppercase;' +
+        'font-size:0.85rem;">← Back to all poems</a></div>';
+      document.getElementById('bc-poem').textContent = 'பாடல் ' + num;
+      document.getElementById('page-title').textContent = 'பாடல் ' + num + ' · களவழி நாற்பது';
+      return;
+    }
+
+    document.getElementById('page-title').textContent =
+      'பாடல் ' + poem.num + ' · ' + poem.theme.split('—')[0].trim() + ' · களவழி நாற்பது';
+    document.getElementById('bc-poem').textContent = 'பாடல் ' + poem.num + ' · Poem ' + poem.num;
+
+    container.innerHTML =
+      '<div class="kv-poem-banner">' +
+        '<div class="kv-poem-num-label">களவழி நாற்பது · Poem ' + poem.num + ' of 40</div>' +
+        '<div class="kv-poem-theme-display">' + esc(poem.theme) + '</div>' +
+      '</div>' +
+
+      '<div class="kv-meta">' +
+        '<div class="kv-meta-item">' +
+          '<div class="kv-meta-label">புலவர் · Poet</div>' +
+          '<div class="kv-meta-value">' + esc('பொய்கையார் · Poykaiyār') + '</div>' +
+        '</div>' +
+        '<div class="kv-meta-item">' +
+          '<div class="kv-meta-label">திணை · Genre</div>' +
+          '<div class="kv-meta-value">புறம் · Puram (heroic / external)</div>' +
+        '</div>' +
+        '<div class="kv-meta-item">' +
+          '<div class="kv-meta-label">நிறைவு சொல் · Refrain ending</div>' +
+          '<div class="kv-meta-value">' + esc(poem.ending) + '</div>' +
+        '</div>' +
+        '<div class="kv-meta-item">' +
+          '<div class="kv-meta-label">Ending (English)</div>' +
+          '<div class="kv-meta-value" style="font-style:italic;">' + esc(poem.endingEng) + '</div>' +
+        '</div>' +
+      '</div>' +
+
+      '<div class="kv-poem-card">' +
+        '<div class="kv-poem-counter">Kaḷavaḻi Nāṟpatu <span class="num">' + poem.num + '</span> of 40</div>' +
+
+        '<div class="kv-layer">' +
+          '<div class="kv-layer-label">Tamil · தமிழ்</div>' +
+          '<div class="kv-tamil">' + esc(poem.tamil) + '</div>' +
+          '<div class="kv-refrain-tag">ends: <em lang="ta">' + esc(poem.ending) + '</em></div>' +
+        '</div>' +
+
+        '<div class="kv-layer">' +
+          '<div class="kv-layer-label">Transliteration</div>' +
+          '<div class="kv-translit">' + esc(poem.transliteration) + '</div>' +
+        '</div>' +
+
+        '<div class="kv-layer">' +
+          '<div class="kv-layer-label">English Translation</div>' +
+          '<div class="kv-english">' + esc(poem.english) + '</div>' +
+        '</div>' +
+
+        '<div class="kv-layer">' +
+          '<div class="kv-layer-label">Literary Note</div>' +
+          '<div class="kv-note">' + esc(poem.note) + '</div>' +
+        (poem.tamilUrai ? '<details class="kv-layer" style="margin-top:0.5rem"><summary class="kv-layer-toggle" style="cursor:pointer;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;color:#5a4830">Tamil Urai (உரை)</summary><div class="kv-layer-content" lang="ta" style="font-family:var(--font-tamil,serif);line-height:1.9;font-size:1.05rem;padding:0.75rem 1rem;background:#f5f1ea">' + esc(poem.tamilUrai) + '</div></details>' : '') +
+        (poem.altTranslation ? '<details class="kv-layer" style="margin-top:0.5rem"><summary class="kv-layer-toggle" style="cursor:pointer;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;color:#5a4830">Alternate Translation</summary><div class="kv-layer-content" style="font-style:italic;color:#5a4830;padding:0.75rem 1rem;background:#f5f1ea">' + esc(poem.altTranslation) + '</div></details>' : '') +
+        '</div>' +
+      '</div>';
+
+    // Prev / Next navigation
+    var prev = poemsByNum.has(num - 1) ? poemsByNum.get(num - 1) : null;
+    var next = poemsByNum.has(num + 1) ? poemsByNum.get(num + 1) : null;
+
+    document.getElementById('poem-nav').innerHTML =
+      '<a href="' + (prev ? 'poem.html?n=' + prev.num : '#') + '" ' +
+         'class="kv-nav-link ' + (prev ? '' : 'disabled') + '">' +
+        '<div class="kv-nav-dir">← முந்தைய · Previous</div>' +
+        '<div class="kv-nav-theme">' + (prev ? esc(prev.theme.split('—')[0].trim()) : '—') + '</div>' +
+        '<div class="kv-nav-num">' + (prev ? 'பாடல் ' + prev.num : '') + '</div>' +
+      '</a>' +
+      '<a href="' + (next ? 'poem.html?n=' + next.num : '#') + '" ' +
+         'class="kv-nav-link next ' + (next ? '' : 'disabled') + '">' +
+        '<div class="kv-nav-dir">அடுத்தது · Next →</div>' +
+        '<div class="kv-nav-theme">' + (next ? esc(next.theme.split('—')[0].trim()) : '—') + '</div>' +
+        '<div class="kv-nav-num">' + (next ? 'பாடல் ' + next.num : '') + '</div>' +
+      '</a>';
+  })();
+  </script>
+
+</body>
+</html>
