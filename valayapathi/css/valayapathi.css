@@ -1,0 +1,777 @@
+/* ==========================================================================
+   வளையாபதி · Valayāpati — Seafoam & Fractured-Gold Theme
+   ~72 surviving verses · One of the Five Great Epics · c. 5th–8th century CE
+   Author: Unknown (attr. Vañcikovaṉ) · Jain
+   Category: மாகாவியம் (Māakāviyam — The Great Epics)
+
+   Visual identity: The broken bracelet — three-quarters present, one quarter
+   gap. Beauty surviving its own loss. Palette:
+     - Fractured gold    (#c9a84c / #a07828) — the surviving fragments, precious
+     - Deep seafoam      (#2a6b6e / #1a4a4d) — the ocean city of Pukār, Jain calm
+     - Pale stone        (#e8e0d0)            — the palm-leaf manuscript
+     - Ash grey          (#8a8a8a)            — the lacunae, what was lost
+
+   Type-accent colours (fragment badges):
+     - descriptive:  seafoam     #2a6b6e
+     - lyric:        rose-coral  #9a3050
+     - ethical:      deep-forest #2a5a30
+     - narrative:    gold-ochre  #a07828
+
+   The mark: a broken bracelet — open arc (270°) with a gem inside.
+   The gap is the work's identity: incompleteness as honest form.
+   ========================================================================== */
+
+:root {
+  /* ── Fractured gold (primary) ──────────────────────── */
+  --vp-gold:          #c9a84c;
+  --vp-gold-mid:      #a07828;
+  --vp-gold-bright:   #e0c060;
+  --vp-gold-pale:     rgba(201, 168, 76, 0.12);
+  --vp-gold-pale2:    rgba(201, 168, 76, 0.06);
+  --vp-gold-deep:     #7a5818;
+
+  /* ── Deep seafoam (secondary) ───────────────────────── */
+  --vp-sea:           #2a6b6e;
+  --vp-sea-mid:       #1a4a4d;
+  --vp-sea-bright:    #3a8a8e;
+  --vp-sea-pale:      rgba(42, 107, 110, 0.12);
+  --vp-sea-pale2:     rgba(42, 107, 110, 0.06);
+
+  /* ── Pale stone (tertiary) ──────────────────────────── */
+  --vp-stone:         #e8e0d0;
+  --vp-stone-mid:     #d4cabb;
+  --vp-stone-dark:    #b8ae9e;
+
+  /* ── Ash (lacuna colour) ─────────────────────────────── */
+  --vp-ash:           #8a8a8a;
+  --vp-ash-pale:      rgba(138, 138, 138, 0.18);
+  --vp-ash-pale2:     rgba(138, 138, 138, 0.08);
+
+  /* ── Fragment-type accent colours ───────────────────── */
+  --vp-descriptive:     #2a6b6e;
+  --vp-descriptive-mid: #3a8a8e;
+  --vp-lyric:           #9a3050;
+  --vp-lyric-mid:       #c04070;
+  --vp-ethical:         #2a5a30;
+  --vp-ethical-mid:     #3a7a40;
+  --vp-narrative:       #a07828;
+  --vp-narrative-mid:   #c09040;
+
+  /* ── Site-wide palette overrides ────────────────────── */
+  --accent-vermillion: var(--vp-sea);
+  --accent-kumkum:     var(--vp-sea-mid);
+  --accent-ochre:      var(--vp-gold-mid);
+  --accent-gold:       var(--vp-gold);
+}
+
+/* ---------------------------------------------------------------------------
+   Background: pale stone parchment with faint seafoam texture
+   --------------------------------------------------------------------------- */
+body { background: #b8c4c4; }
+body::before {
+  background-image:
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 3px,
+      rgba(42,107,110,0.012) 3px, rgba(42,107,110,0.012) 4px),
+    repeating-linear-gradient(0deg,
+      transparent 0px, transparent 60px,
+      rgba(42,107,110,0.022) 60px, rgba(42,107,110,0.022) 61px,
+      transparent 61px, transparent 140px,
+      rgba(42,107,110,0.012) 140px, rgba(42,107,110,0.012) 142px),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.18 0 0 0 0 0.28 0 0 0 0 0.28 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Header */
+.site-header { border-bottom-color: rgba(42,107,110,0.28); }
+.site-logo .mark { color: var(--vp-gold); }
+.wordmark-tamil { color: var(--vp-sea); }
+.site-nav a { color: var(--vp-sea-mid); }
+.site-nav a:hover { color: var(--vp-gold); }
+a { color: var(--vp-sea-mid); }
+a:hover { color: var(--vp-sea); }
+
+/* ---------------------------------------------------------------------------
+   VP Hero (index page)
+   --------------------------------------------------------------------------- */
+.vp-hero {
+  text-align: center;
+  padding: 3.5rem 1.5rem 2rem;
+}
+.vp-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--vp-sea);
+  margin: 0 0 0.3rem;
+  letter-spacing: -0.01em;
+}
+.vp-hero h2 {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: var(--vp-gold-mid);
+  font-weight: 400;
+  margin: 0 0 0.8rem;
+  letter-spacing: 0.02em;
+}
+.vp-hero .era {
+  font-size: 0.85rem;
+  color: var(--vp-ash);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 2rem;
+}
+
+/* Stat row */
+.vp-stat-row {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin: 0 0 2rem;
+}
+.vp-stat { text-align: center; }
+.vp-stat-num {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--vp-gold);
+  line-height: 1;
+}
+.vp-stat-label {
+  font-size: 0.72rem;
+  color: var(--vp-ash);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.2rem;
+}
+
+.vp-hero p {
+  max-width: 660px;
+  margin: 0 auto 1rem;
+  color: #3a3020;
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Survival banner — the special context panel for a fragmentary work
+   --------------------------------------------------------------------------- */
+.vp-survival-banner {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  padding: 1.4rem 1.8rem;
+  background: rgba(138,138,138,0.07);
+  border: 1.5px dashed rgba(138,138,138,0.38);
+  border-radius: 6px;
+}
+.vp-survival-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--vp-ash);
+  margin-bottom: 0.5rem;
+}
+.vp-survival-text {
+  font-size: 0.92rem;
+  color: #4a4030;
+  line-height: 1.7;
+}
+
+/* Five Epics panel */
+.vp-five-epics {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  padding: 1.4rem 1.8rem;
+  background: var(--vp-sea-pale2);
+  border-left: 3px solid var(--vp-sea);
+  border-radius: 4px;
+}
+.vp-five-epics-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--vp-sea);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+.vp-epic-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(42,107,110,0.10);
+  font-size: 0.88rem;
+  color: #3a3828;
+}
+.vp-epic-row:last-child { border-bottom: none; }
+.vp-epic-row.current { font-weight: 600; color: var(--vp-sea); }
+.vp-epic-num { width: 1.4rem; font-size: 0.78rem; color: var(--vp-ash); flex-shrink: 0; }
+.vp-epic-name { flex: 1; }
+.vp-epic-status {
+  font-size: 0.72rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid;
+}
+.vp-epic-status.intact {
+  border-color: rgba(42,107,110,0.35);
+  color: var(--vp-sea);
+  background: var(--vp-sea-pale2);
+}
+.vp-epic-status.fragments {
+  border-color: rgba(138,138,138,0.38);
+  color: var(--vp-ash);
+  background: var(--vp-ash-pale2);
+}
+
+/* Sources grid */
+.vp-sources-grid {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.vp-source-card {
+  padding: 1rem 1.2rem;
+  background: var(--vp-gold-pale2);
+  border: 1px solid rgba(201,168,76,0.22);
+  border-top: 3px solid var(--vp-gold);
+  border-radius: 4px;
+}
+.vp-source-name { font-size: 0.9rem; font-weight: 600; color: var(--vp-gold-mid); margin-bottom: 0.2rem; }
+.vp-source-tamil { font-size: 0.85rem; color: var(--vp-sea); margin-bottom: 0.3rem; }
+.vp-source-date { font-size: 0.7rem; color: var(--vp-ash); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+.vp-source-desc { font-size: 0.82rem; color: #4a4030; line-height: 1.6; }
+.vp-source-count { font-size: 0.75rem; color: var(--vp-gold-mid); font-weight: 600; margin-top: 0.5rem; }
+
+/* Theme group cards on index */
+.vp-groups-grid {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.vp-group-card {
+  display: block;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid rgba(42,107,110,0.18);
+  border-top: 3px solid var(--group-color, var(--vp-sea));
+  border-radius: 4px;
+  background: white;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s, box-shadow 0.15s;
+  cursor: pointer;
+}
+.vp-group-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(42,107,110,0.14);
+  text-decoration: none;
+}
+.vp-group-card-tamil { font-size: 1.05rem; color: var(--vp-sea); margin-bottom: 0.15rem; }
+.vp-group-card-english { font-size: 0.82rem; color: var(--vp-ash); margin-bottom: 0.5rem; letter-spacing: 0.02em; }
+.vp-group-card-desc { font-size: 0.82rem; color: #4a3820; line-height: 1.6; }
+.vp-group-card-count {
+  margin-top: 0.6rem;
+  font-size: 0.72rem;
+  color: var(--vp-gold-mid);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ---------------------------------------------------------------------------
+   Section dividers
+   --------------------------------------------------------------------------- */
+.vp-divider {
+  text-align: center;
+  color: var(--vp-gold);
+  opacity: 0.45;
+  letter-spacing: 0.5em;
+  font-size: 0.9rem;
+  margin: 2rem 0;
+}
+.vp-section-heading {
+  text-align: center;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vp-sea);
+  margin: 0 0 1.4rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Fragment Reader (fragments.html)
+   --------------------------------------------------------------------------- */
+
+/* Sticky group nav */
+.vp-group-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(232,224,208,0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(42,107,110,0.18);
+  padding: 0.6rem 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.vp-group-nav-btn {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+  background: transparent;
+  font-family: inherit;
+}
+.vp-group-nav-btn:hover {
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+.vp-group-nav-label {
+  font-size: 0.7rem;
+  color: var(--vp-ash);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 0.5rem;
+}
+
+/* Theme group section */
+.vp-group-section {
+  max-width: 780px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+}
+.vp-group-header {
+  border-left: 4px solid var(--group-color, var(--vp-sea));
+  padding: 0.8rem 1.2rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255,255,255,0.5);
+  border-radius: 0 4px 4px 0;
+}
+.vp-group-header-tamil { font-size: 1.4rem; color: var(--vp-sea); margin-bottom: 0.15rem; }
+.vp-group-header-english { font-size: 0.85rem; color: var(--vp-ash); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; }
+.vp-group-header-desc { font-size: 0.9rem; color: #3a3020; line-height: 1.7; }
+
+/* Individual fragment card */
+.vp-fragment {
+  background: white;
+  border: 1px solid rgba(42,107,110,0.14);
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+.vp-fragment-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.7rem 1.2rem;
+  background: rgba(42,107,110,0.04);
+  border-bottom: 1px solid rgba(42,107,110,0.10);
+}
+.vp-fragment-num {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--vp-ash);
+  letter-spacing: 0.06em;
+}
+.vp-type-badge {
+  font-size: 0.68rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.vp-type-badge.descriptive { border-color: rgba(42,107,110,0.35); color: var(--vp-descriptive); background: rgba(42,107,110,0.06); }
+.vp-type-badge.lyric       { border-color: rgba(154,48,80,0.30);  color: var(--vp-lyric);        background: rgba(154,48,80,0.06); }
+.vp-type-badge.ethical     { border-color: rgba(42,90,48,0.30);   color: var(--vp-ethical);      background: rgba(42,90,48,0.06); }
+.vp-type-badge.narrative   { border-color: rgba(160,120,40,0.30); color: var(--vp-narrative);    background: rgba(160,120,40,0.06); }
+
+.vp-source-badge {
+  margin-left: auto;
+  font-size: 0.68rem;
+  padding: 0.1rem 0.55rem;
+  border-radius: 3px;
+  background: var(--vp-gold-pale);
+  border: 1px solid rgba(201,168,76,0.30);
+  color: var(--vp-gold-mid);
+  white-space: nowrap;
+}
+
+/* Fragment content layers */
+.vp-fragment-body { padding: 0 1.2rem 0.5rem; }
+
+.vp-layer { margin: 0; border-bottom: 1px solid rgba(42,107,110,0.07); }
+.vp-layer:last-child { border-bottom: none; }
+.vp-layer-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 0;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.75rem;
+  color: var(--vp-sea);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  list-style: none;
+}
+.vp-layer-toggle::-webkit-details-marker { display: none; }
+.vp-layer-toggle::after {
+  content: '▸';
+  font-size: 0.6rem;
+  color: var(--vp-ash);
+  transition: transform 0.15s;
+}
+details[open] > .vp-layer-toggle::after { transform: rotate(90deg); }
+.vp-layer-content { padding: 0 0 0.9rem; }
+
+/* Tamil verse */
+.vp-tamil {
+  font-size: 1.18rem;
+  line-height: 1.9;
+  color: #1a1a18;
+  letter-spacing: 0.01em;
+}
+/* Transliteration */
+.vp-translit {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: #3a3020;
+  font-style: italic;
+}
+/* English */
+.vp-english {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: #2a2418;
+}
+/* Note */
+.vp-note {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: #4a4030;
+  padding: 0.6rem 0.9rem;
+  background: var(--vp-gold-pale2);
+  border-left: 2.5px solid var(--vp-gold);
+  border-radius: 0 3px 3px 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Lacuna gap — the visual representation of lost text
+   --------------------------------------------------------------------------- */
+.vp-lacuna {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.5rem 0 2rem;
+  padding: 0 0.5rem;
+}
+.vp-lacuna-line {
+  flex: 1;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(138,138,138,0.35) 0px,
+    rgba(138,138,138,0.35) 6px,
+    transparent 6px,
+    transparent 10px
+  );
+}
+.vp-lacuna-icon {
+  font-size: 1.1rem;
+  color: var(--vp-ash);
+  opacity: 0.55;
+  flex-shrink: 0;
+}
+.vp-lacuna-note {
+  max-width: 780px;
+  margin: -1rem auto 2rem;
+  font-size: 0.8rem;
+  color: var(--vp-ash);
+  font-style: italic;
+  line-height: 1.7;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* ---------------------------------------------------------------------------
+   About page
+   --------------------------------------------------------------------------- */
+.vp-about-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  font-size: 0.97rem;
+  line-height: 1.82;
+  color: #2a2418;
+}
+.vp-about-body h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--vp-sea);
+  margin: 2.5rem 0 0.7rem;
+  border-bottom: 1px solid rgba(42,107,110,0.18);
+  padding-bottom: 0.4rem;
+}
+.vp-about-body h3 {
+  font-size: 0.95rem;
+  color: var(--vp-gold-mid);
+  margin: 1.5rem 0 0.4rem;
+}
+.vp-about-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 1rem 0;
+}
+.vp-about-body th {
+  text-align: left;
+  padding: 0.5rem 0.8rem;
+  background: var(--vp-sea-pale2);
+  color: var(--vp-sea);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid rgba(42,107,110,0.2);
+}
+.vp-about-body td {
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid rgba(42,107,110,0.08);
+  vertical-align: top;
+}
+.vp-about-body tr:last-child td { border-bottom: none; }
+.vp-about-body blockquote {
+  border-left: 3px solid var(--vp-gold);
+  margin: 1.2rem 0;
+  padding: 0.6rem 1.2rem;
+  background: var(--vp-gold-pale2);
+  font-style: italic;
+  color: #3a2a10;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Secondary page header (about, etc.)
+   --------------------------------------------------------------------------- */
+.vp-page-header {
+  background: var(--vp-sea-pale2);
+  border-bottom: 1px solid rgba(42,107,110,0.14);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+}
+.vp-page-header-inner { max-width: 720px; margin: 0 auto; }
+.vp-page-header h1 {
+  font-size: 1.3rem;
+  color: var(--vp-sea);
+  margin: 0 0 0.4rem;
+}
+.vp-page-header p {
+  font-size: 0.88rem;
+  color: var(--vp-ash);
+  font-style: italic;
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Fragments page intro
+   --------------------------------------------------------------------------- */
+.vp-fragments-intro {
+  background: var(--vp-sea-pale2);
+  border-bottom: 1px solid rgba(42,107,110,0.14);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+}
+.vp-fragments-intro-inner { max-width: 760px; margin: 0 auto; }
+.vp-fragments-intro h1 {
+  font-size: 1.3rem;
+  color: var(--vp-sea);
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.03em;
+}
+.vp-fragments-subtitle {
+  font-size: 0.88rem;
+  color: var(--vp-ash);
+  font-style: italic;
+  margin: 0 0 0.6rem;
+}
+.vp-fragments-count-line {
+  font-size: 0.82rem;
+  color: var(--vp-gold-mid);
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------------------------
+   Fragments main container
+   --------------------------------------------------------------------------- */
+.vp-fragments-main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Group section
+   --------------------------------------------------------------------------- */
+.vp-group-header-inner {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  max-width: 820px;
+}
+.vp-group-accent {
+  width: 4px;
+  min-height: 60px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  opacity: 0.85;
+  align-self: stretch;
+}
+.vp-group-titles { flex: 1; }
+.vp-group-tamil {
+  font-size: 1.3rem;
+  color: var(--vp-sea);
+  margin: 0 0 0.1rem;
+}
+.vp-group-english {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--vp-ash);
+  font-weight: 600;
+  margin: 0 0 0.55rem;
+}
+.vp-group-desc {
+  font-size: 0.88rem;
+  color: #3a3020;
+  line-height: 1.72;
+  margin: 0;
+}
+.vp-group-count-badge {
+  font-size: 0.75rem;
+  color: var(--vp-gold-mid);
+  background: var(--vp-gold-pale);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 12px;
+  padding: 0.2rem 0.65rem;
+  white-space: nowrap;
+  align-self: center;
+  font-weight: 600;
+}
+.vp-fragments-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 1.2rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Lacuna block
+   --------------------------------------------------------------------------- */
+.vp-lacuna-block { margin: 2.5rem 0; }
+.vp-lacuna {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0.5rem 0 2rem;
+  padding: 0 0.5rem;
+}
+.vp-lacuna-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--vp-ash);
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+/* ---------------------------------------------------------------------------
+   Fragment verse/content styles
+   --------------------------------------------------------------------------- */
+.vp-tamil-verse {
+  font-family: inherit;
+  font-size: 1.05rem;
+  line-height: 2;
+  color: #2a1a10;
+  padding: 0.2rem 0;
+}
+.vp-translit-verse {
+  font-family: inherit;
+  font-size: 0.93rem;
+  line-height: 2;
+  color: #3a2a18;
+  font-style: italic;
+  padding: 0.2rem 0;
+}
+.vp-english-prose {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: #2a2418;
+}
+.vp-tamil-urai {
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: #3a3020;
+}
+.vp-note {
+  font-size: 0.83rem;
+  line-height: 1.75;
+  color: #5a5040;
+  font-style: italic;
+}
+
+/* ---------------------------------------------------------------------------
+   End-of-fragments marker
+   --------------------------------------------------------------------------- */
+.vp-fragments-end {
+  text-align: center;
+  padding: 4rem 1rem 2rem;
+  border-top: 1px solid rgba(42,107,110,0.12);
+  margin-top: 3rem;
+}
+.vp-end-bracelet { margin-bottom: 1.2rem; }
+.vp-end-text {
+  font-size: 1.05rem;
+  color: var(--vp-sea);
+  font-weight: 600;
+  margin: 0 0 0.3rem;
+}
+.vp-end-subtext {
+  font-size: 0.88rem;
+  color: var(--vp-ash);
+  font-style: italic;
+  margin: 0 0 1.5rem;
+}
+.vp-end-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.vp-end-links a {
+  font-size: 0.85rem;
+  color: var(--vp-sea-mid);
+  font-weight: 600;
+}
+.vp-end-links a:hover { color: var(--vp-gold); }
+
+/* ---------------------------------------------------------------------------
+   Responsive
+   --------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .vp-stat-row { gap: 1.5rem; }
+  .vp-stat-num { font-size: 1.6rem; }
+  .vp-sources-grid, .vp-groups-grid { grid-template-columns: 1fr 1fr; }
+  .vp-group-nav { padding: 0.5rem 1rem; gap: 0.4rem; }
+  .vp-group-nav-btn { font-size: 0.72rem; padding: 0.25rem 0.55rem; }
+  .vp-fragment-header { flex-wrap: wrap; }
+  .vp-source-badge { margin-left: 0; }
+}

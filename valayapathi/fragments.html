@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fragments · வளையாபதி · Valayāpati</title>
+  <meta name="description" content="All 72 surviving verses of வளையாபதி Valayāpati — one of the Five Great Tamil Epics — arranged by theme group with Tamil text, transliteration, translation, and scholarly notes."/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/valayapathi.css"/>
+</head>
+<body>
+
+  <!-- ── Header ─────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Valayāpati home">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" width="36" height="36"
+               xmlns="http://www.w3.org/2000/svg" fill="none"
+               stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" style="display:block;color:var(--vp-gold)">
+            <path d="M 28 8 A 14 14 0 1 0 34 20" stroke-width="2.4" opacity="0.90"/>
+            <circle cx="20" cy="34" r="2.8" fill="currentColor" stroke="none" opacity="0.85"/>
+            <circle cx="7" cy="21" r="1.8" fill="currentColor" stroke="none" opacity="0.55"/>
+            <path d="M 27 11 A 9 9 0 1 0 31 20" stroke-width="0.7" opacity="0.20" stroke-dasharray="2 3"/>
+          </svg>
+        </span>
+        <span class="wordmark">
+          <span class="wordmark-tamil">வளையாபதி</span>
+          <span class="wordmark-roman">Valayāpati</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Site navigation">
+        <a href="index.html">Overview</a>
+        <a href="fragments.html" aria-current="page">Fragments</a>
+        <a href="about.html">About</a>
+        <a href="../index.html">← Library</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Page intro ────────────────────────────────────── -->
+  <div class="vp-fragments-intro">
+    <div class="vp-fragments-intro-inner">
+      <h1>The Surviving Fragments</h1>
+      <p class="vp-fragments-subtitle">72 verses recovered from five centuries of quotation · arranged by theme · gaps named and honoured</p>
+      <p class="vp-fragments-count-line">
+        <span id="vp-frag-count">72 fragments</span> across
+        <span id="vp-group-count">5 theme groups</span> ·
+        <span id="vp-lacuna-count">3 named lacunae</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Sticky group nav ──────────────────────────────── -->
+  <nav class="vp-group-nav" id="vp-group-nav" aria-label="Jump to theme group">
+    <span class="vp-group-nav-label">Jump to:</span>
+    <!-- JS-rendered -->
+  </nav>
+
+  <!-- ── Main fragment reader ──────────────────────────── -->
+  <main class="vp-fragments-main" id="vp-fragments-main">
+    <!-- JS-rendered -->
+  </main>
+
+  <!-- ── Footer ────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <p>
+      Tamil Literature Library ·
+      <a href="../index.html">All works</a> ·
+      <a href="about.html">About Valayāpati</a>
+    </p>
+    <p class="footer-note">
+      Fragments recovered through the scholarship of U. V. Swaminatha Iyer and subsequent editors.
+      Tamil verse texts represent scholarly consensus; gaps are documented, not silenced.
+    </p>
+  </footer>
+
+  <!-- ── Data ──────────────────────────────────────────── -->
+  <script src="data/context.js"></script>
+  <script src="data/fragments.js"></script>
+
+  <!-- ── Renderer ──────────────────────────────────────── -->
+  <script>
+  (function () {
+
+    /* ── helpers ── */
+    function esc(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    /* Capitalise first letter of type badge */
+    function cap(str) {
+      if (!str) return "";
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    /* Tamil verse: preserve newlines as <br> */
+    function verse(str) {
+      return str.trim().split(/\n/).map(l => esc(l.trim())).join('<br>');
+    }
+
+    /* ── source badge colour map ── */
+    const SOURCE_COLOURS = {
+      "NampiAk"  : { bg: "rgba(42,107,110,0.10)",  fg: "var(--vp-sea)" },
+      "YāpVir"   : { bg: "rgba(201,168,76,0.14)",  fg: "var(--vp-gold-mid)" },
+      "NaḷaVen"  : { bg: "rgba(42,90,48,0.10)",    fg: "var(--vp-ethical)" },
+      "PuṟaVen"  : { bg: "rgba(154,48,80,0.10)",   fg: "var(--vp-lyric)" }
+    };
+    function sourceBadgeStyle(shortKey) {
+      const c = SOURCE_COLOURS[shortKey];
+      if (!c) return "";
+      return `style="background:${c.bg};color:${c.fg};border-color:${c.fg.replace('var(','').replace(')','')}"`;
+    }
+
+    /* ── Build sticky nav ── */
+    const navEl = document.getElementById("vp-group-nav");
+    VP_THEME_GROUPS.forEach(function (g) {
+      const btn = document.createElement("a");
+      btn.className = "vp-group-nav-btn";
+      btn.href = "#group-" + g.key;
+      btn.textContent = g.tamil;
+      btn.title = g.english;
+      navEl.appendChild(btn);
+    });
+
+    /* ── Highlight active nav on scroll ── */
+    const groupSections = [];
+    function updateNavHighlight() {
+      const scrollY = window.scrollY + 120;
+      groupSections.forEach(function (s, i) {
+        const next = groupSections[i + 1];
+        const start = s.el.offsetTop;
+        const end = next ? next.el.offsetTop : document.body.scrollHeight;
+        const btn = navEl.querySelectorAll(".vp-group-nav-btn")[i];
+        if (btn) {
+          btn.classList.toggle("active", scrollY >= start && scrollY < end);
+        }
+      });
+    }
+    window.addEventListener("scroll", updateNavHighlight, { passive: true });
+
+    /* ── Render all groups ── */
+    const main = document.getElementById("vp-fragments-main");
+
+    VP_THEME_GROUPS.forEach(function (group, gi) {
+      const frags = VP_FRAGMENTS.filter(function (f) {
+        return f.themeGroup === group.key;
+      });
+
+      /* Group section */
+      const section = document.createElement("section");
+      section.id = "group-" + group.key;
+      section.className = "vp-group-section";
+      section.style.setProperty("--group-color", group.color);
+
+      /* Group header */
+      section.innerHTML = `
+        <div class="vp-group-header">
+          <div class="vp-group-header-inner">
+            <div class="vp-group-accent" style="background:${esc(group.color)}"></div>
+            <div class="vp-group-titles">
+              <h2 class="vp-group-tamil">${esc(group.tamil)}</h2>
+              <h3 class="vp-group-english">${esc(group.english)}</h3>
+              <p class="vp-group-desc">${esc(group.description)}</p>
+            </div>
+            <div class="vp-group-count-badge">${frags.length} fragment${frags.length !== 1 ? 's' : ''}</div>
+          </div>
+        </div>
+      `;
+
+      /* Fragments container */
+      const fragContainer = document.createElement("div");
+      fragContainer.className = "vp-fragments-container";
+
+      frags.forEach(function (frag) {
+        const srcStyle = sourceBadgeStyle(frag.sourceShort);
+        const fragEl = document.createElement("div");
+        fragEl.className = "vp-fragment";
+        fragEl.id = "frag-" + frag.num;
+
+        fragEl.innerHTML = `
+          <div class="vp-fragment-header">
+            <span class="vp-fragment-num">${frag.num}</span>
+            <span class="vp-type-badge ${esc(frag.type)}">${cap(frag.type)}</span>
+            <span class="vp-source-badge" ${srcStyle}>${esc(frag.source)}</span>
+          </div>
+          <div class="vp-fragment-body">
+
+            <details class="vp-layer" open>
+              <summary class="vp-layer-toggle">Tamil</summary>
+              <div class="vp-layer-content vp-tamil-verse">${verse(frag.tamil)}</div>
+            </details>
+
+            <details class="vp-layer">
+              <summary class="vp-layer-toggle">Transliteration</summary>
+              <div class="vp-layer-content vp-translit-verse">${verse(frag.transliteration)}</div>
+            </details>
+
+            <details class="vp-layer">
+              <summary class="vp-layer-toggle">English</summary>
+              <div class="vp-layer-content vp-english-prose">${esc(frag.english)}</div>
+            </details>
+
+            <details class="vp-layer">
+              <summary class="vp-layer-toggle">Tamil Urai (உரை)</summary>
+              <div class="vp-layer-content vp-tamil-urai">${esc(frag.tamilUrai)}</div>
+            </details>
+
+            ${frag.note ? `
+            <details class="vp-layer">
+              <summary class="vp-layer-toggle">Scholarly Note</summary>
+              <div class="vp-layer-content vp-note">${esc(frag.note)}</div>
+            </details>
+            ` : ""}
+            ${frag.altTranslation ? `
+            <details class="vp-layer">
+              <summary class="vp-layer-toggle">Alternate Translation</summary>
+              <div class="vp-layer-content vp-alt-trans" style="font-style:italic;color:#5a4830">${esc(frag.altTranslation)}</div>
+            </details>
+            ` : ""}
+
+          </div>
+        `;
+
+        fragContainer.appendChild(fragEl);
+      });
+
+      section.appendChild(fragContainer);
+      main.appendChild(section);
+
+      /* Lacuna separator after group (if not last) */
+      if (group.lacunaAfter && group.lacunaNote) {
+        const lacuna = VP_LACUNAE ? VP_LACUNAE.find(function (l) { return l.after === group.key; }) : null;
+        const lacunaTitle = lacuna ? lacuna.shortDesc : "Lost Section";
+        const lacunaDesc = lacuna ? lacuna.fullNote : group.lacunaNote;
+        const lacunaEl = document.createElement("div");
+        lacunaEl.className = "vp-lacuna-block";
+        lacunaEl.innerHTML = `
+          <div class="vp-lacuna">
+            <div class="vp-lacuna-line"></div>
+            <div class="vp-lacuna-icon" aria-hidden="true">◌</div>
+            <div class="vp-lacuna-label">${esc(lacunaTitle)}</div>
+            <div class="vp-lacuna-icon" aria-hidden="true">◌</div>
+            <div class="vp-lacuna-line"></div>
+          </div>
+          <p class="vp-lacuna-note">${esc(lacunaDesc)}</p>
+        `;
+        main.appendChild(lacunaEl);
+      }
+
+      /* Track for scroll-spy */
+      groupSections.push({ key: group.key, el: section });
+    });
+
+    /* Final note */
+    const endEl = document.createElement("div");
+    endEl.className = "vp-fragments-end";
+    endEl.innerHTML = `
+      <div class="vp-end-bracelet" aria-hidden="true">
+        <svg viewBox="0 0 60 60" width="48" height="48"
+             xmlns="http://www.w3.org/2000/svg" fill="none"
+             stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" style="color:var(--vp-gold);opacity:0.55">
+          <path d="M 42 12 A 21 21 0 1 0 51 30"/>
+          <circle cx="30" cy="51" r="4" fill="currentColor" stroke="none" opacity="0.7"/>
+        </svg>
+      </div>
+      <p class="vp-end-text">These 72 verses are all that remain.</p>
+      <p class="vp-end-subtext">The bracelet is broken. What survives still gleams.</p>
+      <div class="vp-end-links">
+        <a href="about.html">About Valayāpati →</a>
+        <a href="../civakacintamani/index.html">Cīvaka Cintāmaṇi →</a>
+        <a href="../cilappatikaram/index.html">Cilappatikāram →</a>
+      </div>
+    `;
+    main.appendChild(endEl);
+
+    /* Initial nav highlight */
+    updateNavHighlight();
+
+  })();
+  </script>
+
+</body>
+</html>

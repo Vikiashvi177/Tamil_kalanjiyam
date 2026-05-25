@@ -1,0 +1,500 @@
+/* ==========================================================================
+   பழமொழி நானூறு · Paḻamoḻi Nāṉūṟu — Four Hundred Proverbs
+   400 proverb-and-commentary verses · c. 1st–5th century CE
+   Author: Muṉṟurai Araiyaṉār · Patiṉeṇkīḻkaṇakku collection
+
+   Title: பழமொழி (paḻamoḻi) = proverb / old saying; நானூறு (nāṉūṟu) = four hundred.
+   Each verse pairs a classical Tamil proverb with a venba commentary poem
+   by Muṉṟurai Araiyaṉār that illuminates the proverb through illustration.
+   The 400 verses are grouped into 11 sections: Araṉ, Poruḷ, Iṉpam, Vīṭu,
+   Araci, Katci, Payaṉ, Naṭpu, Perumai, Ciṟumai, Tiṟam.
+
+   Visual identity: Proverbs are ancient, dense, oral. They carry the weight
+   of accumulated speech — passed mouth to mouth across generations. The
+   palette draws from that world of accumulated speech and manuscript:
+   deep midnight-blue (the dark before dawn — when elders speak),
+   warm gold-amber (the lamp that illuminates the proverb),
+   and worn-parchment (the leaf on which it is written).
+
+   Mark: an open book / unrolled scroll — a palmleaf manuscript opening,
+   two arcs meeting at a spine. Simple, immediate, unique in this library.
+   ========================================================================== */
+
+:root {
+  /* ── Midnight-blue (primary) ────────────────────────── */
+  --pz-midnight:        #141830;
+  --pz-midnight-mid:    #202848;
+  --pz-midnight-bright: #303c6a;
+  --pz-midnight-pale:   rgba(20, 24, 48, 0.10);
+  --pz-midnight-pale2:  rgba(20, 24, 48, 0.05);
+
+  /* ── Gold-amber (secondary / accent) ───────────────── */
+  --pz-gold:            #c8940a;
+  --pz-gold-mid:        #a07208;
+  --pz-gold-bright:     #e0aa20;
+  --pz-gold-pale:       rgba(200, 148, 10, 0.14);
+  --pz-gold-pale2:      rgba(200, 148, 10, 0.07);
+
+  /* ── Copper-red (secondary) ─────────────────────────── */
+  --pz-copper:          #8b3a1a;
+  --pz-copper-mid:      #6a2c10;
+  --pz-copper-pale:     rgba(139, 58, 26, 0.12);
+
+  /* ── Warm parchment ─────────────────────────────────── */
+  --pz-parchment:       #f5edda;
+  --pz-parchment-mid:   #e8ddc0;
+  --pz-parchment-deep:  #d8c898;
+
+  /* ── Muted ink ──────────────────────────────────────── */
+  --pz-ink:             #180e04;
+  --pz-ink-mid:         #382818;
+  --pz-ink-pale:        rgba(24, 14, 4, 0.55);
+
+  /* ── Site overrides ─────────────────────────────────── */
+  --accent-vermillion:  var(--pz-midnight);
+  --accent-kumkum:      var(--pz-midnight-mid);
+  --accent-ochre:       var(--pz-gold-mid);
+  --accent-gold:        var(--pz-gold);
+}
+
+/* ── Body & base ────────────────────────────────────────── */
+body {
+  background: var(--pz-parchment);
+  color: var(--pz-ink);
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.site-header {
+  background: var(--pz-midnight);
+  border-bottom: 2px solid var(--pz-gold-mid);
+}
+/* wordmark-tamil: gold on midnight header */
+.site-logo .wordmark-tamil {
+  color: var(--pz-gold);
+}
+
+.site-logo .wordmark-roman {
+  color: var(--pz-gold-bright);
+}
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--pz-gold-bright);
+  border-bottom-color: var(--pz-gold-bright);
+}
+
+/* ── Hero ───────────────────────────────────────────────── */
+.pz-hero {
+  background: linear-gradient(160deg, var(--pz-midnight) 0%, var(--pz-midnight-mid) 55%, #2c3050 100%);
+  color: #f0e8d0;
+  padding: 3.5rem 1.5rem 3rem;
+  text-align: center;
+}
+.pz-hero-mark {
+  margin-bottom: 1.5rem;
+}
+.pz-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.25rem;
+  color: #fff;
+}
+.pz-hero-roman {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--pz-gold-bright);
+  margin: 0 0 0.4rem;
+}
+.pz-hero-meaning {
+  font-size: 1rem;
+  color: rgba(240, 232, 208, 0.80);
+  margin: 0 0 1.2rem;
+}
+.pz-hero p {
+  max-width: 640px;
+  margin: 0 auto 0.9rem;
+  font-size: 0.97rem;
+  line-height: 1.7;
+  color: rgba(240, 232, 208, 0.85);
+}
+
+/* ── Hero stat row ──────────────────────────────────────── */
+.pz-stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2rem;
+  margin-top: 2rem;
+}
+.pz-stat {
+  text-align: center;
+  min-width: 80px;
+}
+.pz-stat-num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--pz-gold-bright);
+  line-height: 1.2;
+}
+.pz-stat-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(240, 232, 208, 0.60);
+  margin-top: 0.2rem;
+}
+
+/* ── Sections banner (eleven topics) ───────────────────── */
+.pz-sections-banner {
+  background: var(--pz-gold-pale);
+  border-top: 1px solid var(--pz-gold-pale2);
+  border-bottom: 2px solid var(--pz-gold-pale);
+  padding: 1.1rem 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--pz-ink-mid);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.pz-sections-banner strong {
+  color: var(--pz-midnight);
+}
+
+/* ── Eleven sections display ────────────────────────────── */
+.pz-eleven-sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 1rem;
+  padding: 1.4rem 1.5rem 1.8rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.pz-section-pill {
+  background: var(--pz-midnight-pale);
+  border: 1px solid rgba(20, 24, 48, 0.15);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  text-align: center;
+  font-size: 0.83rem;
+}
+.pz-section-pill-num {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pz-ink-pale);
+  margin-bottom: 0.1rem;
+}
+.pz-section-pill-tamil {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--pz-midnight);
+  display: block;
+}
+.pz-section-pill-roman {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--pz-gold-mid);
+}
+.pz-section-pill-english {
+  font-size: 0.75rem;
+  color: var(--pz-ink-pale);
+}
+
+/* ── Verses header ──────────────────────────────────────── */
+.pz-verses-header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 0.5rem;
+  border-top: 1px solid var(--pz-midnight-pale);
+}
+.pz-verses-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--pz-midnight);
+  margin: 0 0 0.35rem;
+}
+.pz-verses-header p {
+  font-size: 0.88rem;
+  color: var(--pz-ink-pale);
+  margin: 0;
+}
+
+/* ── Main verse list ────────────────────────────────────── */
+.pz-verses-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* ── Individual verse card ──────────────────────────────── */
+.pz-verse {
+  background: #fff;
+  border: 1px solid rgba(20, 24, 48, 0.10);
+  border-left: 4px solid var(--pz-gold);
+  border-radius: 6px;
+  padding: 1.2rem 1.4rem 1.1rem;
+  box-shadow: 0 1px 6px rgba(20, 24, 48, 0.06);
+}
+
+/* ── Verse header ───────────────────────────────────────── */
+.pz-verse-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.8rem;
+}
+.pz-verse-num {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pz-gold-mid);
+  min-width: 2.4rem;
+  flex-shrink: 0;
+}
+.pz-verse-section {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--pz-midnight-bright);
+  background: var(--pz-midnight-pale);
+  border-radius: 3px;
+  padding: 0.15rem 0.55rem;
+  flex-shrink: 0;
+}
+.pz-verse-topic {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--pz-ink-pale);
+}
+
+/* ── Proverb block — the centrepiece ────────────────────── */
+.pz-proverb {
+  background: linear-gradient(135deg, var(--pz-midnight) 0%, var(--pz-midnight-mid) 100%);
+  border-radius: 5px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.pz-proverb-tamil {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--pz-gold-bright);
+  letter-spacing: 0.01em;
+}
+.pz-proverb-roman {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: rgba(240, 232, 208, 0.75);
+}
+.pz-proverb-english {
+  font-size: 0.88rem;
+  color: rgba(240, 232, 208, 0.65);
+  margin-top: 0.1rem;
+}
+.pz-proverb-label {
+  font-size: 0.70rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: rgba(200, 148, 10, 0.55);
+  margin-bottom: 0.3rem;
+}
+
+/* ── Verse layers (details/summary) ────────────────────── */
+.pz-verse-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.pz-layer {
+  border: 1px solid rgba(20, 24, 48, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.pz-layer-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.80rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--pz-midnight-bright);
+  background: var(--pz-midnight-pale2);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+.pz-layer-toggle::-webkit-details-marker { display: none; }
+.pz-layer[open] .pz-layer-toggle {
+  background: var(--pz-midnight-pale);
+  color: var(--pz-midnight);
+}
+.pz-layer-content {
+  padding: 0.75rem 1rem;
+  background: #fff;
+}
+.pz-tamil-verse {
+  font-size: 1.0rem;
+  line-height: 1.85;
+  color: var(--pz-ink);
+  font-weight: 500;
+}
+.pz-translit-verse {
+  font-size: 0.93rem;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--pz-ink-mid);
+}
+.pz-english-prose {
+  font-size: 0.93rem;
+  line-height: 1.75;
+  color: var(--pz-ink-mid);
+}
+.pz-note {
+  font-size: 0.87rem;
+  line-height: 1.72;
+  color: var(--pz-ink-pale);
+  font-style: italic;
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+.site-footer {
+  background: var(--pz-midnight);
+  color: rgba(240, 232, 208, 0.65);
+}
+.site-footer a {
+  color: var(--pz-gold-bright);
+}
+
+/* ── About page ─────────────────────────────────────────── */
+.pz-about-hero {
+  background: linear-gradient(160deg, var(--pz-midnight) 0%, var(--pz-midnight-mid) 100%);
+  color: #f0e8d0;
+  padding: 3rem 1.5rem 2.5rem;
+  text-align: center;
+}
+.pz-about-hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 1rem 0 0.25rem;
+}
+.pz-about-subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--pz-gold-bright);
+  margin: 0;
+}
+.pz-about-main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+.pz-about-section {
+  margin-bottom: 2.5rem;
+}
+.pz-about-section h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--pz-midnight);
+  border-bottom: 2px solid var(--pz-gold-pale);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+.pz-about-section p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--pz-ink-mid);
+  margin-bottom: 0.9rem;
+}
+.pz-about-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.pz-about-list li {
+  padding-left: 1.4rem;
+  position: relative;
+  font-size: 0.93rem;
+  line-height: 1.75;
+  color: var(--pz-ink-mid);
+}
+.pz-about-list li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  color: var(--pz-gold-mid);
+  font-size: 0.7rem;
+  top: 0.3rem;
+}
+.pz-about-list li strong {
+  color: var(--pz-midnight);
+}
+.pz-about-nav {
+  margin-top: 3rem;
+  text-align: center;
+}
+.pz-about-cta {
+  display: inline-flex;
+  align-items: center;
+  background: var(--pz-midnight);
+  color: var(--pz-gold-bright);
+  padding: 0.75rem 1.8rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.pz-about-cta:hover {
+  background: var(--pz-midnight-bright);
+}
+
+/* ── Section dividers in verse list ─────────────────────── */
+.pz-section-divider {
+  border: none;
+  border-top: 2px solid var(--pz-midnight-pale);
+  margin: 1rem 0 0.5rem;
+  position: relative;
+}
+.pz-section-divider-label {
+  font-size: 0.80rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--pz-midnight-bright);
+  background: var(--pz-parchment);
+  padding: 0.1rem 0.8rem;
+  display: inline-block;
+  position: relative;
+  top: -0.6rem;
+  left: 0;
+}
+
+/* ── Responsive tweaks ──────────────────────────────────── */
+@media (max-width: 600px) {
+  .pz-hero {
+    padding: 2.5rem 1rem 2rem;
+  }
+  .pz-verses-main {
+    padding: 0.8rem 0.8rem 3rem;
+  }
+  .pz-verse {
+    padding: 1rem 1rem 0.9rem;
+  }
+  .pz-eleven-sections {
+    padding: 1rem 0.8rem 1.4rem;
+    gap: 0.5rem 0.7rem;
+  }
+}
